@@ -1,5 +1,5 @@
 baseurl = "http://gotm-model.github.io/"
-title = "General Ocean Turbulence Model"
+title = "GOTM"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
@@ -11,12 +11,13 @@ googleAnalytics = ""
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
   style = "sea"
-  description = "Describe your website"
+  description = "General Ocean Turbulence Model"
   copyright = "&copy;2016 GOTM"
   sidebarAbout = [
+    "General Ocean Turbulence Model",
+    "",
     "GOTM is the result of the effort by a number of people to make 'state-of-the-art' turbulence model for natural waters. Since its inception more than 20 years ago GOTM has grown into a full-fledged 1D water column model with a very extended configuration possibilities including coupling to a collection of bio-geochemical models.",
     "Developed by a group of volunteers over 20+ years.",
-    "Egon og Kaj was here ..."
   ]
   # Contact page
      # Since this template is static, the contact form uses www.formspree.io as a
