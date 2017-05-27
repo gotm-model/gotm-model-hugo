@@ -4,30 +4,35 @@ draft = false
 image = "portfolio/img/idealized.jpg"
 date = "2016-11-05T18:25:22+05:30"
 title = "Idealized test cases"
-weight = 0
+weight = 10
 author = "Lars Umlauf"
 +++
 
 Idealized test case demonstrating various GOTM features.
 
+<!--
 - Coutte flow
 - Channel flow
 - Entrainment
 
-<!--more-->
 
 Table of content
 ----------------
 
 -   [Introduction](#introduction)
+-->
 -   [Couette](#couette)
 -   [Channel](#channel)
     -   [Sublevel](#sublevel)
 -   [Entrainment](#entrainment)
 -   [Conclusion](#conclusion)
 
+<!--more-->
+
+<!--
 Introduction
 ------------
+-->
 
 Unstratified Couette flow driven by a constant surface wind stress
 
