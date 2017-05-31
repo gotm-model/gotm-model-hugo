@@ -1,7 +1,6 @@
 +++
 showonlyimage = false
 draft = false
-image = "portfolio/img/realistic.jpg"
 date = "2016-11-05T18:25:22+05:30"
 title = "FLEX"
 weight = 20
