@@ -38,13 +38,13 @@ googleAnalytics = ""
   name = "Home"
   url = ""
 
+  [[params.navlinks]]
+  name = "News/Blogs"
+  url = "blog/"
+
   #[[params.navlinks]]
   #name = "Key publications"
   #url = "publications/"
-
-  #[[params.navlinks]]
-  #name = "Get in touch"
-  #url = "contact/"
 
   [[params.navlinks]]
   name = "History"
@@ -54,9 +54,10 @@ googleAnalytics = ""
   name = "About"
   url = "about/"
 
-  #[[params.navlinks]]
-  #name = "Blog"
-  #url = "blog/"
+#  [[params.navlinks]]
+#  name = "Contact"
+#  url = "contact/"
+
 
   [params.social]
 #  facebook      = "full page or profile url in facebook"
