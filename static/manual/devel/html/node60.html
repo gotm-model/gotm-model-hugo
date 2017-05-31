@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Update stability functions</TITLE>
+<META NAME="description" CONTENT="Update stability functions">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node59.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node61.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1216"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1212"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1206"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1214"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1217"
+  HREF="node61.html">Compute special values of</A>
+<B> Up:</B> <A NAME="tex2html1213"
+  HREF="node48.html">Module turbulence: its all</A>
+<B> Previous:</B> <A NAME="tex2html1207"
+  HREF="node59.html">Update diffusivities (Kolmogorov-Prandtl relation)</A>
+ &nbsp; <B>  <A NAME="tex2html1215"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000571200000000000000"></A><A NAME="sec:stabilityFunctions"></A>
+<BR>
+Update stability functions
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine stabilityfunctions(nlev)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Based on the user's specifications in <TT>gotmtub.nml</TT>, this internal
+  routine selects the desired stability functions defined in (<A HREF="node37.html#nu">46</A>).
+  These simple functions depend on <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img287.png"
+ ALT="$ \alpha_M$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img516.png"
+ ALT="$ \alpha_N$"></SPAN> defined
+  in (<A HREF="node37.html#alphaMN">47</A>), which are in most cases only used to compute the
+  Richardson-number
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="DefRi"></A><!-- MATH
+ \begin{equation}
+Ri = \dfrac{\alpha_N}{\alpha_M}
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img517.png"
+ ALT="$\displaystyle Ri = \dfrac{\alpha_N}{\alpha_M} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">121</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+A description of individual stability functions starts from section <A HREF="node89.html#sec:cmueMA">4.28</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   integer, intent(in)                 :: nlev
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard, Karsten Bollding, Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

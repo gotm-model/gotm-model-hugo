@@ -1,0 +1,273 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The dynamic q2/2-equation (Source File: q2over2eq.F90)</TITLE>
+<META NAME="description" CONTENT="The dynamic q2/2-equation (Source File: q2over2eq.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node74.html">
+<LINK REL="previous" HREF="node72.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node74.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1355"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1351"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1345"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1353"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1356"
+  HREF="node74.html">The dynamic kb-equation (Source</A>
+<B> Up:</B> <A NAME="tex2html1352"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1346"
+  HREF="node72.html">The dynamic k-equation (Source</A>
+ &nbsp; <B>  <A NAME="tex2html1354"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000572500000000000000"></A><A NAME="sec:q2over2eq"></A>
+<BR>
+The dynamic q2/2-equation  (Source File: q2over2eq.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine q2over2eq(nlev,dt,u_taus,u_taub,z0s,z0b,h,NN,SS)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+The transport equation for the TKE <SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img569.png"
+ ALT="$ q^2/2=k$"></SPAN> can be written as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="tkeB"></A><!-- MATH
+ \begin{equation}
+\dot{\overline{q^2/2}}
+     =
+     {\cal D}_q +  P + G  - \epsilon
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="189" HEIGHT="46" ALIGN="MIDDLE" BORDER="0"
+ SRC="img570.png"
+ ALT="$\displaystyle \dot{\overline{q^2/2}} = {\cal D}_q + P + G - \epsilon \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">154</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\dot{\overline{q^2/2}}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="46" ALIGN="MIDDLE" BORDER="0"
+ SRC="img571.png"
+ ALT="$ \dot{\overline{q^2/2}}$"></SPAN> denotes the material derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="34" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img535.png"
+ ALT="$ q^2/2$"></SPAN>.
+   With <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="$ P$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$ G$"></SPAN> following from (<A HREF="node72.html#PandG">152</A>), evidently, this equation is
+   formally identical to (<A HREF="node72.html#tkeA">150</A>). The only reason why it is discretized
+   seperately here, is the slightly different down-gradient model for the
+   transport term,
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="diffusionMYTKE"></A><!-- MATH
+ \begin{equation}
+{\cal D}_q = \dfrac{\partial}{\partial {z}} \left( q l S_q \dfrac{\partial {q^2/2}}{\partial {z}} \right)
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="192" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img572.png"
+ ALT="$\displaystyle {\cal D}_q = \dfrac{\partial}{\partial {z}} \left( q l S_q \dfrac{\partial {q^2/2}}{\partial {z}} \right) \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">155</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img573.png"
+ ALT="$ S_q$"></SPAN> is a model constant. The notation has been chosen according
+   to that introduced by <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A>. Using their notation,
+   also (<A HREF="node72.html#epsilon">153</A>) can be expressed in mathematically identical form
+   as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="epsilonMY"></A><!-- MATH
+ \begin{equation}
+\epsilon = \frac{q^3}{B_1 l}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img574.png"
+ ALT="$\displaystyle \epsilon = \frac{q^3}{B_1 l} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">156</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img392.png"
+ ALT="$ B_1$"></SPAN> is a constant of the model. Note, that the equivalence of
+   (<A HREF="node72.html#epsilon">153</A>) and (<A HREF="#epsilonMY">156</A>) requires that
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="B1"></A><!-- MATH
+ \begin{equation}
+(c_\mu^0)^{-2} = \frac{1}{2} B_1^\frac{2}{3}
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="125" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img575.png"
+ ALT="$\displaystyle (c_\mu^0)^{-2} = \frac{1}{2} B_1^\frac{2}{3} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">157</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use turbulence,   only: P,B
+    use turbulence,   only: tke,tkeo,k_min,eps,L
+    use turbulence,   only: q2over2_bc, k_ubc, k_lbc, ubc_type, lbc_type
+    use turbulence,   only: sq
+    use util,         only: Dirichlet,Neumann
+ 
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+    number of vertical layers
+    integer,  intent(in)                :: nlev
+ 
+    time step (s)
+    REALTYPE, intent(in)                :: dt
+ 
+    surface and bottom
+    friction velocity (m/s)
+    REALTYPE, intent(in)                :: u_taus,u_taub
+ 
+    surface and bottom
+    roughness length (m)
+    REALTYPE, intent(in)                :: z0s,z0b
+ 
+    layer thickness (m)
+    REALTYPE, intent(in)                :: h(0:nlev)
+ 
+    square of shear and buoyancy
+    frequency (1/s^2)
+    REALTYPE, intent(in)                :: NN(0:nlev),SS(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+    $Log: q2over2eq.F90,v $
+    Revision 1.6  2010-09-17 12:53:52  jorn
+    extensive code clean-up to ensure proper initialization and clean-up of all variables
+    Revision 1.5  2005-12-28 09:42:33  hb
+    Patankar trick reverted to older versions for stabilising 3D computations
+    Revision 1.4  2005/06/27 13:44:07  kbk
+    modified + removed traling blanks
+    Revision 1.3  2003/03/28 09:20:35  kbk
+    added new copyright to files
+    Revision 1.2  2003/03/10 09:04:04  gotm
+    Fixed comment char
+    Revision 1.1  2003/03/10 09:00:36  gotm
+    Part of new generic turbulence model
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1355"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1351"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1345"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1353"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1356"
+  HREF="node74.html">The dynamic kb-equation (Source</A>
+<B> Up:</B> <A NAME="tex2html1352"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1346"
+  HREF="node72.html">The dynamic k-equation (Source</A>
+ &nbsp; <B>  <A NAME="tex2html1354"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

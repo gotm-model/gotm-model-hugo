@@ -1,0 +1,438 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html873"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html869"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html863"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html871"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html874"
+  HREF="node38.html">Second-order models</A>
+<B> Up:</B> <A NAME="tex2html870"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html864"
+  HREF="node36.html">The turbulence model</A>
+ &nbsp; <B>  <A NAME="tex2html872"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00051000000000000000">
+Introduction</A>
+</H2>
+
+<P>
+There are different types and levels of closure models available in
+GOTM to compute the vertical turbulent fluxes. Simple models rely on
+the idea that theses fluxes can be computed as the product of a
+positive turbulent diffusivity and a mean flow gradient. Contributions
+to the fluxes that are not `down-gradient', are summarized in
+so-called counter-gradient terms. Using these assumptions, the fluxes
+of momentum and buoyancy can be expressed as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="fluxes"></A><!-- MATH
+ \begin{equation}
+{\langle u' w' \rangle}       = - \nu_t  \dfrac{\partial {u}}{\partial {z}}  + \tilde{\Gamma}_U \; , \quad
+   {\langle v' w' \rangle}       = - \nu_t  \dfrac{\partial {v}}{\partial {z}}  + \tilde{\Gamma}_V \; , \quad 
+   {\langle w' b' \rangle}       = - \nu^B_t \dfrac{\partial {B}}{\partial {z}} + \tilde{\Gamma}_B
+\; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="545" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img168.png"
+ ALT="$\displaystyle {\langle u' w' \rangle} = - \nu_t \dfrac{\partial {u}}{\partial {...
+...e} = - \nu^B_t \dfrac{\partial {B}}{\partial {z}} + \tilde{\Gamma}_B \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">43</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\tilde{\Gamma}_{(U,V,B)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img169.png"
+ ALT="$ \tilde{\Gamma}_{(U,V,B)}$"></SPAN> denote the counter-gradient fluxes.
+They can be important under very strong stratification and in the case
+of convection. Note, that the current version of GOTM identifies the
+diffusivities of heat and salt with <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img148.png"
+ ALT="$ \nu^B_t$"></SPAN> (see
+section <A HREF="node30.html#sec:temperature">3.2.11</A> and section <A HREF="node31.html#sec:salinity">3.2.12</A>).  
+
+<P>
+Using an analogy to the kinetic theory of gases, the vertical
+turbulent diffusivities, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \nu_t$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img148.png"
+ ALT="$ \nu^B_t$"></SPAN>, are often assumed to be the
+product of a typical velocity scale of turbulence, <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img170.png"
+ ALT="$ q$"></SPAN>, times a
+typical length scale, <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img171.png"
+ ALT="$ l$"></SPAN>, see <A
+ HREF="node251.html#TennekesLumley72"><SPAN  CLASS="textit">Tennekes and Lumley</SPAN> (1972)</A>. The velocity
+scale <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img170.png"
+ ALT="$ q$"></SPAN> can e.g. be identified with the average value of the
+turbulent fluctuations expressed by the turbulent kinetic energy, <SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img172.png"
+ ALT="$ k=
+q^2 /2$"></SPAN>.  Then, the diffusivities of momentum and heat can be written
+as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="nu"></A><!-- MATH
+ \begin{equation}
+\nu_t = c_\mu k^\frac{1}{2} l  \; , \quad \nu^B_t = c_\mu' k^\frac{1}{2} l
+  \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="210" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img173.png"
+ ALT="$\displaystyle \nu_t = c_\mu k^\frac{1}{2} l \; , \quad \nu^B_t = c_\mu' k^\frac{1}{2} l \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">44</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the dimensionless quantities <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$ c_\mu$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img175.png"
+ ALT="$ {c_\mu}'$"></SPAN> are usually
+referred to as the `stability functions'.  Depending on the level of
+turbulent closure, these stability functions can be either constants, 
+empirical functions, or functions of some non-dimensional flow parameters
+resulting from a higher-order turbulence model. The same applies to
+the counter-gradient fluxes <!-- MATH
+ $\tilde{\Gamma}_{(U,V,B)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img169.png"
+ ALT="$ \tilde{\Gamma}_{(U,V,B)}$"></SPAN> defined in (<A HREF="#fluxes">43</A>).
+
+<P>
+There are different possibilities in GOTM to compute the scales <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img170.png"
+ ALT="$ q$"></SPAN> (or
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>) and <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img171.png"
+ ALT="$ l$"></SPAN> appearing in (<A HREF="#nu">44</A>). According to the level of
+complexity, they are ordered in GOTM in the following fashion.
+
+<P>
+
+<OL>
+<LI>Both, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img171.png"
+ ALT="$ l$"></SPAN> are computed from algebraic relations. The
+ algebraic equation for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> is based on a simplified form of the
+ transport equation of the turbulent kinetic energy. The
+ equation for the length-scale may result from different approaches. The
+ most simple models assume an empirically motivated, prescribed
+ vertical distribution of the length-scale. This level of closure
+ corresponds to the `level 2' model of <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A>, but also
+ to more recent approaches, see <A
+ HREF="node251.html#Chengetal2002"><SPAN  CLASS="textit">Cheng et&nbsp;al.</SPAN> (2002)</A>. Algebraic models
+ are an over-simplification in numerous situations.
+
+<P>
+</LI>
+<LI>At the next level, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> is computed from the differential
+ transport equation for the turbulent kinetic energy (`energy models'). As
+ before, the length-scale is computed from an empirically or theoretically
+ based relation. Models of this type are quite popular in geophysical
+ modelling. A description is given in section <A HREF="node80.html#sec:algebraiclength">4.7.32</A>.
+
+<P>
+</LI>
+<LI>In the so-called two-equation models, both, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img171.png"
+ ALT="$ l$"></SPAN>, are computed from
+ differential transport equations. As before, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> follows from the
+ transport equation of the turbulent kinetic energy. Now, however, also
+ the length-scale is determined from a differential transport
+ equation. This equation is usually not directly formulated for the
+ length-scale, but for a related, length-scale determining
+ variable. Presently, there are different possibilities for the
+ length-scale determining variables implemented in GOTM, such as the
+ rate of dissipation, <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN>, or the product <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img176.png"
+ ALT="$ kl$"></SPAN>. They are
+ discussed in section <A HREF="node57.html#sec:updateLength">4.7.9</A>.
+
+<P>
+The main advantage of the two-equation models is their greater
+ generality. There are, for example, a number of fundamental flows
+ which cannot be reproduced with an algebraically prescribed
+ length-scale. Examples are the temporal decay of homogeneous
+ turbulence, the behaviour of turbulence in stratified
+ homogeneous shear flows, and the spatial decay of shear-free
+ turbulence from a planar source. A discussion of these points is
+ given in section <A HREF="node51.html#sec:generate">4.7.3</A> and section <A HREF="node52.html#sec:analyse">4.7.4</A>. Also see
+ <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A> and <A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A>.
+</LI>
+</OL>
+
+<P>
+In addition to the hierarchy of turbulence models in terms of their
+methods used to compute the turbulent kinetic energy and the
+length-scale, GOTM also supports an ordering scheme according to the
+extent to which transport equations for the turbulent fluxes are solved.
+
+<OL>
+<LI>At the lowest level of this scheme, it is postulated that
+ <!-- MATH
+ $c_\mu=c_\mu^0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img177.png"
+ ALT="$ c_\mu=c_\mu^0$"></SPAN> and <!-- MATH
+ $c'_\mu=c'^0_\mu$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="58" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.png"
+ ALT="$ c'_\mu=c'^0_\mu$"></SPAN> are constant. Because these
+ models implicitly assume an isotropic tensor relation between the velocity
+ gradient and the tensor of the Reynolds-stresses, they usually fail
+ in situations of strong anisotropy, most notably in stably
+ stratified, curved or shallow flows. In unstratified flows with
+ balanced aspect ratios (which seldom occur in nature), however, they
+ may compute reasonable results. Models of this type are referred to
+ as the `standard' models in the following.
+</LI>
+<LI>Some problems associated with standard versions of the models can
+ be ameliorated by making <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$ c_\mu$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img179.png"
+ ALT="$ c'_\mu$"></SPAN> empirical functions of
+ one or several significant non-dimensional flow parameters. At this
+ level, the simplest approach would be to formulate empirical
+ relations suggested from observations in the field or in the
+ laboratory. An example of such a relation is the model of
+ <A
+ HREF="node251.html#SchumannGerz95"><SPAN  CLASS="textit">Schumann and Gerz</SPAN> (1995)</A> which has been implemented in GOTM (see
+ section <A HREF="node90.html#sec:sg">4.7.42</A>).
+</LI>
+<LI>Another, more consistent, approach results from the solution of 
+ simplified forms of the transport equations for the Reynolds-stresses
+ and the turbulent heat fluxes in addition to the transport equations
+ for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> and the length-scale determining variable.  Surprisingly, it
+ turns out that under some assumptions, and after tedious algebra, the
+ turbulent fluxes computed by these models can be expressed by
+ (<A HREF="#nu">44</A>). The important difference is, however, that the existence of
+ vertical eddy diffusivities is not a postulate, but a consequence
+ of the model. The stability functions <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$ c_\mu$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img179.png"
+ ALT="$ c'_\mu$"></SPAN> can be
+ shown to become functions of some non-dimensional numbers like
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="alphaMN"></A><!-- MATH
+ \begin{equation}
+\alpha_M = \frac{k^2}{\epsilon^2} M^2 \; , \quad
+    \alpha_N = \frac{k^2}{\epsilon^2} N^2 \; , \quad 
+    \alpha_b = \frac{kk_b}{\epsilon^2}    \; , \quad 
+ 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="323" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img180.png"
+ ALT="$\displaystyle \alpha_M = \frac{k^2}{\epsilon^2} M^2 \; , \quad \alpha_N = \frac{k^2}{\epsilon^2} N^2 \; , \quad \alpha_b = \frac{kk_b}{\epsilon^2} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">45</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+with the shear-frequency, <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img181.png"
+ ALT="$ M$"></SPAN>, and the buoyancy frequency, <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ N$"></SPAN>,
+ computed as described in section <A HREF="node25.html#sec:uequation">3.2.6</A> and
+ section <A HREF="node34.html#sec:stratification">3.2.15</A>, respectively. <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.png"
+ ALT="$ k_b$"></SPAN> are the
+ turbulent kinetic energy and the buoyancy variance, respectively and
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> denotes the rate of dissipation.
+
+<P>
+The most well-known  models of this type have been
+ implemented into GOTM. An up-to-date account of their derivation can
+ be found in <A
+ HREF="node251.html#Canutoetal2001a"><SPAN  CLASS="textit">Canuto et&nbsp;al.</SPAN> (2001)</A>. Their evaluation for the oceanic
+ mixed layer has been extensively discussed by
+ <A
+ HREF="node251.html#BurchardBolding2001"><SPAN  CLASS="textit">Burchard and Bolding</SPAN> (2001)</A>.
+</LI>
+<LI>Even more complete models include further differential equations for the
+ buoyancy variance and for some or all of the turbulent fluxes. These
+ models cannot be reduced to the form (<A HREF="#nu">44</A>). The derivation of models
+ of the type discussed in the latter two points are reviewed in 
+ section <A HREF="node38.html#sec:secondOrder">4.2</A>
+</LI>
+</OL>
+
+<P>
+Evidently, this short introduction cannot serve as an
+introductory text on one-point turbulence modelling. It serves merely
+as a place to define the most important quantities and relations used
+in this manual. Readers not familiar with this subject will certainly
+feel the need for a more in-depth discussion. An excellent introduction
+to turbulence is still the book of <A
+ HREF="node251.html#TennekesLumley72"><SPAN  CLASS="textit">Tennekes and Lumley</SPAN> (1972)</A>. A modern
+and detailed approach to one and two-equation models for unstratified
+flows is given in the book of <A
+ HREF="node251.html#Wilcox98"><SPAN  CLASS="textit">Wilcox</SPAN> (1998)</A>, and the effects of
+stratification are discussed e.g. by <A
+ HREF="node251.html#Rodi87"><SPAN  CLASS="textit">Rodi</SPAN> (1987)</A> and by
+<A
+ HREF="node251.html#Burchard2002a"><SPAN  CLASS="textit">Burchard</SPAN> (2002b)</A>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html873"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html869"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html863"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html871"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html874"
+  HREF="node38.html">Second-order models</A>
+<B> Up:</B> <A NAME="tex2html870"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html864"
+  HREF="node36.html">The turbulence model</A>
+ &nbsp; <B>  <A NAME="tex2html872"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

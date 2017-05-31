@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node106.html">
+<LINK REL="previous" HREF="node104.html">
+<LINK REL="up" HREF="node104.html">
+<LINK REL="next" HREF="node106.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1779"
+  HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1775"
+  HREF="node104.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1769"
+  HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1777"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1780"
+  HREF="node106.html">Module airsea  </A>
+<B> Up:</B> <A NAME="tex2html1776"
+  HREF="node104.html">Air-Sea interaction</A>
+<B> Previous:</B> <A NAME="tex2html1770"
+  HREF="node104.html">Air-Sea interaction</A>
+ &nbsp; <B>  <A NAME="tex2html1778"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00061000000000000000">
+Introduction</A>
+</H2>
+
+<P>
+This module provides the surface forcing for GOTM. For all dynamic
+equations, surface boundary conditions need to be specified.  For the
+momentum equations described in section <A HREF="node25.html#sec:uequation">3.5</A> and
+section <A HREF="node26.html#sec:vequation">3.6</A>, these are the surface momentum fluxes <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img770.png"
+ ALT="$ \tau_x^s$"></SPAN> and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img771.png"
+ ALT="$ \tau_y^s$"></SPAN> in Nm<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img88.png"
+ ALT="$ ^{-2}$"></SPAN>. For the temperature
+equation described in section <A HREF="node30.html#sec:temperature">3.10</A>, it is the total surface heat flux,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+Q_{tot}=Q_E+Q_H+Q_B
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="165" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img772.png"
+ ALT="$\displaystyle Q_{tot}=Q_E+Q_H+Q_B$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">230</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+in Wm<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img88.png"
+ ALT="$ ^{-2}$"></SPAN> that has to be determined<A NAME="tex2html14"
+  HREF="footnode.html#foot11923"><SUP><SPAN CLASS="arabic">1</SPAN></SUP></A>. The total surface heat flux <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img773.png"
+ ALT="$ Q_{tot}$"></SPAN> is calculated as the
+sum of the latent heat flux <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img774.png"
+ ALT="$ Q_E$"></SPAN>, the sensible heat flux <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img775.png"
+ ALT="$ Q_H$"></SPAN>, and
+the long wave back radiation <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img776.png"
+ ALT="$ Q_B$"></SPAN>.  In contrast to the total surface
+heat flux <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img773.png"
+ ALT="$ Q_{tot}$"></SPAN>, the net short wave radiation at the surface,
+<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img777.png"
+ ALT="$ I_0$"></SPAN>, is not used as a boundary condition but as a source of heat, as
+calculated by means of equation (<A HREF="node30.html#Iz">29</A>), see <A
+ HREF="node251.html#PaulsonSimpson77"><SPAN  CLASS="textit">Paulson and Simpson</SPAN> (1977)</A>.
+For the salinity equation described in section <A HREF="node31.html#sec:salinity">3.11</A>, the fresh
+water fluxes at the surface are given by the difference 
+of the evaporation and the 
+precipitation, <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img778.png"
+ ALT="$ p_e$"></SPAN>, given in ms<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img717.png"
+ ALT="$ ^{-1}$"></SPAN>, see also the surface boundary
+condition for salinity, (<A HREF="node31.html#S_sbc">32</A>). 
+The way how boundary conditions for the
+transport equations of turbulent quantities are derived, is discussed
+in section <A HREF="node36.html#sec:turbulenceIntro">4</A>.
+
+<P>
+There are basically two ways of calculating the surface heat and
+momentum fluxes implemented into GOTM. They are either prescribed (as
+constant values or to be read in from files) or calculated on the
+basis of standard meteorological data which have to be read in from
+files. The necessary parameters are 
+the wind velocity vector at 10 m height in ms<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img717.png"
+ ALT="$ ^{-1}$"></SPAN>,
+the sea surface temperature (SST in Celsius), 
+air temperature in Celsius), air humidity (either as relative humidity
+in %, as wet bulb temperature or as dew point
+temperature in Celsius) and air pressure (in hectopascal), each at 2 m height
+above the sea surface, and
+the wind velocity vector at 10 m height in ms<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img717.png"
+ ALT="$ ^{-1}$"></SPAN>. 
+Instead of the observed SST,
+also the SST from the model may be used.  For the calculation of these
+fluxes, the bulk formulae of <A
+ HREF="node251.html#Kondo75"><SPAN  CLASS="textit">Kondo</SPAN> (1975)</A> or <A
+ HREF="#Fairalletal96">()</A>
+are used. 
+
+<P>
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1779"
+  HREF="node106.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1775"
+  HREF="node104.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1769"
+  HREF="node104.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1777"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1780"
+  HREF="node106.html">Module airsea  </A>
+<B> Up:</B> <A NAME="tex2html1776"
+  HREF="node104.html">Air-Sea interaction</A>
+<B> Previous:</B> <A NAME="tex2html1770"
+  HREF="node104.html">Air-Sea interaction</A>
+ &nbsp; <B>  <A NAME="tex2html1778"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

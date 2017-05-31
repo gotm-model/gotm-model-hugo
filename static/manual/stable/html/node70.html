@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Update dimensionless alpha's (Source File: alpha_mnb.F90)</TITLE>
+<META NAME="description" CONTENT="Update dimensionless alpha's (Source File: alpha_mnb.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node71.html">
+<LINK REL="previous" HREF="node69.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node71.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1319"
+  HREF="node71.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1315"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1309"
+  HREF="node69.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1317"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1320"
+  HREF="node71.html">Update time scale ratio</A>
+<B> Up:</B> <A NAME="tex2html1316"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1310"
+  HREF="node69.html">Update turbulence production (Source</A>
+ &nbsp; <B>  <A NAME="tex2html1318"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000572200000000000000"></A><A NAME="sec:alpha"></A>
+<BR>
+Update dimensionless alpha's (Source File: alpha_mnb.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine alpha_mnb(nlev,NN,SS)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine updates the dimensionless numbers <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img283.png"
+ ALT="$ \alpha_M$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img512.png"
+ ALT="$ \alpha_N$"></SPAN>,
+   and <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img560.png"
+ ALT="$ \alpha_b$"></SPAN> according to (<A HREF="node37.html#alphaMN">45</A>). Note that according to (<A HREF="node39.html#Nbar">64</A>)
+   and (<A HREF="node40.html#NbarVertical">67</A>) the following identities are valid
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="alphaIdentities"></A><!-- MATH
+ \begin{equation}
+\alpha_M = \overline{S}^2 \; , \quad
+      \alpha_N = \overline{N}^2 \; , \quad 
+      \alpha_b = \overline{T}   \quad .
+   
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="257" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img561.png"
+ ALT="$\displaystyle \alpha_M = \overline{S}^2 \; , \quad \alpha_N = \overline{N}^2 \; , \quad \alpha_b = \overline{T} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">149</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence,  only:     tke,eps,kb
+   use turbulence,  only:     as,an,at
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   integer,  intent(in)      :: nlev
+   REALTYPE, intent(in)      :: NN(0:nlev),SS(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+    $Log: alpha_mnb.F90,v $
+    Revision 1.2  2006-03-20 09:06:37  kbk
+    removed explicit double precission dependency
+    Revision 1.1  2005/06/27 10:54:33  kbk
+    new files needed
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

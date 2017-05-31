@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The turbulence model </TITLE>
+<META NAME="description" CONTENT="The turbulence model ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node104.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="html.html">
+<LINK REL="next" HREF="node37.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html838"
+  HREF="node37.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html834"
+  HREF="html.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html828"
+  HREF="node35.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html836"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html839"
+  HREF="node37.html">Introduction</A>
+<B> Up:</B> <A NAME="tex2html835"
+  HREF="html.html">html</A>
+<B> Previous:</B> <A NAME="tex2html829"
+  HREF="node35.html">Convective adjustment</A>
+ &nbsp; <B>  <A NAME="tex2html837"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000"></A><A NAME="sec:turbulenceIntro"></A>
+<BR>
+The turbulence model 
+</H1>
+
+<P>
+To close the differential equations for momentum, heat, and salt,
+parameterisations of the turbulent fluxes of momentum, <!-- MATH
+ ${\langle u' w' \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img168.png"
+ ALT="$ {\langle u' w' \rangle} $"></SPAN>, heat
+<!-- MATH
+ ${\langle w'\theta' \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img169.png"
+ ALT="$ {\langle w'\theta' \rangle} $"></SPAN>, and salinity <!-- MATH
+ ${\langle w's' \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img170.png"
+ ALT="$ {\langle w's' \rangle} $"></SPAN> are required. Since
+turbulence `feels' the effects of temperature and salinity
+fluctuations essentially through buoyancy fluctuations, only the
+buoyancy flux, <!-- MATH
+ ${\langle w'b' \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img171.png"
+ ALT="$ {\langle w'b' \rangle} $"></SPAN>, is discussed in the following. The
+assumptions under which one can infer the fluxes of heat and salinity
+from the buoyancy flux are addressed below.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html840"
+  HREF="node37.html">Introduction</A>
+<LI><A NAME="tex2html841"
+  HREF="node38.html">Second-order models</A>
+<LI><A NAME="tex2html842"
+  HREF="node39.html">Algebraic Models</A>
+<LI><A NAME="tex2html843"
+  HREF="node40.html">Explicit models for vertical shear and stratification</A>
+<UL>
+<LI><A NAME="tex2html844"
+  HREF="node41.html">Equilibrium states</A>
+<LI><A NAME="tex2html845"
+  HREF="node42.html">Stability of explicit models</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html846"
+  HREF="node43.html">Parameter conversion for other models</A>
+<UL>
+<LI><A NAME="tex2html847"
+  HREF="node44.html">The model of <A
+ HREF="node251.html#GibsonLaunder78"><SPAN  CLASS="textit">Gibson and Launder</SPAN> (1978)</A></A>
+<LI><A NAME="tex2html848"
+  HREF="node45.html">The model of <A
+ HREF="node251.html#Canutoetal2001a"><SPAN  CLASS="textit">Canuto et&nbsp;al.</SPAN> (2001)</A></A>
+<LI><A NAME="tex2html849"
+  HREF="node46.html">The model of <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A></A>
+</UL>
+<BR>
+<LI><A NAME="tex2html850"
+  HREF="node47.html">Numerics</A>
+<LI><A NAME="tex2html851"
+  HREF="node48.html">Module turbulence: its all in here ...</A>
+<UL>
+<LI><A NAME="tex2html852"
+  HREF="node49.html">Initialise the turbulence module</A>
+<LI><A NAME="tex2html853"
+  HREF="node50.html">Initialize the second-order model</A>
+<LI><A NAME="tex2html854"
+  HREF="node51.html">Generate a two-equation model </A>
+<LI><A NAME="tex2html855"
+  HREF="node52.html">Analyse the turbulence models</A>
+<LI><A NAME="tex2html856"
+  HREF="node53.html">Report turbulence model </A>
+<LI><A NAME="tex2html857"
+  HREF="node54.html">Manage turbulence time-stepping</A>
+<LI><A NAME="tex2html858"
+  HREF="node55.html">Update the turbulent kinetic energy </A>
+<LI><A NAME="tex2html859"
+  HREF="node56.html">Update the buoyancy variance</A>
+<LI><A NAME="tex2html860"
+  HREF="node57.html">Update the dissipation length-scale</A>
+<LI><A NAME="tex2html861"
+  HREF="node58.html">Update the desctruction rate of buoyancy variance</A>
+<LI><A NAME="tex2html862"
+  HREF="node59.html">Update diffusivities (Kolmogorov-Prandtl relation)</A>
+<LI><A NAME="tex2html863"
+  HREF="node60.html">Update stability functions</A>
+<LI><A NAME="tex2html864"
+  HREF="node61.html">Compute special values of stability functions</A>
+<LI><A NAME="tex2html865"
+  HREF="node62.html">Boundary conditons for the k-equation (k-epsilon style) </A>
+<LI><A NAME="tex2html866"
+  HREF="node63.html">Boundary conditons for the k-equation (Mellor-Yamada style)</A>
+<LI><A NAME="tex2html867"
+  HREF="node64.html">Boundary conditons for the epsilon-equation</A>
+<LI><A NAME="tex2html868"
+  HREF="node65.html">Boundary conditons for the psi-equation </A>
+<LI><A NAME="tex2html869"
+  HREF="node66.html">Boundary conditons for the q2l-equation</A>
+<LI><A NAME="tex2html870"
+  HREF="node67.html">Clean up the turbulence module</A>
+<LI><A NAME="tex2html871"
+  HREF="node68.html">Print the current state of the turbulence module.</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html872"
+  HREF="node69.html">Update turbulence production</A>
+<LI><A NAME="tex2html873"
+  HREF="node70.html">Update dimensionless alpha's</A>
+<LI><A NAME="tex2html874"
+  HREF="node71.html">Update time scale ratio</A>
+<LI><A NAME="tex2html875"
+  HREF="node72.html">The dynamic k-equation </A>
+<LI><A NAME="tex2html876"
+  HREF="node73.html">The dynamic q2/2-equation </A>
+<LI><A NAME="tex2html877"
+  HREF="node74.html">The dynamic kb-equation </A>
+<LI><A NAME="tex2html878"
+  HREF="node75.html">The dynamic q2l-equation</A>
+<LI><A NAME="tex2html879"
+  HREF="node76.html">The dynamic epsilon-equation </A>
+<LI><A NAME="tex2html880"
+  HREF="node77.html">The dynamic psi-equation </A>
+<LI><A NAME="tex2html881"
+  HREF="node78.html">The algebraic k-equation</A>
+<LI><A NAME="tex2html882"
+  HREF="node79.html">The algebraic kb-equation</A>
+<LI><A NAME="tex2html883"
+  HREF="node80.html">Some algebraic length-scale relations </A>
+<LI><A NAME="tex2html884"
+  HREF="node81.html">The algebraic epsilonb-equation</A>
+<LI><A NAME="tex2html885"
+  HREF="node82.html">The algebraic velocity variances </A>
+<LI><A NAME="tex2html886"
+  HREF="node83.html">Algebraic length-scale from ISPRAMIX </A>
+<LI><A NAME="tex2html887"
+  HREF="node84.html">Algebraic length-scale with two master scales </A>
+<LI><A NAME="tex2html888"
+  HREF="node85.html">The non-local, exact weak-equilibrium stability function </A>
+<LI><A NAME="tex2html889"
+  HREF="node86.html">The non-local, approximate weak-equilibrium stability function</A>
+<LI><A NAME="tex2html890"
+  HREF="node87.html">The local, weak-equilibrium stability functions </A>
+<LI><A NAME="tex2html891"
+  HREF="node88.html">The quasi-equilibrium stability functions </A>
+<LI><A NAME="tex2html892"
+  HREF="node89.html">The Munk and Anderson (1948) stability function</A>
+<LI><A NAME="tex2html893"
+  HREF="node90.html">The Schumann and Gerz (1995) stability function</A>
+<LI><A NAME="tex2html894"
+  HREF="node91.html">Flux Richardson number stability function</A>
+<LI><A NAME="tex2html895"
+  HREF="node92.html">Calculate c3 from steady-state Richardson number</A>
+<LI><A NAME="tex2html896"
+  HREF="node93.html">Calculate steady-state Richardson number from c3</A>
+<LI><A NAME="tex2html897"
+  HREF="node94.html">Update internal wave mixing</A>
+<LI><A NAME="tex2html898"
+  HREF="node95.html">TKE flux from wave-breaking</A>
+<LI><A NAME="tex2html899"
+  HREF="node96.html">Module kpp: the KPP-turbulence model </A>
+<UL>
+<LI><A NAME="tex2html900"
+  HREF="node97.html">Initialise the KPP module</A>
+<LI><A NAME="tex2html901"
+  HREF="node98.html">Loop over the KPP-algorithm</A>
+<LI><A NAME="tex2html902"
+  HREF="node99.html">Compute interior fluxes </A>
+<LI><A NAME="tex2html903"
+  HREF="node100.html">Compute turbulence in the surface layer </A>
+<LI><A NAME="tex2html904"
+  HREF="node101.html">Compute turbulence in the bottom layer </A>
+<LI><A NAME="tex2html905"
+  HREF="node102.html">Compute the velocity scale</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html906"
+  HREF="node103.html">Printing GOTM library version</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

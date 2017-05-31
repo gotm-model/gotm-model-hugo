@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Module output -- saving the results</TITLE>
+<META NAME="description" CONTENT="Module output -- saving the results">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node157.html">
+<LINK REL="previous" HREF="node150.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node152.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2396"
+  HREF="node152.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2392"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2386"
+  HREF="node150.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2394"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2397"
+  HREF="node152.html">Initialize the output module</A>
+<B> Up:</B> <A NAME="tex2html2393"
+  HREF="node150.html">Saving the results</A>
+<B> Previous:</B> <A NAME="tex2html2387"
+  HREF="node150.html">Saving the results</A>
+ &nbsp; <B>  <A NAME="tex2html2395"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00081000000000000000">
+Module output -- saving the results</A>
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   module output
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This module acts as an interface between GOTM and modules/routines
+   doing the actual output. In order to add a new output format it is only
+   necessary to add hooks in this module and write the actual output
+   routines. It is not necessary to change anything in GOTM itself.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use time, ONLY: write_time_string,julianday,secondsofday,timestep
+   use asciiout
+ ifdef NETCDF_FMT
+   use ncdfout, ONLY:  init_ncdf,do_ncdf_out,close_ncdf
+ endif
+ 
+   IMPLICIT NONE
+</PRE><I CLASS="sans">PUBLIC DATA MEMBERS:</I>
+<PRE>   logical                             :: write_results
+   integer, public, parameter          :: ascii_unit=50
+   integer, public, parameter          :: grads_unit=51
+   character(len=19)                   :: ts
+   integer                             :: out_fmt
+   character(len=PATH_MAX)             :: out_dir
+   character(len=PATH_MAX)             :: out_fn
+   integer                             :: nsave
+   logical                             :: diagnostics
+   integer                             :: mld_method
+   REALTYPE                            :: diff_k
+   REALTYPE                            :: Ri_crit
+   logical                             :: rad_corr
+   logical                             :: init_diagnostics
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding, Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2398"
+  HREF="node152.html">Initialize the output module</A>
+<LI><A NAME="tex2html2399"
+  HREF="node153.html">Set some variables related to output</A>
+<LI><A NAME="tex2html2400"
+  HREF="node154.html">Save the model results in file</A>
+<LI><A NAME="tex2html2401"
+  HREF="node155.html">Close files used for saving model results</A>
+<LI><A NAME="tex2html2402"
+  HREF="node156.html">Compute various diagnostic/integrated variables</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

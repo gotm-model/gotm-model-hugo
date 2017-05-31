@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Update internal wave mixing (Source File: internal_wave.F90)</TITLE>
+<META NAME="description" CONTENT="Update internal wave mixing (Source File: internal_wave.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node95.html">
+<LINK REL="previous" HREF="node93.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node95.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1607"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1603"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1597"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1605"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1608"
+  HREF="node95.html">TKE flux from wave-breaking</A>
+<B> Up:</B> <A NAME="tex2html1604"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1598"
+  HREF="node93.html">Calculate steady-state Richardson number</A>
+ &nbsp; <B>  <A NAME="tex2html1606"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000574600000000000000"></A><A NAME="sec:internalWaves"></A>
+<BR>
+Update internal wave mixing (Source File: internal_wave.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine internal_wave(nlev,NN,SS)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Imposes eddy viscosity and diffusivity characteristic
+    of internal wave activity and shear instability when there is extinction
+    of turbulence as suggested by <A
+ HREF="node251.html#KanthaClayson94"><SPAN  CLASS="textit">Kantha and Clayson</SPAN> (1994)</A>.
+    In this case, the new values of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \nu_t$"></SPAN> and <!-- MATH
+ $\nu'_t=\nu^B_t$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="58" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img702.png"
+ ALT="$ \nu'_t=\nu^B_t$"></SPAN>,
+    defined in (<A HREF="node37.html#fluxes">43</A>),
+    are used instead of those computed with the model.
+
+<P>
+When k is small (extinction of turbulence, diagnosed by
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img703.png"
+ ALT="$ k&lt;$"></SPAN><TT>klimiw</TT>),
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \nu_t$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$ \nu'_t$"></SPAN> are set to empirical values typical
+    in the presence of internal wave activity (IW) and shear
+    instability (SI). This model is described by
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nu_t = \nu_t^{IW}  + \nu_t^{SI}      \; , \quad
+      \nu'_t= \nu'^{IW}_t + \nu'^{SI}_t     \; , \quad 
+    
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="280" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img704.png"
+ ALT="$\displaystyle \nu_t = \nu_t^{IW} + \nu_t^{SI} \; , \quad \nu'_t= \nu'^{IW}_t + \nu'^{SI}_t \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">204</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\nu_t^{IW}  =         10^{-4}          \; , \quad
+      \nu'^{IW}_t = 5 \cdot 10^{-5}          \quad .
+    
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="243" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img705.png"
+ ALT="$\displaystyle \nu_t^{IW} = 10^{-4} \; , \quad \nu'^{IW}_t = 5 \cdot 10^{-5} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">205</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The `SI' parts are functions of the Richardson number according to
+    <BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\nu_t^{SI} = \nu'^{SI}_t = 0              \; , \quad
+       & R_i>0.7 \; , \quad \\[4mm]
+    \nu_t^{SI} = \nu'^{SI}_t = 5 \cdot 10^{-3} \left( 1-\left(\frac {R_i}
+    {0.7}\right)^2\right)^3                    \; , \quad 
+       & 0<R_i<0.7 \; , \quad \\[4mm]
+    \nu_t^{SI} = \nu'^{SI}_t = 5 \cdot 10^{-3} \; , \quad 
+       & R_i < 0
+       \quad .
+    
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="132" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img706.png"
+ ALT="$\displaystyle \nu_t^{SI} = \nu'^{SI}_t = 0 \; , \quad$"></TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="87" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img707.png"
+ ALT="$\displaystyle R_i&gt;0.7 \; , \quad$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">206</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="296" HEIGHT="72" ALIGN="MIDDLE" BORDER="0"
+ SRC="img708.png"
+ ALT="$\displaystyle \nu_t^{SI} = \nu'^{SI}_t = 5 \cdot 10^{-3} \left( 1-\left(\frac {R_i}
+{0.7}\right)^2\right)^3 \; , \quad$"></TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="117" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img709.png"
+ ALT="$\displaystyle 0&lt;R_i&lt;0.7 \; , \quad$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">207</SPAN>)</TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT"><IMG
+ WIDTH="176" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img710.png"
+ ALT="$\displaystyle \nu_t^{SI} = \nu'^{SI}_t = 5 \cdot 10^{-3} \; , \quad$"></TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%"><IMG
+ WIDTH="71" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img711.png"
+ ALT="$\displaystyle R_i &lt; 0
+\quad .$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">208</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+    The unit of all diffusivities is m<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img712.png"
+ ALT="$ ^2$"></SPAN>s<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img713.png"
+ ALT="$ ^{-1}$"></SPAN>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use turbulence,    only:            iw_model,alpha,klimiw,rich_cr
+    use turbulence,    only:            numiw,nuhiw,numshear
+    use turbulence,    only:            tke,num,nuh
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer,  intent(in)                :: nlev
+    REALTYPE, intent(in)                :: NN(0:nlev),SS(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Karsten Bolding, Hans Burchard,
+                        Manuel Ruiz Villarreal
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1607"
+  HREF="node95.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1603"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1597"
+  HREF="node93.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1605"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1608"
+  HREF="node95.html">TKE flux from wave-breaking</A>
+<B> Up:</B> <A NAME="tex2html1604"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1598"
+  HREF="node93.html">Calculate steady-state Richardson number</A>
+ &nbsp; <B>  <A NAME="tex2html1606"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

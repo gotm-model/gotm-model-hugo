@@ -1,0 +1,578 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Explicit models for vertical shear and stratification</TITLE>
+<META NAME="description" CONTENT="Explicit models for vertical shear and stratification">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node43.html">
+<LINK REL="previous" HREF="node39.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node41.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html909"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html905"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html899"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html907"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html910"
+  HREF="node41.html">Equilibrium states</A>
+<B> Up:</B> <A NAME="tex2html906"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html900"
+  HREF="node39.html">Algebraic Models</A>
+ &nbsp; <B>  <A NAME="tex2html908"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00054000000000000000"></A><A NAME="sec:EASM"></A>
+<BR>
+Explicit models for vertical shear and stratification
+</H2>
+
+<P>
+In the following, we restrict ourselves to flows with vertical shear
+and stratification, and assume that mean quantities are horizontally
+homogeneous.  Under these conditions,
+(<A HREF="node39.html#Nbar">64</A>) yiels <!-- MATH
+ $\overline{N}_1=\overline{N}_2=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="97" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img246.png"
+ ALT="$ \overline{N}_1=\overline{N}_2=0$"></SPAN> and
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="NbarVertical"></A><!-- MATH
+ \begin{equation}
+\overline{N}_3 =  \dfrac{k^2}{\epsilon^2} \dfrac{\partial {B}}{\partial {z}}
+                  =  \dfrac{k^2}{\epsilon^2} N^2
+  \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="175" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img247.png"
+ ALT="$\displaystyle \overline{N}_3 = \dfrac{k^2}{\epsilon^2} \dfrac{\partial {B}}{\partial {z}} = \dfrac{k^2}{\epsilon^2} N^2 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The velocity gradient simplifies to
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="LijVertical"></A><!-- MATH
+ \begin{equation}
+L_{ij} =
+  \begin{pmatrix}
+            0             &           0             &        S_U          \\
+            0             &           0             &        S_V          \\
+            0             &           0             &        0            \\
+  \end{pmatrix}
+  \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="171" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img248.png"
+ ALT="$\displaystyle L_{ij} = \begin{pmatrix}0 &amp; 0 &amp; S_U \\ 0 &amp; 0 &amp; S_V \\ 0 &amp; 0 &amp; 0 \\ \end{pmatrix} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $S_U=\partial U / \partial z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img249.png"
+ ALT="$ S_U=\partial U / \partial z$"></SPAN> and <!-- MATH
+ $S_V=\partial V / \partial z$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="92" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img250.png"
+ ALT="$ S_V=\partial V / \partial z$"></SPAN> 
+are the vertical shear in <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ U$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ V$"></SPAN>, respectively. 
+
+<P>
+Under these conditions, and using the conventions
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="overlineSN"></A><!-- MATH
+ \begin{equation}
+\overline{S}_U   = \dfrac{k}{\epsilon} S_U \; , \quad
+   \overline{S}_V   = \dfrac{k}{\epsilon} S_V \; , \quad 
+   \overline{N}^2   =  \overline{N_3}         \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="298" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img251.png"
+ ALT="$\displaystyle \overline{S}_U = \dfrac{k}{\epsilon} S_U \; , \quad \overline{S}_V = \dfrac{k}{\epsilon} S_V \; , \quad \overline{N}^2 = \overline{N_3} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">69</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(<A HREF="node39.html#bASM">59</A>) reduces to
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="bijVertical"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+   {\cal N} b_{11}
+   &=&
+   - \left( \dfrac{a_2}{3} + a_3 \right) b_{13} \overline{S}_U 
+   +        \dfrac{2}{3} a_2             b_{23} \overline{S}_V 
+   +        \dfrac{2}{3} a_5             \gamma_3                          
+   \; , \quad \\[5mm]
+   {\cal N} b_{22} 
+   &=&
+   - \left( \dfrac{a_2}{3} + a_3 \right) b_{23} \overline{S}_V 
+   +        \dfrac{2}{3} a_2             b_{13} \overline{S}_U 
+   +        \dfrac{2}{3} a_5             \gamma_3    
+   \; , \quad \\[5mm]
+   {\cal N} b_{33} 
+   &=&
+   - \left( \dfrac{a_2}{3} - a_3 \right) b_{13} \overline{S}_U 
+   - \left( \dfrac{a_2}{3} - a_3 \right) b_{23} \overline{S}_V 
+   -        \dfrac{4}{3} a_5             \gamma_3                          
+   \; , \quad \\[5mm]
+   {\cal N} b_{12} 
+   &=&
+   -        \dfrac{a_2 + a_3}{2}         b_{13} \overline{S}_V 
+   -        \dfrac{a_2 + a_3}{2}         b_{23} \overline{S}_U 
+   \; , \quad \\[5mm]
+   {\cal N} b_{13} 
+   &=&
+   -       \dfrac{a_2 - a_3}{2}          b_{11} \overline{S}_U 
+   -       \dfrac{a_2 + a_3}{2}          b_{33} \overline{S}_U 
+   -       \dfrac{a_2 - a_3}{2}          b_{12} \overline{S}_V 
+   -       \dfrac{1}{2} a_1                     \overline{S}_U                                 
+   -                    a_5              \gamma_1
+   \; , \quad \\[5mm]                             
+   {\cal N} b_{23} 
+   &=&
+   -       \dfrac{a_2 - a_3}{2}          b_{22} \overline{S}_V 
+   -       \dfrac{a_2 + a_3}{2}          b_{33} \overline{S}_V 
+   -       \dfrac{a_2 - a_3}{2}          b_{12} \overline{S}_U 
+   -       \dfrac{1}{2} a_1                     \overline{S}_V                                
+   -                    a_5              \gamma_2
+   \quad .
+ \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="559" HEIGHT="284" BORDER="0"
+ SRC="img252.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} {\cal N} b_{11} &amp;=&amp; - \left( \dfrac{a_2}{3...
+...rac{1}{2} a_1 \overline{S}_V - a_5 \gamma_2 \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">70</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Similarly, for the mixing efficiencies, (<A HREF="node39.html#gammaASM">63</A>) yields 
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="giVertical"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+  {\cal N}_b \gamma_1
+  &=&
+  - \dfrac{a_{b1} + a_{b2}}{2}           \gamma_3 \overline{S}_U
+  +      a_{b3}                           b_{13}  \overline{N}^2
+  \; , \quad \\[5mm] 
+  {\cal N}_b \gamma_2
+  &=&
+  - \dfrac{a_{b1} + a_{b2}}{2}           \gamma_3 \overline{S}_V
+  +      a_{b3}                           b_{23}  \overline{N}^2                  
+  \; , \quad \\[5mm] 
+  {\cal N}_b \gamma_3
+  &=&
+  - \dfrac{a_{b1} - a_{b2}}{2}           \gamma_1 \overline{S}_U
+  - \dfrac{a_{b1} - a_{b2}}{2}           \gamma_2 \overline{S}_V
+  +         a_{b3}                         b_{33} \overline{N}^2                              
+  + \dfrac{a_{b3}}{3}                             \overline{N}^2                              
+  -         a_{b4}                                \overline{T}                          
+ \quad .
+ \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="536" HEIGHT="134" BORDER="0"
+ SRC="img253.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} {\cal N}_b \gamma_1 &amp;=&amp; - \dfrac{a_{b1} + ...
+...3}}{3} \overline{N}^2 - a_{b4} \overline{T} \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">71</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+In geophysical applications, a reasonable assumption is
+<!-- MATH
+ $P_b=\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.png"
+ ALT="$ P_b=\epsilon_b$"></SPAN> to elimmate the dependence of (<A HREF="#giVertical">71</A>) on
+<!-- MATH
+ $\overline{T}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img242.png"
+ ALT="$ \overline{T}$"></SPAN>. From (<A HREF="node74.html#kbeq">158</A>), using
+(<A HREF="node39.html#gamma">62</A>) and (<A HREF="node39.html#DefR">66</A>), it follows that <!-- MATH
+ $\overline{T}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img242.png"
+ ALT="$ \overline{T}$"></SPAN> can be
+expressed in the form
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Tequilibrium"></A><!-- MATH
+ \begin{equation}
+\overline{T} = r \gamma_3 \overline{N}^2
+ \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="101" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img255.png"
+ ALT="$\displaystyle \overline{T} = r \gamma_3 \overline{N}^2 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">72</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+With the help of (<A HREF="#Tequilibrium">72</A>), the last of (<A HREF="#giVertical">71</A>) can be
+re-written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="giVerticalEq"></A><!-- MATH
+ \begin{equation}
+{\cal N}_b \gamma_3
+  =
+  - \dfrac{a_{b1} - a_{b2}}{2}             \gamma_1 \overline{S}_U
+  - \dfrac{a_{b1} - a_{b2}}{2}             \gamma_2 \overline{S}_V
+  +        a_{b3}                            b_{33} \overline{N}^2
+  +     \dfrac{a_{b3}}{3}                           \overline{N}^2                              
+  -        a_{b5}                          \gamma_3 \overline{N}^2               
+ \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="543" HEIGHT="48" ALIGN="MIDDLE" BORDER="0"
+ SRC="img256.png"
+ ALT="$\displaystyle {\cal N}_b \gamma_3 = - \dfrac{a_{b1} - a_{b2}}{2} \gamma_1 \over...
+...}^2 + \dfrac{a_{b3}}{3} \overline{N}^2 - a_{b5} \gamma_3 \overline{N}^2 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">73</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that the new parameter <!-- MATH
+ $a_{b5} = r a_{b4}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img257.png"
+ ALT="$ a_{b5} = r a_{b4}$"></SPAN> depends on the time
+scale ratio, <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img111.png"
+ ALT="$ r$"></SPAN>, and is, in general, not constant. Nevertheless,
+constant <SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img258.png"
+ ALT="$ r=c_b$"></SPAN> is frequently assumed (see below).
+
+<P>
+In the general case, (<A HREF="#bijVertical">70</A>) and (<A HREF="#giVertical">71</A>) can be
+inverted directly to yield a solution of the form
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="b13"></A><!-- MATH
+ \begin{equation}
+b_{13}   = - \dfrac{1}{2} \hat{c}_\mu \overline{S}_U \; , \quad
+  b_{23}   = - \dfrac{1}{2} \hat{c}_\mu \overline{S}_V \; , \quad 
+ \gamma_3  = \hat{c}_\mu' \overline{N}^2 - \Gamma
+ \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="392" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img259.png"
+ ALT="$\displaystyle b_{13} = - \dfrac{1}{2} \hat{c}_\mu \overline{S}_U \; , \quad b_{...
+...line{S}_V \; , \quad \gamma_3 = \hat{c}_\mu' \overline{N}^2 - \Gamma \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">74</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+from which, by insertion into (<A HREF="#bijVertical">70</A>) and (<A HREF="#giVertical">71</A>),
+all other quantities can be determined. Since <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img243.png"
+ ALT="$ {\cal N}$"></SPAN> and <!-- MATH
+ ${\cal
+N}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ {\cal N}_b$"></SPAN> defined in (<A HREF="node39.html#NandNb">65</A>) have been treated as known, the solution
+is not yet completely explicit. In the numerical scheme of GOTM, they
+are updated from their values at past time steps. By identifying 
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="nuke"></A><!-- MATH
+ \begin{equation}
+\nu_t           = \hat{c}_\mu   \dfrac{k^2}{\epsilon} \; , \quad
+  \nu'_t          = \hat{c}_\mu'  \dfrac{k^2}{\epsilon} \; , \quad 
+  \tilde{\Gamma}  = \epsilon \Gamma
+  \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="271" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img260.png"
+ ALT="$\displaystyle \nu_t = \hat{c}_\mu \dfrac{k^2}{\epsilon} \; , \quad \nu'_t = \ha...
+...u' \dfrac{k^2}{\epsilon} \; , \quad \tilde{\Gamma} = \epsilon \Gamma \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">75</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(<A HREF="#b13">74</A>) corresponds in form exactly to (<A HREF="node37.html#fluxes">43</A>). Note that, adopting the 
+equilibrium assumption (<A HREF="#Tequilibrium">72</A>), the dependence on <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img261.png"
+ ALT="$ \Gamma$"></SPAN>
+drops in (<A HREF="#b13">74</A>). From (<A HREF="node37.html#nu">44</A>) and (<A HREF="#nuke">75</A>), and using the definition
+of the dissipation rate (<A HREF="node72.html#epsilon">153</A>), it is clear that 
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="cmuConversion"></A><!-- MATH
+ \begin{equation}
+\hat{c}_\mu = (c^0_\mu)^3  c_\mu \; , \quad
+  \hat{c}_\mu' = (c^0_\mu)^3 c'_\mu \; , \quad 
+  \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="253" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img262.png"
+ ALT="$\displaystyle \hat{c}_\mu = (c^0_\mu)^3 c_\mu \; , \quad \hat{c}_\mu' = (c^0_\mu)^3 c'_\mu \; , \quad \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">76</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The structure of the dimensionless parameter functions apearing in
+(<A HREF="#b13">74</A>) is given by
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="cm"></A><!-- MATH
+ \begin{equation}
+\hat{c}_\mu  = \dfrac{N_n}{D} \; , \quad
+  \hat{c}_\mu' = \dfrac{N_b}{D} \; , \quad 
+  \Gamma = \dfrac{N_\Gamma}{D}
+  \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="261" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img263.png"
+ ALT="$\displaystyle \hat{c}_\mu = \dfrac{N_n}{D} \; , \quad \hat{c}_\mu' = \dfrac{N_b}{D} \; , \quad \Gamma = \dfrac{N_\Gamma}{D} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">77</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the numerators and the denominator are polynomials of the square
+of the shear number, <!-- MATH
+ $\alpha_M = \overline{S}^2 = \overline{S}^2_U
++\overline{S}^2_V$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="151" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img264.png"
+ ALT="$ \alpha_M = \overline{S}^2 = \overline{S}^2_U
++\overline{S}^2_V$"></SPAN>, the square of the buoyancy number, <!-- MATH
+ $\alpha_N =
+\overline{N}^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="69" HEIGHT="43" ALIGN="MIDDLE" BORDER="0"
+ SRC="img265.png"
+ ALT="$ \alpha_N =
+\overline{N}^2 $"></SPAN>, the mixed scalar, <!-- MATH
+ $\alpha_B = \overline{T}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="58" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img266.png"
+ ALT="$ \alpha_B = \overline{T}$"></SPAN>, and the
+functions <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img243.png"
+ ALT="$ {\cal N}$"></SPAN> and <!-- MATH
+ ${\cal N}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ {\cal N}_b$"></SPAN>. The latter two functions depend
+on the production-to-dissipation ratios for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.png"
+ ALT="$ k_b$"></SPAN>, which for
+vertical shear and stratification can be written as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="PeVertical"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+  \dfrac{P}{\epsilon}     &=& - 2 b_{13} \overline{S}_U - 2 b_{23} \overline{S}_V
+                          = \hat{c}_\mu \overline{S}^2
+   \; , \quad \\[5mm]
+  \dfrac{G}{\epsilon}     &=&  - \gamma_3  = - \hat{c}_\mu' \overline{N}^2 + \Gamma 
+   \; , \quad \\[5mm]
+  \dfrac{P_b}{\epsilon_b} &=&  -\dfrac{G}{\epsilon} \dfrac{\epsilon}{\epsilon_b} N^2 
+                           =   - r \dfrac{G}{\epsilon} \dfrac{\overline{N}^2}{\overline{T}}
+  \end{array}
+  \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="300" HEIGHT="157" BORDER="0"
+ SRC="img267.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} \dfrac{P}{\epsilon} &amp;=&amp; - 2 b_{13} \overli...
+...silon} \dfrac{\overline{N}^2}{\overline{T}} \end{array} \quad .\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">78</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Once <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.png"
+ ALT="$ k_b$"></SPAN> (and their dissipation ratios, <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> and <!-- MATH
+ $\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img268.png"
+ ALT="$ \epsilon_b$"></SPAN>)
+are known, also the time scale ratio <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img111.png"
+ ALT="$ r$"></SPAN> defined in (<A HREF="node39.html#DefR">66</A>) can be computed, 
+and the problem can be solved. Different possibilities to derive
+these quantities are discussed in the following.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html911"
+  HREF="node41.html">Equilibrium states</A>
+<LI><A NAME="tex2html912"
+  HREF="node42.html">Stability of explicit models</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html909"
+  HREF="node41.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html905"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html899"
+  HREF="node39.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html907"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html910"
+  HREF="node41.html">Equilibrium states</A>
+<B> Up:</B> <A NAME="tex2html906"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html900"
+  HREF="node39.html">Algebraic Models</A>
+ &nbsp; <B>  <A NAME="tex2html908"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

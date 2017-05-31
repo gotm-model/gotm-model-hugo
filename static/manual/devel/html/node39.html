@@ -1,0 +1,473 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Algebraic Models</TITLE>
+<META NAME="description" CONTENT="Algebraic Models">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node40.html">
+<LINK REL="previous" HREF="node38.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node40.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html941"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html937"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html931"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html939"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html942"
+  HREF="node40.html">Explicit models for vertical</A>
+<B> Up:</B> <A NAME="tex2html938"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html932"
+  HREF="node38.html">Second-order models</A>
+ &nbsp; <B>  <A NAME="tex2html940"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00053000000000000000"></A><A NAME="sec:ASM"></A>
+<BR>
+Algebraic Models
+</H2>
+
+<P>
+The key assumptions in deriving algebraic models have been formulated by 
+<A
+ HREF="node251.html#Rodi76"><SPAN  CLASS="textit">Rodi</SPAN> (1976)</A> and <A
+ HREF="node251.html#GibsonLaunder76"><SPAN  CLASS="textit">Gibson and Launder</SPAN> (1976)</A>. These authors suggested
+to simplify the right hand sides of (<A HREF="node38.html#momentumFlux">48</A>) and (<A HREF="node38.html#buoyancyFlux">51</A>)
+according to
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Rodi"></A><!-- MATH
+ \begin{equation}
+\dot{ \rule{0mm}{4mm} \langle u'_i u'_j \rangle}   - {\cal D}_{ij} = \dfrac{ {\langle u'_i u'_j \rangle} }{k}
+    \left( \dot{k} - {\cal D}_k \right) \; , \quad 
+     \dot{ \rule{0mm}{4mm} \langle u'_i b' \rangle}  - {\cal D}^b_{i}   = \dfrac{  {\langle u'_i b' \rangle}  }{2} 
+    \left( \dfrac{\dot{k} - {\cal D}_k }{k} + \dfrac{\dot{k}_b - {\cal D}_b  }{k_b}  \right) 
+   \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="562" HEIGHT="64" ALIGN="MIDDLE" BORDER="0"
+ SRC="img223.png"
+ ALT="$\displaystyle \dot{ \rule{0mm}{4mm} \langle u'_i u'_j \rangle} - {\cal D}_{ij} ...
+...{k} - {\cal D}_k }{k} + \dfrac{\dot{k}_b - {\cal D}_b }{k_b} \right) \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">60</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which are reasonable approximations in many situations. Moreover, (<A HREF="#Rodi">60</A>)
+can be shown to hold exactly in stably stratified, homogeneous shear flows,
+when the flow approaches the so-called weak-equilibrium limit, see
+<A
+ HREF="node251.html#Shihetal2000"><SPAN  CLASS="textit">Shih et&nbsp;al.</SPAN> (2000)</A>. Using (<A HREF="#Rodi">60</A>) and the pressure-strain model
+(<A HREF="node38.html#Phi">53</A>), it can be shown after some algebra that the transport equations
+ for the momentum flux (<A HREF="node38.html#momentumFlux">48</A>) reduces to
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="bASM"></A><!-- MATH
+ \begin{equation}
+{\cal N} b_{ij} = - a_1 \overline{S}_{ij} - a_2
+  \overline{\Sigma}_{ij} - a_3 \overline{Z}_{ij} - a_4
+  \overline{N}_{ij} - a_5 \overline{\Gamma}_{ij}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="341" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img224.png"
+ ALT="$\displaystyle {\cal N} b_{ij} = - a_1 \overline{S}_{ij} - a_2 \overline{\Sigma}_{ij} - a_3 \overline{Z}_{ij} - a_4 \overline{N}_{ij} - a_5 \overline{\Gamma}_{ij}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">61</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+in dimensionless form. The <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img225.png"
+ ALT="$ a_i$"></SPAN> relate to the coefficients used in
+(<A HREF="node38.html#Phi">53</A>) according to <!-- MATH
+ $a_1 = 2/3 - c_2/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="114" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img226.png"
+ ALT="$ a_1 = 2/3 - c_2/2$"></SPAN>, <!-- MATH
+ $a_2=1 - c_3/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img227.png"
+ ALT="$ a_2=1 - c_3/2$"></SPAN>, 
+<!-- MATH
+ $a_3=1 - c_4/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img228.png"
+ ALT="$ a_3=1 - c_4/2$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="70" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img229.png"
+ ALT="$ a_4=c_5/2$"></SPAN>, and <!-- MATH
+ $a_5=1/2 - c_6/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="114" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img230.png"
+ ALT="$ a_5=1/2 - c_6/2$"></SPAN>.  
+The dimensionless, traceless and symmetric tensors appearing on the right hand side of
+(<A HREF="#bASM">61</A>) are defined as
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Sbar"></A><!-- MATH
+ \begin{equation}
+\overline{S}_{ij}      = \dfrac{k}{\epsilon}      S_{ij}      \; , \quad
+  \overline{\Sigma}_{ij} = \dfrac{k}{\epsilon} \Sigma_{ij}      \; , \quad 
+  \overline{Z}_{ij}      = \dfrac{k}{\epsilon}      Z_{ij}      \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="314" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img231.png"
+ ALT="$\displaystyle \overline{S}_{ij} = \dfrac{k}{\epsilon} S_{ij} \; , \quad \overli...
+...} \Sigma_{ij} \; , \quad \overline{Z}_{ij} = \dfrac{k}{\epsilon} Z_{ij} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">62</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Additionally,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Gij"></A><!-- MATH
+ \begin{equation}
+\overline{\Gamma}_{ij} = \Gamma_{ij} / \epsilon =
+  \begin{pmatrix}
+    - \frac{2}{3} \gamma_3 &           0             &      \gamma_1           \\
+            0              & - \frac{2}{3} \gamma_3  &      \gamma_2           \\
+       \gamma_1            &     \gamma_2            &  \frac{4}{3} \gamma_3  \\
+  \end{pmatrix}
+  \; , \quad 
+  \gamma_i = - \dfrac{ {\langle u'_i b' \rangle} }{\epsilon}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="383" HEIGHT="75" ALIGN="MIDDLE" BORDER="0"
+ SRC="img232.png"
+ ALT="$\displaystyle \overline{\Gamma}_{ij} = \Gamma_{ij} / \epsilon = \begin{pmatrix}...
+...{pmatrix} \; , \quad \gamma_i = - \dfrac{ {\langle u'_i b' \rangle} }{\epsilon}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">63</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+has been introduced in (<A HREF="#bASM">61</A>) for convenience. Here, the <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \gamma_i$"></SPAN>
+correspond to the <SPAN  CLASS="textit">mixing efficiencies</SPAN> in each coordinate
+direction, respectively.  Note, that the vertical component,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="gamma"></A><!-- MATH
+ \begin{equation}
+\gamma_3 = \gamma  = - \dfrac{ {\langle w'b' \rangle} }{\epsilon}
+  = - \dfrac{G}{\epsilon} = \dfrac{R_f}{1-R_f} \; , \quad R_f = - \dfrac{G}{P}
+  \; , \quad 
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="372" HEIGHT="55" ALIGN="MIDDLE" BORDER="0"
+ SRC="img233.png"
+ ALT="$\displaystyle \gamma_3 = \gamma = - \dfrac{ {\langle w'b' \rangle} }{\epsilon} ...
+...ac{G}{\epsilon} = \dfrac{R_f}{1-R_f} \; , \quad R_f = - \dfrac{G}{P} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">64</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+can be identified with the classical mixing efficiency used in many
+studies of stratified fluids.
+
+<P>
+Most authors proceed know in deriving, with the help of (<A HREF="#Rodi">60</A>), a
+dimensionless equation for the normalised turbulent buoyancy flux,
+<!-- MATH
+ $\zeta_i =  {\langle u'_i b' \rangle}  / \sqrt{(k k_b)}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="135" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img234.png"
+ ALT="$ \zeta_i = {\langle u'_i b' \rangle} / \sqrt{(k k_b)}$"></SPAN>, see <A
+ HREF="node251.html#Soetal2002a"><SPAN  CLASS="textit">So et&nbsp;al.</SPAN> (2002)</A>,
+<A
+ HREF="node251.html#Jinetal2003"><SPAN  CLASS="textit">Jin et&nbsp;al.</SPAN> (2003)</A>. It can be shown, however, that the resulting
+algebraic equations alternatively can be expressed, without further
+assumptions, in the form of equations for the mixing efficiencies,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="gammaASM"></A><!-- MATH
+ \begin{equation}
+{\cal N}_b \gamma_{i} =
+  - a_{b 1} \overline{S}_{ij} \gamma_j 
+  - a_{b 2} \overline{W}_{ij} \gamma_j 
+  + a_{b 3} b_{ij} \overline{N}_{j}  + \dfrac{1}{3} a_{b 3} \overline{N}_{i} 
+  - a_{b 4} \overline{T} \delta_{i3}
+  \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="455" HEIGHT="50" ALIGN="MIDDLE" BORDER="0"
+ SRC="img235.png"
+ ALT="$\displaystyle {\cal N}_b \gamma_{i} = - a_{b 1} \overline{S}_{ij} \gamma_j - a_...
+...dfrac{1}{3} a_{b 3} \overline{N}_{i} - a_{b 4} \overline{T} \delta_{i3} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">65</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Since efficiencies <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \gamma_i$"></SPAN> are the primary variables appearing on
+the right hand side of (<A HREF="#bASM">61</A>) through the presence of the tensor
+<!-- MATH
+ $\overline{\Gamma}_{ij}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img236.png"
+ ALT="$ \overline{\Gamma}_{ij}$"></SPAN> defined in (<A HREF="#Gij">63</A>), and since they are
+variables with a clear physical interpretation, we prefer
+(<A HREF="#gammaASM">65</A>) to a mathematicall equivalent equation for the
+normalised buoyancy flux, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img237.png"
+ ALT="$ \zeta_i$"></SPAN>.
+
+<P>
+The new dimensionless quantities entering the problem via (<A HREF="#gammaASM">65</A>) are 
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Nbar"></A><!-- MATH
+ \begin{equation}
+\overline{N}_i =  \dfrac{k^2}{\epsilon^2} \dfrac{\partial {B}}{\partial {x_i}} \; , \quad
+  \overline{T}   =  \dfrac{k k_b}{\epsilon^2}
+  \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="200" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img238.png"
+ ALT="$\displaystyle \overline{N}_i = \dfrac{k^2}{\epsilon^2} \dfrac{\partial {B}}{\partial {x_i}} \; , \quad \overline{T} = \dfrac{k k_b}{\epsilon^2} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">66</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that the vertical component of <!-- MATH
+ $\overline{N}_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img239.png"
+ ALT="$ \overline{N}_i$"></SPAN> can be identified with
+the square of the buoyancy frequency, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img162.png"
+ ALT="$ N^2$"></SPAN>, made dimensionless with the dynamic 
+dissipation time scale <!-- MATH
+ $\tau=k/\epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img240.png"
+ ALT="$ \tau=k/\epsilon$"></SPAN>.
+
+<P>
+(<A HREF="#bASM">61</A>) and (<A HREF="#gammaASM">65</A>) are linear in <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img214.png"
+ ALT="$ b_{ij}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \gamma_i$"></SPAN>, with a non-linear
+coupling introduced by the terms
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="NandNb"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+    {\cal N} &=&   \dfrac{P+G}{\epsilon} + \dfrac{c_1}{2} - 1                \\[5mm]
+    {\cal N}_b &=& \dfrac{1}{2} \left( \dfrac{P+G}{\epsilon}   - 1  \right) 
+    + c_{b 1} + \dfrac{1}{2r}   \left( \dfrac{P_b}{\epsilon_b} -1   \right)
+   \quad .
+  \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="352" HEIGHT="104" BORDER="0"
+ SRC="img241.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} {\cal N} &amp;=&amp; \dfrac{P+G}{\epsilon} + \dfra...
+...} \left( \dfrac{P_b}{\epsilon_b} -1 \right) \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">67</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The production-to-dissipation ratios appearing in these expression are
+exclusively related to known quantities and thus introduce no new
+independent variables. However, the time scale ratio,
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="DefR"></A><!-- MATH
+ \begin{equation}
+r = \dfrac{k_b}{\epsilon_b} \dfrac{\epsilon}{k}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img242.png"
+ ALT="$\displaystyle r = \dfrac{k_b}{\epsilon_b} \dfrac{\epsilon}{k}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">68</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+needs to be described. 
+
+<P>
+(<A HREF="#bASM">61</A>) and (<A HREF="#gammaASM">65</A>) are a system of 9 coupled algebraic 
+equations for the anisotropies <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img214.png"
+ ALT="$ b_{ij}$"></SPAN> and the mixing efficiencies
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img31.png"
+ ALT="$ \gamma_i$"></SPAN>, depending solely on the non-dimensional tensors <!-- MATH
+ $\overline{S}_{ij}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img243.png"
+ ALT="$ \overline{S}_{ij}$"></SPAN>,
+<!-- MATH
+ $\overline{W}_{ij}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ \overline{W}_{ij}$"></SPAN>, the vector <!-- MATH
+ $\overline{N}_{i}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img245.png"
+ ALT="$ \overline{N}_{i}$"></SPAN>, and the scalar 
+<!-- MATH
+ $\overline{T}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img246.png"
+ ALT="$ \overline{T}$"></SPAN>. This system is linear, if <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img247.png"
+ ALT="$ {\cal N}$"></SPAN> and <!-- MATH
+ ${\cal N}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img248.png"
+ ALT="$ {\cal N}_b$"></SPAN> are 
+treated as knowns and if the nonlinear term <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img213.png"
+ ALT="$ N_{ij}$"></SPAN> in
+(<A HREF="#bASM">61</A>) is neglected, <SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img249.png"
+ ALT="$ a_4=0$"></SPAN>. No closed solution of the complete
+system in three dimensions has been reported so far in the
+literature. Nevertheless, separate solutions in three dimensions for
+(<A HREF="#bASM">61</A>) and (<A HREF="#gammaASM">65</A>), respectively, have been reported (see <A
+ HREF="node251.html#Jinetal2003"><SPAN  CLASS="textit">Jin et&nbsp;al.</SPAN> (2003)</A>
+and the references therein).
+
+<P>
+In geophysical applications, the system (<A HREF="#bASM">61</A>) and (<A HREF="#gammaASM">65</A>)
+can be considerably simplified by assuming that the fluid is
+horizontally homogeneous (boundary layer approximation), and closed
+solutions can be obtained (see <A
+ HREF="node251.html#Chengetal2002"><SPAN  CLASS="textit">Cheng et&nbsp;al.</SPAN> (2002)</A>). The procedure to
+obtain such solutions is discussed in the following subsection.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html941"
+  HREF="node40.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html937"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html931"
+  HREF="node38.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html939"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html942"
+  HREF="node40.html">Explicit models for vertical</A>
+<B> Up:</B> <A NAME="tex2html938"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html932"
+  HREF="node38.html">Second-order models</A>
+ &nbsp; <B>  <A NAME="tex2html940"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

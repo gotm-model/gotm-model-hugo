@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Boundary</TITLE>
+<META NAME="description" CONTENT="Boundary">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node65.html">
+<LINK REL="previous" HREF="node63.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node65.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1247"
+  HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1243"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1237"
+  HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1245"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1248"
+  HREF="node65.html">Boundary</A>
+<B> Up:</B> <A NAME="tex2html1244"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1238"
+  HREF="node63.html">Boundary</A>
+ &nbsp; <B>  <A NAME="tex2html1246"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000571600000000000000"></A><A NAME="sec:epsilonBC"></A>
+<BR>
+Boundary conditons for the epsilon-equation
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    REALTYPE function  epsilon_bc(bc,type,zi,ki,z0,u_tau)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes prescribed and flux boundary conditions for  the transport
+   equation (<A HREF="node76.html#dissipation">163</A>). The formal parameter <TT>bc</TT> determines
+   whether <TT>Dirchlet</TT> or <TT>Neumann</TT>-type boundary conditions
+   are computed. Depending on the physical properties of the
+   boundary-layer, the parameter <TT>type</TT> relates either to a <TT>visous</TT>,
+   a <TT>logarithmic</TT>, or an <TT>injection</TT>-type boundary-layer.
+   In the latter case, the flux of TKE caused by breaking surface waves
+   has to be specified. Presently, there is only one possibility
+   to do so implemented in GOTM. It is described in section <A HREF="node95.html#sec:fkCraig">4.7.47</A>.
+   All parameters that determine the boundary layer have to be
+   set in <TT>gotmturb.nml</TT>.
+
+<P>
+Note that  in this section, for brevity, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ z$"></SPAN> denotes the distance
+   from the wall (or the surface), and <SPAN  CLASS="textit">not</SPAN> the standard
+   coordinate of the same name used in GOTM.
+
+<P>
+<BR>
+<BR>
+   <B>Viscous boundary-layers</B>
+   <BR>
+<BR>
+
+<P>
+This type is not implemented yet in GOTM.
+
+<P>
+<BR>
+<BR>
+   <B>Logarithmic boundary-layers</B>
+   <BR>
+<BR>
+
+<P>
+The Dirichlet (prescribed) boundary condition follows from (<A HREF="node72.html#epsilon">153</A>) as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_e_Dirichlet"></A><!-- MATH
+ \begin{equation}
+\epsilon= \dfrac{(c_\mu^0)^3 k^\frac{3}{2}}{\kappa (z+z_0)}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="124" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img541.png"
+ ALT="$\displaystyle \epsilon= \dfrac{(c_\mu^0)^3 k^\frac{3}{2}}{\kappa (z+z_0)} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">134</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where we used the law-of-the-wall relation <!-- MATH
+ $l=\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="94" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img542.png"
+ ALT="$ l=\kappa(z+z_0)$"></SPAN>.
+
+<P>
+The Neumann (flux) boundary condition can be expressed as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_e_Neumann"></A><!-- MATH
+ \begin{equation}
+F_\epsilon = - \dfrac{\nu_t}{\sigma_\epsilon} \dfrac{\partial {\epsilon}}{\partial {z}}
+     = \dfrac{(c_\mu^0)^4}{\sigma_\epsilon}  \dfrac{k^2}{z+z_0}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="225" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img543.png"
+ ALT="$\displaystyle F_\epsilon = - \dfrac{\nu_t}{\sigma_\epsilon} \dfrac{\partial {\e...
+...rtial {z}} = \dfrac{(c_\mu^0)^4}{\sigma_\epsilon} \dfrac{k^2}{z+z_0} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">135</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+by inserting <!-- MATH
+ $l=\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="94" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img542.png"
+ ALT="$ l=\kappa(z+z_0)$"></SPAN> into the expression for the
+   diffusivity in (<A HREF="node37.html#nu">44</A>). Note, that in (<A HREF="#KE_e_Dirichlet">134</A>) and
+   (<A HREF="#KE_e_Neumann">135</A>), we use <TT>ki</TT>, the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> at the current time
+   step, to compute the boundary conditions. By means of
+   (<A HREF="node51.html#kLog">101</A>), it would have been also possible to express the boundary
+   conditions in terms of the friction velocity, <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img544.png"
+ ALT="$ u_*$"></SPAN>. This, however,
+   causes numerical difficulties in case of a stress-free surface
+   boundary-layer as for example in the pressure-driven open channel
+   flow.
+
+<P>
+<BR>
+<BR>
+   <B>Shear-free boundary-layers with injection of TKE</B>
+   <BR>
+<BR>
+
+<P>
+The Dirichlet (prescribed) boundary condition follows simply
+   from the power-law (<A HREF="node51.html#power_law">108</A>) inserted in (<A HREF="node72.html#epsilon">153</A>). This
+   yields
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_e_wave_Dirichlet"></A><!-- MATH
+ \begin{equation}
+\epsilon= (c_\mu^0)^3 K^\frac{3}{2} L^{-1} (z+z_0)^{\frac{3}{2}\alpha - 1}
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="228" HEIGHT="40" ALIGN="MIDDLE" BORDER="0"
+ SRC="img545.png"
+ ALT="$\displaystyle \epsilon= (c_\mu^0)^3 K^\frac{3}{2} L^{-1} (z+z_0)^{\frac{3}{2}\alpha - 1} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">136</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The Neumann (flux) boundary condition is
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_e_wave_Neumann"></A><!-- MATH
+ \begin{equation}
+F_\epsilon = - \dfrac{\nu_t}{\sigma_\epsilon} \dfrac{\partial {\epsilon}}{\partial {z}} =
+     - \dfrac{c_\mu (c_\mu^0)^3}{\sigma_\epsilon} K^2 \left( \dfrac{3}{2}
+       \alpha -1  \right) (z+z_0)^{2\alpha-1}
+       \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="393" HEIGHT="60" ALIGN="MIDDLE" BORDER="0"
+ SRC="img546.png"
+ ALT="$\displaystyle F_\epsilon = - \dfrac{\nu_t}{\sigma_\epsilon} \dfrac{\partial {\e...
+...silon} K^2 \left( \dfrac{3}{2} \alpha -1 \right) (z+z_0)^{2\alpha-1} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">137</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which follows from (<A HREF="node51.html#power_law">108</A>) and (<A HREF="node37.html#nu">44</A>). The parameter <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img459.png"
+ ALT="$ K$"></SPAN> is
+   computed as described in the context of (<A HREF="node62.html#K">128</A>).
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer, intent(in)                 :: bc,type
+    REALTYPE, intent(in)                :: zi,ki,z0,u_tau
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1247"
+  HREF="node65.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1243"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1237"
+  HREF="node63.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1245"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1248"
+  HREF="node65.html">Boundary</A>
+<B> Up:</B> <A NAME="tex2html1244"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1238"
+  HREF="node63.html">Boundary</A>
+ &nbsp; <B>  <A NAME="tex2html1246"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

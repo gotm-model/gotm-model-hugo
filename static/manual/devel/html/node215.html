@@ -1,0 +1,468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Mathematical formulation</TITLE>
+<META NAME="description" CONTENT="Mathematical formulation">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node216.html">
+<LINK REL="previous" HREF="node214.html">
+<LINK REL="up" HREF="node214.html">
+<LINK REL="next" HREF="node216.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3239"
+  HREF="node216.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3235"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3229"
+  HREF="node214.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3237"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3240"
+  HREF="node216.html">Numerical aspects</A>
+<B> Up:</B> <A NAME="tex2html3236"
+  HREF="node214.html">Biogeochemical models</A>
+<B> Previous:</B> <A NAME="tex2html3230"
+  HREF="node214.html">Biogeochemical models</A>
+ &nbsp; <B>  <A NAME="tex2html3238"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000101000000000000000"></A><A NAME="sec:bio-math"></A>
+<BR>
+Mathematical formulation
+</H2>
+
+<P>
+The general structure of a biogeochemical model with
+<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img874.png"
+ ALT="$ I$"></SPAN> state variables expressed as ensemble averaged
+concentrations is given by the
+following set of equations:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="FullSystem"></A><!-- MATH
+ \begin{equation}
+\partial_t c_i + \partial_z
+\left(m_i c_i - K_V \partial_z c_i\right)
+=   P_i(\vec{c}) -D_i(\vec{c}), \;\; i = 1,\ldots,I, \quad j,k = 1,\ldots,3,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="513" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img875.png"
+ ALT="$\displaystyle \partial_t c_i + \partial_z \left(m_i c_i - K_V \partial_z c_i\right) = P_i(\vec{c}) -D_i(\vec{c}), \;\; i = 1,\ldots,I, \quad j,k = 1,\ldots,3,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">265</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN> denoting the concentrations of state variables.
+Furthermore, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img876.png"
+ ALT="$ m_i$"></SPAN> represents the autonomous motion of the ecosystem
+component <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN> (e.g. sinking or active swimming),
+and <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img877.png"
+ ALT="$ K_V$"></SPAN> represents the eddy diffusivity.
+The source and sink terms of the ecosystem component
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN> are summarised in <!-- MATH
+ $P_i(\vec{c})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img878.png"
+ ALT="$ P_i(\vec{c})$"></SPAN> and <!-- MATH
+ $D_i(\vec{c})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img879.png"
+ ALT="$ D_i(\vec{c})$"></SPAN>, respectively.
+For three-dimensional models, advection with the flow field
+and horizontal advection would have to be accounted for additionally.
+In many biogeochemical models, some of the state variables have positive
+lower limits. In order to account for this,
+we defined all state variables as the difference between
+the actual value and their lower limit, such that
+(for non-negative state variables only)
+the model value <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN> represents a concentration of
+<!-- MATH
+ $c_i+c_i^{\min}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img880.png"
+ ALT="$ c_i+c_i^{\min}$"></SPAN> where <!-- MATH
+ $c_i^{\min}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img881.png"
+ ALT="$ c_i^{\min}$"></SPAN> is the lower limit of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN>.
+
+<P>
+The gradient term on the left hand side of (<A HREF="#FullSystem">265</A>)
+is the total transport,
+for which typically surface and bottom boundary conditions
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+K_V\partial_z c_i\big|_{z=\eta} = F^s_i,\qquad
+K_V\partial_z c_i\big|_{z=-H} = -F^b_i,
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="318" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img882.png"
+ ALT="$\displaystyle K_V\partial_z c_i\big\vert _{z=\eta} = F^s_i,\qquad K_V\partial_z c_i\big\vert _{z=-H} = -F^b_i,$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">266</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with surface and bottom fluxes, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img883.png"
+ ALT="$ F^s_i$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img204.png"
+ ALT="$ F^b_i$"></SPAN>, respectively,
+are applied.
+The right hand side denotes the reaction terms,
+which are composed of contributions
+<!-- MATH
+ $d_{i,j}(\vec{c})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img845.png"
+ ALT="$ d_{i,j}(\vec{c})$"></SPAN>, which represent reactive fluxes from
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN> to <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img846.png"
+ ALT="$ c_j$"></SPAN>, and in turn, <!-- MATH
+ $p_{i,j}(\vec{c})$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="46" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img847.png"
+ ALT="$ p_{i,j}(\vec{c})$"></SPAN> are reactive fluxes from
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img846.png"
+ ALT="$ c_j$"></SPAN> received by <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN>:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eq:am:a"></A><!-- MATH
+ \begin{equation}
+P_i(\vec{c}) = \sum^I_{j=1} p_{i,j}(\vec{c}), \;\;\;\;
+D_i(\vec{c}) = \sum^I_{j=1} d_{i,j}(\vec{c}),
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="284" HEIGHT="68" ALIGN="MIDDLE" BORDER="0"
+ SRC="img884.png"
+ ALT="$\displaystyle P_i(\vec{c}) = \sum^I_{j=1} p_{i,j}(\vec{c}), \;\;\;\; D_i(\vec{c}) = \sum^I_{j=1} d_{i,j}(\vec{c}),$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">267</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with <!-- MATH
+ $d_{i,j}\geq 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img885.png"
+ ALT="$ d_{i,j}\geq 0$"></SPAN> for all <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img886.png"
+ ALT="$ i,j$"></SPAN> and <!-- MATH
+ $p_{i,j}\geq 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="56" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img887.png"
+ ALT="$ p_{i,j}\geq 0$"></SPAN>
+for all <SPAN CLASS="MATH"><IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img888.png"
+ ALT="$ i\not= j$"></SPAN>.
+
+<P>
+We basically consider two types of ecosystem models.
+In the simple NPZ (nutrient-phytoplankton-zooplankton) type models
+all state variables are based on the same measurable unit
+such as [mmol N m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>] for nitrogen-based models.
+In such NPZ models the reactive terms do only exchange mass
+between state variables with
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eq:am:symmetry"></A><!-- MATH
+ \begin{equation}
+p_{i,j}(\vec{c}) = d_{j,i}(\vec{c}), \quad \mbox{ for } i \not= j
+\quad\mbox{ and }\quad
+p_{i,i}(\vec{c}) = d_{i,i}(\vec{c})=0, \quad \mbox{ for } i = j.
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="113" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img889.png"
+ ALT="$\displaystyle p_{i,j}(\vec{c}) = d_{j,i}(\vec{c}),$">&nbsp; &nbsp; for <IMG
+ WIDTH="38" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img890.png"
+ ALT="$\displaystyle i \not= j$">&nbsp; &nbsp; and <IMG
+ WIDTH="156" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img891.png"
+ ALT="$\displaystyle \quad p_{i,i}(\vec{c}) = d_{i,i}(\vec{c})=0,$">&nbsp; &nbsp; for <IMG
+ WIDTH="41" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img892.png"
+ ALT="$\displaystyle i = j.$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">268</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Neglecting for a moment all transport terms, it is easily seen that this
+simple type of
+model is conserving mass:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\begin{array}{l}
+\displaystyle
+d_t\left(\sum_{i=1}^I c_i    \right) =
+\sum_{i=1}^I\left( P_i(\vec{c})- D_i(\vec{c})\right) =
+\displaystyle
+\sum_{i=1}^I\sum_{j=1}^I\left(p_{i,j}(\vec{c}) - d_{i,j}(\vec{c})\right)
+= \sum_{i=1}^I\left(p_{i,i}(\vec{c}) - d_{i,i}(\vec{c})\right)=0.
+\end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="613" HEIGHT="58" BORDER="0"
+ SRC="img893.png"
+ ALT="\begin{displaymath}\begin{array}{l} \displaystyle d_t\left(\sum_{i=1}^I c_i \rig...
+...\left(p_{i,i}(\vec{c}) - d_{i,i}(\vec{c})\right)=0. \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">269</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The NPZD model (see section <A HREF="#sec:bio-npzd"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>) and the
+<A
+ HREF="node251.html#Fashametal1990"><SPAN  CLASS="textit">Fasham et&nbsp;al.</SPAN> (1990)</A> model discussed in section <A HREF="#sec:bio-fasham"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>
+are such fully conservative models.
+
+<P>
+In many biogeochemical models most state variables are known to be positive
+or at least non-negative quantities. For non-negative initial conditions
+<!-- MATH
+ $c_i(0) \geq 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img894.png"
+ ALT="$ c_i(0) \geq 0$"></SPAN> one can easily show by a simple
+contradiction argument that the condition
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eq:am:d1"></A><!-- MATH
+ \begin{equation}
+d_{i,j}(\vec{c}) \longrightarrow 0 \;\; \mbox{for} \;\; c_i \longrightarrow 0
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img895.png"
+ ALT="$\displaystyle d_{i,j}(\vec{c}) \longrightarrow 0 \;\;$">&nbsp; &nbsp;for<IMG
+ WIDTH="67" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img896.png"
+ ALT="$\displaystyle \;\; c_i \longrightarrow 0$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">270</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+guarantees that the quantities
+<!-- MATH
+ $c_i(t) \geq 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="63" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img897.png"
+ ALT="$ c_i(t) \geq 0$"></SPAN>, remain non-negative for all <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img426.png"
+ ALT="$ t$"></SPAN>.
+A typical example is <!-- MATH
+ $d_{i,j}(\vec{c}) = f(\vec{c}) c_i$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="108" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img898.png"
+ ALT="$ d_{i,j}(\vec{c}) = f(\vec{c}) c_i$"></SPAN> with a non-negative,
+bounded
+function <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img757.png"
+ ALT="$ f$"></SPAN> which might depend on all <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img844.png"
+ ALT="$ c_i$"></SPAN>.
+
+<P>
+However, for many applications such simple models are
+too restrictive. Often different spatial references
+are involved for the state variables, such as the
+detritus concentration in the water column, measured in [mmol N m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>]
+and the fluff layer concentration at the bed, measured in [mmol N m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img88.png"
+ ALT="$ ^{-2}$"></SPAN>].
+Many biogeochemical processes
+involve more than two substances such as the photosynthesis
+where different nutrients (e.g. nitrate and phosphorus) are taken
+up by phytoplankta and oxygen is produced. The ratios between these
+substances dissipated or produced are usually fixed, in the example
+of photosynthesis uptake of 16 mmol m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN> nitrate is
+connected to an uptake of 1 mmol m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN> phosphorus
+and a production of 8.125 mmol m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN> oxygen.
+
+<P>
+For state variables which may
+be negative (such as oxygen concentration
+which also includes oxygen demand units,
+all sink and source
+terms are added up in the production terms
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img899.png"
+ ALT="$ p_{i,j}$"></SPAN>, with a negative sign for the sink terms.
+For the <A
+ HREF="node251.html#Neumannetal2002"><SPAN  CLASS="textit">Neumann et&nbsp;al.</SPAN> (2002)</A> model discussed in sections
+<A HREF="#sec:bio-iow"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>,
+further deviations from the conservation formulation are introduced since
+biogeochemical reactions include substances which are not budgeted by the
+model (mostly because they are assumed to be not limiting).
+One typical example is nitrogen fixated by blue-green algae which
+builds up biomass by using atmospheric nitrogen which is later recycled to
+nitrate. Such non-conservative terms are lumped into the diagonal terms
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img900.png"
+ ALT="$ p_{i,i}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img901.png"
+ ALT="$ d_{i,i}$"></SPAN>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3239"
+  HREF="node216.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3235"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3229"
+  HREF="node214.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3237"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3240"
+  HREF="node216.html">Numerical aspects</A>
+<B> Up:</B> <A NAME="tex2html3236"
+  HREF="node214.html">Biogeochemical models</A>
+<B> Previous:</B> <A NAME="tex2html3230"
+  HREF="node214.html">Biogeochemical models</A>
+ &nbsp; <B>  <A NAME="tex2html3238"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

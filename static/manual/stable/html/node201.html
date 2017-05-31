@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>First-order</TITLE>
+<META NAME="description" CONTENT="First-order">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node202.html">
+<LINK REL="previous" HREF="node200.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node202.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3066"
+  HREF="node202.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3062"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3056"
+  HREF="node200.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3064"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3067"
+  HREF="node202.html">Second-order</A>
+<B> Up:</B> <A NAME="tex2html3063"
+  HREF="node189.html">Fortran: Module Interface time</A>
+<B> Previous:</B> <A NAME="tex2html3057"
+  HREF="node200.html">General ODE solver (Source</A>
+ &nbsp; <B>  <A NAME="tex2html3065"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000951200000000000000">
+First-order Euler-forward scheme</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine euler_forward(dt,numc,nlev,cc,right_hand_side)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Here, the first-order Euler-forward (E1) scheme is coded, with one
+   evaluation of the right-hand sides per time step:
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eq:am:euler"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+   c_i^{n+1} &=&
+   \displaystyle
+    c_i^n  + \Delta t \left\{P_i\left(\underline{c}^n\right)
+   - D_i\left(\underline{c}^n\right) \right\}.
+   \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="269" HEIGHT="39" BORDER="0"
+ SRC="img844.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} c_i^{n+1} &amp;=&amp; \displaystyle c_i^n + \Delta...
+...\right) - D_i\left(\underline{c}^n\right) \right\}. \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">248</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer, intent(in)                 :: numc,nlev
+    REALTYPE, intent(in)                :: dt
+   !INPUT/OUTPUT PARAMETER:
+    REALTYPE, intent(inout)             :: cc(1:numc,0:nlev)
+ 
+    interface
+       subroutine right_hand_side(first,numc,nlev,cc,rhs)
+          logical, intent(in)                  :: first
+          integer, intent(in)                  :: numc,nlev
+          REALTYPE, intent(in)                 :: cc(1:numc,0:nlev)
+          REALTYPE, intent(out)                :: rhs(1:numc,0:nlev)
+       end
+    end interface
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Hans Burchard, Karsten Bolding
+</PRE><I CLASS="sans">LOCAL VARIABLES:</I>
+<PRE>   logical  :: first
+   REALTYPE :: rhs(1:numc,0:nlev)
+   integer  :: i,ci
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

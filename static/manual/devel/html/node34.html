@@ -1,0 +1,301 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Calculation of the stratification</TITLE>
+<META NAME="description" CONTENT="Calculation of the stratification">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node35.html">
+<LINK REL="previous" HREF="node33.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node35.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html816"
+  HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html812"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html806"
+  HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html814"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html817"
+  HREF="node35.html">Convective adjustment</A>
+<B> Up:</B> <A NAME="tex2html813"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html807"
+  HREF="node33.html">Calculation of the vertical</A>
+ &nbsp; <B>  <A NAME="tex2html815"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000414000000000000000"></A><A NAME="sec:stratification"></A>
+<BR>
+Calculation of the stratification
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine stratification(nlev,buoy_method,dt,cnpar,nub,gamB)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This routine computes the mean potential density, <!-- MATH
+ ${\langle \rho \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$ {\langle \rho \rangle} $"></SPAN>, the mean
+  potential buoyancy, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ B$"></SPAN>, defined in (<A HREF="node32.html#DefBuoyancy">33</A>), and the mean buoyancy
+  frequency,
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="DefBuoyancyFrequency"></A><!-- MATH
+ \begin{equation}
+N^2 = - \dfrac{g}{\rho_0} \dfrac{\partial {\rho}}{\partial {z}} = \dfrac{\partial {B}}{\partial {z}}
+      \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="172" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img160.png"
+ ALT="$\displaystyle N^2 = - \dfrac{g}{\rho_0} \dfrac{\partial {\rho}}{\partial {z}} = \dfrac{\partial {B}}{\partial {z}} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">40</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is based on potential density or buoyancy such that for <SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img161.png"
+ ALT="$ N^2=0$"></SPAN>, the entropy
+  is constant in the whole water column and mixing does not work against buoyancy
+  forces. If GOTM used as a turbulence library in your own three-dimensional model,
+  you have to insure that the <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img162.png"
+ ALT="$ N^2$"></SPAN> computed by you, and passed to the turbulence
+  routines in GOTM, is consistent with the concept of potential density and your
+  equation of state.
+
+<P>
+The mean potential density is evaluated from the equation of state, (<A HREF="node180.html#DefEOS">244</A>),
+  according to
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="DefPotentialDensity"></A><!-- MATH
+ \begin{equation}
+{\langle \rho \rangle}  = \hat{\rho} (\Theta,S,P_R)
+      \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="148" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img163.png"
+ ALT="$\displaystyle {\langle \rho \rangle} = \hat{\rho} (\Theta,S,P_R) \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">41</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN> denotes the mean potential temperature, <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN> the mean salinity
+   and <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img164.png"
+ ALT="$ P_R$"></SPAN> the mean reference pressure. The buoyancy frequency defined in
+  (<A HREF="#DefBuoyancyFrequency">40</A>) can be decomposed into contributions due to
+   potential temperature and salinity stratification,
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="NDecompostionA"></A><!-- MATH
+ \begin{equation}
+N^2 = N_\Theta^2 + N_S^2
+      \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="136" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img165.png"
+ ALT="$\displaystyle N^2 = N_\Theta^2 + N_S^2 \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">42</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where we introduced the quantities
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="NNT"></A><!-- MATH
+ \begin{equation}
+N_\Theta^2  = - \dfrac{g}{\rho_0} \dfrac{\partial {\rho}}{\partial {z}} \Big|_{S}
+                  = g \alpha(\Theta,S,P_R) \dfrac{\partial {\Theta}}{\partial {z}}
+      \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="275" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img166.png"
+ ALT="$\displaystyle N_\Theta^2 = - \dfrac{g}{\rho_0} \dfrac{\partial {\rho}}{\partial...
+...{S} = g \alpha(\Theta,S,P_R) \dfrac{\partial {\Theta}}{\partial {z}} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">43</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with the thermal expansion coefficient defined in (<A HREF="node183.html#eosAlpha">246</A>), and
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="NNS"></A><!-- MATH
+ \begin{equation}
+N_S^2  = - \dfrac{g}{\rho_0} \dfrac{\partial {\rho}}{\partial {z}} \Big|_{\Theta}
+                  = - g \beta(\Theta,S,P_R) \dfrac{\partial {S}}{\partial {z}}
+   \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="285" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img167.png"
+ ALT="$\displaystyle N_S^2 = - \dfrac{g}{\rho_0} \dfrac{\partial {\rho}}{\partial {z}}...
+...\Theta} = - g \beta(\Theta,S,P_R) \dfrac{\partial {S}}{\partial {z}} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">44</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+with the saline contraction coefficient defined in (<A HREF="node184.html#eosBeta">247</A>). It is important
+   to note that in the actual code the reference pressure, <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img164.png"
+ ALT="$ P_R$"></SPAN>, has been replaced by
+   the (approximate) hydrostatic pressure. Only if this dependence is replaced by
+   the constant reference pressure at the surface in the equation of state,
+   see section <A HREF="node180.html#sec:eqstate">8.8</A>, the model is truely based on potential temperature and density.
+   Otherwise,  the model is based on <SPAN  CLASS="textit">in-situ</SPAN> quantities.
+
+<P>
+Alternatively to the procedure outlined above, depending on the values of the
+   parameter <TT>buoy_method</TT>, the buoyancy may be calculated by means of the
+   transport equation (<A HREF="node32.html#bEq">34</A>). This equation then replaces the computation of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN>
+   and <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN> and is only recommended for idealized studies.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use meanflow,   only: h,S,T,buoy,rho
+   use meanflow,   only: NN,NNT,NNS
+   use meanflow,   only: gravity,rho_0
+   use eqstate,    only: eqstate1
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   number of vertical layers
+   integer,  intent(in)                :: nlev
+ 
+   method to compute buoyancy
+   integer,  intent(in)                :: buoy_method
+ 
+    time step (s)
+   REALTYPE, intent(in)                :: dt
+ 
+   numerical "implicitness" parameter
+   REALTYPE, intent(in)                :: cnpar
+ 
+   diffusivity of buoyancy (m^2/s)
+   REALTYPE, intent(in)                :: nub(0:nlev)
+ 
+   non-local buoyancy flux (m^2/s^3)
+   REALTYPE, intent(in)                :: gamb(0:nlev)
+</PRE><EM>OUTPUT PARAMETERS:</EM>
+<PRE>
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding &amp; Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html816"
+  HREF="node35.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html812"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html806"
+  HREF="node33.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html814"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html817"
+  HREF="node35.html">Convective adjustment</A>
+<B> Up:</B> <A NAME="tex2html813"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html807"
+  HREF="node33.html">Calculation of the vertical</A>
+ &nbsp; <B>  <A NAME="tex2html815"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

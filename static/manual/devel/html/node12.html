@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Manage global time-stepping </TITLE>
+<META NAME="description" CONTENT="Manage global time-stepping ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node13.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node10.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html533"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html529"
+  HREF="node10.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html523"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html531"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html534"
+  HREF="node13.html">The run is over</A>
+<B> Up:</B> <A NAME="tex2html530"
+  HREF="node10.html">Module gotm  </A>
+<B> Previous:</B> <A NAME="tex2html524"
+  HREF="node11.html">Initialise the model</A>
+ &nbsp; <B>  <A NAME="tex2html532"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00033200000000000000"></A><A NAME="timeLoop"></A>
+<BR>
+Manage global time-stepping 
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine time_loop()
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This internal routine is the heart of the code. It contains
+  the main time-loop inside of which all routines required
+  during the time step are called. The following main processes are
+  successively triggered.
+  
+<OL>
+<LI>The model time is updated and the output is prepared.
+</LI>
+<LI>Air-sea interactions (flux, SST) are computed.
+</LI>
+<LI>The time step is performed on the mean-flow equations
+         (momentum, temperature).
+</LI>
+<LI>Some quantities related to shear and stratification are updated
+         (shear-number, buoyancy frequency, etc).
+</LI>
+<LI>Turbulence is updated depending on what turbulence closure
+         model has been specified by the user.
+</LI>
+<LI>The results are written to the output files.
+  
+</LI>
+</OL>
+
+<P>
+Depending on macros set for the Fortran pre-processor, extra features
+  like the effects of sea-grass or sediments are considered in this routine
+  (see section <A HREF="node218.html#sec:extra">10</A>).
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding &amp; Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

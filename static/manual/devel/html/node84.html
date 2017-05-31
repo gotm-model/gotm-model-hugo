@@ -1,0 +1,249 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Algebraic length-scale with two master scales </TITLE>
+<META NAME="description" CONTENT="Algebraic length-scale with two master scales ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node85.html">
+<LINK REL="previous" HREF="node83.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node85.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1502"
+  HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1498"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1492"
+  HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1500"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1503"
+  HREF="node85.html">The non-local, exact weak-equilibrium</A>
+<B> Up:</B> <A NAME="tex2html1499"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1493"
+  HREF="node83.html">Algebraic length-scale from ISPRAMIX</A>
+ &nbsp; <B>  <A NAME="tex2html1501"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000523000000000000000"></A><A NAME="sec:potentialml"></A>
+<BR>
+Algebraic length-scale with two master scales 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine potentialml(nlev,z0b,z0s,h,depth,NN)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes the length scale by defining two master
+   length scales <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img667.png"
+ ALT="$ l_u$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img668.png"
+ ALT="$ l_d$"></SPAN>
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\begin{array}{l}
+   \int_{z_0}^{z_0+l_u(z_0)} (b(z_0)-b(z)) dz =k(z_0) \; , \quad \\[4mm]
+   \int_{z_0-l_d(z_0)}^{z_0} (b(z)-b(z_0)) dz =k(z_0)
+   \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="241" HEIGHT="79" BORDER="0"
+ SRC="img669.png"
+ ALT="\begin{displaymath}\begin{array}{l} \int_{z_0}^{z_0+l_u(z_0)} (b(z_0)-b(z)) dz =...
+... \int_{z_0-l_d(z_0)}^{z_0} (b(z)-b(z_0)) dz =k(z_0) \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">184</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+From <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img667.png"
+ ALT="$ l_u$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img668.png"
+ ALT="$ l_d$"></SPAN> two length-scales are defined: <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img670.png"
+ ALT="$ l_k$"></SPAN>,
+    a characteristic mixing length,
+    and <!-- MATH
+ $l_\epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img671.png"
+ ALT="$ l_\epsilon$"></SPAN>, a characteristic dissipation length.
+    They are computed according to
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\begin{array}{l}
+    l_k(z_0)= \text{Min} ( l_d(z_0),l_u(z_0)) \; , \quad \\[4mm]
+    l_{\epsilon}(z_0)=\left( l_d(z_0)l_u(z_0)\right)^\frac{1}{2}
+    \quad .
+    \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="196" HEIGHT="76" BORDER="0"
+ SRC="img672.png"
+ ALT="\begin{displaymath}\begin{array}{l} l_k(z_0)= \text{Min} ( l_d(z_0),l_u(z_0)) \;...
+...=\left( l_d(z_0)l_u(z_0)\right)^\frac{1}{2} \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">185</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img670.png"
+ ALT="$ l_k$"></SPAN> is used in <TT>kolpran()</TT> to compute eddy viscosity/difussivity.
+    <!-- MATH
+ $l_{\epsilon}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img673.png"
+ ALT="$ l_{\epsilon}$"></SPAN> is used to compute the dissipation rate, <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN>
+     according to
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\epsilon=C_{\epsilon} k^{3/2} l_{\epsilon}^{-1}
+      \; , \quad
+      C_{\epsilon}=0.7
+     \quad .
+    
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="207" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img674.png"
+ ALT="$\displaystyle \epsilon=C_{\epsilon} k^{3/2} l_{\epsilon}^{-1} \; , \quad C_{\epsilon}=0.7 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">186</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence, only: L,eps,tke,k_min,eps_min
+   use turbulence, only: cde,galp,kappa,length_lim
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   number of vertical layers
+   integer,  intent(in)                :: nlev
+ 
+   bottom and surface roughness (m)
+   REALTYPE, intent(in)                :: z0b,z0s
+ 
+   layer thickness (m)
+   REALTYPE, intent(in)                :: h(0:nlev)
+ 
+   local depth (m)
+   REALTYPE, intent(in)                :: depth
+ 
+   buoyancy frequency (1/s^2)
+   REALTYPE, intent(in)                :: NN(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s):  Manuel Ruiz Villarreal, Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1502"
+  HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1498"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1492"
+  HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1500"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1503"
+  HREF="node85.html">The non-local, exact weak-equilibrium</A>
+<B> Up:</B> <A NAME="tex2html1499"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1493"
+  HREF="node83.html">Algebraic length-scale from ISPRAMIX</A>
+ &nbsp; <B>  <A NAME="tex2html1501"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

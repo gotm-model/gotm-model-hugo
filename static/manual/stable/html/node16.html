@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introduction</TITLE>
+<META NAME="description" CONTENT="Introduction">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node19.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html542"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html538"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html532"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html540"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html543"
+  HREF="node17.html">Physics</A>
+<B> Up:</B> <A NAME="tex2html539"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html533"
+  HREF="node15.html">The mean flow model</A>
+ &nbsp; <B>  <A NAME="tex2html541"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00041000000000000000">
+Introduction</A>
+</H2>
+
+<P>
+This module contains the definitions of the most important
+mean flow variables used in geophysical models. In GOTM, these
+are
+
+<UL>
+<LI>the mean horizontal velocity components, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ U$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ V$"></SPAN>
+</LI>
+<LI>the mean potential temperature, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN>, (or the mean buoyancy, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ B$"></SPAN>)
+</LI>
+<LI>the mean salinity, <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN>
+</LI>
+</UL>
+Note that in general a variable <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ \phi$"></SPAN> describing a turbulent
+field can be decomposed into a mean and a fluctuating part. In GOTM, 
+we use the notation
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="decomposition"></A><!-- MATH
+ \begin{equation}
+\phi =  {\langle \phi \rangle}  + \phi'
+   \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="114" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$\displaystyle \phi = {\langle \phi \rangle} + \phi' \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">1</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ ${\langle \rule{3mm}{0mm} \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$ {\langle \rule{3mm}{0mm} \rangle} $"></SPAN> denotes the ensemble mean and the prime 
+the fluctuating part. In addition, for brevity, we use the following conventions:
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="decompositionConventions"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+     U      &=&  {\langle u \rangle}       \quad \text{for the x-velocity}            \\
+     V      &=&  {\langle v \rangle}       \quad \text{for the y-velocity}            \\
+     P      &=&  {\langle p \rangle}       \quad \text{for the pressure}              \\
+     \Theta &=&  {\langle \theta \rangle}  \quad \text{for the potential temperature} \\
+     B      &=&  {\langle b \rangle}       \quad \text{for the buoyancy}              \\
+     S      &=&  {\langle s \rangle}       \quad \text{for the salinity}
+   \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="298" HEIGHT="131" BORDER="0"
+ SRC="img19.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} U &amp;=&amp; {\langle u \rangle} \quad \text{for ...
+...&amp; {\langle s \rangle} \quad \text{for the salinity} \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">2</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that, if not explicitly mentioned, GOTM uses the units kg, m, s,
+K. Further conventions are introduced in the turbulence chapter
+section <A HREF="node36.html#sec:turbulenceIntro">4</A>. All operations on these meanflow variables
+are executed and coordinated in the <TT>meanflow</TT> module.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html544"
+  HREF="node17.html">Physics</A>
+<LI><A NAME="tex2html545"
+  HREF="node18.html">Numerics</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html542"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html538"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html532"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html540"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html543"
+  HREF="node17.html">Physics</A>
+<B> Up:</B> <A NAME="tex2html539"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html533"
+  HREF="node15.html">The mean flow model</A>
+ &nbsp; <B>  <A NAME="tex2html541"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

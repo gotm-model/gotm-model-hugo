@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Annual North Sea simulation</TITLE>
+<META NAME="description" CONTENT="Annual North Sea simulation">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node238.html">
+<LINK REL="previous" HREF="node236.html">
+<LINK REL="up" HREF="node235.html">
+<LINK REL="next" HREF="node238.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3535"
+  HREF="node238.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3531"
+  HREF="node235.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3525"
+  HREF="node236.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3533"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3536"
+  HREF="node238.html">Seasonal North Sea simulation</A>
+<B> Up:</B> <A NAME="tex2html3532"
+  HREF="node235.html">Shelf sea scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3526"
+  HREF="node236.html">Fladenground Experiment</A>
+ &nbsp; <B>  <A NAME="tex2html3534"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000132200000000000000"></A><A NAME="nns_annual"></A>
+<BR>
+Annual North Sea simulation
+</H3>
+
+<P>
+Here the annual simulation of the Northern Sea at 59<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img792.png"
+ ALT="$ ^{\circ}$"></SPAN>20" N
+and 1<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img792.png"
+ ALT="$ ^{\circ}$"></SPAN>17' E during the year 1998 as discussed
+by <A
+ HREF="node251.html#Boldingetal2002"><SPAN  CLASS="textit">Bolding et&nbsp;al.</SPAN> (2002)</A> is performed.
+
+<P>
+For this simulation, time series of surface slopes 
+<!-- MATH
+ $\partial_x \zeta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img21.png"
+ ALT="$ \partial_x\zeta$"></SPAN> and <!-- MATH
+ $\partial_y \zeta$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img22.png"
+ ALT="$ \partial_y\zeta$"></SPAN> were extrapolated from observations
+during autumn 1998 based on four partial tides by means of harmonic analysis
+(the program for doing this was kindly provided by Frank Janssen, now at
+the Baltic Sea Research Institute Warnem&#252;nde). 
+All necessary meteorological data are from the UK Meteorological Office Model. 
+For calculating the resulting surface fluxes, the bulk formulae from
+<A
+ HREF="node251.html#Kondo75"><SPAN  CLASS="textit">Kondo</SPAN> (1975)</A> are used here.
+Since no observations for the sea surface temperature (SST)
+are available for the whole year 1998 at station NNS, the simulated SST
+is used as input into the bulk formulae.
+For the evolution of the vertical
+salinity profile, which is known to stabilise stratification
+during summer months, a relaxation to results obtained with a
+prognostic three-dimensional model of the North Sea 
+by <A
+ HREF="node251.html#Pohlmann96"><SPAN  CLASS="textit">Pohlmann</SPAN> (1996)</A>. 
+By doing so, the horizontal advection, which is the dominant process
+for salinity dynamics in the Northern North Sea, is parameterised.
+
+<BR>
+<P>
+<B>Data files:</B>
+
+<P>
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT"><TT>sprof.dat</TT></TD>
+<TD ALIGN="LEFT">salinity in ppt from three-dimensional model
+of <A
+ HREF="node251.html#Pohlmann96"><SPAN  CLASS="textit">Pohlmann</SPAN> (1996)</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>tprof.dat</TT></TD>
+<TD ALIGN="LEFT">potential temperature in <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img792.png"
+ ALT="$ ^{\circ}$"></SPAN>C from the three-dimensional</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">model of <A
+ HREF="node251.html#Pohlmann96"><SPAN  CLASS="textit">Pohlmann</SPAN> (1996)</A></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>pressure.dat</TT></TD>
+<TD ALIGN="LEFT">sea surface slopes from tidal analysis of observations</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>meteonns.dat</TT></TD>
+<TD ALIGN="LEFT">meteorological data from UK Met Office model</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><TT>sst.dat</TT></TD>
+<TD ALIGN="LEFT">sea surface temperature in <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img792.png"
+ ALT="$ ^{\circ}$"></SPAN>C
+from analysis by Bundesamt f&#252;r</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="LEFT">Seeschifffahrt und
+Hydrographie, Hamburg, Germany</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3535"
+  HREF="node238.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3531"
+  HREF="node235.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3525"
+  HREF="node236.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3533"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3536"
+  HREF="node238.html">Seasonal North Sea simulation</A>
+<B> Up:</B> <A NAME="tex2html3532"
+  HREF="node235.html">Shelf sea scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3526"
+  HREF="node236.html">Fladenground Experiment</A>
+ &nbsp; <B>  <A NAME="tex2html3534"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

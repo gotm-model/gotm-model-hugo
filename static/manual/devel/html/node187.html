@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Interpolate from observation space to model grid</TITLE>
+<META NAME="description" CONTENT="Interpolate from observation space to model grid">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node188.html">
+<LINK REL="previous" HREF="node180.html">
+<LINK REL="up" HREF="node169.html">
+<LINK REL="next" HREF="node188.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2884"
+  HREF="node188.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2880"
+  HREF="node169.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2874"
+  HREF="node186.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2882"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2885"
+  HREF="node188.html">Convert between buoyancy fluxes</A>
+<B> Up:</B> <A NAME="tex2html2881"
+  HREF="node169.html">Utilities</A>
+<B> Previous:</B> <A NAME="tex2html2875"
+  HREF="node186.html">The #JACKETTea05### equation of</A>
+ &nbsp; <B>  <A NAME="tex2html2883"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00099000000000000000">
+Interpolate from observation space to model grid</A>
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine gridinterpol(N,cols,obs_z,obs_prof,nlev,model_z,model_prof)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This is a utility subroutine in which observational data, which might
+   be given on an arbitrary, but structured grid, are linearly interpolated and
+   extrapolated to the actual (moving) model grid.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   integer,  intent(in)                :: N,cols
+   REALTYPE, intent(in)                :: obs_z(0:N),obs_prof(0:N,cols)
+   integer,  intent(in)                :: nlev
+   REALTYPE, intent(in)                :: model_z(0:nlev)
+</PRE><EM>OUTPUT PARAMETERS:</EM>
+<PRE>   REALTYPE, intent(out)               :: model_prof(0:nlev,cols)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding &amp; Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

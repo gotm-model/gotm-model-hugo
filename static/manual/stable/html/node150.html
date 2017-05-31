@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Saving the results </TITLE>
+<META NAME="description" CONTENT="Saving the results ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node169.html">
+<LINK REL="previous" HREF="node128.html">
+<LINK REL="up" HREF="html.html">
+<LINK REL="next" HREF="node151.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2354"
+  HREF="node151.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2350"
+  HREF="html.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2344"
+  HREF="node149.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2352"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2355"
+  HREF="node151.html">Fortran: Module Interface output</A>
+<B> Up:</B> <A NAME="tex2html2351"
+  HREF="html.html">html</A>
+<B> Previous:</B> <A NAME="tex2html2345"
+  HREF="node149.html">const_NNS</A>
+ &nbsp; <B>  <A NAME="tex2html2353"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00080000000000000000"></A><A NAME="sec:output"></A>
+<BR>
+Saving the results  
+</H1>
+
+<P>
+GOTM provides an easily extendible interface for storing calculated results.
+The main specifications are given via the <TT>output</TT> namelist in
+<TT>gotmrun.inp</TT>. The most important member in this namelist is
+the integer <TT>out_fmt</TT>. Changing this variable will select the output format
+-- presently ASCII and NetCDF are supported.
+
+<P>
+In GOTM output is triggered by <TT>do_output()</TT>
+called inside the main integration loop (see section <A HREF="node10.html#sec:gotm">2.2</A>).
+Completely separated from the core of GOTM, a format specific
+subroutine is called to do the actual output.  We strongly recommend
+to use the NetCDF format -- mainly because it is well established and
+save -- but also because a large number of graphical programmes can
+read NetCDF. Another reason is the powerful package `nco' which
+provides some nice programs for manipulating NetCDF files. Information
+about how to install and use NetCDF and nco can be found at 
+
+<UL>
+<LI><TT>http://www.unidata.ucar.edu/packages/netcdf</TT> and 
+</LI>
+<LI><TT>http://nco.sourceforge.net</TT>.
+</LI>
+</UL>
+
+<P>
+
+<P>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2356"
+  HREF="node151.html">Fortran:  Module Interface output -- saving the results (Source File: output.F90)</A>
+<UL>
+<LI><A NAME="tex2html2357"
+  HREF="node152.html">Initialize</A>
+<LI><A NAME="tex2html2358"
+  HREF="node153.html">Set</A>
+<LI><A NAME="tex2html2359"
+  HREF="node154.html">Save</A>
+<LI><A NAME="tex2html2360"
+  HREF="node155.html">Close</A>
+<LI><A NAME="tex2html2361"
+  HREF="node156.html">Compute</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2362"
+  HREF="node157.html">Fortran:  Module Interface asciiout -- saving the results in ASCII (Source File: asciiout.F90)</A>
+<UL>
+<LI><A NAME="tex2html2363"
+  HREF="node158.html">Open</A>
+<LI><A NAME="tex2html2364"
+  HREF="node159.html">Save</A>
+<LI><A NAME="tex2html2365"
+  HREF="node160.html">Close</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2366"
+  HREF="node161.html">Fortran:  Module Interface ncdfout -- saving the results in NetCDF (Source File: ncdfout.F90)</A>
+<UL>
+<LI><A NAME="tex2html2367"
+  HREF="node162.html">Create</A>
+<LI><A NAME="tex2html2368"
+  HREF="node163.html">Save</A>
+<LI><A NAME="tex2html2369"
+  HREF="node164.html">Close</A>
+<LI><A NAME="tex2html2370"
+  HREF="node165.html">Begin</A>
+<LI><A NAME="tex2html2371"
+  HREF="node166.html">Define</A>
+<LI><A NAME="tex2html2372"
+  HREF="node167.html">Set</A>
+<LI><A NAME="tex2html2373"
+  HREF="node168.html">Store</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

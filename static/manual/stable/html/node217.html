@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Computational aspects</TITLE>
+<META NAME="description" CONTENT="Computational aspects">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="previous" HREF="node216.html">
+<LINK REL="up" HREF="node214.html">
+<LINK REL="next" HREF="node218.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3257"
+  HREF="node218.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3253"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3249"
+  HREF="node216.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3255"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3258"
+  HREF="node218.html">Extra features</A>
+<B> Up:</B> <A NAME="tex2html3254"
+  HREF="node214.html">Biogeochemical models</A>
+<B> Previous:</B> <A NAME="tex2html3250"
+  HREF="node216.html">Numerical aspects</A>
+ &nbsp; <B>  <A NAME="tex2html3256"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000103000000000000000"></A><A NAME="sec:bio-comp"></A>
+<BR>
+Computational aspects
+</H2>
+
+<P>
+The computational structure of the coupled physical-biogeochemical
+model system implemented here
+has been designed under consideration of various objectives. 
+In this section  
+a description of the various design related decisions is given.
+The major objectives are:
+
+<UL>
+<LI>to provide a well-defined interface between the one-dimensional
+   physical model and a sufficiently generic biogeochemical model,
+</LI>
+<LI>to allow for easy extensions of the system with new 
+     biogeochemical models without changing 
+  the over-all structure, such as the <A
+ HREF="node251.html#Fashametal1990"><SPAN  CLASS="textit">Fasham et&nbsp;al.</SPAN> (1990)</A> model
+  (see section <A HREF="#sec:bio-fasham"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>) and the <A
+ HREF="node251.html#Neumannetal2002"><SPAN  CLASS="textit">Neumann et&nbsp;al.</SPAN> (2002)</A> model, 
+  see section <A HREF="#sec:bio-iow"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>),
+</LI>
+<LI>to provide a number of solution methods for the 'process part' of the
+  biogeochemical model, i.e. solvers for ordinary differential equations
+  as discussed in section <A HREF="node216.html#sec:bio-num">9.2</A> and section <A HREF="node200.html#sec:ode-solver">8.5.11</A>,
+</LI>
+<LI>to obtain fast and efficient execution of the coupled model,
+</LI>
+<LI>to design the system in such a way that three-dimensional 
+   models can easily be interfaced with it.
+</LI>
+</UL>
+For the biogeochemical model,
+we have adopted the same design strategy as has been used for the turbulence 
+module of GOTM. The interface between an application using the turbulence
+module consists of two subroutine calls only: <SPAN  CLASS="textit">init_turbulence()</SPAN> and
+<SPAN  CLASS="textit">do_turbulence()</SPAN>. The subroutine <SPAN  CLASS="textit">init_turbulence()</SPAN> is
+responsible for initialising the parameters of the turbulence module and  
+called as part of the 
+initialisation of the entire model. For the turbulence module the 
+initialisation includes reading <SPAN  CLASS="textit">namelists</SPAN> with the model configuration, 
+allocating memory for all necessary variables and initialising 
+these variables with sensible values. <SPAN  CLASS="textit">init_turbulence()</SPAN> should only be
+called once during program execution and after this call all public and private
+variables of the turbulence module should be in a 
+consistently initialised state.
+During the time integration of the model, <SPAN  CLASS="textit">do_turbulence()</SPAN> has to be
+called at each time step. It is called with a number
+of parameters to transfer information e.g. from the mean-flow module 
+to the turbulence module but also to receive the variables updated
+by the turbulence module.
+
+<P>
+Using the same strategy for the biogeochemical module 
+has some problematic implications which are described here.
+In analogy to the turbulence
+module, the interface is given via the two subroutines <SPAN  CLASS="textit">init_bio()</SPAN> and 
+<SPAN  CLASS="textit">do_bio()</SPAN>.
+The major difference between the turbulence module and the 
+biogeochemical module
+in terms of implementation
+is that in the former the number of variables are known at compilation time
+and the dimensions are specified at run time where as in the latter both 
+the number of state variables and their dimension are known only at run time.
+The general interface has to be able to handle not only the different 
+biogeochemical models implemented at present but also to provide a framework
+for developing future models. There are two major
+items to address: 1. how to initialise the biogeochemical model and 2. how to 
+select the right biogeochemical model during the time integration and use the 
+selected ordinary differential equation (ODE) solver.
+
+<P>
+To solve the initialisation problem we have chosen a two-level initialisation
+approach.  At the first level variables not specific to any of the 
+biogeochemical 
+models are initialised. The single most important variable during this 
+phase is <SPAN  CLASS="textit">bio_model</SPAN>, which contains the identification number for all
+implemented biogeochemical models. 
+Depending on the value of <SPAN  CLASS="textit">bio_model</SPAN>, the second level
+of initialisation is started. At this level all model specific variables
+(such as process rates) are initialised.
+The most important variable at the second
+level is <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img870.png"
+ ALT="$ I$"></SPAN> (number of state variables). 
+After this step, the system returns to the first level, and
+now all information is available for allocating memory and initialising 
+all variables. The most important data structure provided to the individual 
+biogeochemical models will briefly be mentioned here. <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img903.png"
+ ALT="$ c_{i,k}$"></SPAN> 
+with <!-- MATH
+ $1\leq i\leq I$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img904.png"
+ ALT="$ 1\leq i\leq I$"></SPAN> and <!-- MATH
+ $1\leq k\leq N$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="77" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img905.png"
+ ALT="$ 1\leq k\leq N$"></SPAN> (number of vertical layers)
+is a two-dimensional array containing the concentrations of each 
+variable at each depth. <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img870.png"
+ ALT="$ I$"></SPAN> is  
+supplied by the individual biogeochemical model and <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ N$"></SPAN>
+is transferred in the call to <SPAN  CLASS="textit">init_bio()</SPAN> from the physical model. 
+
+<P>
+After the initialisation, all variables are initialised in a common
+data structure where the only link to the specific model is via 
+<SPAN  CLASS="textit">bio_model</SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img870.png"
+ ALT="$ I$"></SPAN>. The next step is to design the actual
+time integration in such a way that selected biogeochemical model 
+operates on the 
+common data structure using the selected ODE solver in a transparent way.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig_bio_code"></A><A NAME="18954"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3:</STRONG>
+
+The structure of the <SPAN  CLASS="textit">do_bio()</SPAN> subroutine. This subroutine is responsible
+for updating all variables in the biogeochemical model in question at each time-step.
+<SPAN  CLASS="textit">do_bio()</SPAN> essentially works as a wrapper around all biogeochemical models
+implemented.
+The hatched arrows from <SPAN  CLASS="textit">process model</SPAN> to <SPAN  CLASS="textit">ODE solvers</SPAN>
+indicate that between one and four calls 
+of  <SPAN  CLASS="textit">process model</SPAN>
+per time step are performed, depending on the order of the chosen ODE solver.  
+</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ $\scalebox{0.5}{\includegraphics{figures/structure_gotmbio.eps}}$
+ -->
+<IMG
+ WIDTH="411" HEIGHT="275" ALIGN="BOTTOM" BORDER="0"
+ SRC="img906.png"
+ ALT="\scalebox{0.5}{\includegraphics{figures/structure_gotmbio.eps}}">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Figure <A HREF="#fig_bio_code">3</A> shows a sketch of how this is organised in the
+model source code. 
+The sketch should be be read from left to right. At the left side we have 
+the interface <SPAN  CLASS="textit">do_bio()</SPAN>, which is the only connection to the
+calling program. The next level shows a sequence of steps necessary to do the
+time integration. It should be noted that not all biogeochemical 
+models necessarily
+have to execute all the steps, some models do e.g. not need any surface fluxes or short-wave radiation.
+For the diffusion/advection part a general subroutine is called
+which is also used by 
+the physical model. 
+After having calculated <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img907.png"
+ ALT="$ I_{PAR}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ B$"></SPAN> (see eqs. (<A HREF="node30.html#Iz">29</A>) and
+(<A HREF="#B"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>),
+the next step is the step at which the production and destruction terms
+(<SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img908.png"
+ ALT="$ p_{i,j,k}$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="37" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img909.png"
+ ALT="$ d_{i,j,k}$"></SPAN>)
+of the biogeochemical models are calculated. This is done via a call to 
+<SPAN  CLASS="textit">ode_solver()</SPAN>. After the call to <SPAN  CLASS="textit">ode_solver()</SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img903.png"
+ ALT="$ c_{i,k}$"></SPAN>
+has been updated with the new values of all variables in the
+biogeochemical model. Which ODE solver to use is determined during the 
+initialisation phase (<SPAN  CLASS="textit">ode_method</SPAN>).
+It should be noted
+that for some of the solution methods the biogeochemical processes have to 
+be evaluated more than once. Instead of having <SPAN  CLASS="textit">ode_solver()</SPAN> being 
+responsible for calling the chosen biogeochemical model,
+an additional subroutine
+has been introduced: <SPAN  CLASS="textit">process_model</SPAN>, is a simple
+wrapper routine calling the selected biogeochemical model.
+
+<P>
+The implementation of this biogeochemical module into three-dimensional models
+is straight-forward. The 3D model has to take care of storing all
+three-dimensional state variables and calculate their advection with the
+mean flow and the horizontal diffusion.
+Settling, migration, vertical diffusion and the production/destruction
+processes are calculated by the biogeochemical module which has to be
+called by means of a loop over all horizontal grid boxes of the 3D
+model.
+
+<P>
+This text has been adapted from <A
+ HREF="node251.html#Burchardetal05"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2006)</A>.
+
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3257"
+  HREF="node218.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3253"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3249"
+  HREF="node216.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3255"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3258"
+  HREF="node218.html">Extra features</A>
+<B> Up:</B> <A NAME="tex2html3254"
+  HREF="node214.html">Biogeochemical models</A>
+<B> Previous:</B> <A NAME="tex2html3250"
+  HREF="node216.html">Numerical aspects</A>
+ &nbsp; <B>  <A NAME="tex2html3256"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

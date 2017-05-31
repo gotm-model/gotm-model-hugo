@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Compute saline contraction coefficient</TITLE>
+<META NAME="description" CONTENT="Compute saline contraction coefficient">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node185.html">
+<LINK REL="previous" HREF="node183.html">
+<LINK REL="up" HREF="node180.html">
+<LINK REL="next" HREF="node185.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2850"
+  HREF="node185.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2846"
+  HREF="node180.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2840"
+  HREF="node183.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2848"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2851"
+  HREF="node185.html">The UNESCO equation of</A>
+<B> Up:</B> <A NAME="tex2html2847"
+  HREF="node180.html">Module eqstate  </A>
+<B> Previous:</B> <A NAME="tex2html2841"
+  HREF="node183.html">Compute thermal expansion coefficient</A>
+ &nbsp; <B>  <A NAME="tex2html2849"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00098400000000000000">
+Compute saline contraction coefficient</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   REALTYPE function eos_beta(S,T,p,g,rho_0)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes the saline contractioncoefficient defined by
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="eosBeta"></A><!-- MATH
+ \begin{equation}
+\beta =
+          \dfrac{1}{\rho_0}
+         \left( \dfrac{\partial {\rho_{is}}}{\partial {S}} \right)_T
+ 	 =
+         - \dfrac{1}{g}
+         \left( \dfrac{\partial {B_{is}}}{\partial {S}} \right)_T
+         \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="268" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img841.png"
+ ALT="$\displaystyle \beta = \dfrac{1}{\rho_0} \left( \dfrac{\partial {\rho_{is}}}{\pa...
+...dfrac{1}{g} \left( \dfrac{\partial {B_{is}}}{\partial {S}} \right)_T \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">247</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img838.png"
+ ALT="$ B_{is}$"></SPAN> denotes the in-situ buoyancy. The computation is carried
+   out by a finite difference approximation of (<A HREF="#eosBeta">247</A>),
+   requiring two evaluations of the equation of state.
+   Note, that comparing (<A HREF="#eosBeta">247</A>) with (<A HREF="node182.html#eosLinear">245</A>) it follows that
+   <!-- MATH
+ $\beta = \text{\tt dsr0}/\rho_0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img842.png"
+ ALT="$ \beta =$">&nbsp; &nbsp;<TT>dsr0<IMG
+ WIDTH="27" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img840.png"
+ ALT="$ /\rho_0$"></SPAN></TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   REALTYPE,intent(in)                 :: S,T,p
+   REALTYPE,optional,intent(in)        :: g,rho_0
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

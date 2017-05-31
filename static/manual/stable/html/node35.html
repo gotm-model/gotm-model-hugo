@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Convective adjustment (Source File: convectiveadjustment.F90)</TITLE>
+<META NAME="description" CONTENT="Convective adjustment (Source File: convectiveadjustment.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html782"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html778"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html774"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html780"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html783"
+  HREF="node36.html">The turbulence model</A>
+<B> Up:</B> <A NAME="tex2html779"
+  HREF="node19.html">Fortran: Module Interface Mean</A>
+<B> Previous:</B> <A NAME="tex2html775"
+  HREF="node34.html">Calculation of the stratification</A>
+ &nbsp; <B>  <A NAME="tex2html781"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000421600000000000000"></A><A NAME="sec:convective"></A>
+<BR>
+Convective adjustment  (Source File: convectiveadjustment.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine convectiveadjustment(nlev,num,nuh,const_num,const_nuh, &amp;
+                                    buoy_method,g,rho_0)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+In this subroutine, convective adjustment is performed for the temperature,
+   <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN>, and the salinity, <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN>, or alternatively for the buoyancy, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ B$"></SPAN>,
+    if a dynamic
+   equation is solved for this quantity. Beginning from the first interface
+   below the surface, the water column is checked for static instability.
+   If the Brunt-V&#228;is&#228;l&#228; frequency squared, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img158.png"
+ ALT="$ N^2$"></SPAN>, is negative, the two
+   adjacent boxes are completely mixed. The stability for
+   the interface below this homogenised upper part of the water column
+   is then analysed, and, if needed, mixing is performed again. By doing so,
+   the water column is scanned until  the first interface with
+   statically stable or neutral stratification or the bottom is reached.
+   An equation of state described in section <A HREF="node180.html#sec:eqstate">8.4</A> is used
+   for calculating the Brunt-V&#228;is&#228;l&#228; frequency.
+
+<P>
+The constant values <TT>const_num</TT> and <TT>const_nuh</TT> are then imposed for
+   the eddy viscosity <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \nu_t$"></SPAN> and the eddy diffusivity <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img39.png"
+ ALT="$ \nu'_t$"></SPAN>, respectively.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use meanflow, only: h,t,s,buoy,NN
+    use eqstate, only: eqstate1
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer, intent(in)                 :: nlev,buoy_method
+    REALTYPE, intent(in)                :: g,rho_0
+    REALTYPE, intent(in)                :: const_num,const_nuh
+</PRE><EM>OUTPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(out)               :: num(1:nlev),nuh(1:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Hans Burchard &amp; Karsten Bolding
+    $Log: convectiveadjustment.F90,v $
+    Revision 1.6  2005-06-27 13:44:07  kbk
+    modified + removed traling blanks
+    Revision 1.5  2004/08/18 11:39:10  lars
+    updated documentation
+    Revision 1.4  2003/03/28 09:20:35  kbk
+    added new copyright to files
+    Revision 1.3  2003/03/28 08:56:56  kbk
+    removed tabs
+    Revision 1.2  2003/03/10 08:50:06  gotm
+    Improved documentation and cleaned up code
+    Revision 1.1.1.1  2001/02/12 15:55:57  gotm
+    initial import into CVS
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html782"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html778"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html774"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html780"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html783"
+  HREF="node36.html">The turbulence model</A>
+<B> Up:</B> <A NAME="tex2html779"
+  HREF="node19.html">Fortran: Module Interface Mean</A>
+<B> Previous:</B> <A NAME="tex2html775"
+  HREF="node34.html">Calculation of the stratification</A>
+ &nbsp; <B>  <A NAME="tex2html781"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

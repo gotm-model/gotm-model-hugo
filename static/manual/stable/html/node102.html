@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Compute</TITLE>
+<META NAME="description" CONTENT="Compute">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node103.html">
+<LINK REL="previous" HREF="node101.html">
+<LINK REL="up" HREF="node96.html">
+<LINK REL="next" HREF="node103.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1706"
+  HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1702"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1696"
+  HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1704"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1707"
+  HREF="node103.html">Printing GOTM library version</A>
+<B> Up:</B> <A NAME="tex2html1703"
+  HREF="node96.html">Fortran: Module Interface kpp:</A>
+<B> Previous:</B> <A NAME="tex2html1697"
+  HREF="node101.html">Compute</A>
+ &nbsp; <B>  <A NAME="tex2html1705"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00058600000000000000"></A><A NAME="sec:wscale"></A>
+<BR>
+Compute the velocity scale
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine wscale(Bfsfc,u_taus,d,wm,ws)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This routine computes the turbulent velocity scale for momentum
+    and tracer as a function of the turbulent friction velocity, <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img544.png"
+ ALT="$ u_*$"></SPAN>,
+    the "limited" distance, <!-- MATH
+ $d_\text{lim}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img755.png"
+ ALT="$ d_$">lim</SPAN>, and the total buoyancy
+    flux, <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img756.png"
+ ALT="$ B_f$"></SPAN>, according to
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="wscale"></A><!-- MATH
+ \begin{equation}
+w_\phi = \dfrac{\kappa u_*}{\Phi_\phi (\zeta)}
+       \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="109" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img757.png"
+ ALT="$\displaystyle w_\phi = \dfrac{\kappa u_*}{\Phi_\phi (\zeta)} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">225</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In this equation, <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img738.png"
+ ALT="$ \Phi_\phi$"></SPAN> is a non-dimensional function of the
+   stability parameter <!-- MATH
+ $\zeta=d_\text{lim}/L$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="42" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img758.png"
+ ALT="$ \zeta=d_$">lim<IMG
+ WIDTH="22" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img759.png"
+ ALT="$ /L$"></SPAN>, using the Monin-Obukhov
+   length,
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="MOLength"></A><!-- MATH
+ \begin{equation}
+L = \dfrac{u_*^3}{\kappa B_f}
+       \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="89" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img760.png"
+ ALT="$\displaystyle L = \dfrac{u_*^3}{\kappa B_f} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">226</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In stable situations, <SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img761.png"
+ ALT="$ B_f \ge 0$"></SPAN>, the length scale <!-- MATH
+ $d_\text{lim}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img755.png"
+ ALT="$ d_$">lim</SPAN> is just the distance
+   from the surface or bottom, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img436.png"
+ ALT="$ d$"></SPAN>. Then, the non-dimensional function is of the form
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="PhiStable"></A><!-- MATH
+ \begin{equation}
+\Phi_\phi = 1 + \zeta
+   \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="105" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img762.png"
+ ALT="$\displaystyle \Phi_\phi = 1 + \zeta \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">227</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and identical for momentum, heat, and tracers.
+
+<P>
+In unstable situations, <SPAN CLASS="MATH"><IMG
+ WIDTH="53" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img763.png"
+ ALT="$ B_f &lt; 0$"></SPAN>, the scale <!-- MATH
+ $d_\text{lim}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img755.png"
+ ALT="$ d_$">lim</SPAN> corresponds
+   to the distance from surface or bottom only until it reaches the end of
+   the surface (or bottom) layer at <!-- MATH
+ $d=\epsilon h$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img764.png"
+ ALT="$ d=\epsilon h$"></SPAN>. Then it stays constant
+   at this maximum value.
+
+<P>
+The different functional forms of <!-- MATH
+ $\Phi_\phi(\zeta)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img765.png"
+ ALT="$ \Phi_\phi(\zeta)$"></SPAN> for unstable flows
+   are discussed in <A
+ HREF="node251.html#Largeetal94"><SPAN  CLASS="textit">Large et&nbsp;al.</SPAN> (1994)</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+    buoyancy flux (m^2/s^3)
+    REALTYPE, intent(in)                :: Bfsfc
+ 
+    friction velocity (m/s)
+    REALTYPE, intent(in)                :: u_taus
+ 
+    (limited) distance (m)
+    REALTYPE, intent(in)                :: d
+</PRE><EM>OUTPUT PARAMETERS:</EM>
+<PRE> 
+    velocity scale (m/s)
+    for momentum and tracer
+    REALTYPE, intent(out)               :: wm, ws
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1706"
+  HREF="node103.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1702"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1696"
+  HREF="node101.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1704"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1707"
+  HREF="node103.html">Printing GOTM library version</A>
+<B> Up:</B> <A NAME="tex2html1703"
+  HREF="node96.html">Fortran: Module Interface kpp:</A>
+<B> Previous:</B> <A NAME="tex2html1697"
+  HREF="node101.html">Compute</A>
+ &nbsp; <B>  <A NAME="tex2html1705"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

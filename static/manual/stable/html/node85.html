@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The non-local, exact weak-equilibrium stability function (Source File: cmue_a.F90)</TITLE>
+<META NAME="description" CONTENT="The non-local, exact weak-equilibrium stability function (Source File: cmue_a.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node86.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node86.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1499"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1495"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1489"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1497"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1500"
+  HREF="node86.html">The non-local, approximate weak-equilibrium</A>
+<B> Up:</B> <A NAME="tex2html1496"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1490"
+  HREF="node84.html">Algebraic length-scale with two</A>
+ &nbsp; <B>  <A NAME="tex2html1498"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000573700000000000000"></A><A NAME="sec:cmueA"></A>
+<BR>
+The non-local, exact weak-equilibrium stability function  (Source File: cmue_a.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine cmue_a(nlev)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+The solution of (<A HREF="node40.html#bijVertical">70</A>) and (<A HREF="node40.html#giVertical">71</A>) has the shape indicated
+    by (<A HREF="node40.html#b13">74</A>). This subroutine is used to update the quantities
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img174.png"
+ ALT="$ c_\mu$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img179.png"
+ ALT="$ c'_\mu$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img261.png"
+ ALT="$ \Gamma$"></SPAN>, defined in (<A HREF="node40.html#b13">74</A>), from which all turbulent
+    fluxes can be computed. The non-linear terms <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img243.png"
+ ALT="$ {\cal N}$"></SPAN> and <!-- MATH
+ ${\cal N}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ {\cal N}_b$"></SPAN> are updated
+    by evaluating the right hand side of (<A HREF="node39.html#NandNb">65</A>) at the old time step.
+
+<P>
+The numerators and the denominator appearing in (<A HREF="node40.html#cm">77</A>)
+    are polynomials of the form
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="vdng"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+      D         &=& d_0
+                 +  d_1 \overline{N}^2  + d_2 \overline{S}^2
+                 +  d_3 \overline{N}^2 \overline{S}^2
+                 + d_4 \overline{N}^4   + d_5 \overline{S}^4      \; , \quad \\[3mm]
+      N_n        &=& n_0
+                 +  n_1 \overline{N}^2  + n_2 \overline{S}^2
+                 +  n_3 \overline{T}                              \; , \quad \\[3mm]
+      N_b       &=& n_{b0}
+                 +  n_{b1} \overline{N}^2 + n_{b2} \overline{S}^2 \; , \quad \\[3mm]
+      N_\Gamma  &=& ( g_0
+                 +  g_1 \overline{N}^2  + g_2 \overline{S}^2 ) \overline{T}
+     \quad .
+     \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="382" HEIGHT="149" BORDER="0"
+ SRC="img671.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} D &amp;=&amp; d_0 + d_1 \overline{N}^2 + d_2 \over...
+...ne{N}^2 + g_2 \overline{S}^2 ) \overline{T} \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">185</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The coefficients of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img672.png"
+ ALT="$ D$"></SPAN> are given by
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="vdi"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+       d_0 &=& 36 {\cal N}^3 {\cal N}_b^2                           \; , \quad \\[3mm]
+       d_1 &=& 84 a_5 a_{b3} {\cal N}^2 {\cal N}_b                  \; , \quad \\[3mm]
+       d_2 &=&  9 (a_{b2}^2 - a_{b1}^2) {\cal N}^3
+             + 12 ( 3 a_3^2 - a_2^2) {\cal N}   {\cal N}_b^2        \; , \quad \\[3mm]
+       d_3 &=& 12 (a_2 a_{b1} - 3 a_3 a_{b2} ) a_5 a_{b3} {\cal N}
+             + 12 ( a_3^2 - a_2^2)  a_5 a_{b3} {\cal N}_b           \; , \quad \\[3mm]
+       d_4 &=& 48 a_5^2 a_{b3}^2 {\cal N}                           \; , \quad \\[3mm]
+       d_5 &=&  3 ( 3 a_3^2 - a_2^2)(a_{b2}^2 - a_{b1}^2) {\cal N}
+       \quad .
+     \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="404" HEIGHT="199" BORDER="0"
+ SRC="img673.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} d_0 &amp;=&amp; 36 {\cal N}^3 {\cal N}_b^2 \; , \q...
+..._3^2 - a_2^2)(a_{b2}^2 - a_{b1}^2) {\cal N} \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">186</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The coefficients of the numerators <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img674.png"
+ ALT="$ N_n$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img675.png"
+ ALT="$ N_b$"></SPAN> can be expressed as
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="vni"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+       n_0 &=& 36 a_1 {\cal N}^2 {\cal N}_b^2                       \; , \quad \\[3mm]
+       n_1 &=&-12 a_5 a_{b3} (a_{b1}+a_{b2}) {\cal N}^2
+             -  8 a_5 a_{b3} (-6 a_1+a_2+3 a_3) {\cal N} {\cal N}_b \; , \quad \\[3mm]
+       n_2 &=& 9 a_1 (a_{b2}^2 - a_{b1}^2){\cal N}^2                \; , \quad \\[3mm]
+       n_3 &=& 36 a_5 a_{b4} (a_{b1}+a_{b2}) {\cal N}^2
+             + 24 a_5 a_{b4} (a_2+3 a_3) {\cal N} {\cal N}_b        \; , \quad
+     \end{array}
+    
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="462" HEIGHT="124" BORDER="0"
+ SRC="img676.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} n_0 &amp;=&amp; 36 a_1 {\cal N}^2 {\cal N}_b^2 \; ...
+...5 a_{b4} (a_2+3 a_3) {\cal N} {\cal N}_b \; , \quad \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">187</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="vnbi"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+       n_{b0} &=& 12 a_{b3} {\cal N}^3 {\cal N}_b                   \; , \quad \\[3mm]
+       n_{b1} &=& 12 a_5 a_{b3}^2 {\cal N}^2                        \; , \quad \\[3mm]
+       n_{b2} &=&  9 a_1 a_{b3} (a_{b1}-a_{b2}) {\cal N}^2
+                +    a_{b3} (6 a_1 (a_2-3 a_3)
+                -    4 (a_2^2-3 a_3^2) ) {\cal N} {\cal N}_b        \; , \quad
+     \end{array}
+    
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="502" HEIGHT="91" BORDER="0"
+ SRC="img677.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} n_{b0} &amp;=&amp; 12 a_{b3} {\cal N}^3 {\cal N}_b...
+... 4 (a_2^2-3 a_3^2) ) {\cal N} {\cal N}_b \; , \quad \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">188</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and the numerator of the term <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img261.png"
+ ALT="$ \Gamma$"></SPAN> is
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="vgi"></A><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+       g_0 &=& 36 a_{b4} {\cal N}^3 {\cal N}_b                      \; , \quad \\[3mm]
+       g_1 &=& 36 a_5 a_{b3}  a_{b4} {\cal N}^2                     \; , \quad \\[3mm]
+       g_2 &=& 12 a_{b4} ( 3 a_3^2 - a_2^2) {\cal N}  {\cal N}_b    \quad .
+     \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="221" HEIGHT="101" BORDER="0"
+ SRC="img678.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} g_0 &amp;=&amp; 36 a_{b4} {\cal N}^3 {\cal N}_b \;...
+...{b4} ( 3 a_3^2 - a_2^2) {\cal N} {\cal N}_b \quad . \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">189</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use turbulence, only: eps
+    use turbulence, only: P,B,Pb,epsb
+    use turbulence, only: an,as,at,r
+    use turbulence, only: cmue1,cmue2,gam
+    use turbulence, only: cm0
+    use turbulence, only: cc1
+    use turbulence, only: ct1,ctt
+    use turbulence, only: a1,a2,a3,a4,a5
+    use turbulence, only: at1,at2,at3,at4,at5
+ 
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    number of vertical layers
+    integer, intent(in)       :: nlev
+</PRE><I CLASS="sans">BUGS:</I>
+<PRE>   Test stage. Do not yet use.
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+    $Log: cmue_a.F90,v $
+    Revision 1.1  2005-06-27 10:54:33  kbk
+    new files needed
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1499"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1495"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1489"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1497"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1500"
+  HREF="node86.html">The non-local, approximate weak-equilibrium</A>
+<B> Up:</B> <A NAME="tex2html1496"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1490"
+  HREF="node84.html">Algebraic length-scale with two</A>
+ &nbsp; <B>  <A NAME="tex2html1498"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Compute turbulence in the surface layer </TITLE>
+<META NAME="description" CONTENT="Compute turbulence in the surface layer ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node101.html">
+<LINK REL="previous" HREF="node99.html">
+<LINK REL="up" HREF="node96.html">
+<LINK REL="next" HREF="node101.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1700"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1696"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1690"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1698"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1701"
+  HREF="node101.html">Compute turbulence in the</A>
+<B> Up:</B> <A NAME="tex2html1697"
+  HREF="node96.html">Module kpp: the KPP-turbulence</A>
+<B> Previous:</B> <A NAME="tex2html1691"
+  HREF="node99.html">Compute interior fluxes</A>
+ &nbsp; <B>  <A NAME="tex2html1699"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000535400000000000000"></A><A NAME="sec:kppSurface"></A>
+<BR>
+Compute turbulence in the surface layer 
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine surface_layer(nlev,h0,h,rho,u,v,NN,u_taus,u_taub,       &amp;
+                            tFlux,btFlux,sFlux,bsFlux,tRad,bRad,f)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+In this routine all computations related to turbulence in the surface layer
+  are performed. The algorithms are described in section <A HREF="node96.html#sec:kpp">4.35</A>. Note that these
+  algorithms are affected by some pre-processor macros defined in <TT>cppdefs.inp</TT>,
+  and by the parameters set in <TT>kpp.nml</TT>, see section <A HREF="node96.html#sec:kpp">4.35</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   number of grid cells
+   integer                                       :: nlev
+ 
+   bathymetry (m)
+   REALTYPE                                      :: h0
+ 
+   thickness of grid cells (m)
+   REALTYPE                                      :: h(0:nlev)
+ 
+   potential density at grid centers (kg/m^3)
+   REALTYPE                                      :: rho(0:nlev)
+ 
+   velocity components at grid centers (m/s)
+   REALTYPE                                      :: u(0:nlev),v(0:nlev)
+ 
+   square of buoyancy frequency (1/s^2)
+   REALTYPE                                      :: NN(0:nlev)
+ 
+   surface and bottom friction velocities (m/s)
+   REALTYPE                                      :: u_taus,u_taub
+ 
+   surface temperature flux (K m/s) and
+   salinity flux (sal m/s) (negative for loss)
+   REALTYPE                                      :: tFlux,sFlux
+ 
+   surface buoyancy fluxes (m^2/s^3) due to
+   heat and salinity fluxes
+   REALTYPE                                      :: btFlux,bsFlux
+ 
+   radiative flux [ I(z)/(rho Cp) ] (K m/s)
+   and associated buoyancy flux (m^2/s^3)
+   REALTYPE                                      :: tRad(0:nlev),bRad(0:nlev)
+ 
+   Coriolis parameter (rad/s)
+   REALTYPE                                      :: f
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

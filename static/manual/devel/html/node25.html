@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The U-momentum equation</TITLE>
+<META NAME="description" CONTENT="The U-momentum equation">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node26.html">
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html708"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html704"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html698"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html706"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html709"
+  HREF="node26.html">The V-momentum equation</A>
+<B> Up:</B> <A NAME="tex2html705"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html699"
+  HREF="node24.html">The Coriolis rotation</A>
+ &nbsp; <B>  <A NAME="tex2html707"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00045000000000000000"></A><A NAME="sec:uequation"></A>
+<BR>
+The U-momentum equation
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine uequation(nlev,dt,cnpar,tx,num,gamu,Method)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine computes the transport of momentum in
+   <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img71.png"
+ ALT="$ x$"></SPAN>-direction according to
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="uEq"></A><!-- MATH
+ \begin{equation}
+\dot{U}
+     = {\cal D}_U
+     - g \dfrac{\partial {\zeta}}{\partial {x}} + \int_z^{\zeta} \dfrac{\partial {B}}{\partial {x}} \,dz'
+     - \frac{1}{\tau^U_R}(U-U_{obs})-C_f U \sqrt{U^2+V^2}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="473" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img72.png"
+ ALT="$\displaystyle \dot{U} = {\cal D}_U - g \dfrac{\partial {\zeta}}{\partial {x}} +...
+...tial {x}}  dz' - \frac{1}{\tau^U_R}(U-U_{obs})-C_f U \sqrt{U^2+V^2} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">12</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img73.png"
+ ALT="$ \dot{U}$"></SPAN> denotes the material derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ U$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$ \zeta$"></SPAN>
+   the free surface elevation and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ B$"></SPAN> the mean buoyancy defined
+   in  (<A HREF="node32.html#DefBuoyancy">33</A>). <!-- MATH
+ ${\cal D}_U$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img75.png"
+ ALT="$ {\cal D}_U$"></SPAN> is the sum of the turbulent
+   and viscous transport terms modelled according to
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Du"></A><!-- MATH
+ \begin{equation}
+{\cal D}_U
+     = \dfrac{\partial}{\partial {z}}
+      \left(
+         \left( \nu_t + \nu \right) \dfrac{\partial {U}}{\partial {z}}
+                - \tilde{\Gamma}_U
+       \right)
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="241" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img76.png"
+ ALT="$\displaystyle {\cal D}_U = \dfrac{\partial}{\partial {z}} \left( \left( \nu_t + \nu \right) \dfrac{\partial {U}}{\partial {z}} - \tilde{\Gamma}_U \right) \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">13</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In this equation, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \nu_t$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="$ \nu$"></SPAN> are the turbulent and
+   molecular diffusivities of momentum, respectively, and
+   <!-- MATH
+ $\tilde{\Gamma}_U$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img78.png"
+ ALT="$ \tilde{\Gamma}_U$"></SPAN> denotes the non-local flux of momentum,
+   see section <A HREF="node36.html#sec:turbulenceIntro">4</A>.
+
+<P>
+Coriolis rotation is accounted for as described in
+   section <A HREF="node24.html#sec:coriolis">3.4</A>.
+   The external pressure gradient (second term on right hand side)
+   is applied here only if surface slopes are
+   directly given. Otherwise, the gradient is computed as
+    described in section <A HREF="node27.html#sec:extpressure">3.7</A>, see <A
+ HREF="node251.html#Burchard99"><SPAN  CLASS="textit">Burchard</SPAN> (1999)</A>.
+   The internal pressure gradient (third
+   term on right hand side) is calculated in <TT>intpressure.F90</TT>, see
+   section <A HREF="node28.html#sec:intpressure">3.8</A>.
+   The fifth term on the right hand side allows for nudging the velocity
+   to observed profiles with the relaxation time scale <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img79.png"
+ ALT="$ \tau^U_R$"></SPAN>.
+   This is useful for initialising
+   velocity profiles in case of significant inertial oscillations.
+   Bottom friction is implemented implicitly using the fourth term
+   on the right hand side. Implicit friction may  be
+   applied on all levels in order to allow for inner friction terms such
+   as seagrass friction (see section <A HREF="node219.html#sec:seagrass">10.1</A>).
+
+<P>
+Diffusion is numerically treated implicitly, see equations (<A HREF="node18.html#sigmafirst">7</A>)-
+   (<A HREF="node18.html#sigmalast">9</A>).
+   The tri-diagonal matrix is solved then by a simplified Gauss elimination.
+   Vertical advection is included, and it must be non-conservative,
+   which is ensured by setting the local variable <TT>adv_mode=0</TT>,
+   see section <A HREF="node174.html#sec:advectionMean">8.5</A> on page <A HREF="node174.html#sec:advectionMean"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use meanflow,     only: gravity,avmolu
+   use meanflow,     only: h,u,uo,v,w,avh
+   use meanflow,     only: drag,SS,runtimeu
+   use observations, only: w_adv_method,w_adv_discr
+   use observations, only: uProf,vel_relax_tau,vel_relax_ramp
+   use observations, only: idpdx,dpdx
+   use util,         only: Dirichlet,Neumann
+   use util,         only: oneSided,zeroDivergence
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   number of vertical layers
+   integer, intent(in)                 :: nlev
+ 
+   time step (s)
+   REALTYPE, intent(in)                :: dt
+ 
+   numerical "implicitness" parameter
+   REALTYPE, intent(in)                :: cnpar
+ 
+   wind stress in x-direction
+   divided by rho_0 (m^2/s^2)
+   REALTYPE, intent(in)                :: tx
+ 
+   diffusivity of momentum (m^2/s)
+   REALTYPE, intent(in)                :: num(0:nlev)
+ 
+   non-local flux of momentum (m^2/s^2)
+   REALTYPE, intent(in)                :: gamu(0:nlev)
+ 
+   method to compute external
+   pressure gradient
+   integer, intent(in)                 :: method
+</PRE><I CLASS="sans">DEFINED PARAMETERS:</I>
+<PRE>   REALTYPE, parameter                 :: long=1.0D15
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+                       (re-write after first version of
+                        Hans Burchard and Karsten Bolding)
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html708"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html704"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html698"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html706"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html709"
+  HREF="node26.html">The V-momentum equation</A>
+<B> Up:</B> <A NAME="tex2html705"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html699"
+  HREF="node24.html">The Coriolis rotation</A>
+ &nbsp; <B>  <A NAME="tex2html707"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

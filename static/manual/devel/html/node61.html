@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Compute special values of stability functions</TITLE>
+<META NAME="description" CONTENT="Compute special values of stability functions">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node60.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node62.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1228"
+  HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1224"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1218"
+  HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1226"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1229"
+  HREF="node62.html">Boundary conditons for the</A>
+<B> Up:</B> <A NAME="tex2html1225"
+  HREF="node48.html">Module turbulence: its all</A>
+<B> Previous:</B> <A NAME="tex2html1219"
+  HREF="node60.html">Update stability functions</A>
+ &nbsp; <B>  <A NAME="tex2html1227"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000571300000000000000"></A><A NAME="sec:computeCmu"></A>
+<BR>
+Compute special values of stability functions
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine compute_cm0(turb_method,stab_method,scnd_method)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes the values of the stability function <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.png"
+ ALT="$ c_\mu$"></SPAN> defined
+  in (<A HREF="node37.html#nu">46</A>) in the logarithmic boundary-layer, <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.png"
+ ALT="$ c_\mu^0$"></SPAN>, and in
+  shear-free, spatially decaying turbulence, <!-- MATH
+ $c_\mu^\text{sf}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img518.png"
+ ALT="$ c_\mu^$">sf</SPAN> (see
+  section <A HREF="node52.html#sec:analyse">4.7.4</A>).
+
+<P>
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.png"
+ ALT="$ c_\mu^0$"></SPAN> is the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img178.png"
+ ALT="$ c_\mu$"></SPAN> in unstratified
+  equilibrium flows, i.e. in the logarithmic wall region. It can be obtained
+  from the relation <!-- MATH
+ $P=\epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="44" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img443.png"
+ ALT="$ P=\epsilon$"></SPAN>, according to (<A HREF="node40.html#PeVertical">80</A>)
+  written in the form
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="PeEquilibrium"></A><!-- MATH
+ \begin{equation}
+\dfrac{P}{\epsilon} = \hat{c}_\mu \alpha_M = 1
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="130" HEIGHT="53" ALIGN="MIDDLE" BORDER="0"
+ SRC="img519.png"
+ ALT="$\displaystyle \dfrac{P}{\epsilon} = \hat{c}_\mu \alpha_M = 1 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">122</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In unstratified flows, <!-- MATH
+ $\hat{c}_\mu$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img520.png"
+ ALT="$ \hat{c}_\mu$"></SPAN>
+  only depends on <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img287.png"
+ ALT="$ \alpha_M$"></SPAN> (see sections <A HREF="node85.html#sec:cmueA">4.24</A>-<A HREF="node87.html#sec:cmueC">4.26</A>),
+  and (<A HREF="#PeEquilibrium">122</A>) is a polynomial equation for the value of
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img287.png"
+ ALT="$ \alpha_M$"></SPAN> in equilibrium. Its solution is
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="alphaEquilibrium"></A><!-- MATH
+ \begin{equation}
+\alpha_M  = \dfrac{3 {\cal N}^2}{a_2^2 - 3 a_3^2 + 3 a_1 {\cal N}}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="195" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img521.png"
+ ALT="$\displaystyle \alpha_M = \dfrac{3 {\cal N}^2}{a_2^2 - 3 a_3^2 + 3 a_1 {\cal N}} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">123</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where, according to (<A HREF="node39.html#NandNb">67</A>) in equilibrium <!-- MATH
+ ${\cal N} = (c_1 + c^*_1)/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="116" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img522.png"
+ ALT="$ {\cal N} = (c_1 + c^*_1)/2$"></SPAN>.
+  The value of the stability function in equilibrium follows directly from
+  (<A HREF="#PeEquilibrium">122</A>),
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="cmEquilibrium"></A><!-- MATH
+ \begin{equation}
+\hat{c}_\mu^0  = \dfrac{a_2^2 - 3 a_3^2 + 3 a_1 {\cal N}}{3 {\cal N}^2}
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="181" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img523.png"
+ ALT="$\displaystyle \hat{c}_\mu^0 = \dfrac{a_2^2 - 3 a_3^2 + 3 a_1 {\cal N}}{3 {\cal N}^2} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">124</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Note that <!-- MATH
+ $\hat{c}_\mu^0 = (c_\mu^0)^4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img524.png"
+ ALT="$ \hat{c}_\mu^0 = (c_\mu^0)^4$"></SPAN> according to (<A HREF="node40.html#cmuConversion">78</A>).
+
+<P>
+Algebraic Stress Models exhibit an interesting behaviour in unstratified,
+   shear-free turbulence. Clearly, in the absence of shear, these models predict
+   isotropic turbulence, <!-- MATH
+ $b_{ij} = 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="51" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img525.png"
+ ALT="$ b_{ij} = 0$"></SPAN>, according to (<A HREF="node39.html#bASM">61</A>). This is a direct consequence of the
+   assumption (<A HREF="node39.html#Rodi">60</A>), implying an infinitely small return-to-isotropy time scale.
+   Formally, however, the limit of the stability function <!-- MATH
+ $\hat{c}_\mu$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img520.png"
+ ALT="$ \hat{c}_\mu$"></SPAN> for
+   <!-- MATH
+ $\alpha_M  \rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="61" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img526.png"
+ ALT="$ \alpha_M \rightarrow 0$"></SPAN> follows from (<A HREF="node40.html#b13">76</A>) and the definitions
+   given in sections <A HREF="node85.html#sec:cmueA">4.24</A>-<A HREF="node87.html#sec:cmueC">4.26</A>. The limiting value is
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="cmShearfree"></A><!-- MATH
+ \begin{equation}
+\lim_{\alpha_M \rightarrow 0} \hat{c}_\mu = \hat{c}_\mu^\text{sf}  = \dfrac{a_1}{{\cal N}}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img527.png"
+ ALT="$\displaystyle \lim_{\alpha_M \rightarrow 0} \hat{c}_\mu = \hat{c}_\mu^$">sf<IMG
+ WIDTH="65" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img528.png"
+ ALT="$\displaystyle = \dfrac{a_1}{{\cal N}} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">125</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where, according to (<A HREF="node39.html#NandNb">67</A>), one has either <!-- MATH
+ ${\cal N} = c_1/2-1$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img529.png"
+ ALT="$ {\cal N} = c_1/2-1$"></SPAN> or
+   <!-- MATH
+ ${\cal N} = (c_1 + c^*_1)/2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="116" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img522.png"
+ ALT="$ {\cal N} = (c_1 + c^*_1)/2$"></SPAN>,
+   see section <A HREF="node85.html#sec:cmueA">4.24</A> and section <A HREF="node87.html#sec:cmueC">4.26</A>, respectively.
+   The above limit corresponds to nearly isotropic turbulence supporting a very
+   small momentum flux caused by a very small shear.
+
+<P>
+Note that <!-- MATH
+ $\hat{c}_\mu^\text{sf} = (c_\mu^0)^3 c_\mu^\text{sf}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img530.png"
+ ALT="$ \hat{c}_\mu^$">sf<IMG
+ WIDTH="71" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img531.png"
+ ALT="$ = (c_\mu^0)^3 c_\mu^$">sf</SPAN> according to
+   (<A HREF="node40.html#cmuConversion">78</A>).
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   integer, intent(in)                 :: turb_method
+   integer, intent(in)                 :: stab_method
+   integer, intent(in)                 :: scnd_method
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1228"
+  HREF="node62.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1224"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1218"
+  HREF="node60.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1226"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1229"
+  HREF="node62.html">Boundary conditons for the</A>
+<B> Up:</B> <A NAME="tex2html1225"
+  HREF="node48.html">Module turbulence: its all</A>
+<B> Previous:</B> <A NAME="tex2html1219"
+  HREF="node60.html">Update stability functions</A>
+ &nbsp; <B>  <A NAME="tex2html1227"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

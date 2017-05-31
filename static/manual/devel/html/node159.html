@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Save the model results to file</TITLE>
+<META NAME="description" CONTENT="Save the model results to file">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node160.html">
+<LINK REL="previous" HREF="node158.html">
+<LINK REL="up" HREF="node157.html">
+<LINK REL="next" HREF="node160.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2498"
+  HREF="node160.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2494"
+  HREF="node157.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2488"
+  HREF="node158.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2496"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2499"
+  HREF="node160.html">Close files used for</A>
+<B> Up:</B> <A NAME="tex2html2495"
+  HREF="node157.html">Module asciiout  </A>
+<B> Previous:</B> <A NAME="tex2html2489"
+  HREF="node158.html">Open the file unit</A>
+ &nbsp; <B>  <A NAME="tex2html2497"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00082200000000000000">
+Save the model results to file</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine do_ascii_out(nlev,timestr,unit)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Writes all calculated data to an ASCII file.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use meanflow,     only: depth0,h,u,v,z,S,T,NN,buoy
+   use turbulence,   only: num,nuh,tke,eps,L
+   use turbulence,   only: kb,epsb
+   use observations, only: tprof,sprof,uprof,vprof,epsprof
+ #ifdef SEDIMENT
+    use sediment, only: ascii_sediment
+ #endif
+ #ifdef SEDIMENT
+    use seagrass, only: ascii_seagrass
+ #endif
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   integer, intent(in)                 :: nlev
+   CHARACTER(len=*), intent(in)        :: timestr
+   integer, intent(in)                 :: unit
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding &amp; Hans Burchard
+   See asciiout module
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Calculate steady-state Richardson number from c3</TITLE>
+<META NAME="description" CONTENT="Calculate steady-state Richardson number from c3">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node94.html">
+<LINK REL="previous" HREF="node92.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node94.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1610"
+  HREF="node94.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1606"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1600"
+  HREF="node92.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1608"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1611"
+  HREF="node94.html">Update internal wave mixing</A>
+<B> Up:</B> <A NAME="tex2html1607"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1601"
+  HREF="node92.html">Calculate c3 from steady-state</A>
+ &nbsp; <B>  <A NAME="tex2html1609"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000532000000000000000"></A><A NAME="sec:Rist"></A>
+<BR>
+Calculate steady-state Richardson number from c3
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   REALTYPE function  compute_rist(c1,c2,c3)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Numerically computes the steady-state Richardson-number <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img441.png"
+ ALT="$ Ri_{st}$"></SPAN>
+  for two-equations models from the given
+  <!-- MATH
+ $c_{\psi 3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img507.png"
+ ALT="$ c_{\psi 3}$"></SPAN> and the parameters
+  <!-- MATH
+ $c_{\psi 1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img461.png"
+ ALT="$ c_{\psi 1}$"></SPAN> and <!-- MATH
+ $c_{\psi 2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img457.png"
+ ALT="$ c_{\psi 2}$"></SPAN> according to (<A HREF="node51.html#Ri_st">116</A>).
+  A (very tricky) double Newton-iteration is used to solve the resulting
+  implicit non-linear equation.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence, only:           as,an,cmue1,cmue2
+   use turbulence, only:           cm0
+   use turbulence, only:           turb_method,stab_method
+   use turbulence, only:           cm0_fix,Prandtl0_fix
+   use turbulence, only:           Constant
+   use turbulence, only:           MunkAnderson
+   use turbulence, only:           SchumGerz
+   use turbulence, only:           EiflerSchrimpf
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   REALTYPE, intent(in)           :: c1,c2,c3
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard, Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

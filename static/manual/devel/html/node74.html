@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The dynamic kb-equation </TITLE>
+<META NAME="description" CONTENT="The dynamic kb-equation ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node75.html">
+<LINK REL="previous" HREF="node73.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node75.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1382"
+  HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1378"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1372"
+  HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1380"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1383"
+  HREF="node75.html">The dynamic q2l-equation</A>
+<B> Up:</B> <A NAME="tex2html1379"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1373"
+  HREF="node73.html">The dynamic q2/2-equation</A>
+ &nbsp; <B>  <A NAME="tex2html1381"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000513000000000000000"></A><A NAME="sec:kbeq"></A>
+<BR>
+The dynamic kb-equation 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine kbeq(nlev,dt,u_taus,u_taub,z0s,z0b,h,NN,SS)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+The transport equation for (half the) buoyancy variance,
+  <!-- MATH
+ $k_b= {\langle b'^2 \rangle} /2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="86" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img580.png"
+ ALT="$ k_b= {\langle b'^2 \rangle} /2$"></SPAN>,
+  follows from the equation for the buoyancy fluctations (see <A
+ HREF="node251.html#Sander98a"><SPAN  CLASS="textit">Sander</SPAN> (1998)</A>).
+  In the case of a Boussinesq-fluid, this equation can
+  be written as
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="kbeq"></A><!-- MATH
+ \begin{equation}
+\dot{k_b}
+    =
+    {\cal D}_b +  P_b - \epsilon_b
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="151" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img581.png"
+ ALT="$\displaystyle \dot{k_b} = {\cal D}_b + P_b - \epsilon_b \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">160</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img582.png"
+ ALT="$ \dot{k_b}$"></SPAN> denotes the material derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img186.png"
+ ALT="$ k_b$"></SPAN>. <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img583.png"
+ ALT="$ P_b$"></SPAN> is
+  the production of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img186.png"
+ ALT="$ k_b$"></SPAN> be mean density gradients,  and
+  <!-- MATH
+ $\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img272.png"
+ ALT="$ \epsilon_b$"></SPAN> the rate of molecular destruction. <!-- MATH
+ ${\cal D}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img146.png"
+ ALT="$ {\cal D}_b$"></SPAN> represents
+  the sum of the viscous and turbulent transport terms. It is presently
+  evaluated with a simple down gradient model in GOTM.
+
+<P>
+The production of buoyancy variance by the vertical density gradient
+  is
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Pbvertical"></A><!-- MATH
+ \begin{equation}
+P_b = -  {\langle w'b' \rangle}  \dfrac{\partial {B}}{\partial {z}} = - {\langle w'b' \rangle}  N^2
+    \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="235" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img584.png"
+ ALT="$\displaystyle P_b = - {\langle w'b' \rangle} \dfrac{\partial {B}}{\partial {z}} = - {\langle w'b' \rangle} N^2 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">161</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Its computation is discussed in section <A HREF="node69.html#sec:production">4.8</A>.
+
+<P>
+The rate of molecular destruction, <!-- MATH
+ $\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img272.png"
+ ALT="$ \epsilon_b$"></SPAN>,  can be computed
+  from either a transport equation or a algebraic expression, section <A HREF="node58.html#sec:updateEpsb">4.7.10</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence,   only: Pb,epsb,nuh
+   use turbulence,   only: kb,kb_min
+   use turbulence,   only: k_ubc, k_lbc, ubc_type, lbc_type
+   use util,         only: Dirichlet,Neumann
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   number of vertical layers
+   integer,  intent(in)                :: nlev
+ 
+   time step (s)
+   REALTYPE, intent(in)                :: dt
+ 
+   surface and bottom
+   friction velocity (m/s)
+   REALTYPE, intent(in)                :: u_taus,u_taub
+ 
+   surface and bottom
+   roughness length (m)
+   REALTYPE, intent(in)                :: z0s,z0b
+ 
+   layer thickness (m)
+   REALTYPE, intent(in)                :: h(0:nlev)
+ 
+   square of shear and buoyancy
+   frequency (1/s^2)
+   REALTYPE, intent(in)                :: NN(0:nlev),SS(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1382"
+  HREF="node75.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1378"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1372"
+  HREF="node73.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1380"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1383"
+  HREF="node75.html">The dynamic q2l-equation</A>
+<B> Up:</B> <A NAME="tex2html1379"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1373"
+  HREF="node73.html">The dynamic q2/2-equation</A>
+ &nbsp; <B>  <A NAME="tex2html1381"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

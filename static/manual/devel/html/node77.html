@@ -1,0 +1,662 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The dynamic psi-equation </TITLE>
+<META NAME="description" CONTENT="The dynamic psi-equation ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node78.html">
+<LINK REL="previous" HREF="node76.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node78.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1418"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1414"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1408"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1416"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1419"
+  HREF="node78.html">The algebraic k-equation</A>
+<B> Up:</B> <A NAME="tex2html1415"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1409"
+  HREF="node76.html">The dynamic epsilon-equation</A>
+ &nbsp; <B>  <A NAME="tex2html1417"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000516000000000000000"></A><A NAME="sec:genericeq"></A>
+<BR>
+The dynamic psi-equation 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine genericeq(nlev,dt,u_taus,u_taub,z0s,z0b,h,NN,SS)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This model has been formulated by <A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A>,
+  who introduced a `generic' variable,
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="psi_l"></A><!-- MATH
+ \begin{equation}
+\psi = (c_\mu^0)^p k^m l^n
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="130" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img612.png"
+ ALT="$\displaystyle \psi = (c_\mu^0)^p k^m l^n \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">167</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> is the turbulent kinetic energy computed from (<A HREF="node72.html#tkeA">152</A>) and
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN> is the dissipative length-scale defined in (<A HREF="node72.html#epsilon">155</A>).
+  For appropriate choices of the exponents <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ m$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ n$"></SPAN>, the variable
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img469.png"
+ ALT="$ \psi$"></SPAN> can be directly identified with the classic length-scale determining
+  variables like the rate of dissipation, <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN>, or the product
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img180.png"
+ ALT="$ kl$"></SPAN> used by <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A> (see section <A HREF="node75.html#sec:lengthscaleeq">4.14</A>
+  and section <A HREF="node76.html#sec:dissipationeq">4.15</A>).
+   Some examples are compiled in table <A HREF="#tab:psi">8</A>.
+  <BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="8116"></A>
+<TABLE>
+<CAPTION><STRONG>Table 8:</STRONG>
+Exponents <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ n$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ m$"></SPAN> defined in  (<A HREF="#psi_l">167</A>), and
+      their relation to the variable of the second equation in some well-known
+      two-equation models.</CAPTION>
+<TR><TD>    <DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img469.png"
+ ALT="$ \psi$"></SPAN></TD>
+<TD ALIGN="LEFT">two-equation model by:</TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$ p$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$ m$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="$ n$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img504.png"
+ ALT="$ \omega$"></SPAN></TD>
+<TD ALIGN="LEFT"><A
+ HREF="node251.html#Wilcox88"><SPAN  CLASS="textit">Wilcox</SPAN> (1988)</A></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img613.png"
+ ALT="$ -1$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $\frac{1}{2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img614.png"
+ ALT="$ \frac{1}{2}$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img613.png"
+ ALT="$ -1$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img180.png"
+ ALT="$ kl$"></SPAN></TD>
+<TD ALIGN="LEFT"><A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH">0</SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img615.png"
+ ALT="$ 1$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img615.png"
+ ALT="$ 1$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN></TD>
+<TD ALIGN="LEFT"><A
+ HREF="node251.html#Rodi87"><SPAN  CLASS="textit">Rodi</SPAN> (1987)</A></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img333.png"
+ ALT="$ 3$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $\frac{3}{2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img616.png"
+ ALT="$ \frac{3}{2}$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img613.png"
+ ALT="$ -1$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img617.png"
+ ALT="$ k \tau$"></SPAN></TD>
+<TD ALIGN="LEFT"><A
+ HREF="node251.html#ZeiermanWolfshtein86"><SPAN  CLASS="textit">Zeierman and Wolfshtein</SPAN> (1986)</A></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img618.png"
+ ALT="$ -3$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $\frac{1}{2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img614.png"
+ ALT="$ \frac{1}{2}$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img615.png"
+ ALT="$ 1$"></SPAN></TD>
+</TR>
+</TABLE>
+     
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+The transport equation for <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img469.png"
+ ALT="$ \psi$"></SPAN> can written as
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="generic"></A><!-- MATH
+ \begin{equation}
+\dot{\psi} = {\cal D}_\psi
+    + \frac{\psi}{k} (  c_{\psi_1} P + c_{\psi_3} G
+     - c_{\psi 2} \epsilon )
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="267" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img619.png"
+ ALT="$\displaystyle \dot{\psi} = {\cal D}_\psi + \frac{\psi}{k} ( c_{\psi_1} P + c_{\psi_3} G - c_{\psi 2} \epsilon ) \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">168</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <!-- MATH
+ $\dot{\psi}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img620.png"
+ ALT="$ \dot{\psi}$"></SPAN> denotes the material derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img469.png"
+ ALT="$ \psi$"></SPAN>,
+  see <A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A>.
+  The production terms <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="$ P$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$ G$"></SPAN> follow from (<A HREF="node72.html#PandG">154</A>).
+  <!-- MATH
+ ${\cal D}_\psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img621.png"
+ ALT="$ {\cal D}_\psi$"></SPAN> represents the sum of the viscous and turbulent
+  transport terms. The rate of dissipation can computed by solving
+  (<A HREF="#psi_l">167</A>) for <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN> and inserting the result into (<A HREF="node72.html#epsilon">155</A>).
+
+<P>
+For horizontally homogeneous flows, the transport terms <!-- MATH
+ ${\cal D}_\psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img621.png"
+ ALT="$ {\cal D}_\psi$"></SPAN>
+  appearing in (<A HREF="#generic">168</A>) are expressed by a simple
+  gradient formulation,
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="diffusionGeneric"></A><!-- MATH
+ \begin{equation}
+{\cal D}_\psi = \dfrac{\partial}{\partial {z}}
+    \left( \dfrac{\nu_t}{\sigma_\psi} \dfrac{\partial {\psi}}{\partial {z}} \right)
+   \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="164" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img622.png"
+ ALT="$\displaystyle {\cal D}_\psi = \dfrac{\partial}{\partial {z}} \left( \dfrac{\nu_t}{\sigma_\psi} \dfrac{\partial {\psi}}{\partial {z}} \right) \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">169</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+For appropriate choices of the parameters, most of the classic transport
+  equations can be directly recovered from the generic equation (<A HREF="#generic">168</A>).
+  An example is the transport equation for the inverse turbulent time scale,
+  <!-- MATH
+ $\omega \propto \epsilon / k$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="59" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img623.png"
+ ALT="$ \omega \propto \epsilon / k$"></SPAN>, which has been formulated by <A
+ HREF="node251.html#Wilcox88"><SPAN  CLASS="textit">Wilcox</SPAN> (1988)</A>
+  and extended to buoyancy affected flows by <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A>. The precise
+  definition of <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img504.png"
+ ALT="$ \omega$"></SPAN> follows from table <A HREF="#tab:psi">8</A>, and its transport
+  equation can be written as
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KW"></A><!-- MATH
+ \begin{equation}
+\dot{\omega}
+    =
+    {\cal D}_\omega
+    + \frac{\omega}{k} (  c_{\omega_1} P + c_{\omega_3} G
+    - c_{\omega 2} \epsilon )
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="264" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img624.png"
+ ALT="$\displaystyle \dot{\omega} = {\cal D}_\omega + \frac{\omega}{k} ( c_{\omega_1} P + c_{\omega_3} G - c_{\omega 2} \epsilon ) \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">170</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which is clearly a special case of (<A HREF="#generic">168</A>). Model constants for this
+  and other traditional models are given in table <A HREF="#tab:constants">9</A>.
+  <BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="8117"></A>
+<TABLE>
+<CAPTION><STRONG>Table 9:</STRONG>
+ Model constants of some standard models,
+  converted to the notation used here. The Schmidt-numbers for the model of
+     <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A> are valid only in the logarithmic boundary-layer,
+     because the diffusion models (<A HREF="node73.html#diffusionMYTKE">157</A>) and (<A HREF="node75.html#diffusionMYlength">164</A>)
+     are slightly different from (<A HREF="node72.html#diffusionTKE">153</A>) and (<A HREF="#diffusionGeneric">169</A>).
+     There is no indication that one class of  diffusion models is superior.</CAPTION>
+<TR><TD>    <DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.png"
+ ALT="$ c_\mu^0$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $\sigma_k^\psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img482.png"
+ ALT="$ \sigma_k^\psi$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $\sigma_\psi$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img447.png"
+ ALT="$ \sigma_\psi$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $c_{\psi 1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img461.png"
+ ALT="$ c_{\psi 1}$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $c_{\psi 2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img457.png"
+ ALT="$ c_{\psi 2}$"></SPAN></TD>
+<TD ALIGN="CENTER"><!-- MATH
+ $c_{\psi 3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img507.png"
+ ALT="$ c_{\psi 3}$"></SPAN></TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN>,  <A
+ HREF="node251.html#Rodi87"><SPAN  CLASS="textit">Rodi</SPAN> (1987)</A>             :</TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img625.png"
+ ALT="$ 0.5477$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img608.png"
+ ALT="$ 1.0$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img609.png"
+ ALT="$ 1.3$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img610.png"
+ ALT="$ 1.44$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img611.png"
+ ALT="$ 1.92$"></SPAN></TD>
+<TD ALIGN="CENTER">(see eq. (<A HREF="node51.html#Ri_st">116</A>))</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img180.png"
+ ALT="$ kl$"></SPAN>,       <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A>      :</TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img626.png"
+ ALT="$ 0.5544$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img627.png"
+ ALT="$ 1.96$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img627.png"
+ ALT="$ 1.96$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img628.png"
+ ALT="$ 0.9$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img332.png"
+ ALT="$ 0.5$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img628.png"
+ ALT="$ 0.9$"></SPAN></TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img504.png"
+ ALT="$ \omega$"></SPAN>,   <A
+ HREF="node251.html#Wilcox88"><SPAN  CLASS="textit">Wilcox</SPAN> (1988)</A>            :</TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img625.png"
+ ALT="$ 0.5477$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img629.png"
+ ALT="$ 2$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img629.png"
+ ALT="$ 2$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img630.png"
+ ALT="$ 0.555$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img631.png"
+ ALT="$ 0.833$"></SPAN></TD>
+<TD ALIGN="CENTER">(see eq. (<A HREF="node51.html#Ri_st">116</A>))</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img222.png"
+ ALT="$ \tau$"></SPAN> <A
+ HREF="node251.html#ZeiermanWolfshtein86"><SPAN  CLASS="textit">Zeierman and Wolfshtein</SPAN> (1986)</A>:</TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="48" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img625.png"
+ ALT="$ 0.5477$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img632.png"
+ ALT="$ 1.46$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="32" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img633.png"
+ ALT="$ 10.8$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img634.png"
+ ALT="$ 0.173$"></SPAN></TD>
+<TD ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img635.png"
+ ALT="$ 0.225$"></SPAN></TD>
+<TD ALIGN="CENTER">(--)</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+</TABLE>
+      
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+Apart from having to code only one equation to recover all of the
+  traditional models, the main advantage of the generic equation is its
+  flexibility. After choosing meaningful values for physically relevant
+  parameters like  the von K&#225;rm&#225;n constant, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN>, the temporal
+  decay rate for homogeneous turbulence, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img440.png"
+ ALT="$ d$"></SPAN>, some parameters related to
+  breaking surface waves, etc, a two-equation model can be generated,
+  which has exactly the required properties. This is discussed in
+  great detail in  <A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A>. All algorithms have been
+  implemented in GOTM and are described in section <A HREF="node51.html#sec:generate">4.7.3</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence, only: P,B,num
+   use turbulence, only: tke,tkeo,k_min,eps,eps_min,L
+   use turbulence, only: cpsi1,cpsi2,cpsi3plus,cpsi3minus,sig_psi
+   use turbulence, only: gen_m,gen_n,gen_p
+   use turbulence, only: cm0,cde,galp,length_lim
+   use turbulence, only: psi_bc, psi_ubc, psi_lbc, ubc_type, lbc_type
+   use util,       only: Dirichlet,Neumann
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   number of vertical layers
+   integer,  intent(in)                :: nlev
+ 
+   time step (s)
+   REALTYPE, intent(in)                :: dt
+ 
+   surface and bottom
+   friction velocity (m/s)
+   REALTYPE, intent(in)                :: u_taus,u_taub
+ 
+   surface and bottom
+   roughness length (m)
+   REALTYPE, intent(in)                :: z0s,z0b
+ 
+   layer thickness (m)
+   REALTYPE, intent(in)                :: h(0:nlev)
+ 
+   square of shear and buoyancy
+   frequency (1/s^2)
+   REALTYPE, intent(in)                :: NN(0:nlev),SS(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf and Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1418"
+  HREF="node78.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1414"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1408"
+  HREF="node76.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1416"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1419"
+  HREF="node78.html">The algebraic k-equation</A>
+<B> Up:</B> <A NAME="tex2html1415"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1409"
+  HREF="node76.html">The dynamic epsilon-equation</A>
+ &nbsp; <B>  <A NAME="tex2html1417"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

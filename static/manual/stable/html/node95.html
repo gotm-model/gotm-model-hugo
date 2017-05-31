@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>TKE flux from wave-breaking (Source File: fk_craig.F90)</TITLE>
+<META NAME="description" CONTENT="TKE flux from wave-breaking (Source File: fk_craig.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="previous" HREF="node94.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node96.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1617"
+  HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1613"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1609"
+  HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1615"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1618"
+  HREF="node96.html">Fortran: Module Interface kpp:</A>
+<B> Up:</B> <A NAME="tex2html1614"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1610"
+  HREF="node94.html">Update internal wave mixing</A>
+ &nbsp; <B>  <A NAME="tex2html1616"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000574700000000000000"></A><A NAME="sec:fkCraig"></A>
+<BR>
+TKE flux from wave-breaking (Source File: fk_craig.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    REALTYPE  function fk_craig(u_tau,eta)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This functions returns the flux of <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> caused by breaking surface waves
+   according to
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="craig"></A><!-- MATH
+ \begin{equation}
+F_k = \eta u_*^3
+    \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="88" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img714.png"
+ ALT="$\displaystyle F_k = \eta u_*^3 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">209</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+This form has also been used by <A
+ HREF="node251.html#CraigBanner94"><SPAN  CLASS="textit">Craig and Banner</SPAN> (1994)</A>, who suggested
+   <!-- MATH
+ $\eta \approx 100$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="57" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img715.png"
+ ALT="$ \eta \approx 100$"></SPAN>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(in)                :: u_tau
+    REALTYPE, intent(in)                :: eta
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+    $Log: fk_craig.F90,v $
+    Revision 1.5  2007-07-23 11:28:39  hb
+    cw for Craig-Banner wave breaking from namelist now used in fk_craig.F90
+    Revision 1.4  2005-06-27 13:44:07  kbk
+    modified + removed traling blanks
+    Revision 1.3  2004/08/18 12:50:57  lars
+    updated documentation
+    Revision 1.2  2003/03/28 09:20:35  kbk
+    added new copyright to files
+    Revision 1.1  2003/03/10 09:00:36  gotm
+    Part of new generic turbulence model
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

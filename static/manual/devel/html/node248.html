@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Northern North Sea - NPZD model</TITLE>
+<META NAME="description" CONTENT="Northern North Sea - NPZD model">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node249.html">
+<LINK REL="previous" HREF="node247.html">
+<LINK REL="up" HREF="node246.html">
+<LINK REL="next" HREF="node249.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3669"
+  HREF="node249.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3665"
+  HREF="node246.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3659"
+  HREF="node247.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3667"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3670"
+  HREF="node249.html">Fladenground Experiment - #Fashametal1990###</A>
+<B> Up:</B> <A NAME="tex2html3666"
+  HREF="node246.html">Biogeochemical scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3660"
+  HREF="node247.html">Channel flow - Rouse</A>
+ &nbsp; <B>  <A NAME="tex2html3668"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000135200000000000000"></A><A NAME="nns_annual_npzd"></A>
+<BR>
+Northern North Sea - NPZD model
+</H3>
+
+<P>
+In order to provide a typical and clearly defined physical environment
+for testing the NPZD model discussed in section <A HREF="#sec:bio-npzd"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>,
+we use an annual simulation of the water column in the Northern North
+Sea. The setup is similar to the one described in section
+<A HREF="node237.html#nns_annual">12.2.2</A> and validated
+in detail by <A
+ HREF="node251.html#Boldingetal2002"><SPAN  CLASS="textit">Bolding et&nbsp;al.</SPAN> (2002)</A>.
+The photosynthetically available radiation (PAR)
+has been simply taken as visible part of the short-wave radiation,
+a feedback of increased turbidity due to plankton blooms to the
+light absorption has not been considered for the heat budget.
+For further details of the physical model setup, see section <A HREF="node237.html#nns_annual">12.2.2</A>.
+
+<P>
+As shown by <A
+ HREF="node251.html#Burchardetal2005b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2005)</A>, the explicit ODE solvers
+introduced in section <A HREF="node200.html#sec:ode-solver">8.13</A> do not guarantee
+non-negative solutions for biogeochemical concentrations when the
+biogeochemical model is stiff, i.e. when time scales are involved which may
+be shorter than the time step. In order to make the NPZD model stiff,
+<A
+ HREF="node251.html#Burchardetal2005b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2005)</A> chose a
+half-saturation nutrient concentration <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img113.png"
+ ALT="$ \alpha$"></SPAN> 
+of 0.02  mmol N m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>, whereas the typical values for <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img113.png"
+ ALT="$ \alpha$"></SPAN> would be 
+between 0.2 and 1.5 mmol N m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>.
+This has the consequence that nutrient is taken up by phytoplankton
+even at low concentrations, which strongly decreases the
+time scale of this process. The overall phytoplankton evolution over
+an annual cycle 
+is not much affected by this
+manipulation, except from the fact that now the summer surface nutrient
+concentrations are much lower.
+It should be noted that such low half saturation concentrations
+for nutrients have actually been observed in the oceanic mixed
+layer. <A
+ HREF="node251.html#Harrisonetal1996"><SPAN  CLASS="textit">Harrison et&nbsp;al.</SPAN> (1996)</A> calculated for the mixed layer
+of the North Atlantic mean half saturation concentrations
+for nitrate and ammonium as small as 0.02  mmol N m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>.
+
+<P>
+In order to demonstrate the advantages of the 
+Modified Patankar schemes over the fully explicit schemes, 
+the simulation carried out here is based on
+a time step of 2 h for the physical part. For the biogeochemical part,
+a time splitting is used (set <TT>split_factor</TT>  in
+<TT>bio.nml</TT>) such that fractional time
+steps are possible for the biogeochemical part.
+Thus, by using a time step of <!-- MATH
+ $\Delta^{phy} t = 7200$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="97" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img961.png"
+ ALT="$ \Delta^{phy} t = 7200$"></SPAN> s for the
+physical part and iterating the biogeochemical part 1,4 and 36 times
+per physical time step with unchanged physical forcing,
+biogochemical time steps of  <!-- MATH
+ $\Delta^{bio} t = 7200$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img962.png"
+ ALT="$ \Delta^{bio} t = 7200$"></SPAN> s,
+<!-- MATH
+ $\Delta^{bio} t = 1800$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img963.png"
+ ALT="$ \Delta^{bio} t = 1800$"></SPAN> s and <!-- MATH
+ $\Delta^{bio} t = 200$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="85" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img964.png"
+ ALT="$ \Delta^{bio} t = 200$"></SPAN> s,
+respectively, can be obtained.
+By doing so, it is possible to use exactly the same physical forcing
+for all ODE solvers and all biogeochemical time steps.
+
+<P>
+When using the explicit ODE solver (to do so, set <TT>ode_method</TT>
+in <TT>bio.nml</TT> to 1, 2 or 3), the summer nutrient concentration
+goes down to negative values.
+This does not happen for the other conservative methods
+7 and 8 (first- and second-order Modified Patankar schemes) and
+10 and 11 (first- and second-oder Extended Modified Patankar
+schemes). 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3669"
+  HREF="node249.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3665"
+  HREF="node246.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3659"
+  HREF="node247.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3667"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3670"
+  HREF="node249.html">Fladenground Experiment - #Fashametal1990###</A>
+<B> Up:</B> <A NAME="tex2html3666"
+  HREF="node246.html">Biogeochemical scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3660"
+  HREF="node247.html">Channel flow - Rouse</A>
+ &nbsp; <B>  <A NAME="tex2html3668"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Initialise the KPP module</TITLE>
+<META NAME="description" CONTENT="Initialise the KPP module">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node98.html">
+<LINK REL="previous" HREF="node96.html">
+<LINK REL="up" HREF="node96.html">
+<LINK REL="next" HREF="node98.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1664"
+  HREF="node98.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1660"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1654"
+  HREF="node96.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1662"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1665"
+  HREF="node98.html">Loop over the KPP-algorithm</A>
+<B> Up:</B> <A NAME="tex2html1661"
+  HREF="node96.html">Module kpp: the KPP-turbulence</A>
+<B> Previous:</B> <A NAME="tex2html1655"
+  HREF="node96.html">Module kpp: the KPP-turbulence</A>
+ &nbsp; <B>  <A NAME="tex2html1663"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000535100000000000000">
+Initialise the KPP module</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine init_kpp(namlst,fn,nlev,h0,h,kpp_g,kpp_rho_0)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This routine first reads the namelist <TT>kpp</TT>, which has to be contained
+  in a file with filename specified by the string <TT>fn</TT> (typically called
+  <TT>kpp.nml</TT>). Since the <TT>kpp</TT> module uses fields defined in the
+  <TT>turbulence</TT> module, it has to allocate dynamic memory for them.
+  Apart from this, this routine reports the model settings and initialises a
+  number of parameters needed later in the time loop.
+
+<P>
+If you call the GOTM KPP routines from a three-dimensional model, make sure
+  that this function is called <SPAN  CLASS="textit">after</SPAN> the call to <TT>init_turbulence()</TT>.
+  Also make sure that you pass the correct arguments.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   namelist reference
+   integer,          intent(in)        :: namlst
+ 
+   filename containing namelist
+   character(len=*), intent(in)        :: fn
+ 
+   number of grid cells
+   integer,          intent(in)        :: nlev
+ 
+   bathymetry (m)
+   REALTYPE,         intent(in)        :: h0
+ 
+   size of grid cells (m)
+   REALTYPE,         intent(in)        :: h(0:nlev)
+ 
+   acceleration of gravity (m/s^2)
+   REALTYPE,         intent(in)        :: kpp_g
+ 
+   reference density (kg/m^3)
+   REALTYPE,         intent(in)        :: kpp_rho_0
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

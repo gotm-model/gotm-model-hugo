@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Initialise</TITLE>
+<META NAME="description" CONTENT="Initialise">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node50.html">
+<LINK REL="previous" HREF="node48.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node50.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1065"
+  HREF="node50.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1061"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1055"
+  HREF="node48.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1063"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1066"
+  HREF="node50.html">Initialize</A>
+<B> Up:</B> <A NAME="tex2html1062"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1056"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+ &nbsp; <B>  <A NAME="tex2html1064"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00057100000000000000">
+Initialise the turbulence module</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine init_turbulence(namlst,fn,nlev)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Initialises all turbulence related stuff. This routine reads a number
+   of namelists and allocates memory for turbulence related vectors.
+   The core consists of calls to the the internal functions
+   <TT>generate_model()</TT> and <TT>analyse_model()</TT>, discussed in
+   great detail in section <A HREF="node51.html#sec:generate">4.7.3</A> and section <A HREF="node52.html#sec:analyse">4.7.4</A>, respectively.
+   The former function computes the model coefficients for the generic two-equation
+   model (see <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A>) from physically motivated quantities
+   like the von K&#225;rm&#225;n constant, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN>, the decay rate in homogeneous
+   turbulence, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img436.png"
+ ALT="$ d$"></SPAN>, the steady-state Richardson number, <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img437.png"
+ ALT="$ Ri_{st}$"></SPAN>,
+   and many others. The latter function does the inverse:
+   it computes the physically motivated quantities from the model constants
+   of any model currently available in GOTM.
+   After the call to either function, all relevant model parameters
+   are known to GOTM.
+   Then, the function <TT>report_model()</TT> is called, which displays all
+   results on the screen.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer,          intent(in)        :: namlst
+    character(len=*), intent(in)        :: fn
+    integer,          intent(in)        :: nlev
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Karsten Bolding, Hans Burchard,
+                        Manuel Ruiz Villarreal,
+                        Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

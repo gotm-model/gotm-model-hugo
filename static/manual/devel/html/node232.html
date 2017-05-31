@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Some entrainment scenarios</TITLE>
+<META NAME="description" CONTENT="Some entrainment scenarios">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node233.html">
+<LINK REL="previous" HREF="node231.html">
+<LINK REL="up" HREF="node228.html">
+<LINK REL="next" HREF="node233.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3475"
+  HREF="node233.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3471"
+  HREF="node228.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3465"
+  HREF="node231.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3473"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3476"
+  HREF="node233.html">Estuarine dynamics</A>
+<B> Up:</B> <A NAME="tex2html3472"
+  HREF="node228.html">Idealised scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3466"
+  HREF="node231.html">Turbulence under breaking surface</A>
+ &nbsp; <B>  <A NAME="tex2html3474"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000131400000000000000"></A><A NAME="entrainment"></A>
+<BR>
+Some entrainment scenarios
+</H3>
+
+<P>
+This test case describes three idealised entrainment scenarios as
+discussed in the review paper of <A
+ HREF="node251.html#UmlaufBurchard2005a"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2005)</A>.  These
+are: wind-driven entrainment into a linearly stratified fluid,
+wind-driven entrainment into a two-layer fluid, and entrainment in
+free convection. As in the cases before, the input files for different
+turbulence closure models are contained in a number of
+sub-directories.  The <TT>entrainment</TT> test cases is also the first
+test for the GOTM implementation of the KPP turbulence model described
+in section <A HREF="node96.html#sec:kpp">4.35</A>.
+
+<P>
+For all input files, the default is a linear density stratification
+due to a not necessarly linear temperature stratification (because the
+equation of state is not necessarily linear).  The stratification
+corresponds to <!-- MATH
+ $N^2=1 \cdot 10^{-4}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="99" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img931.png"
+ ALT="$ N^2=1 \cdot 10^{-4}$"></SPAN> s<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img88.png"
+ ALT="$ ^{-2}$"></SPAN>. Salinity is
+constant. Have look into <TT>obs.nml</TT> to understand how different
+types of initial stratifcations can be specified in GOTM. The water
+depth is <SPAN CLASS="MATH"><IMG
+ WIDTH="55" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img932.png"
+ ALT="$ H=50$"></SPAN> m, deep enough for the surface induced mixing not
+to reach the bed within the <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img928.png"
+ ALT="$ 24$"></SPAN> h of simulation. Rotation is
+neglected. By default, a constant wind stress of <!-- MATH
+ $\tau_x= 0.1027$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="84" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img933.png"
+ ALT="$ \tau_x= 0.1027$"></SPAN> Pa
+is set in <TT>airsea.nml</TT>.
+
+<P>
+Note, that for all turbulence models, except the Mellor-Yamada model,
+we set <TT>compute_c3 = .true.</TT> in <TT>gotmturb.nml</TT>, which means
+that the model constant <!-- MATH
+ $c_{\epsilon 3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img934.png"
+ ALT="$ c_{\epsilon 3}$"></SPAN> in (<A HREF="node76.html#dissipation">165</A>) (or its
+counterpart in all other models) is computed from a prescribed
+steady-state Richardson-number, <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img441.png"
+ ALT="$ Ri_{st}$"></SPAN> (see discussion in the
+context of (<A HREF="node51.html#Ri_st">116</A>)). Some more discussion is given in
+<A
+ HREF="node251.html#BurchardBolding2001"><SPAN  CLASS="textit">Burchard and Bolding</SPAN> (2001)</A> and <A
+ HREF="node251.html#UmlaufBurchard2005a"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2005)</A>.  As pointed
+out in these papers, it is the value of the steady-state Richardson
+number (and thus the value of <!-- MATH
+ $c_{\epsilon 3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img934.png"
+ ALT="$ c_{\epsilon 3}$"></SPAN>) that determines the
+mixed layer depth in almost all shear-driven entrainment scenarios.
+
+<P>
+To run the Mellor-Yamada model, use the input files in <TT>MellorYamada_nml/</TT>. Looking at the results you will realize that this
+model is not at all in accordance with the experimental results of
+<A
+ HREF="node251.html#Price79"><SPAN  CLASS="textit">Price</SPAN> (1979)</A> for the entrainment in a linearly stratified fluid. The
+reason can be traced back to the behaviour of the turbulent length
+scale in the strongly stratified thermocline.  <A
+ HREF="node251.html#Galperinetal88"><SPAN  CLASS="textit">Galperin et&nbsp;al.</SPAN> (1988)</A>
+suggested to clip the length scale at a certain value to circumvent
+this problem. Their solution can be activated by setting <TT>length_lim = .true.</TT>  in <TT>gotmturb.nml</TT>.  A second solution has
+been suggested by <A
+ HREF="node251.html#Burchard2001c"><SPAN  CLASS="textit">Burchard</SPAN> (2001b)</A>, who computed the model
+constant <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img595.png"
+ ALT="$ E_3$"></SPAN> in (<A HREF="node75.html#MY">162</A>) from the steady-state Richardson-number as
+described above. To activate this method, select <TT>compute_c3 =
+.true.</TT> (and <TT>length_lim = .false.</TT> because clipping is not
+needed any more).
+
+<P>
+This scenario has been used by us in several publications as a test
+for vertical mixing schemes, see <A
+ HREF="node251.html#Burchardetal98"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (1998)</A>,
+<A
+ HREF="node251.html#Burchardetal99"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (1999)</A>, <A
+ HREF="node251.html#BurchardPetersen99"><SPAN  CLASS="textit">Burchard and Petersen</SPAN> (1999)</A>,
+<A
+ HREF="node251.html#BurchardBolding2001"><SPAN  CLASS="textit">Burchard and Bolding</SPAN> (2001)</A> <A
+ HREF="node251.html#BurchardDeleersnijder2001"><SPAN  CLASS="textit">Burchard and
+  Deleersnijder</SPAN> (2001)</A>,
+<A
+ HREF="node251.html#DeleersnijderBurchard2003"><SPAN  CLASS="textit">Deleersnijder and
+  Burchard</SPAN> (2003)</A>, and <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A>.
+
+<P>
+The second entrainment scenario discussed in
+<A
+ HREF="node251.html#UmlaufBurchard2005a"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2005)</A> is essentially identical to the one just
+described, however, it starts from a two layer stratification.  To use
+this kind of initial condition, first set <TT>analyt_method=2</TT> in
+<TT>obs.nml</TT>, and specify the desired temperatures, <TT>t_1</TT> and
+<TT>t_2</TT> for the upper and lower layer, respectively. The thickness
+of the upper layer is <TT>z_t1</TT>. For a pure two-layer
+stratification, set <TT>z_t2=z_t1</TT>, otherwise you will get a linear
+transition between the upper and the lower layer.
+
+<P>
+For convective entrainment, you simply need to set the momentum flux,
+<TT>const_tx</TT>, to zero and specify an appropriate negative heat
+flux, <TT>const_heat</TT>, in <TT>airsea.nml</TT>, see <A
+ HREF="node251.html#UmlaufBurchard2005a"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2005)</A>. 
+
+<P>
+If you run the KPP-model, some model parameters can be set in the
+extra input file <TT>kpp.nml</TT> found in kpp_nml/. With this model,
+the depth of the mixing layer depends mostly on the value of the
+critical bulk Richardson number that can also be set in this file.
+When you work with the KPP-model in free convection, don't forget to
+check if the pre-processor macro <TT>NONLOCAL</TT> is defined <TT>cppdefs.h</TT> (after changes in this file, don't forget to re-compile the
+whole code!).  If <TT>NONLOCAL</TT> is defined, the KPP model also
+computes the non-local fluxes of heat (and salinity, if the salinity
+equation is active). In any case, the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ z$"></SPAN>-coordinate of the
+edges of the upper and lower mixing layers are given as <TT>zsbl</TT> and
+<TT>zbbl</TT>, respectively, in the netCDF output file.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3475"
+  HREF="node233.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3471"
+  HREF="node228.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3465"
+  HREF="node231.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3473"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3476"
+  HREF="node233.html">Estuarine dynamics</A>
+<B> Up:</B> <A NAME="tex2html3472"
+  HREF="node228.html">Idealised scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3466"
+  HREF="node231.html">Turbulence under breaking surface</A>
+ &nbsp; <B>  <A NAME="tex2html3474"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

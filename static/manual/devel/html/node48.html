@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Module turbulence: its all in here ...</TITLE>
+<META NAME="description" CONTENT="Module turbulence: its all in here ...">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node69.html">
+<LINK REL="previous" HREF="node47.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node49.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1050"
+  HREF="node49.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1046"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1040"
+  HREF="node47.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1048"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1051"
+  HREF="node49.html">Initialise the turbulence module</A>
+<B> Up:</B> <A NAME="tex2html1047"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1041"
+  HREF="node47.html">Numerics</A>
+ &nbsp; <B>  <A NAME="tex2html1049"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00057000000000000000"></A><A NAME="sec:turbulence"></A>
+<BR>
+Module turbulence: its all in here ...
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   module turbulence
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+In this module, variables of the turbulence model and some
+  member functions to manipulate them are defined. The key-functions
+  are <TT>init_turbulence()</TT>, which initialises the model, and
+  <TT>do_turbulence()</TT>, which manages the time step for the
+  whole procedure. These two functions are the only `public' member
+  functions i.e. they are callable from outside the module.
+  There are many more internal functions, for
+  which descriptions are provided seperately.
+
+<P>
+It should be pointed out that the turbulence module of GOTM may be used in
+  combination with virtually any shallow-wate 3-D circulation model
+  using a structured grid in the vertical direction.
+  To this end, a clear interface separating the mean flow and the turbulence
+  part of GOTM is required. Vertical columns of the three-dimensional fields have
+  to copied into one-dimensional vectors, which are passed to GOTM. With the help
+  of this information, GOTM updates the turbulent fields and returns one-dimensional
+  vectors of the turbulent diffusivities and/or the turbulent fluxes to the 3-D model.
+  The `door' between the 3-D model and GOTM is the function <TT>do_turbulence()</TT>,
+  which has been designed with these ideas in mind.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+ 
+   default: all is private.
+   private
+</PRE><I CLASS="sans">PUBLIC MEMBER FUNCTIONS:</I>
+<PRE>   public init_turbulence, do_turbulence
+   public k_bc,q2over2_bc,epsilon_bc,psi_bc,q2l_bc
+   public clean_turbulence
+ ifdef _PRINTSTATE_
+   public print_state_turbulence
+ endif
+</PRE><I CLASS="sans">PUBLIC DATA MEMBERS:</I>
+<PRE>   TKE, rate of dissipation, turbulent length-scale
+   REALTYPE, public, dimension(:), allocatable   :: tke,eps,L
+ 
+   TKE at old time level
+   REALTYPE, public, dimension(:), allocatable   :: tkeo
+ 
+   buoyancy variance and its destruction
+   REALTYPE, public, dimension(:), allocatable   :: kb,epsb
+ 
+   shear and buoyancy production
+   of tke and buoyancy variance
+   REALTYPE, public, dimension(:), allocatable   :: P,B,Pb
+ 
+   turbulent diffusivities
+   of momentum, temperature, salinity
+   REALTYPE, public, dimension(:), allocatable         :: num
+   REALTYPE, public, dimension(:), allocatable, target :: nuh
+   REALTYPE, public, dimension(:), allocatable         :: nus
+ 
+   non-local fluxes of momentum
+   REALTYPE, public, dimension(:), allocatable   :: gamu,gamv
+ 
+   non-local fluxes
+   of buoyancy, temperature, salinity
+   REALTYPE, public, dimension(:), allocatable   :: gamb,gamh,gams
+ 
+   non-dimensional  stability functions
+   REALTYPE, public, dimension(:), allocatable   :: cmue1,cmue2
+ 
+   non-dimensional counter-gradient term
+   REALTYPE, public, dimension(:), allocatable   :: gam
+ 
+   alpha_M, alpha_N, and alpha_B
+   REALTYPE, public, dimension(:), allocatable   :: as,an,at
+ 
+   time scale ratio r
+   REALTYPE, public, dimension(:), allocatable   :: r
+ 
+   the gradient Richardson number
+   REALTYPE, public, dimension(:), allocatable   :: Rig
+ 
+   the flux Richardson number
+   REALTYPE, public, dimension(:), allocatable   :: xRf
+ 
+   turbulent velocity variances
+   REALTYPE, public, dimension(:), allocatable   :: uu,vv,ww
+ 
+  ifdef EXTRA_OUTPUT
+ 
+   dummies for testing
+   REALTYPE, public, dimension(:), allocatable   :: turb1,turb2,turb3,turb4,turb5
+ 
+  endif
+ 
+   some additional constants
+   REALTYPE, public                              :: cm0,cmsf,cde,rcm, b1
+ 
+   Prandtl-number in neutrally stratified flow
+   REALTYPE, public                              :: Prandtl0
+ 
+   parameters for wave-breaking
+   REALTYPE, public                              :: craig_m,sig_e0
+ 
+   the 'turbulence' namelist
+   integer, public                               :: turb_method
+   integer, public                               :: tke_method
+   integer, public                               :: len_scale_method
+   integer, public                               :: stab_method
+ 
+   the 'bc' namelist
+   integer, public                               :: k_ubc
+   integer, public                               :: k_lbc
+   integer, public                               :: kb_ubc
+   integer, public                               :: kb_lbc
+   integer, public                               :: psi_ubc
+   integer, public                               :: psi_lbc
+   integer, public                               :: ubc_type
+   integer, public                               :: lbc_type
+ 
+   the 'turb_param' namelist
+   REALTYPE, public                              :: cm0_fix
+   REALTYPE, public                              :: Prandtl0_fix
+   REALTYPE, public                              :: cw
+   logical                                       :: compute_kappa
+   REALTYPE, public                              :: kappa
+   logical                                       :: compute_c3
+   REALTYPE                                      :: ri_st
+   logical,  public                              :: length_lim
+   REALTYPE, public                              :: galp
+   REALTYPE, public                              :: const_num
+   REALTYPE, public                              :: const_nuh
+   REALTYPE, public                              :: k_min
+   REALTYPE, public                              :: eps_min
+   REALTYPE, public                              :: kb_min
+   REALTYPE, public                              :: epsb_min
+ 
+   the 'generic' namelist
+   logical                                       :: compute_param
+   REALTYPE, public                              :: gen_m
+   REALTYPE, public                              :: gen_n
+   REALTYPE, public                              :: gen_p
+   REALTYPE, public                              :: cpsi1
+   REALTYPE, public                              :: cpsi2
+   REALTYPE, public                              :: cpsi3minus
+   REALTYPE, public                              :: cpsi3plus
+   REALTYPE                                      :: sig_kpsi
+   REALTYPE, public                              :: sig_psi
+   REALTYPE                                      :: gen_d
+   REALTYPE                                      :: gen_alpha
+   REALTYPE                                      :: gen_l
+ 
+   the 'keps' namelist
+   REALTYPE, public                              :: ce1
+   REALTYPE, public                              :: ce2
+   REALTYPE, public                              :: ce3minus
+   REALTYPE, public                              :: ce3plus
+   REALTYPE, public                              :: sig_k
+   REALTYPE, public                              :: sig_e
+   logical,  public                              :: sig_peps
+ 
+   the 'my' namelist
+   REALTYPE, public                              :: e1
+   REALTYPE, public                              :: e2
+   REALTYPE, public                              :: e3
+   REALTYPE, public                              :: sq
+   REALTYPE, public                              :: sl
+   integer,  public                              :: my_length
+   logical,  public                              :: new_constr
+ 
+   the 'scnd' namelist
+   integer                                       ::  scnd_method
+   integer                                       ::  kb_method
+   integer                                       ::  epsb_method
+   integer                                       ::  scnd_coeff
+   REALTYPE ,public                              ::  cc1
+   REALTYPE, public                              ::  ct1,ctt
+   REALTYPE, public                              ::  cc2,cc3,cc4,cc5,cc6
+   REALTYPE, public                              ::  ct2,ct3,ct4,ct5
+ 
+   the a_i's for the ASM
+   REALTYPE, public                              ::  a1,a2,a3,a4,a5
+   REALTYPE, public                              ::  at1,at2,at3,at4,at5
+ 
+ 
+   the 'iw' namelist
+   integer,  public                              :: iw_model
+   REALTYPE, public                              :: alpha
+   REALTYPE, public                              :: klimiw
+   REALTYPE, public                              :: rich_cr
+   REALTYPE, public                              :: numiw
+   REALTYPE, public                              :: nuhiw
+   REALTYPE, public                              :: numshear
+</PRE><I CLASS="sans">DEFINED PARAMETERS:</I>
+<PRE> 
+   general outline of the turbulence model
+   integer, parameter, public                    :: convective=0
+   integer, parameter, public                    :: algebraic=1
+   integer, parameter, public                    :: first_order=2
+   integer, parameter, public                    :: second_order=3
+ 
+   method to update TKE
+   integer, parameter, public                    :: tke_local_eq=1
+   integer, parameter, public                    :: tke_keps=2
+   integer, parameter, public                    :: tke_MY=3
+ 
+   stability functions
+   integer, parameter, public                    :: Constant=1
+   integer, parameter, public                    :: MunkAnderson=2
+   integer, parameter, public                    :: SchumGerz=3
+   integer, parameter, public                    :: EiflerSchrimpf=4
+ 
+   method to update length scale
+   integer, parameter                            :: Parabola=1
+   integer, parameter                            :: Triangle=2
+   integer, parameter                            :: Xing=3
+   integer, parameter                            :: RobertOuellet=4
+   integer, parameter                            :: Blackadar=5
+   integer, parameter                            :: BougeaultAndre=6
+   integer, parameter                            :: ispra_length=7
+   integer, parameter, public                    :: diss_eq=8
+   integer, parameter, public                    :: length_eq=9
+   integer, parameter, public                    :: generic_eq=10
+ 
+   boundary conditions
+   integer, parameter, public                    :: Dirichlet=0
+   integer, parameter, public                    :: Neumann=1
+   integer, parameter, public                    :: viscous=0
+   integer, parameter, public                    :: logarithmic=1
+   integer, parameter, public                    :: injection=2
+ 
+   type of second-order model
+   integer, parameter                            :: quasiEq=1
+   integer, parameter                            :: weakEqKbEq=2
+   integer, parameter                            :: weakEqKb=3
+ 
+   method to solve equation for k_b
+   integer, parameter                            :: kb_algebraic=1
+   integer, parameter                            :: kb_dynamic=2
+ 
+   method to solve equation for epsilon_b
+   integer, parameter                            :: epsb_algebraic=1
+   integer, parameter                            :: epsb_dynamic=2
+</PRE><I CLASS="sans">BUGS:</I>
+<PRE>         The algebraic equation for the TKE is not safe
+         to use at the moment. Use it only in connection
+         with the prescribed length-scale profiles. The
+         functions report_model() will report wrong things
+         for the algebraic TKE equation. To be fixed with
+         the next version.
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding, Hans Burchard,
+                       Manuel Ruiz Villarreal,
+                       Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1052"
+  HREF="node49.html">Initialise the turbulence module</A>
+<LI><A NAME="tex2html1053"
+  HREF="node50.html">Initialize the second-order model</A>
+<LI><A NAME="tex2html1054"
+  HREF="node51.html">Generate a two-equation model </A>
+<LI><A NAME="tex2html1055"
+  HREF="node52.html">Analyse the turbulence models</A>
+<LI><A NAME="tex2html1056"
+  HREF="node53.html">Report turbulence model </A>
+<LI><A NAME="tex2html1057"
+  HREF="node54.html">Manage turbulence time-stepping</A>
+<LI><A NAME="tex2html1058"
+  HREF="node55.html">Update the turbulent kinetic energy </A>
+<LI><A NAME="tex2html1059"
+  HREF="node56.html">Update the buoyancy variance</A>
+<LI><A NAME="tex2html1060"
+  HREF="node57.html">Update the dissipation length-scale</A>
+<LI><A NAME="tex2html1061"
+  HREF="node58.html">Update the desctruction rate of buoyancy variance</A>
+<LI><A NAME="tex2html1062"
+  HREF="node59.html">Update diffusivities (Kolmogorov-Prandtl relation)</A>
+<LI><A NAME="tex2html1063"
+  HREF="node60.html">Update stability functions</A>
+<LI><A NAME="tex2html1064"
+  HREF="node61.html">Compute special values of stability functions</A>
+<LI><A NAME="tex2html1065"
+  HREF="node62.html">Boundary conditons for the k-equation (k-epsilon style) </A>
+<LI><A NAME="tex2html1066"
+  HREF="node63.html">Boundary conditons for the k-equation (Mellor-Yamada style)</A>
+<LI><A NAME="tex2html1067"
+  HREF="node64.html">Boundary conditons for the epsilon-equation</A>
+<LI><A NAME="tex2html1068"
+  HREF="node65.html">Boundary conditons for the psi-equation </A>
+<LI><A NAME="tex2html1069"
+  HREF="node66.html">Boundary conditons for the q2l-equation</A>
+<LI><A NAME="tex2html1070"
+  HREF="node67.html">Clean up the turbulence module</A>
+<LI><A NAME="tex2html1071"
+  HREF="node68.html">Print the current state of the turbulence module.</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1050"
+  HREF="node49.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1046"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1040"
+  HREF="node47.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1048"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1051"
+  HREF="node49.html">Initialise the turbulence module</A>
+<B> Up:</B> <A NAME="tex2html1047"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1041"
+  HREF="node47.html">Numerics</A>
+ &nbsp; <B>  <A NAME="tex2html1049"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

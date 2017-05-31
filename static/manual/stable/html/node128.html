@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Working with observed data in GOTM</TITLE>
+<META NAME="description" CONTENT="Working with observed data in GOTM">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node150.html">
+<LINK REL="previous" HREF="node104.html">
+<LINK REL="up" HREF="html.html">
+<LINK REL="next" HREF="node129.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2053"
+  HREF="node129.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2049"
+  HREF="html.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2043"
+  HREF="node127.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2051"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2054"
+  HREF="node129.html">Fortran: Module Interface observations</A>
+<B> Up:</B> <A NAME="tex2html2050"
+  HREF="html.html">html</A>
+<B> Previous:</B> <A NAME="tex2html2044"
+  HREF="node127.html">Calculate the short-wave radiation</A>
+ &nbsp; <B>  <A NAME="tex2html2052"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00070000000000000000">
+Working with observed data in GOTM</A>
+</H1>
+
+<P>
+In the context of GOTM, the term `observations' should be understood
+in a broad sense: it may refer to data either measured in nature or
+generated artificially.  The inclusion of such data into GOTM can
+serve different purposes. Examples are time-series of external
+pressure-gradients, which can be used to drive the model, or observed
+profiles of the temperature to which model results can be relaxed.
+
+<P>
+Two different types of `observations' are considered so far in GOTM:
+time series of scalar data and time series of profile data. The first
+type is used to introduce, for example, sea surface elevations into
+the model. The latter is used to include, for example, temperature or
+velocity fields.
+
+<P>
+All specifications concerning the `observations' are done via the
+namelist file <TT>obs.inp</TT>.  Each of type of variable has its own
+namelist in <TT>obs.inp</TT>.  Common for all namelists is a member with
+the suffix <TT>_method</TT>, used to specify the action performed to generate or
+acquire the variable, respectively. Observations can be, for example,
+read-in from files or computed according to an analytical expression.
+Some types of observations (e.g. turbulent dissipation rates) are not
+used directly during the calculations in GOTM. but can be conveniently 
+interpolated to the numerical grid to allow for an easy comparison
+of measured data and model results.
+
+<P>
+For all types of observations, one <TT>_method </TT> is always `from
+file'.  All input-files are in ASCII with a very straight-forward
+format. The necessary interpolation in space is performed as an
+integral part of the general reading routines. Temporal interpolation
+is performed as part of the specific reading routines, e.g. <TT>get_s_profile.F90</TT>.
+
+<P>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2055"
+  HREF="node129.html">Fortran:  Module Interface observations -- the 'real' world  (Source File: observations.F90)</A>
+<UL>
+<LI><A NAME="tex2html2056"
+  HREF="node130.html">Initialise</A>
+<LI><A NAME="tex2html2057"
+  HREF="node131.html">get_all_obs</A>
+<LI><A NAME="tex2html2058"
+  HREF="node132.html">read_obs</A>
+<LI><A NAME="tex2html2059"
+  HREF="node133.html">read_profiles</A>
+<LI><A NAME="tex2html2060"
+  HREF="node134.html">Clean</A>
+<LI><A NAME="tex2html2061"
+  HREF="node135.html">Print</A>
+<LI><A NAME="tex2html2062"
+  HREF="node136.html">get_s_profile</A>
+<LI><A NAME="tex2html2063"
+  HREF="node137.html">get_t_profile</A>
+<LI><A NAME="tex2html2064"
+  HREF="node138.html">get_o2_profile</A>
+<LI><A NAME="tex2html2065"
+  HREF="node139.html">get_ext_pressure</A>
+<LI><A NAME="tex2html2066"
+  HREF="node140.html">get_int_pressure</A>
+<LI><A NAME="tex2html2067"
+  HREF="node141.html">read_extinction</A>
+<LI><A NAME="tex2html2068"
+  HREF="node142.html">get_w_adv</A>
+<LI><A NAME="tex2html2069"
+  HREF="node143.html">get_zeta</A>
+<LI><A NAME="tex2html2070"
+  HREF="node144.html">get_wave</A>
+<LI><A NAME="tex2html2071"
+  HREF="node145.html">get_vel_profile</A>
+<LI><A NAME="tex2html2072"
+  HREF="node146.html">get_eps_profile</A>
+<LI><A NAME="tex2html2073"
+  HREF="node147.html">analytical_profile</A>
+<LI><A NAME="tex2html2074"
+  HREF="node148.html">const_NNT</A>
+<LI><A NAME="tex2html2075"
+  HREF="node149.html">const_NNS</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2053"
+  HREF="node129.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2049"
+  HREF="html.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2043"
+  HREF="node127.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2051"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2054"
+  HREF="node129.html">Fortran: Module Interface observations</A>
+<B> Up:</B> <A NAME="tex2html2050"
+  HREF="html.html">html</A>
+<B> Previous:</B> <A NAME="tex2html2044"
+  HREF="node127.html">Calculate the short-wave radiation</A>
+ &nbsp; <B>  <A NAME="tex2html2052"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

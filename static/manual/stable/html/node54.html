@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Manage</TITLE>
+<META NAME="description" CONTENT="Manage">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1127"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1123"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1117"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1125"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1128"
+  HREF="node55.html">Update</A>
+<B> Up:</B> <A NAME="tex2html1124"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1118"
+  HREF="node53.html">Report</A>
+ &nbsp; <B>  <A NAME="tex2html1126"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00057600000000000000"></A><A NAME="sec:doTurbulence"></A>
+<BR>
+Manage turbulence time-stepping
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine do_turbulence(nlev,dt,depth,u_taus,u_taub,z0s,z0b,h,      &amp;
+                             NN,SS,xP)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This routine is the central point of the 
+   turbulence scheme. It determines the order, in which
+   turbulence variables are updated, and calls
+   other member functions updating
+   the TKE, the length-scale, the dissipation rate, the ASM etc.
+   Note, that the list of arguments in <TT>do_turbulence()</TT> corresponds
+   exactly to those mean flow and grid-related variables required to update
+   the turbulent quantities. These variables have to be passed
+   from a 3-D model, if the <TT>turbulence</TT> module of GOTM is used
+   for the computation of the turbulent fluxes. Do not forget to call
+   <TT>init_turbulence()</TT> from the 3-D model before the first call to
+   <TT>do_turbulence()</TT>.
+
+<P>
+The variable <TT>turb_method</TT> determines the essential structure
+   of the calls in <TT>do_turbulence()</TT>. At the moment, the following
+   model types are available:
+   
+<UL>
+<LI><TT>turb_method = 0</TT> corresponds to the "convective adjustment"
+     algorithm, see section <A HREF="node35.html#sec:convective">3.2.16</A>. Since this model is not a real
+     one-point turbulence closure, it is not called from <TT>do_turbulence</TT> but
+     directly from the main GOTM loop.
+</LI>
+<LI><TT>turb_method = 1</TT> corresponds to a purely algebraic description
+     of the turbulent diffusivities.
+</LI>
+<LI><TT>turb_method = 2</TT> corresponds to models computing the diffusivities
+    from the TKE and the turbulent length scale according to (<A HREF="node37.html#nu">44</A>). TKE and length scale
+    are computed from dynamic PDEs or algebraic relations, an empirical (i.e. not
+    derived from a second-order model) stability function is used, see
+    section <A HREF="node60.html#sec:stabilityFunctions">4.7.12</A>.
+</LI>
+<LI><TT>turb_method = 3</TT> corresponds to a second-order model for the turbulent
+    fluxes.
+   
+</LI>
+</UL>
+
+<P>
+The second-order models fall into different categories, depending on the
+   value of <TT>second_method</TT>. These models, discussed in detail
+   in section <A HREF="node40.html#sec:EASM">4.4</A>, are listed in the following.
+   
+<UL>
+<LI><TT>second_method = 1</TT> corresponds to algebraic quasi-equilibrium models
+           with scaling in the spirit of <A
+ HREF="node251.html#Galperinetal88"><SPAN  CLASS="textit">Galperin et&nbsp;al.</SPAN> (1988)</A>, see section <A HREF="node88.html#sec:cmueD">4.7.40</A>.
+</LI>
+<LI><TT>second_method = 2</TT> corresponds to algebraic models
+           assuming <!-- MATH
+ $P_b=\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.png"
+ ALT="$ P_b=\epsilon_b$"></SPAN>, and hence using (<A HREF="node40.html#Tequilibrium">72</A>). Furthermore,
+           full equilibrium <!-- MATH
+ $P+G=\epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="76" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img270.png"
+ ALT="$ P+G=\epsilon$"></SPAN> and <!-- MATH
+ $P_b=\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.png"
+ ALT="$ P_b=\epsilon_b$"></SPAN> is assumed for the
+           computation of <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img243.png"
+ ALT="$ {\cal N}$"></SPAN> and <!-- MATH
+ ${\cal N}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ {\cal N}_b$"></SPAN> in (<A HREF="node39.html#NandNb">65</A>), see section <A HREF="node87.html#sec:cmueC">4.7.39</A>
+</LI>
+<LI><TT>second_method = 3</TT> corresponds to algebraic models assuming
+           full equilibrium <!-- MATH
+ $P+G=\epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="76" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img270.png"
+ ALT="$ P+G=\epsilon$"></SPAN> and <!-- MATH
+ $P_b=\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img254.png"
+ ALT="$ P_b=\epsilon_b$"></SPAN> for the
+           computation of <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img243.png"
+ ALT="$ {\cal N}$"></SPAN> and <!-- MATH
+ ${\cal N}_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img244.png"
+ ALT="$ {\cal N}_b$"></SPAN> in (<A HREF="node39.html#NandNb">65</A>). Now, however,
+           also an equation for (half) the buoyancy variance <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.png"
+ ALT="$ k_b$"></SPAN> is solved,
+           leading to the appearance of the counter-gradient term in (<A HREF="node40.html#b13">74</A>), see section <A HREF="node86.html#sec:cmueB">4.7.38</A>.
+           This model is not yet fully tested and therefore not available.
+   
+</LI>
+</UL>
+   Depending on the values of <TT>kb_method</TT> and <TT>epsb_method</TT>, different
+   algebraic or differential equations for <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img182.png"
+ ALT="$ k_b$"></SPAN> and <!-- MATH
+ $\epsilon_b$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img268.png"
+ ALT="$ \epsilon_b$"></SPAN> are solved for
+   <TT>second_method = 3,4</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+ 
+    interface
+       subroutine production(nlev,NN,SS,xP)
+         integer,  intent(in)                :: nlev
+         REALTYPE, intent(in)                :: NN(0:nlev)
+         REALTYPE, intent(in)                :: SS(0:nlev)
+         REALTYPE, intent(in), optional      :: xP(0:nlev)
+       end subroutine production
+    end interface
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+    number of vertical layers
+    integer,  intent(in)                :: nlev
+ 
+    time step (s)
+    REALTYPE, intent(in)                :: dt
+ 
+    distance between surface
+    and bottom(m)
+    REALTYPE, intent(in)                :: depth
+ 
+    surface and bottom
+    friction velocity (m/s)
+    REALTYPE, intent(in)                :: u_taus,u_taub
+ 
+    surface and bottom
+    roughness length (m)
+    REALTYPE, intent(in)                :: z0s,z0b
+ 
+    layer thickness (m)
+    REALTYPE, intent(in)                :: h(0:nlev)
+ 
+    boyancy frequency squared (1/s^2)
+    REALTYPE, intent(in)                :: NN(0:nlev)
+ 
+    shear-frequency squared (1/s^2)
+    REALTYPE, intent(in)                :: SS(0:nlev)
+ 
+    TKE production due to seagrass
+    friction (m^2/s^3)
+    REALTYPE, intent(in), optional      :: xP(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Karsten Bolding, Hans Burchard,
+                        Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1127"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1123"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1117"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1125"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1128"
+  HREF="node55.html">Update</A>
+<B> Up:</B> <A NAME="tex2html1124"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1118"
+  HREF="node53.html">Report</A>
+ &nbsp; <B>  <A NAME="tex2html1126"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

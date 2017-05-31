@@ -1,0 +1,281 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fortran: Module Interface eqstate -- the equation of state (Source File: eqstate.F90)</TITLE>
+<META NAME="description" CONTENT="Fortran: Module Interface eqstate -- the equation of state (Source File: eqstate.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node189.html">
+<LINK REL="previous" HREF="node176.html">
+<LINK REL="up" HREF="node169.html">
+<LINK REL="next" HREF="node181.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2786"
+  HREF="node181.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2782"
+  HREF="node169.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2776"
+  HREF="node179.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2784"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2787"
+  HREF="node181.html">Read</A>
+<B> Up:</B> <A NAME="tex2html2783"
+  HREF="node169.html">Utilities</A>
+<B> Previous:</B> <A NAME="tex2html2777"
+  HREF="node179.html">De-allocate</A>
+ &nbsp; <B>  <A NAME="tex2html2785"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00094000000000000000"></A><A NAME="sec:eqstate"></A>
+<BR>
+Fortran:  Module Interface eqstate -- the equation of state  (Source File: eqstate.F90)
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    MODULE eqstate
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes the density, <!-- MATH
+ ${\langle \rho \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$ {\langle \rho \rangle} $"></SPAN>, and buoyancy from the
+    salinity, <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN>, the temperature, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN>, and the thermodynamic
+    pressure, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="$ P$"></SPAN>, according to an <SPAN  CLASS="textit">equation of state</SPAN>,
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="DefEOS"></A><!-- MATH
+ \begin{equation}
+{\langle \rho \rangle}  = \hat{\rho} (S,\Theta,P)
+       \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="135" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img827.png"
+ ALT="$\displaystyle {\langle \rho \rangle} = \hat{\rho} (S,\Theta,P) \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">242</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The following remark on the thermodynamic interpretation of
+    density, temperature, and pressure is useful here.  If <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN> is
+    identified with the in-situ temperature, and <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="$ P$"></SPAN> with the in-situ
+    pressure, then <!-- MATH
+ ${\langle \rho \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$ {\langle \rho \rangle} $"></SPAN> will be the in-situ density.  On the
+    other hand, if <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img40.png"
+ ALT="$ P$"></SPAN> is identified with the surface pressure, and
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img13.png"
+ ALT="$ \Theta$"></SPAN> with the potential temperature, the same equation of
+    state, (<A HREF="#DefEOS">242</A>), will yield <!-- MATH
+ ${\langle \rho \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$ {\langle \rho \rangle} $"></SPAN> as the potential
+    density. Note that the quantity <TT>sigma_t</TT> found in the GOTM output
+    is simply computed from  <!-- MATH
+ ${\langle \rho \rangle}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img89.png"
+ ALT="$ {\langle \rho \rangle} $"></SPAN> - 1000 kg m<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img828.png"
+ ALT="$ ^{-3}$"></SPAN>, and may
+    therefore adopt different meanings.
+
+<P>
+At present, two different models for the equation of state ("modes"),
+    and four different "methods" how to evalute the equation of state
+    are implemented.
+
+<P>
+Modes:
+    
+<OL>
+<LI>The UNESCO equation of state according to <A
+ HREF="node251.html#FofonoffMillard83"><SPAN  CLASS="textit">Fofonoff and Millard</SPAN> (1983)</A>
+</LI>
+<LI>The <A
+ HREF="node251.html#JACKETTea05"><SPAN  CLASS="textit">Jackett et&nbsp;al.</SPAN> (2005)</A> equation of state
+    
+</LI>
+</OL>
+    Methods:
+    
+<OL>
+<LI>the full equation of state -- including pressure effects
+</LI>
+<LI>the full equation of state -- without pressure effects
+</LI>
+<LI>the linearised equation of state
+</LI>
+<LI>a general linear form of the equation of state
+    
+</LI>
+</OL>
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+ 
+    default: all is private.
+    private
+</PRE><I CLASS="sans">PUBLIC MEMBER FUNCTIONS:</I>
+<PRE>    public init_eqstate,eqstate1,eos_alpha,eos_beta,unesco,rho_feistel
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Hans Burchard &amp; Karsten Bolding
+    $Log: eqstate.F90,v $
+    Revision 1.9  2010-09-17 12:53:53  jorn
+    extensive code clean-up to ensure proper initialization and clean-up of all variables
+    Revision 1.8  2008-08-01 07:33:14  lars
+    modified documentation
+    Revision 1.7  2007-01-06 11:49:13  kbk
+    namelist file extension changed .inp --&gt; .nml
+    Revision 1.6  2005/06/27 13:44:07  kbk
+    modified + removed traling blanks
+    Revision 1.5  2003/03/28 09:20:36  kbk
+    added new copyright to files
+    Revision 1.4  2003/03/28 08:06:33  kbk
+    removed tabs
+    Revision 1.3  2003/03/10 08:54:16  gotm
+    Improved documentation and cleaned up code
+    Revision 1.2  2001/11/27 19:44:32  gotm
+    Fixed an initialisation bug
+    Revision 1.1.1.1  2001/02/12 15:55:58  gotm
+    initial import into CVS
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2788"
+  HREF="node181.html">Read</A>
+<LI><A NAME="tex2html2789"
+  HREF="node182.html">Select</A>
+<LI><A NAME="tex2html2790"
+  HREF="node183.html">Compute</A>
+<LI><A NAME="tex2html2791"
+  HREF="node184.html">Compute</A>
+<LI><A NAME="tex2html2792"
+  HREF="node185.html">The</A>
+<LI><A NAME="tex2html2793"
+  HREF="node186.html">The</A>
+<LI><A NAME="tex2html2794"
+  HREF="node187.html">Interpolate from observation space to model grid (Source File: gridinterpol.F90)</A>
+<LI><A NAME="tex2html2795"
+  HREF="node188.html">Convert between buoyancy fluxes and others  (Source File: convert_fluxes.F90)</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2786"
+  HREF="node181.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2782"
+  HREF="node169.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2776"
+  HREF="node179.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2784"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2787"
+  HREF="node181.html">Read</A>
+<B> Up:</B> <A NAME="tex2html2783"
+  HREF="node169.html">Utilities</A>
+<B> Previous:</B> <A NAME="tex2html2777"
+  HREF="node179.html">De-allocate</A>
+ &nbsp; <B>  <A NAME="tex2html2785"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

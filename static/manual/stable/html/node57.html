@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Update</TITLE>
+<META NAME="description" CONTENT="Update">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node58.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node58.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1163"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1159"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1153"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1161"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1164"
+  HREF="node58.html">Update</A>
+<B> Up:</B> <A NAME="tex2html1160"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1154"
+  HREF="node56.html">Update</A>
+ &nbsp; <B>  <A NAME="tex2html1162"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00057900000000000000"></A><A NAME="sec:updateLength"></A>
+<BR>
+Update the dissipation length-scale
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> 
+    subroutine do_lengthscale(nlev,dt,depth,u_taus,u_taub, z0s,z0b,h,NN,SS)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Based on the value of <TT>len_scale_method</TT>,
+   this routine calls the appropriate routines for
+   calculating the turbulent length-scale, <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img171.png"
+ ALT="$ l$"></SPAN>, and the rate of
+   dissipation, <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN>.  The user has the choice
+   between several algebraic equations described in section <A HREF="node80.html#sec:algebraiclength">4.7.32</A>,
+   and several differential transport equations for a length-scale
+   determining variable. At the moment, GOTM implements equations
+   for the rate of dissipation, described in section <A HREF="node76.html#sec:dissipationeq">4.7.28</A>,
+   for the Mellor-Yamada model described in section <A HREF="node75.html#sec:lengthscaleeq">4.7.27</A>, and
+   for the generic scale formulated by <A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A> and described
+   in section <A HREF="node77.html#sec:genericeq">4.7.29</A>. This last transport equation generalises all of the
+   previously mentioned models. For example, the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> model
+   and the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img500.png"
+ ALT="$ \omega$"></SPAN> model  can be recovered as special cases of the
+   generic equation, see <A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer,  intent(in)                :: nlev
+    REALTYPE, intent(in)                :: dt,depth,u_taus,u_taub,z0s,z0b
+    REALTYPE, intent(in)                :: h(0:nlev)
+    REALTYPE, intent(in)                :: NN(0:nlev),SS(0:nlev)
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Karsten Bolding, Hans Burchard,
+                        Manuel Ruiz Villarreal,
+                        Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

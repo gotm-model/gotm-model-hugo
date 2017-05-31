@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Heat and momemtum fluxes according to Kondo (Source File: kondo.F90)</TITLE>
+<META NAME="description" CONTENT="Heat and momemtum fluxes according to Kondo (Source File: kondo.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node126.html">
+<LINK REL="previous" HREF="node124.html">
+<LINK REL="up" HREF="node121.html">
+<LINK REL="next" HREF="node126.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2019"
+  HREF="node126.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2015"
+  HREF="node121.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2009"
+  HREF="node124.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2017"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2020"
+  HREF="node126.html">Heat and momentum fluxes</A>
+<B> Up:</B> <A NAME="tex2html2016"
+  HREF="node121.html">Fortran: Module Interface airsea_variables</A>
+<B> Previous:</B> <A NAME="tex2html2010"
+  HREF="node124.html">Wrapper for air-sea fluxes</A>
+ &nbsp; <B>  <A NAME="tex2html2018"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00063400000000000000"></A><A NAME="sec:kondo"></A>
+<BR>
+Heat and momemtum fluxes according to Kondo  (Source File: kondo.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine kondo(sst,airt,u10,v10,precip,evap,taux,tauy,qe,qh)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Based on the model sea surface temperature, the wind vector
+    at 10 m height, the air pressure at 2 m, the dry air
+    temperature and the air pressure at 2 m, and the relative
+    humidity (either directly given or recalculated from the
+    wet bulb or the dew point temperature),
+    this routine first computes the transfer coefficients for the surface
+    momentum flux vector, <!-- MATH
+ $(\tau_x^s,\tau_y^s)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img775.png"
+ ALT="$ (\tau_x^s,\tau_y^s)$"></SPAN> (<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img776.png"
+ ALT="$ c_{dd}$"></SPAN>),
+    the latent heat flux, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img777.png"
+ ALT="$ Q_e$"></SPAN>, (<SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img778.png"
+ ALT="$ c_{ed}$"></SPAN>)
+    and the sensible heat flux, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img779.png"
+ ALT="$ Q_h$"></SPAN>,
+    (<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img780.png"
+ ALT="$ c_{hd}$"></SPAN>) heat flux according to the <A
+ HREF="node251.html#Kondo75"><SPAN  CLASS="textit">Kondo</SPAN> (1975)</A>
+    bulk formulae. Afterwards, these fluxes are calculated according
+    to the following formulae:
+
+<P>
+<P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\begin{array}{rcl}
+    \tau_x^s &=& c_{dd} \rho_a W_x W \\\\
+    \tau_y^s &=& c_{dd} \rho_a W_y W \\\\
+    Q_e &=& c_{ed} L \rho_a W (q_s-q_a) \\\\
+    Q_h &=& c_{hd} C_{pa} \rho_a W (T_w-T_a)
+    \end{array}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="213" HEIGHT="150" BORDER="0"
+ SRC="img781.png"
+ ALT="\begin{displaymath}\begin{array}{rcl} \tau_x^s &amp;=&amp; c_{dd} \rho_a W_x W \\ \\ \ta...
+...q_a) \\ \\ Q_h &amp;=&amp; c_{hd} C_{pa} \rho_a W (T_w-T_a) \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">229</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+with the air density <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img782.png"
+ ALT="$ \rho_a$"></SPAN>, the wind speed at 10 m, <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img783.png"
+ ALT="$ W$"></SPAN>,
+    the <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img71.png"
+ ALT="$ x$"></SPAN>- and the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.png"
+ ALT="$ y$"></SPAN>-component of the wind velocity vector,
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img784.png"
+ ALT="$ W_x$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img785.png"
+ ALT="$ W_y$"></SPAN>, respectively, the specific evaporation heat of sea water,
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img36.png"
+ ALT="$ L$"></SPAN>, the specific saturation humidity, <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img786.png"
+ ALT="$ q_s$"></SPAN>, the actual
+    specific humidity <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img787.png"
+ ALT="$ q_a$"></SPAN>, the specific heat capacity of air at constant
+    pressure, <SPAN CLASS="MATH"><IMG
+ WIDTH="29" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img788.png"
+ ALT="$ C_{pa}$"></SPAN>, the sea surface temperature, <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img789.png"
+ ALT="$ T_w$"></SPAN> and the
+    dry air temperature, <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img790.png"
+ ALT="$ T_a$"></SPAN>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use airsea_variables, only: kelvin,const06,rgas,rho_0
+    use airsea_variables, only: qs,qa,rhoa
+    use airsea_variables, only: cpa,cpw
+    use airsea, only: rain_impact,calc_evaporation
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(in)                :: sst,airt,u10,v10,precip
+</PRE><EM>INPUT/OUTPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(inout)             :: evap
+</PRE><EM>OUTPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(out)               :: taux,tauy,qe,qh
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Hans Burchard and Karsten Bolding
+    $Log: kondo.F90,v $
+    Revision 1.2  2007-12-21 12:38:03  kb
+    added precip/evap to kondo + cleaned
+    Revision 1.1  2007-09-25 10:06:10  kbk
+    modularized the airsea module - added Fairall method
+</PRE><I CLASS="sans">LOCAL VARIABLES:</I>
+<PRE>    REALTYPE                  :: w,L
+    REALTYPE                  :: s,s0
+    REALTYPE                  :: ae_d,be_d,pe_d
+    REALTYPE                  :: ae_h,be_h,ce_h,pe_h
+    REALTYPE                  :: ae_e,be_e,ce_e,pe_e
+    REALTYPE                  :: x,x1,x2,x3
+    REALTYPE                  :: ta,ta_k,tw,tw_k
+    REALTYPE                  :: cdd,chd,ced
+    REALTYPE                  :: tmp,rainfall,cd_rain
+    REALTYPE, parameter       :: eps=1.0e-12
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2019"
+  HREF="node126.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2015"
+  HREF="node121.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2009"
+  HREF="node124.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2017"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2020"
+  HREF="node126.html">Heat and momentum fluxes</A>
+<B> Up:</B> <A NAME="tex2html2016"
+  HREF="node121.html">Fortran: Module Interface airsea_variables</A>
+<B> Previous:</B> <A NAME="tex2html2010"
+  HREF="node124.html">Wrapper for air-sea fluxes</A>
+ &nbsp; <B>  <A NAME="tex2html2018"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

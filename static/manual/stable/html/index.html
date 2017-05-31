@@ -1,0 +1,738 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>html</TITLE>
+<META NAME="description" CONTENT="html">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html20"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png"> 
+<A NAME="tex2html18"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html21"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html19"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<P>
+
+<P>
+<I CLASS="sans"><B><BIG CLASS="XXLARGE"> </BIG></B></I>
+<DIV ALIGN="CENTER"><I CLASS="sans"><B><BIG CLASS="XXLARGE">Lars Umlauf <!-- MATH
+ ${\boldsymbol \cdot}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ {\boldsymbol \cdot}$"></SPAN> Hans Burchard <!-- MATH
+ ${\boldsymbol \cdot}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ {\boldsymbol \cdot}$"></SPAN> Karsten Bolding
+ </BIG></B></I></DIV><I CLASS="sans"><B></B></I>
+
+<P>
+<BR>
+<BR>
+<BR>
+<BR>
+
+<P>
+<I CLASS="sans"><B><BIG CLASS="XHUGE"> </BIG></B></I>
+<DIV ALIGN="CENTER"><I CLASS="sans"><B><BIG CLASS="XHUGE">GOTM
+ </BIG></B></I></DIV><I CLASS="sans"><B></B></I>
+
+<P>
+<BR>
+<BR>
+
+<P>
+<I CLASS="sans"><B><BIG CLASS="XXLARGE"> </BIG></B></I>
+<DIV ALIGN="CENTER"><I CLASS="sans"><B><BIG CLASS="XXLARGE">Sourcecode 
+<BR>
+and 
+<BR>
+Test Case Documentation
+ </BIG></B></I></DIV><I CLASS="sans"><B></B></I>
+
+<P>
+<BR>
+<BR>
+
+<P>
+<I CLASS="sans"><B><BIG CLASS="XLARGE"> </BIG></B></I>
+<DIV ALIGN="CENTER"><I CLASS="sans"><B><BIG CLASS="XLARGE">Version 4.0
+ </BIG></B></I></DIV><I CLASS="sans"><B></B></I>
+
+<P>
+<BR>
+<BR>
+<BR>
+
+<P>
+
+<DIV ALIGN="CENTER">
+  <DIV ALIGN="CENTER">
+<!-- MATH
+ $\scalebox{0.6}{\includegraphics{figures/mixerA.eps}}$
+ -->
+<IMG
+ WIDTH="128" HEIGHT="369" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="\scalebox{0.6}{\includegraphics{figures/mixerA.eps}}">
+</DIV>
+</DIV>
+
+<P>
+<BR>
+<BR>
+
+<P>
+<I CLASS="sans"><B><BIG CLASS="XLARGE"> </BIG></B></I>
+<DIV ALIGN="CENTER"><I CLASS="sans"><B><BIG CLASS="XLARGE">Flow --  Mixing -- Sediment Transport
+</BIG></B></I></DIV><I CLASS="sans"><B></B></I>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html22"
+  HREF="node1.html">Contents</A>
+<LI><A NAME="tex2html23"
+  HREF="node2.html">Introduction</A>
+<UL>
+<LI><A NAME="tex2html24"
+  HREF="node3.html">What is GOTM?</A>
+<LI><A NAME="tex2html25"
+  HREF="node4.html">The idea behind GOTM</A>
+<LI><A NAME="tex2html26"
+  HREF="node5.html">How to read the documentation</A>
+<LI><A NAME="tex2html27"
+  HREF="node6.html">Acknowledgements</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html28"
+  HREF="node7.html">The GOTM main program </A>
+<UL>
+<LI><A NAME="tex2html29"
+  HREF="node8.html">Introduction</A>
+<UL>
+<LI><A NAME="tex2html30"
+  HREF="node9.html">GOTM -- the main program  (Source File: main.F90)</A>
+</UL>
+<LI><A NAME="tex2html31"
+  HREF="node10.html">Fortran:  Module Interface gotm -- the general framework  (Source File: gotm.F90)</A>
+<UL>
+<LI><A NAME="tex2html32"
+  HREF="node11.html">Initialise</A>
+<LI><A NAME="tex2html33"
+  HREF="node12.html">Manage</A>
+<LI><A NAME="tex2html34"
+  HREF="node13.html">The</A>
+<LI><A NAME="tex2html35"
+  HREF="node14.html">Print</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html36"
+  HREF="node15.html">The mean flow model </A>
+<UL>
+<LI><A NAME="tex2html37"
+  HREF="node16.html">Introduction</A>
+<UL>
+<LI><A NAME="tex2html38"
+  HREF="node17.html">Physics</A>
+<LI><A NAME="tex2html39"
+  HREF="node18.html">Numerics</A>
+</UL>
+<LI><A NAME="tex2html40"
+  HREF="node19.html">Fortran:  Module Interface Mean Flow (Source File: meanflow.F90)</A>
+<UL>
+<LI><A NAME="tex2html41"
+  HREF="node20.html">Initialisation</A>
+<LI><A NAME="tex2html42"
+  HREF="node21.html">Cleaning</A>
+<LI><A NAME="tex2html43"
+  HREF="node22.html">Print</A>
+<LI><A NAME="tex2html44"
+  HREF="node23.html">The vertical grid  (Source File: updategrid.F90)</A>
+<LI><A NAME="tex2html45"
+  HREF="node24.html">The Coriolis rotation  (Source File: coriolis.F90)</A>
+<LI><A NAME="tex2html46"
+  HREF="node25.html">The U-momentum equation (Source File: uequation.F90)</A>
+<LI><A NAME="tex2html47"
+  HREF="node26.html">The V-momentum equation (Source File: vequation.F90)</A>
+<LI><A NAME="tex2html48"
+  HREF="node27.html">The external pressure-gradient  (Source File: extpressure.F90)</A>
+<LI><A NAME="tex2html49"
+  HREF="node28.html">The internal pressure-gradient  (Source File: intpressure.F90)</A>
+<LI><A NAME="tex2html50"
+  HREF="node29.html">The vertical friction  (Source File: friction.F90)</A>
+<LI><A NAME="tex2html51"
+  HREF="node30.html">The temperature equation  (Source File: temperature.F90)</A>
+<LI><A NAME="tex2html52"
+  HREF="node31.html">The salinity equation  (Source File: salinity.F90)</A>
+<LI><A NAME="tex2html53"
+  HREF="node32.html">The buoyancy equation (Source File: buoyancy.F90)</A>
+<LI><A NAME="tex2html54"
+  HREF="node33.html">Calculation of the vertical shear  (Source File: shear.F90)</A>
+<LI><A NAME="tex2html55"
+  HREF="node34.html">Calculation of the stratification (Source File: stratification.F90)</A>
+<LI><A NAME="tex2html56"
+  HREF="node35.html">Convective adjustment  (Source File: convectiveadjustment.F90)</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html57"
+  HREF="node36.html">The turbulence model </A>
+<UL>
+<LI><A NAME="tex2html58"
+  HREF="node37.html">Introduction</A>
+<LI><A NAME="tex2html59"
+  HREF="node38.html">Second-order models</A>
+<LI><A NAME="tex2html60"
+  HREF="node39.html">Algebraic Models</A>
+<LI><A NAME="tex2html61"
+  HREF="node40.html">Explicit models for vertical shear and stratification</A>
+<UL>
+<LI><A NAME="tex2html62"
+  HREF="node41.html">Equilibrium states</A>
+<LI><A NAME="tex2html63"
+  HREF="node42.html">Stability of explicit models</A>
+</UL>
+<LI><A NAME="tex2html64"
+  HREF="node43.html">Parameter conversion for other models</A>
+<UL>
+<LI><A NAME="tex2html65"
+  HREF="node44.html">The model of <A
+ HREF="node251.html#GibsonLaunder78"><SPAN  CLASS="textit">Gibson and Launder</SPAN> (1978)</A></A>
+<LI><A NAME="tex2html66"
+  HREF="node45.html">The model of <A
+ HREF="node251.html#Canutoetal2001a"><SPAN  CLASS="textit">Canuto et&nbsp;al.</SPAN> (2001)</A></A>
+<LI><A NAME="tex2html67"
+  HREF="node46.html">The model of <A
+ HREF="node251.html#MellorYamada82"><SPAN  CLASS="textit">Mellor and Yamada</SPAN> (1982)</A></A>
+</UL>
+<LI><A NAME="tex2html68"
+  HREF="node47.html">Numerics</A>
+<LI><A NAME="tex2html69"
+  HREF="node48.html">Fortran:  Module Interface turbulence: its all in here ... (Source File: turbulence.F90)</A>
+<UL>
+<LI><A NAME="tex2html70"
+  HREF="node49.html">Initialise</A>
+<LI><A NAME="tex2html71"
+  HREF="node50.html">Initialize</A>
+<LI><A NAME="tex2html72"
+  HREF="node51.html">Generate</A>
+<LI><A NAME="tex2html73"
+  HREF="node52.html">Analyse</A>
+<LI><A NAME="tex2html74"
+  HREF="node53.html">Report</A>
+<LI><A NAME="tex2html75"
+  HREF="node54.html">Manage</A>
+<LI><A NAME="tex2html76"
+  HREF="node55.html">Update</A>
+<LI><A NAME="tex2html77"
+  HREF="node56.html">Update</A>
+<LI><A NAME="tex2html78"
+  HREF="node57.html">Update</A>
+<LI><A NAME="tex2html79"
+  HREF="node58.html">Update</A>
+<LI><A NAME="tex2html80"
+  HREF="node59.html">Update</A>
+<LI><A NAME="tex2html81"
+  HREF="node60.html">Update</A>
+<LI><A NAME="tex2html82"
+  HREF="node61.html">Compute</A>
+<LI><A NAME="tex2html83"
+  HREF="node62.html">Boundary</A>
+<LI><A NAME="tex2html84"
+  HREF="node63.html">Boundary</A>
+<LI><A NAME="tex2html85"
+  HREF="node64.html">Boundary</A>
+<LI><A NAME="tex2html86"
+  HREF="node65.html">Boundary</A>
+<LI><A NAME="tex2html87"
+  HREF="node66.html">Boundary</A>
+<LI><A NAME="tex2html88"
+  HREF="node67.html">Clean</A>
+<LI><A NAME="tex2html89"
+  HREF="node68.html">Print</A>
+<LI><A NAME="tex2html90"
+  HREF="node69.html">Update turbulence production (Source File: production.F90)</A>
+<LI><A NAME="tex2html91"
+  HREF="node70.html">Update dimensionless alpha's (Source File: alpha_mnb.F90)</A>
+<LI><A NAME="tex2html92"
+  HREF="node71.html">Update time scale ratio (Source File: r_ratio.F90)</A>
+<LI><A NAME="tex2html93"
+  HREF="node72.html">The dynamic k-equation  (Source File: tkeeq.F90)</A>
+<LI><A NAME="tex2html94"
+  HREF="node73.html">The dynamic q2/2-equation  (Source File: q2over2eq.F90)</A>
+<LI><A NAME="tex2html95"
+  HREF="node74.html">The dynamic kb-equation  (Source File: kbeq.F90)</A>
+<LI><A NAME="tex2html96"
+  HREF="node75.html">The dynamic q2l-equation (Source File: lengthscaleeq.F90)</A>
+<LI><A NAME="tex2html97"
+  HREF="node76.html">The dynamic epsilon-equation  (Source File: dissipationeq.F90)</A>
+<LI><A NAME="tex2html98"
+  HREF="node77.html">The dynamic psi-equation  (Source File: genericeq.F90)</A>
+<LI><A NAME="tex2html99"
+  HREF="node78.html">The algebraic k-equation (Source File: tkealgebraic.F90)</A>
+<LI><A NAME="tex2html100"
+  HREF="node79.html">The algebraic kb-equation (Source File: kbalgebraic.F90)</A>
+<LI><A NAME="tex2html101"
+  HREF="node80.html">Some algebraic length-scale relations  (Source File: algebraiclength.F90)</A>
+<LI><A NAME="tex2html102"
+  HREF="node81.html">The algebraic epsilonb-equation (Source File: epsbalgebraic.F90)</A>
+<LI><A NAME="tex2html103"
+  HREF="node82.html">The algebraic velocity variances  (Source File: variances.F90)</A>
+<LI><A NAME="tex2html104"
+  HREF="node83.html">Algebraic length-scale from ISPRAMIX  (Source File: ispralength.F90)</A>
+<LI><A NAME="tex2html105"
+  HREF="node84.html">Algebraic length-scale with two master scales  (Source File: potentialml.F90)</A>
+<LI><A NAME="tex2html106"
+  HREF="node85.html">The non-local, exact weak-equilibrium stability function  (Source File: cmue_a.F90)</A>
+<LI><A NAME="tex2html107"
+  HREF="node86.html">The non-local, approximate weak-equilibrium stability function (Source File: cmue_b.F90)</A>
+<LI><A NAME="tex2html108"
+  HREF="node87.html">The local, weak-equilibrium stability functions  (Source File: cmue_c.F90)</A>
+<LI><A NAME="tex2html109"
+  HREF="node88.html">The quasi-equilibrium stability functions  (Source File: cmue_d.F90)</A>
+<LI><A NAME="tex2html110"
+  HREF="node89.html">The Munk and Anderson (1948) stability function (Source File: cmue_ma.F90)</A>
+<LI><A NAME="tex2html111"
+  HREF="node90.html">The Schumann and Gerz (1995) stability function (Source File: cmue_sg.F90)</A>
+<LI><A NAME="tex2html112"
+  HREF="node91.html">Flux Richardson number stability function (Source File: cmue_rf.F90)</A>
+<LI><A NAME="tex2html113"
+  HREF="node92.html">Calculate c3 from steady-state Richardson number (Source File: compute_cpsi3.F90)</A>
+<LI><A NAME="tex2html114"
+  HREF="node93.html">Calculate steady-state Richardson number from c3 (Source File: compute_rist.F90)</A>
+<LI><A NAME="tex2html115"
+  HREF="node94.html">Update internal wave mixing (Source File: internal_wave.F90)</A>
+<LI><A NAME="tex2html116"
+  HREF="node95.html">TKE flux from wave-breaking (Source File: fk_craig.F90)</A>
+</UL>
+<LI><A NAME="tex2html117"
+  HREF="node96.html">Fortran:  Module Interface kpp: the KPP-turbulence model  (Source File: kpp.F90)</A>
+<UL>
+<LI><A NAME="tex2html118"
+  HREF="node97.html">Initialise</A>
+<LI><A NAME="tex2html119"
+  HREF="node98.html">Loop</A>
+<LI><A NAME="tex2html120"
+  HREF="node99.html">Compute</A>
+<LI><A NAME="tex2html121"
+  HREF="node100.html">Compute</A>
+<LI><A NAME="tex2html122"
+  HREF="node101.html">Compute</A>
+<LI><A NAME="tex2html123"
+  HREF="node102.html">Compute</A>
+<LI><A NAME="tex2html124"
+  HREF="node103.html">Printing GOTM library version (Source File: gotm_lib_version.F90)</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html125"
+  HREF="node104.html">Air-Sea interaction </A>
+<UL>
+<LI><A NAME="tex2html126"
+  HREF="node105.html">Introduction</A>
+<LI><A NAME="tex2html127"
+  HREF="node106.html">Fortran:  Module Interface airsea -- atmospheric fluxes  (Source File: airsea.F90)</A>
+<UL>
+<LI><A NAME="tex2html128"
+  HREF="node107.html">Initialise</A>
+<LI><A NAME="tex2html129"
+  HREF="node108.html">Obtain</A>
+<LI><A NAME="tex2html130"
+  HREF="node109.html">Finish</A>
+<LI><A NAME="tex2html131"
+  HREF="node110.html">Read</A>
+<LI><A NAME="tex2html132"
+  HREF="node111.html">Read</A>
+<LI><A NAME="tex2html133"
+  HREF="node112.html">Read</A>
+<LI><A NAME="tex2html134"
+  HREF="node113.html">Read</A>
+<LI><A NAME="tex2html135"
+  HREF="node114.html">Read</A>
+<LI><A NAME="tex2html136"
+  HREF="node115.html">Read</A>
+<LI><A NAME="tex2html137"
+  HREF="node116.html">Read</A>
+<LI><A NAME="tex2html138"
+  HREF="node117.html">Integrate</A>
+<LI><A NAME="tex2html139"
+  HREF="node118.html">Set</A>
+<LI><A NAME="tex2html140"
+  HREF="node119.html">Set</A>
+<LI><A NAME="tex2html141"
+  HREF="node120.html">Print</A>
+</UL>
+<LI><A NAME="tex2html142"
+  HREF="node121.html">Fortran:  Module Interface airsea_variables (Source File: airsea_variables.F90)</A>
+<UL>
+<LI><A NAME="tex2html143"
+  HREF="node122.html">Calculate the humidity  (Source File: humidity.F90)</A>
+<LI><A NAME="tex2html144"
+  HREF="node123.html">Calculate the long-wave back radiation  (Source File: back_radiation.F90)</A>
+<LI><A NAME="tex2html145"
+  HREF="node124.html">Wrapper for air-sea fluxes calculations  (Source File: airsea_fluxes.F90)</A>
+<LI><A NAME="tex2html146"
+  HREF="node125.html">Heat and momemtum fluxes according to Kondo  (Source File: kondo.F90)</A>
+<LI><A NAME="tex2html147"
+  HREF="node126.html">Heat and momentum fluxes according to Fairall et al. (Source File: fairall.F90)</A>
+<LI><A NAME="tex2html148"
+  HREF="node127.html">Calculate the short-wave radiation  (Source File: short_wave_radiation.F90)</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html149"
+  HREF="node128.html">Working with observed data in GOTM</A>
+<UL>
+<LI><A NAME="tex2html150"
+  HREF="node129.html">Fortran:  Module Interface observations -- the 'real' world  (Source File: observations.F90)</A>
+<UL>
+<LI><A NAME="tex2html151"
+  HREF="node130.html">Initialise</A>
+<LI><A NAME="tex2html152"
+  HREF="node131.html">get_all_obs</A>
+<LI><A NAME="tex2html153"
+  HREF="node132.html">read_obs</A>
+<LI><A NAME="tex2html154"
+  HREF="node133.html">read_profiles</A>
+<LI><A NAME="tex2html155"
+  HREF="node134.html">Clean</A>
+<LI><A NAME="tex2html156"
+  HREF="node135.html">Print</A>
+<LI><A NAME="tex2html157"
+  HREF="node136.html">get_s_profile</A>
+<LI><A NAME="tex2html158"
+  HREF="node137.html">get_t_profile</A>
+<LI><A NAME="tex2html159"
+  HREF="node138.html">get_o2_profile</A>
+<LI><A NAME="tex2html160"
+  HREF="node139.html">get_ext_pressure</A>
+<LI><A NAME="tex2html161"
+  HREF="node140.html">get_int_pressure</A>
+<LI><A NAME="tex2html162"
+  HREF="node141.html">read_extinction</A>
+<LI><A NAME="tex2html163"
+  HREF="node142.html">get_w_adv</A>
+<LI><A NAME="tex2html164"
+  HREF="node143.html">get_zeta</A>
+<LI><A NAME="tex2html165"
+  HREF="node144.html">get_wave</A>
+<LI><A NAME="tex2html166"
+  HREF="node145.html">get_vel_profile</A>
+<LI><A NAME="tex2html167"
+  HREF="node146.html">get_eps_profile</A>
+<LI><A NAME="tex2html168"
+  HREF="node147.html">analytical_profile</A>
+<LI><A NAME="tex2html169"
+  HREF="node148.html">const_NNT</A>
+<LI><A NAME="tex2html170"
+  HREF="node149.html">const_NNS</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html171"
+  HREF="node150.html">Saving the results  </A>
+<UL>
+<LI><A NAME="tex2html172"
+  HREF="node151.html">Fortran:  Module Interface output -- saving the results (Source File: output.F90)</A>
+<UL>
+<LI><A NAME="tex2html173"
+  HREF="node152.html">Initialize</A>
+<LI><A NAME="tex2html174"
+  HREF="node153.html">Set</A>
+<LI><A NAME="tex2html175"
+  HREF="node154.html">Save</A>
+<LI><A NAME="tex2html176"
+  HREF="node155.html">Close</A>
+<LI><A NAME="tex2html177"
+  HREF="node156.html">Compute</A>
+</UL>
+<LI><A NAME="tex2html178"
+  HREF="node157.html">Fortran:  Module Interface asciiout -- saving the results in ASCII (Source File: asciiout.F90)</A>
+<UL>
+<LI><A NAME="tex2html179"
+  HREF="node158.html">Open</A>
+<LI><A NAME="tex2html180"
+  HREF="node159.html">Save</A>
+<LI><A NAME="tex2html181"
+  HREF="node160.html">Close</A>
+</UL>
+<LI><A NAME="tex2html182"
+  HREF="node161.html">Fortran:  Module Interface ncdfout -- saving the results in NetCDF (Source File: ncdfout.F90)</A>
+<UL>
+<LI><A NAME="tex2html183"
+  HREF="node162.html">Create</A>
+<LI><A NAME="tex2html184"
+  HREF="node163.html">Save</A>
+<LI><A NAME="tex2html185"
+  HREF="node164.html">Close</A>
+<LI><A NAME="tex2html186"
+  HREF="node165.html">Begin</A>
+<LI><A NAME="tex2html187"
+  HREF="node166.html">Define</A>
+<LI><A NAME="tex2html188"
+  HREF="node167.html">Set</A>
+<LI><A NAME="tex2html189"
+  HREF="node168.html">Store</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html190"
+  HREF="node169.html">Utilities</A>
+<UL>
+<LI><A NAME="tex2html191"
+  HREF="node170.html">Introduction</A>
+<LI><A NAME="tex2html192"
+  HREF="node171.html">Fortran:  Module Interface util -- parameters and interfaces for utilities (Source File: util.F90)</A>
+<UL>
+<LI><A NAME="tex2html193"
+  HREF="node172.html">Diffusion schemes -- grid centers (Source File: diff_center.F90)</A>
+<LI><A NAME="tex2html194"
+  HREF="node173.html">Diffusion schemes -- grid faces (Source File: diff_face.F90)</A>
+<LI><A NAME="tex2html195"
+  HREF="node174.html">Advection schemes -- grid centers (Source File: adv_center.F90)</A>
+<LI><A NAME="tex2html196"
+  HREF="node175.html">Lagrangian particle random walk  (Source File: lagrange.F90)</A>
+</UL>
+<LI><A NAME="tex2html197"
+  HREF="node176.html">Fortran:  Module Interface mtridiagonal -- solving the system (Source File: tridiagonal.F90)</A>
+<UL>
+<LI><A NAME="tex2html198"
+  HREF="node177.html">Allocate</A>
+<LI><A NAME="tex2html199"
+  HREF="node178.html">Simplified</A>
+<LI><A NAME="tex2html200"
+  HREF="node179.html">De-allocate</A>
+</UL>
+<LI><A NAME="tex2html201"
+  HREF="node180.html">Fortran:  Module Interface eqstate -- the equation of state  (Source File: eqstate.F90)</A>
+<UL>
+<LI><A NAME="tex2html202"
+  HREF="node181.html">Read</A>
+<LI><A NAME="tex2html203"
+  HREF="node182.html">Select</A>
+<LI><A NAME="tex2html204"
+  HREF="node183.html">Compute</A>
+<LI><A NAME="tex2html205"
+  HREF="node184.html">Compute</A>
+<LI><A NAME="tex2html206"
+  HREF="node185.html">The</A>
+<LI><A NAME="tex2html207"
+  HREF="node186.html">The</A>
+<LI><A NAME="tex2html208"
+  HREF="node187.html">Interpolate from observation space to model grid (Source File: gridinterpol.F90)</A>
+<LI><A NAME="tex2html209"
+  HREF="node188.html">Convert between buoyancy fluxes and others  (Source File: convert_fluxes.F90)</A>
+</UL>
+<LI><A NAME="tex2html210"
+  HREF="node189.html">Fortran:  Module Interface time -- keep control of time  (Source File: time.F90)</A>
+<UL>
+<LI><A NAME="tex2html211"
+  HREF="node190.html">Initialise</A>
+<LI><A NAME="tex2html212"
+  HREF="node191.html">Convert</A>
+<LI><A NAME="tex2html213"
+  HREF="node192.html">Convert</A>
+<LI><A NAME="tex2html214"
+  HREF="node193.html">Keep</A>
+<LI><A NAME="tex2html215"
+  HREF="node194.html">Convert</A>
+<LI><A NAME="tex2html216"
+  HREF="node195.html">Convert</A>
+<LI><A NAME="tex2html217"
+  HREF="node196.html">Return</A>
+<LI><A NAME="tex2html218"
+  HREF="node197.html">Return</A>
+<LI><A NAME="tex2html219"
+  HREF="node198.html">Print</A>
+<LI><A NAME="tex2html220"
+  HREF="node199.html">Lagrangian particle random walk  (Source File: lagrange.F90)</A>
+<LI><A NAME="tex2html221"
+  HREF="node200.html">General ODE solver  (Source File: ode_solvers.F90)</A>
+<LI><A NAME="tex2html222"
+  HREF="node201.html">First-order</A>
+<LI><A NAME="tex2html223"
+  HREF="node202.html">Second-order</A>
+<LI><A NAME="tex2html224"
+  HREF="node203.html">Fourth-order</A>
+<LI><A NAME="tex2html225"
+  HREF="node204.html">First-order</A>
+<LI><A NAME="tex2html226"
+  HREF="node205.html">Second-order</A>
+<LI><A NAME="tex2html227"
+  HREF="node206.html">Fourth-order</A>
+<LI><A NAME="tex2html228"
+  HREF="node207.html">First-order</A>
+<LI><A NAME="tex2html229"
+  HREF="node208.html">Second-order</A>
+<LI><A NAME="tex2html230"
+  HREF="node209.html">Fourth-order</A>
+<LI><A NAME="tex2html231"
+  HREF="node210.html">First-order</A>
+<LI><A NAME="tex2html232"
+  HREF="node211.html">Second-order</A>
+<LI><A NAME="tex2html233"
+  HREF="node212.html">Calculation</A>
+<LI><A NAME="tex2html234"
+  HREF="node213.html">Matrix</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html235"
+  HREF="node214.html">Biogeochemical models </A>
+<UL>
+<LI><A NAME="tex2html236"
+  HREF="node215.html">Mathematical formulation</A>
+<LI><A NAME="tex2html237"
+  HREF="node216.html">Numerical aspects</A>
+<LI><A NAME="tex2html238"
+  HREF="node217.html">Computational aspects</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html239"
+  HREF="node218.html">Extra features </A>
+<UL>
+<LI><A NAME="tex2html240"
+  HREF="node219.html">Fortran:  Module Interface seagrass -- sea grass dynamics  (Source File: seagrass.F90)</A>
+<UL>
+<LI><A NAME="tex2html241"
+  HREF="node220.html">Initialise</A>
+<LI><A NAME="tex2html242"
+  HREF="node221.html">Update</A>
+<LI><A NAME="tex2html243"
+  HREF="node222.html">Storing</A>
+<LI><A NAME="tex2html244"
+  HREF="node223.html">Finish</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html245"
+  HREF="node224.html">Running GOTM in a GUI</A>
+<UL>
+<LI><A NAME="tex2html246"
+  HREF="node225.html">Introduction</A>
+<LI><A NAME="tex2html247"
+  HREF="node226.html">Software required</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html248"
+  HREF="node227.html">GOTM scenarios </A>
+<UL>
+<LI><A NAME="tex2html249"
+  HREF="node228.html">Idealised scenarios</A>
+<UL>
+<LI><A NAME="tex2html250"
+  HREF="node229.html">Couette-flow</A>
+<LI><A NAME="tex2html251"
+  HREF="node230.html">Pressure-gradient driven channel flow</A>
+<LI><A NAME="tex2html252"
+  HREF="node231.html">Turbulence under breaking surface waves</A>
+<LI><A NAME="tex2html253"
+  HREF="node232.html">Some entrainment scenarios</A>
+<LI><A NAME="tex2html254"
+  HREF="node233.html">Estuarine dynamics</A>
+<LI><A NAME="tex2html255"
+  HREF="node234.html">Seagrass canopy dynamics</A>
+</UL>
+<LI><A NAME="tex2html256"
+  HREF="node235.html">Shelf sea scenarios</A>
+<UL>
+<LI><A NAME="tex2html257"
+  HREF="node236.html">Fladenground Experiment</A>
+<LI><A NAME="tex2html258"
+  HREF="node237.html">Annual North Sea simulation</A>
+<LI><A NAME="tex2html259"
+  HREF="node238.html">Seasonal North Sea simulation</A>
+<LI><A NAME="tex2html260"
+  HREF="node239.html">Liverpool Bay</A>
+<LI><A NAME="tex2html261"
+  HREF="node240.html">Gotland Deep</A>
+<LI><A NAME="tex2html262"
+  HREF="node241.html">Middelbank</A>
+</UL>
+<LI><A NAME="tex2html263"
+  HREF="node242.html">Open ocean scenarios</A>
+<UL>
+<LI><A NAME="tex2html264"
+  HREF="node243.html">Ocean Weather Ship Papa</A>
+</UL>
+<LI><A NAME="tex2html265"
+  HREF="node244.html">Lake scenarios</A>
+<UL>
+<LI><A NAME="tex2html266"
+  HREF="node245.html">Lago Maggiore</A>
+</UL>
+<LI><A NAME="tex2html267"
+  HREF="node246.html">Biogeochemical scenarios</A>
+<UL>
+<LI><A NAME="tex2html268"
+  HREF="node247.html">Channel flow - Rouse profile</A>
+<LI><A NAME="tex2html269"
+  HREF="node248.html">Northern North Sea - NPZD model</A>
+<LI><A NAME="tex2html270"
+  HREF="node249.html">Fladenground Experiment - <A
+ HREF="node251.html#Fashametal1990"><SPAN  CLASS="textit">Fasham et&nbsp;al.</SPAN> (1990)</A> model
+</A>
+<LI><A NAME="tex2html271"
+  HREF="node250.html">Gotland Deep - <A
+ HREF="node251.html#Neumannetal2002"><SPAN  CLASS="textit">Neumann et&nbsp;al.</SPAN> (2002)</A> model</A>
+</UL>
+</UL>
+<BR>
+<LI><A NAME="tex2html272"
+  HREF="node251.html">Bibliography</A>
+<LI><A NAME="tex2html273"
+  HREF="node252.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

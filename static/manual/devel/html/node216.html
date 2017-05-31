@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Numerical aspects</TITLE>
+<META NAME="description" CONTENT="Numerical aspects">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node217.html">
+<LINK REL="previous" HREF="node215.html">
+<LINK REL="up" HREF="node214.html">
+<LINK REL="next" HREF="node217.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3251"
+  HREF="node217.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3247"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3241"
+  HREF="node215.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3249"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3252"
+  HREF="node217.html">Computational aspects</A>
+<B> Up:</B> <A NAME="tex2html3248"
+  HREF="node214.html">Biogeochemical models</A>
+<B> Previous:</B> <A NAME="tex2html3242"
+  HREF="node215.html">Mathematical formulation</A>
+ &nbsp; <B>  <A NAME="tex2html3250"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000102000000000000000"></A><A NAME="sec:bio-num"></A>
+<BR>
+Numerical aspects
+</H2>
+
+<P>
+Two basic aspects which are included in the mathematical formulation for
+the biogeochemical equations discussed in section <A HREF="node215.html#sec:bio-math">9.1</A>
+are to be reproduced by the numerical methods applied: conservation and
+positivity. Another constraint for the choice
+of numerical methods is that they should be sufficiently stable and accurate.
+In order to facilitate this, a split method is applied
+separating the numerical solution of the transport part
+(advection, diffusion) and the reaction part.
+By doing so, we take splitting errors into account which should however
+be not significant as long as the typical reaction time scales are
+much longer than the constant model time step <SPAN CLASS="MATH"><IMG
+ WIDTH="23" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img434.png"
+ ALT="$ \Delta t$"></SPAN>.
+
+<P>
+In the transport step
+in which the right hand side is set to zero,
+finite volume discretisations
+are used such that conservation of mass is guaranteed.
+The spatial discretisation is carried out by separating the water column
+into <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img26.png"
+ ALT="$ N$"></SPAN> not necessarily equidistant intervals of height <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img902.png"
+ ALT="$ h_k$"></SPAN>.
+The state variables, represented by layer-averaged values,
+are located in the centres of these intervals, the advective and diffusive
+fluxes are located at the interfaces in between.
+The transport step itself is subject to operator splitting.
+The autonomous motion of the state variables (including sinking or
+rising due to negative or positive buoyancy, respectively)
+is discretised by means of
+TVD (Total Variation
+Diminishing) advection schemes, for which several choices are
+available, see <A
+ HREF="node251.html#Pietrzak98"><SPAN  CLASS="textit">Pietrzak</SPAN> (1998)</A>.
+These TVD schemes are positivity conserving due to their TVD
+property.
+The most accurate among those
+schemes is the so-called
+PDM-limited P<SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img478.png"
+ ALT="$ _2$"></SPAN> scheme which has been described in detail
+by <A
+ HREF="node251.html#Leonhard91"><SPAN  CLASS="textit">Leonard</SPAN> (1991)</A>.
+
+<P>
+For the diffusion, a
+central in space scheme is used which is slightly biased towards
+a backward in time scheme in order to avoid asymptotic instability
+(see <A
+ HREF="node251.html#Samarskij84"><SPAN  CLASS="textit">Samarskij</SPAN> (1984)</A>). By doing so, positivity is obtained and the schemes
+are practically second order in time and space.
+
+<P>
+With the discretisations of the transport terms given above,
+accuracy, positivity and conservation of the state variables are
+guaranteed by means of standard schemes. For the reaction terms,
+<A
+ HREF="node251.html#Burchardetal2003b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2003)</A> recently developed schemes which also fulfil these
+requirements.
+Due to the operator split between transport and reaction terms,
+only ordinary differential equations (ODEs)
+have to be treated numerically for the latter terms.
+For the case of conservative biogeochemical models with
+<!-- MATH
+ $p_{i,i}=d_{i,i}=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img903.png"
+ ALT="$ p_{i,i}=d_{i,i}=0$"></SPAN>, these schemes are identical to those given
+by <A
+ HREF="node251.html#Burchardetal2003b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2003)</A>.
+For <!-- MATH
+ $p_{i,i}\not= 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img904.png"
+ ALT="$ p_{i,i}\not= 0$"></SPAN>, some modifications are necessary.
+Three classes of schemes are considered:
+Explicit schemes such as the Euler-forward scheme and second- and
+fourth-order Runge-Kutta schemes (see section <A HREF="node200.html#sec:ode-solver">8.13</A>).
+These schemes are known to be conservative, but for
+sufficiently large time steps they may compute negative values
+of state variables also for non-negative state variables.
+This may be avoided by small time stepping, which however usually
+leads to an enormous increase of the computational effort such that
+these schemes lose their practical relevance in this context.
+In order to solve this problem,
+<A
+ HREF="node251.html#Patankar80"><SPAN  CLASS="textit">Patankar</SPAN> (1980)</A> had suggested the first-order in time
+positive definite scheme
+(<A HREF="node204.html#eq:am:patankar">253</A>), and <A
+ HREF="node251.html#Burchardetal2003b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2003)</A> have extended this
+to second order, see (<A HREF="node205.html#eq:am:PRK">254</A>).
+However, these schemes are not conservative, since
+source and sink terms are numerically treated in a different way.
+Fully conservative and non-negative schemes in first- and second-oder
+in time have thus been suggested and tested for
+ordinary differential equations by <A
+ HREF="node251.html#Burchardetal2003b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2003)</A>,
+with <!-- MATH
+ $p_{i,i}=d_{i,i}=0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="98" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img903.png"
+ ALT="$ p_{i,i}=d_{i,i}=0$"></SPAN> in equations. (<A HREF="node207.html#eq:am:MP">255</A>) and (<A HREF="node208.html#eq:am:MPRK">256</A>)
+in section <A HREF="node200.html#sec:ode-solver">8.13</A>.
+This equal numerical treatment of sources and sinks
+results in implicit linear systems of equations.
+Since only ordinary differential equations are to be solved in each
+grid point, these systems have small dimensions, for example <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img905.png"
+ ALT="$ I=7$"></SPAN> for
+the <A
+ HREF="node251.html#Fashametal1990"><SPAN  CLASS="textit">Fasham et&nbsp;al.</SPAN> (1990)</A> model (see section <A HREF="#sec:bio-fasham"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>) and
+<SPAN CLASS="MATH"><IMG
+ WIDTH="49" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img906.png"
+ ALT="$ I=10$"></SPAN> for the <A
+ HREF="node251.html#Neumannetal2002"><SPAN  CLASS="textit">Neumann et&nbsp;al.</SPAN> (2002)</A> model 
+(see section <A HREF="#sec:bio-iow"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="/usr/share/latex2html/icons/crossref.png"></A>).
+Thus, these linear systems may be directly solved
+by Gaussian elimination schemes.
+Nevertheless, one can also employ iterative methods.
+Especially for the linear system arising in the context of the present
+type of equations it is proven in <A
+ HREF="node251.html#Burchardetal2003b"><SPAN  CLASS="textit">Burchard et&nbsp;al.</SPAN> (2003)</A>
+that the involved matrix is always non-singular and the
+standard Jacobi-type method converge to the unique solution of the system.
+Later, <A
+ HREF="node251.html#Bruggemanetal2005"><SPAN  CLASS="textit">Bruggeman et&nbsp;al.</SPAN> (2006)</A> found that the Modified Patankar
+schemes as described in equations (<A HREF="node207.html#eq:am:MP">255</A>) and (<A HREF="node208.html#eq:am:MPRK">256</A>)
+are only conservative for systems with one model currency
+(e.g. nitrogen in the model of <A
+ HREF="node251.html#Fashametal1990"><SPAN  CLASS="textit">Fasham et&nbsp;al.</SPAN> (1990)</A>),
+but do not conserve stoichiometric ratios, when several
+limiting nutrients are present. To solve that problem,
+<A
+ HREF="node251.html#Bruggemanetal2005"><SPAN  CLASS="textit">Bruggeman et&nbsp;al.</SPAN> (2006)</A> developed first- and second-order
+Extended Modified Patankar (EMP) schemes, which are
+stoiciometrically conservative and explicit, such that they do
+not need to solve implicit systems of linear equations. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3251"
+  HREF="node217.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3247"
+  HREF="node214.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3241"
+  HREF="node215.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3249"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3252"
+  HREF="node217.html">Computational aspects</A>
+<B> Up:</B> <A NAME="tex2html3248"
+  HREF="node214.html">Biogeochemical models</A>
+<B> Previous:</B> <A NAME="tex2html3242"
+  HREF="node215.html">Mathematical formulation</A>
+ &nbsp; <B>  <A NAME="tex2html3250"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

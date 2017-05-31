@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The #JACKETTea05### equation of state</TITLE>
+<META NAME="description" CONTENT="The #JACKETTea05### equation of state">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="previous" HREF="node185.html">
+<LINK REL="up" HREF="node180.html">
+<LINK REL="next" HREF="node187.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2872"
+  HREF="node187.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2868"
+  HREF="node180.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2864"
+  HREF="node185.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2870"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2873"
+  HREF="node187.html">Interpolate from observation space</A>
+<B> Up:</B> <A NAME="tex2html2869"
+  HREF="node180.html">Module eqstate  </A>
+<B> Previous:</B> <A NAME="tex2html2865"
+  HREF="node185.html">The UNESCO equation of</A>
+ &nbsp; <B>  <A NAME="tex2html2871"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00098600000000000000">
+The <A
+ HREF="node251.html#JACKETTea05"><SPAN  CLASS="textit">Jackett et&nbsp;al.</SPAN> (2005)</A> equation of state</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   REALTYPE function rho_feistel(s,th,p,UNPress)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes the in-situ density in (<A HREF="node180.html#DefEOS">244</A>) according to the
+   <A
+ HREF="node251.html#JACKETTea05"><SPAN  CLASS="textit">Jackett et&nbsp;al.</SPAN> (2005)</A> equation of state for sea water, which is based
+   on the Gibbs potential developed by <A
+ HREF="node251.html#FEISTEL03"><SPAN  CLASS="textit">Feistel</SPAN> (2003)</A>. The pressure
+   dependence can be switched on (<TT>UNPress=.true.</TT>) or off
+   (<TT>UNPress=.false.</TT>). <TT>s</TT> is salinity <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN> in psu, <TT>th</TT> is
+   potential temperature <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img833.png"
+ ALT="$ \theta$"></SPAN> in <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img796.png"
+ ALT="$ ^{\circ}$"></SPAN>C (ITS-90), <TT>p</TT> is
+   gauge pressure (absolute pressure - 10.1325 dbar) and
+   <TT>rho_feistel</TT> is the in-situ density in kgm<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>.
+   The check value is <TT>rho_feistel(20,20,1000) = 1017.728868019642</TT> .
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   REALTYPE, intent(in)                :: s,th,p
+   LOGICAL, intent(in)                 :: UNPress
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard &amp; Karsten Bolding
+</PRE>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

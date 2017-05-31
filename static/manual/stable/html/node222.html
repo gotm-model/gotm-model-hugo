@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Storing</TITLE>
+<META NAME="description" CONTENT="Storing">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node223.html">
+<LINK REL="previous" HREF="node221.html">
+<LINK REL="up" HREF="node219.html">
+<LINK REL="next" HREF="node223.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3324"
+  HREF="node223.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3320"
+  HREF="node219.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3314"
+  HREF="node221.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3322"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3325"
+  HREF="node223.html">Finish</A>
+<B> Up:</B> <A NAME="tex2html3321"
+  HREF="node219.html">Fortran: Module Interface seagrass</A>
+<B> Previous:</B> <A NAME="tex2html3315"
+  HREF="node221.html">Update</A>
+ &nbsp; <B>  <A NAME="tex2html3323"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000111300000000000000">
+Storing the results</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine save_seagrass
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Here, storing of the seagrass profiles to an ascii or a
+    netCDF file is managed.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use meanflow, only:     h
+    use output, only: out_fmt,ascii_unit,ts
+ #ifdef NETCDF_FMT
+    use netcdf
+    use ncdfout, only: ncid
+    use ncdfout, only: lon_dim,lat_dim,z_dim,time_dim,dim4d
+    use ncdfout, only: define_mode,new_nc_variable,set_attributes,store_data
+ #endif
+    IMPLICIT NONE
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Karsten Bolding &amp; Hans Burchard
+</PRE><I CLASS="sans">LOCAL VARIABLES:</I>
+<PRE>    integer, save             :: x_excur_id,y_excur_id,n
+    integer                   :: i,iret
+    REALTYPE                  :: zz
+    REALTYPE                  :: miss_val
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

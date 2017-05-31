@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Loop over the KPP-algorithm</TITLE>
+<META NAME="description" CONTENT="Loop over the KPP-algorithm">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node99.html">
+<LINK REL="previous" HREF="node97.html">
+<LINK REL="up" HREF="node96.html">
+<LINK REL="next" HREF="node99.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1676"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1672"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1666"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1674"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1677"
+  HREF="node99.html">Compute interior fluxes</A>
+<B> Up:</B> <A NAME="tex2html1673"
+  HREF="node96.html">Module kpp: the KPP-turbulence</A>
+<B> Previous:</B> <A NAME="tex2html1667"
+  HREF="node97.html">Initialise the KPP module</A>
+ &nbsp; <B>  <A NAME="tex2html1675"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000535200000000000000">
+Loop over the KPP-algorithm</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine do_kpp(nlev,h0,h,rho,u,v,NN,NNT,NNS,SS,u_taus,u_taub,  &amp;
+                     tFlux,btFlux,sFlux,bsFlux,tRad,bRad,f)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Here, the time step for the KPP model is managed. If <TT>kpp_interior=.true.</TT>
+  in <TT>kpp.nml</TT>, the mixing algorithm for the computation of the interior
+  diffusivities is called first. This algorithm is described in section <A HREF="node99.html#sec:kppInterior">4.35.3</A>.
+  Then, if <TT>kpp_sbl=.true.</TT> and <TT>kpp_bbl=.true.</TT>, the algorithms
+  for the surface and bottom boundary layer are called. They are described in
+  section <A HREF="node100.html#sec:kppSurface">4.35.4</A> and section <A HREF="node101.html#sec:kppBottom">4.35.5</A>, respectively.
+
+<P>
+If this routine is called from a three-dimensional code, it is essential to
+  pass the correct arguments. The first 3 parameters relate to the numerical
+  grid, discussed in section <A HREF="node18.html#SectionNumericsMean">3.1.2</A>. Note that <TT>h0</TT> denotes
+  the local bathymetry, i.e. the positive distance between the reference level
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img465.png"
+ ALT="$ z=0$"></SPAN> and the bottom.
+
+<P>
+The next three parameters denote the potential density, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img754.png"
+ ALT="$ \rho$"></SPAN>,
+  and the two mean velocity components, <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="$ U$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ V$"></SPAN>. The buoyancy frequency, <SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img162.png"
+ ALT="$ N^2$"></SPAN>,
+  and the different contributions to it, <!-- MATH
+ $N_\Theta^2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img755.png"
+ ALT="$ N_\Theta^2$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="26" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img756.png"
+ ALT="$ N_S^2$"></SPAN>, have to be computed
+  from the potential density as discussed in section <A HREF="node34.html#sec:stratification">3.14</A>. The shear frequency,
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img153.png"
+ ALT="$ M^2$"></SPAN>, is defined in (<A HREF="node33.html#MSquared">36</A>). The vertical discretisation does not necessarly
+  have to follow (<A HREF="node33.html#shearsquared">39</A>), since in the KPP model no TKE equation is solved
+  and thus energy conservation is not an issue. All three-dimensional fields have to
+  be interpolated "in a smart way" to the water column defined by GOTM. The corresponding
+  interpolation schemes may be quite different for the different staggered grids,
+  finite volume, and finite element approaches used in the horizontal. Therefore,
+  we cannot offer a general recipe here.
+
+<P>
+The bottom friction velocity is computed as described in section <A HREF="node29.html#sec:friction">3.9</A>. If this
+  parameter is passed from a three-dimensional code, it has to be insured that the parameter
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img111.png"
+ ALT="$ r$"></SPAN> in (<A HREF="node29.html#uStar">24</A>) is computed consistently, see (<A HREF="node29.html#rParam">25</A>).
+
+<P>
+All fluxes without exception are counted positive, if they enter the water body.
+  Note that for consistency, the equations of state in GOTM cannot
+  be used if the KPP routines are called from a 3-D model. Therefore,
+  it is necessary to pass the temperature and salinity fluxes, as well as the
+  corresponding buoyancy fluxes. The same applies
+  to the radiative fluxes. The user is responsible for
+  performing the flux conversions in the correct way. To get an idea
+  have a look at section <A HREF="node188.html#sec:convertFluxes">8.10</A>.
+
+<P>
+The last argument is the Coriolis parameter, <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img757.png"
+ ALT="$ f$"></SPAN>. It is only used for clippling the mixing
+  depth at the Ekman depth.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   number of grid cells
+   integer                                       :: nlev
+ 
+   bathymetry (m)
+   REALTYPE                                      :: h0
+ 
+   thickness of grid cells (m)
+   REALTYPE                                      :: h(0:nlev)
+ 
+   potential density at grid centers (kg/m^3)
+   REALTYPE                                      :: rho(0:nlev)
+ 
+   velocity components at grid centers (m/s)
+   REALTYPE                                      :: u(0:nlev),v(0:nlev)
+ 
+   square of buoyancy frequency (1/s^2)
+   REALTYPE                                      :: NN(0:nlev)
+ 
+   square of buoyancy frequency caused by
+   temperature and salinity stratification
+   REALTYPE                                      :: NNT(0:nlev),NNS(0:nlev)
+ 
+   square of shear frequency (1/s^2)
+   REALTYPE                                      :: SS(0:nlev)
+ 
+   surface and bottom friction velocities (m/s)
+   REALTYPE                                      :: u_taus,u_taub
+ 
+   surface temperature flux (K m/s) and
+   salinity flux (psu m/s) (negative for loss)
+   REALTYPE                                      :: tFlux,sFlux
+ 
+   surface buoyancy fluxes (m^2/s^3) due to
+   heat and salinity fluxes
+   REALTYPE                                      :: btFlux,bsFlux
+ 
+   radiative flux [ I(z)/(rho Cp) ] (K m/s)
+   and associated buoyancy flux (m^2/s^3)
+   REALTYPE                                      :: tRad(0:nlev),bRad(0:nlev)
+ 
+   Coriolis parameter (rad/s)
+   REALTYPE                                      :: f
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1676"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1672"
+  HREF="node96.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1666"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1674"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1677"
+  HREF="node99.html">Compute interior fluxes</A>
+<B> Up:</B> <A NAME="tex2html1673"
+  HREF="node96.html">Module kpp: the KPP-turbulence</A>
+<B> Previous:</B> <A NAME="tex2html1667"
+  HREF="node97.html">Initialise the KPP module</A>
+ &nbsp; <B>  <A NAME="tex2html1675"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

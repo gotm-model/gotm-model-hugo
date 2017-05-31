@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Wrapper for air-sea fluxes calculations (Source File: airsea_fluxes.F90)</TITLE>
+<META NAME="description" CONTENT="Wrapper for air-sea fluxes calculations (Source File: airsea_fluxes.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node125.html">
+<LINK REL="previous" HREF="node123.html">
+<LINK REL="up" HREF="node121.html">
+<LINK REL="next" HREF="node125.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2007"
+  HREF="node125.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2003"
+  HREF="node121.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1997"
+  HREF="node123.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2005"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2008"
+  HREF="node125.html">Heat and momemtum fluxes</A>
+<B> Up:</B> <A NAME="tex2html2004"
+  HREF="node121.html">Fortran: Module Interface airsea_variables</A>
+<B> Previous:</B> <A NAME="tex2html1998"
+  HREF="node123.html">Calculate the long-wave back</A>
+ &nbsp; <B>  <A NAME="tex2html2006"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00063300000000000000"></A><A NAME="sec:airsea-fluxes"></A>
+<BR>
+Wrapper for air-sea fluxes calculations  (Source File: airsea_fluxes.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine airsea_fluxes(method,sst,airt,u10,v10,precip, &amp;
+                             evap,taux,tauy,qe,qh)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+A wrapper around the different methods for calculating momentum
+    fluxes and sensible and latent heat fluxes at the air-sea interface.
+    To have a complete air-sea exchange also the short wave radiation
+    and back-wave radiation must be calculated.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer, intent(in)                 :: method
+    REALTYPE, intent(in)                :: sst,airt,u10,v10,precip
+</PRE><EM>INPUT/OUTPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(inout)             :: evap
+</PRE><EM>OUTPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(out)               :: taux,tauy,qe,qh
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Karsten Bolding
+    $Log: airsea_fluxes.F90,v $
+    Revision 1.1  2007-09-25 10:06:10  kbk
+    modularized the airsea module - added Fairall method
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

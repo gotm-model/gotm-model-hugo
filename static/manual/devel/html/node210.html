@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>First-order Extended Modified Patankar scheme</TITLE>
+<META NAME="description" CONTENT="First-order Extended Modified Patankar scheme">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node211.html">
+<LINK REL="previous" HREF="node209.html">
+<LINK REL="up" HREF="node200.html">
+<LINK REL="next" HREF="node211.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3178"
+  HREF="node211.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3174"
+  HREF="node200.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3168"
+  HREF="node209.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3176"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3179"
+  HREF="node211.html">Second-order Extended Modified Patankar</A>
+<B> Up:</B> <A NAME="tex2html3175"
+  HREF="node200.html">General ODE solver</A>
+<B> Previous:</B> <A NAME="tex2html3169"
+  HREF="node209.html">Fourth-order Modified Patankar-Runge-Kutta scheme</A>
+ &nbsp; <B>  <A NAME="tex2html3177"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION0009131000000000000000">
+First-order Extended Modified Patankar scheme</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine emp_1(dt,numc,nlev,cc,right_hand_side)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Here, the first-order Extended Modified Patankar scheme for
+  biogeochemical models is coded, with one evaluation of the right-hand
+  side per time step:
+
+<P>
+<BR>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{eqnarray}
+\lefteqn{\vec{c}^{n + 1} = \vec{c}^n + \Delta t \: \vec{f}(t^n,\vec{c}^n)\prod\limits_{j \in J^n} {\frac{c_j^{n + 1} }{c_j^n}}} \nonumber \\
+     & & \mbox{with } J^n = \left\{ {i:f_i (t^n,\vec{c}^n) < 0,i \in \{1,...,I\}} \right\}
+\end{eqnarray}
+ -->
+<TABLE CELLPADDING="0" ALIGN="CENTER" WIDTH="100%">
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="LEFT" COLSPAN="3"><IMG
+ WIDTH="244" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img855.png"
+ ALT="$\displaystyle {\vec{c}^{n + 1} = \vec{c}^n + \Delta t \: \vec{f}(t^n,\vec{c}^n)\prod\limits_{j \in J^n} {\frac{c_j^{n + 1} }{c_j^n}}}$"></TD></TR>
+<TR VALIGN="MIDDLE"><TD NOWRAP WIDTH="50%" ALIGN="RIGHT">&nbsp;</TD>
+<TD>&nbsp;</TD>
+<TD ALIGN="LEFT" NOWRAP WIDTH="50%">with <IMG
+ WIDTH="262" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img856.png"
+ ALT="$\displaystyle J^n = \left\{ {i:f_i (t^n,\vec{c}^n) &lt; 0,i \in \{1,...,I\}} \right\}$"></TD>
+<TD CLASS="eqno" WIDTH=10 ALIGN="RIGHT">
+(<SPAN CLASS="arabic">257</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL">
+
+<P>
+This system of non-linear implicit equations is solved in auxiliary subroutine
+  findp_bisection, using the fact this system can be reduced to a polynomial in one
+  unknown, and additionally using the restrictions imposed by the requirement of positivity.
+  For more details, see <A
+ HREF="node251.html#Bruggemanetal2005"><SPAN  CLASS="textit">Bruggeman et&nbsp;al.</SPAN> (2006)</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   REALTYPE, intent(in)                :: dt
+   integer, intent(in)                 :: numc,nlev
+  !INPUT/OUTPUT PARAMETER:
+   REALTYPE, intent(inout)             :: cc(1:numc,0:nlev)
+ 
+   interface
+      subroutine right_hand_side(first,numc,nlev,cc,rhs)
+         logical, intent(in)                  :: first
+         integer, intent(in)                  :: numc,nlev
+         REALTYPE, intent(in)                 :: cc(1:numc,0:nlev)
+         REALTYPE, intent(out)                :: rhs(1:numc,0:nlev)
+      end
+   end interface
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Jorn Bruggeman
+</PRE><I CLASS="sans">LOCAL VARIABLES:</I>
+<PRE>  logical  :: first
+  REALTYPE :: derivative(1:numc,0:nlev)
+  integer  :: ci
+  REALTYPE :: pi
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

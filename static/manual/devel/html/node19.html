@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Module Mean Flow</TITLE>
+<META NAME="description" CONTENT="Module Mean Flow">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node23.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html635"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html631"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html625"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html633"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html636"
+  HREF="node20.html">Initialisation of the mean</A>
+<B> Up:</B> <A NAME="tex2html632"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html626"
+  HREF="node18.html">Numerics</A>
+ &nbsp; <B>  <A NAME="tex2html634"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00042000000000000000">
+Module Mean Flow</A>
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   module meanflow
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This module provides all variables necessary for the meanflow
+   calculation and also makes the proper initialisations.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+   Default all is private.
+   private
+</PRE><I CLASS="sans">PUBLIC MEMBER FUNCTIONS:</I>
+<PRE>   public init_meanflow, clean_meanflow
+ ifdef _PRINTSTATE_
+   public print_state_meanflow
+ endif
+</PRE><I CLASS="sans">PUBLIC DATA MEMBERS:</I>
+<PRE>   logical, public                              :: grid_ready
+   logical, public                              :: init_buoyancy
+ 
+   coordinate z, layer thicknesses
+   REALTYPE, public, dimension(:), allocatable, target  :: ga,z,h,ho
+ 
+   the velocity components
+   REALTYPE, public, dimension(:), allocatable, target  :: u,v,w
+ 
+   velocity at old time step
+   REALTYPE, public, dimension(:), allocatable  :: uo,vo
+ 
+   potential temperature, salinity
+   REALTYPE, public, dimension(:), allocatable, target  :: T,S,rho
+ 
+   boyancy frequency squared
+   (total, from temperature only, from salinity only)
+   REALTYPE, public, dimension(:), allocatable  :: NN,NNT,NNS
+ 
+   shear-frequency squared
+   (total, from u only, from v only)
+   REALTYPE, public, dimension(:), allocatable  :: SS,SSU,SSV
+ 
+   buoyancy, short-wave radiation,
+   extra production of tke by see-grass etc
+   REALTYPE, public, dimension(:), allocatable  :: buoy,rad,xP
+ 
+   a dummy array
+   (most often used for diffusivities)
+   REALTYPE, public, dimension(:), allocatable  :: avh
+ 
+   grid-related vertical velocity
+   REALTYPE, public, dimension(:), allocatable  :: w_grid
+ 
+   extra friction terms due to e.g. seagrass
+   REALTYPE, public, dimension(:), allocatable  :: fric,drag
+ 
+   shading in the water column
+   REALTYPE, public, dimension(:), allocatable, target  :: bioshade
+ 
+  ifdef EXTRA_OUTPUT
+ 
+   dummies for testing
+   REALTYPE, public, dimension(:), allocatable   :: mean1,mean2,mean3,mean4,mean5
+ 
+  endif
+ 
+   the 'meanflow' namelist
+   REALTYPE, public                    :: h0b
+   REALTYPE, public                    :: z0s_min
+   logical,  public                    :: charnock
+   REALTYPE, public                    :: charnock_val
+   REALTYPE, public                    :: ddu
+   REALTYPE, public                    :: ddl
+   integer,  public                    :: grid_method
+   REALTYPE, public                    :: c1ad
+   REALTYPE, public                    :: c2ad
+   REALTYPE, public                    :: c3ad
+   REALTYPE, public                    :: c4ad
+   REALTYPE, public                    :: Tgrid
+   REALTYPE, public                    :: NNnorm
+   REALTYPE, public                    :: SSnorm
+   REALTYPE, public                    :: dsurf
+   REALTYPE, public                    :: dtgrid
+   character(LEN=PATH_MAX), public     :: grid_file
+   REALTYPE, public                    :: gravity
+   REALTYPE, public                    :: rho_0
+   REALTYPE, public                    :: cp
+   REALTYPE, public                    :: avmolu
+   REALTYPE, public                    :: avmolT
+   REALTYPE, public                    :: avmolS
+   integer,  public                    :: MaxItz0b
+   logical,  public                    :: no_shear
+ 
+   the roughness lengths
+   REALTYPE, public                    :: z0b,z0s,za
+ 
+   the coriolis parameter
+   REALTYPE, public                    :: cori
+ 
+   the friction velocities
+   REALTYPE, public                    :: u_taub,u_taus
+ 
+   bottom stress
+   REALTYPE, public, target            :: taub
+ 
+   other stuff
+   REALTYPE, public                    :: depth0
+   REALTYPE, public                    :: depth
+   REALTYPE, public                    :: runtimeu, runtimev
+</PRE><I CLASS="sans">DEFINED PARAMETERS:</I>
+<PRE>   REALTYPE, public, parameter         :: pi=3.141592654
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Karsten Bolding &amp; Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html637"
+  HREF="node20.html">Initialisation of the mean flow variables</A>
+<LI><A NAME="tex2html638"
+  HREF="node21.html">Cleaning up the mean flow variables</A>
+<LI><A NAME="tex2html639"
+  HREF="node22.html">Print the current state of the meanflow module.</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

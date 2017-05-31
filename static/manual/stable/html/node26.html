@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The V-momentum equation (Source File: vequation.F90)</TITLE>
+<META NAME="description" CONTENT="The V-momentum equation (Source File: vequation.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node27.html">
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node27.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html676"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html672"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html666"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html674"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html677"
+  HREF="node27.html">The external pressure-gradient (Source</A>
+<B> Up:</B> <A NAME="tex2html673"
+  HREF="node19.html">Fortran: Module Interface Mean</A>
+<B> Previous:</B> <A NAME="tex2html667"
+  HREF="node25.html">The U-momentum equation (Source</A>
+ &nbsp; <B>  <A NAME="tex2html675"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00042700000000000000"></A><A NAME="sec:vequation"></A>
+<BR>
+The V-momentum equation (Source File: vequation.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine vequation(nlev,dt,cnpar,ty,num,gamv,Method)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine computes the transport of momentum in
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img80.png"
+ ALT="$ y$"></SPAN>-direction according to
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="vEq"></A><!-- MATH
+ \begin{equation}
+\dot{V}
+      = {\cal D}_V
+      - g \dfrac{\partial {\zeta}}{\partial {y}} + \int_z^{\zeta} \dfrac{\partial {B}}{\partial {y}} \,dz'
+      - \frac{1}{\tau^V_R}(V-V_{obs})-C_f V \sqrt{U^2+V^2}
+      \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="472" HEIGHT="59" ALIGN="MIDDLE" BORDER="0"
+ SRC="img81.png"
+ ALT="$\displaystyle \dot{V} = {\cal D}_V - g \dfrac{\partial {\zeta}}{\partial {y}} +...
+...tial {y}} \,dz' - \frac{1}{\tau^V_R}(V-V_{obs})-C_f V \sqrt{U^2+V^2} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">14</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="21" ALIGN="BOTTOM" BORDER="0"
+ SRC="img82.png"
+ ALT="$ \dot{V}$"></SPAN> denotes the material derivative of <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="$ V$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img74.png"
+ ALT="$ \zeta$"></SPAN>
+    the free surface elevation and <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ B$"></SPAN> the mean buoyancy defined
+    in  (<A HREF="node32.html#DefBuoyancy">33</A>). <!-- MATH
+ ${\cal D}_V$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img83.png"
+ ALT="$ {\cal D}_V$"></SPAN> is the sum of the turbulent
+    and viscous transport terms modelled according to
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Dv"></A><!-- MATH
+ \begin{equation}
+{\cal D}_V
+      = \dfrac{\partial}{\partial {z}}
+       \left(
+          \left( \nu_t + \nu \right) \dfrac{\partial {V}}{\partial {z}}
+                 - \tilde{\Gamma}_V
+        \right)
+      \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="242" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img84.png"
+ ALT="$\displaystyle {\cal D}_V = \dfrac{\partial}{\partial {z}} \left( \left( \nu_t + \nu \right) \dfrac{\partial {V}}{\partial {z}} - \tilde{\Gamma}_V \right) \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">15</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+In this equation, <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img38.png"
+ ALT="$ \nu_t$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img77.png"
+ ALT="$ \nu$"></SPAN> are the turbulent and
+    molecular diffusivities of momentum, respectively, and
+    <!-- MATH
+ $\tilde{\Gamma}_V$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="25" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img85.png"
+ ALT="$ \tilde{\Gamma}_V$"></SPAN> denotes the non-local flux of momentum,
+    see section <A HREF="node36.html#sec:turbulenceIntro">4</A>.
+
+<P>
+Coriolis rotation is accounted for as described in
+    section <A HREF="node24.html#sec:coriolis">3.2.5</A>. All other terms are completely analogous
+    to those described in section <A HREF="node25.html#sec:uequation">3.2.6</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use meanflow,     only: gravity,avmolu
+    use meanflow,     only: h,v,vo,u,w,avh
+    use meanflow,     only: drag,SS,runtimev
+    use observations, only: w_adv_method,w_adv_discr
+    use observations, only: vProf,vel_relax_tau,vel_relax_ramp
+    use observations, only: idpdy,dpdy
+    use util,         only: Dirichlet,Neumann
+    use util,         only: oneSided,zeroDivergence
+ 
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+    number of vertical layers
+    integer, intent(in)                 :: nlev
+ 
+    time step (s)
+    REALTYPE, intent(in)                :: dt
+ 
+    numerical "implicitness" parameter
+    REALTYPE, intent(in)                :: cnpar
+ 
+    wind stress in y-direction
+    divided by rho_0 (m^2/s^2)
+    REALTYPE, intent(in)                :: ty
+ 
+    diffusivity of momentum (m^2/s)
+    REALTYPE, intent(in)                :: num(0:nlev)
+ 
+    non-local flux of momentum (m^2/s^2)
+    REALTYPE, intent(in)                :: gamv(0:nlev)
+ 
+    method to compute external
+    pressure gradient
+    integer, intent(in)                 :: method
+</PRE><EM>DEFINED PARAMETERS:</EM>
+<PRE>    REALTYPE, parameter                 :: long=1.0D15
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+                        (re-write after first version of
+                         Hans Burchard and Karsten Bolding)
+    $Log: vequation.F90,v $
+    Revision 1.12  2010-09-17 12:53:48  jorn
+    extensive code clean-up to ensure proper initialization and clean-up of all variables
+    Revision 1.11  2008-03-07 17:57:49  hb
+    AdvBcup changed to oneSided
+    Revision 1.10  2006-11-06 13:36:45  hb
+    Option for conservative vertical advection added to adv_center
+    Revision 1.9  2006-04-03 08:39:12  lars
+    fixed bug in relaxation times - Thanks to Adolf Stips
+    Revision 1.8  2005-11-17 09:58:20  hb
+    explicit argument for positive definite variables in diff_center()
+    Revision 1.7  2005/06/27 13:44:07  kbk
+    modified + removed traling blanks
+    Revision 1.7  2004/08/18 11:44:49  lars
+    updated documentation
+    Revision 1.6  2003/03/28 09:20:35  kbk
+    added new copyright to files
+    Revision 1.5  2003/03/28 08:56:56  kbk
+    removed tabs
+    Revision 1.4  2003/03/10 08:50:07  gotm
+    Improved documentation and cleaned up code
+    Revision 1.3  2001/05/31 12:00:52  gotm
+    Correction in the calculation of the shear squared calculation
+    --- now according to Burchard 1995 (Ph.D. thesis).
+    Also some cosmetics and cleaning of Makefiles.
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html676"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html672"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html666"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html674"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html677"
+  HREF="node27.html">The external pressure-gradient (Source</A>
+<B> Up:</B> <A NAME="tex2html673"
+  HREF="node19.html">Fortran: Module Interface Mean</A>
+<B> Previous:</B> <A NAME="tex2html667"
+  HREF="node25.html">The U-momentum equation (Source</A>
+ &nbsp; <B>  <A NAME="tex2html675"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

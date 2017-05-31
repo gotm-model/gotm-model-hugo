@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Algebraic length-scale from ISPRAMIX </TITLE>
+<META NAME="description" CONTENT="Algebraic length-scale from ISPRAMIX ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node84.html">
+<LINK REL="previous" HREF="node82.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node84.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1490"
+  HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1486"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1480"
+  HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1488"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1491"
+  HREF="node84.html">Algebraic length-scale with two</A>
+<B> Up:</B> <A NAME="tex2html1487"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1481"
+  HREF="node82.html">The algebraic velocity variances</A>
+ &nbsp; <B>  <A NAME="tex2html1489"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000522000000000000000"></A><A NAME="sec:ispramix"></A>
+<BR>
+Algebraic length-scale from ISPRAMIX 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine ispralength(nlev,NN,h,depth)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine calculates the
+   lengthscale used in the ISPRAMIX model,
+   see <A
+ HREF="node251.html#EiflerSchrimpf92"><SPAN  CLASS="textit">Eifler and Schrimpf</SPAN> (1992)</A> and <A
+ HREF="node251.html#Demirovetal98"><SPAN  CLASS="textit">Demirov et&nbsp;al.</SPAN> (1998)</A>.
+   In both mixing regions (close to the surface and the bottom),
+   <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN> is obtained from the formula
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Lmixed"></A><!-- MATH
+ \begin{equation}
+l = \frac {\kappa \tilde z} {1+\frac {\kappa \tilde z} {c_2 \cdot h_m}}
+         (1-R_f)^e
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="166" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img659.png"
+ ALT="$\displaystyle l = \frac {\kappa \tilde z} {1+\frac {\kappa \tilde z} {c_2 \cdot h_m}} (1-R_f)^e$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">183</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="17" ALIGN="BOTTOM" BORDER="0"
+ SRC="img660.png"
+ ALT="$ \tilde z$"></SPAN>
+   is the distance from the interface (surface or bottom). The
+   fraction in (<A HREF="#Lmixed">183</A>)
+   predicts an approximation to a linear behavior of <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN> near boundaries
+   and a value proportional to the thickness of the mixed
+   layer far from the interface, <SPAN CLASS="MATH"><IMG
+ WIDTH="65" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img661.png"
+ ALT="$ l=c_2 h_m$"></SPAN>, where <SPAN CLASS="MATH"><IMG
+ WIDTH="75" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img662.png"
+ ALT="$ c_2=0.065$"></SPAN>
+   is estimated from experimental data as discussed in
+   <A
+ HREF="node251.html#EiflerSchrimpf92"><SPAN  CLASS="textit">Eifler and Schrimpf</SPAN> (1992)</A>.
+   The factor <SPAN CLASS="MATH"><IMG
+ WIDTH="64" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img663.png"
+ ALT="$ (1-R_f)$"></SPAN>, with the flux Richardson
+   number <SPAN CLASS="MATH"><IMG
+ WIDTH="91" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img664.png"
+ ALT="$ R_f=-G/P$"></SPAN>, accounts for the effect
+   of stratification on the length-scale.
+   The parameter <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img665.png"
+ ALT="$ e$"></SPAN> is here a tuning parameter
+   (pers. comm. Walter Eifler, JRC, Ispra, Italy)
+   which is usually set to <SPAN CLASS="MATH"><IMG
+ WIDTH="40" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img666.png"
+ ALT="$ e=1$"></SPAN>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence, only: L,tke,k_min,eps_min,xRF,kappa,cde
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   number of vertical layers
+   integer,  intent(in)                :: nlev
+ 
+   buoyancy frequency (1/s^2)
+   REALTYPE, intent(in)                :: NN(0:nlev)
+ 
+   layer thickness (m)
+   REALTYPE, intent(in)                :: h(0:nlev)
+ 
+   local depth (m)
+   REALTYPE, intent(in)                :: depth
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s):  Manuel Ruiz Villarreal, Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1490"
+  HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1486"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1480"
+  HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1488"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1491"
+  HREF="node84.html">Algebraic length-scale with two</A>
+<B> Up:</B> <A NAME="tex2html1487"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1481"
+  HREF="node82.html">The algebraic velocity variances</A>
+ &nbsp; <B>  <A NAME="tex2html1489"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

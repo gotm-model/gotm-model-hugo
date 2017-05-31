@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The UNESCO equation of state</TITLE>
+<META NAME="description" CONTENT="The UNESCO equation of state">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node186.html">
+<LINK REL="previous" HREF="node184.html">
+<LINK REL="up" HREF="node180.html">
+<LINK REL="next" HREF="node186.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2862"
+  HREF="node186.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2858"
+  HREF="node180.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2852"
+  HREF="node184.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2860"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html2863"
+  HREF="node186.html">The #JACKETTea05### equation of</A>
+<B> Up:</B> <A NAME="tex2html2859"
+  HREF="node180.html">Module eqstate  </A>
+<B> Previous:</B> <A NAME="tex2html2853"
+  HREF="node184.html">Compute saline contraction coefficient</A>
+ &nbsp; <B>  <A NAME="tex2html2861"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00098500000000000000">
+The UNESCO equation of state</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   REALTYPE function unesco(S,T,p,UNPress)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes the in-situ density in (<A HREF="node180.html#DefEOS">244</A>) according to the
+   UNESCO equation of state for sea water (see <A
+ HREF="node251.html#FofonoffMillard83"><SPAN  CLASS="textit">Fofonoff and Millard</SPAN> (1983)</A>).
+   The pressure
+   dependence can be switched on (<TT>UNPress=.true.</TT>) or off
+   (<TT>UNPress=.false.</TT>). <TT>S</TT> is salinity <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ S$"></SPAN> in psu, <TT>T</TT> is
+   potential temperature <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img833.png"
+ ALT="$ \theta$"></SPAN> in <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img796.png"
+ ALT="$ ^{\circ}$"></SPAN>C (ITS-90), <TT>p</TT> is
+   gauge pressure (absolute pressure - 10.1325 bar) and
+   <TT>unesco</TT> is the in-situ density in kgm<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img832.png"
+ ALT="$ ^{-3}$"></SPAN>.
+   The check value is <TT>unesco(35,25,1000) = 1062.53817</TT> .
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   REALTYPE, intent(in)                :: S,T,p
+   LOGICAL, intent(in)                 :: UNPress
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard &amp; Karsten Bolding
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

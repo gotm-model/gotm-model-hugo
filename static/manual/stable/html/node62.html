@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Boundary</TITLE>
+<META NAME="description" CONTENT="Boundary">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node63.html">
+<LINK REL="previous" HREF="node61.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node63.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1223"
+  HREF="node63.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1219"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1213"
+  HREF="node61.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1221"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1224"
+  HREF="node63.html">Boundary</A>
+<B> Up:</B> <A NAME="tex2html1220"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1214"
+  HREF="node61.html">Compute</A>
+ &nbsp; <B>  <A NAME="tex2html1222"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000571400000000000000"></A><A NAME="sec:kBC"></A>
+<BR>
+Boundary conditons for the k-equation (k-epsilon style) 
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE> 
+    REALTYPE function k_bc(bc,type,zi,z0,u_tau)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Computes prescribed and flux boundary conditions for  the transport
+   equation (<A HREF="node72.html#tkeA">150</A>). The formal parameter <TT>bc</TT> determines
+   whether <TT>Dirchlet</TT> or <TT>Neumann</TT>-type boundary conditions
+   are computed. Depending on the physical properties of the
+   boundary-layer, the parameter <TT>type</TT> relates either to a <TT>visous</TT>,
+   a <TT>logarithmic</TT>, or an <TT>injection</TT>-type boundary-layer.
+   In the latter case, the flux of TKE caused by breaking surface waves
+   has to be specified. Presently, there is only one possibility
+   to do so implemented in GOTM. It is described in section <A HREF="node95.html#sec:fkCraig">4.7.47</A>.
+   All parameters that determine the boundary layer have to be
+   set in <TT>gotmturb.nml</TT>.
+
+<P>
+Note that  in this section, for brevity, <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$ z$"></SPAN> denotes the distance
+   from the wall (or the surface), and <SPAN  CLASS="textit">not</SPAN> the standard
+   coordinate of the same name used in GOTM.
+
+<P>
+<BR>
+<BR>
+   <B>Viscous boundary-layers</B>
+   <BR>
+<BR>
+
+<P>
+This type is not implemented yet in GOTM.
+
+<P>
+<BR>
+<BR>
+   <B>Logarithmic boundary-layers</B>
+   <BR>
+<BR>
+
+<P>
+The Dirichlet (prescribed) boundary condition follows from (<A HREF="node51.html#kLog">101</A>) as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_k_Dirichlet"></A><!-- MATH
+ \begin{equation}
+k= \dfrac{u_*^2}{(c_\mu^0)^2}
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="93" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img528.png"
+ ALT="$\displaystyle k= \dfrac{u_*^2}{(c_\mu^0)^2} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">124</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The Neumann (flux) boundary condition can be derived from
+   the constancy of  <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> in the logarithmic region. This fact
+   can be written as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_k_Neumann"></A><!-- MATH
+ \begin{equation}
+F_k = - \dfrac{\nu_t}{\sigma_k} \dfrac{\partial {k}}{\partial {z}} = 0
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="148" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img529.png"
+ ALT="$\displaystyle F_k = - \dfrac{\nu_t}{\sigma_k} \dfrac{\partial {k}}{\partial {z}} = 0 \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">125</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+<BR>
+<BR>
+   <B>Shear-free boundary-layers with injection of TKE</B>
+   <BR>
+<BR>
+
+<P>
+The Dirichlet (prescribed) boundary condition follows simply
+   from the power-law in (<A HREF="node51.html#power_law">108</A>),
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_k_wave_Dirichlet"></A><!-- MATH
+ \begin{equation}
+k= K (z+z_0)^\alpha
+     \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="132" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img530.png"
+ ALT="$\displaystyle k= K (z+z_0)^\alpha \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">126</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+
+<P>
+The Neumann (flux) boundary condition can be written as
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="KE_k_wave_Neumann"></A><!-- MATH
+ \begin{equation}
+F_k = - \dfrac{\nu_t}{\sigma_k} \dfrac{\partial {k}}{\partial {z}} =
+     - \dfrac{c_\mu}{\sigma_k} K^\frac{3}{2} L \alpha (z+z_0)^{\frac{3}{2} \alpha}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="296" HEIGHT="52" ALIGN="MIDDLE" BORDER="0"
+ SRC="img531.png"
+ ALT="$\displaystyle F_k = - \dfrac{\nu_t}{\sigma_k} \dfrac{\partial {k}}{\partial {z}...
+...c_\mu}{\sigma_k} K^\frac{3}{2} L \alpha (z+z_0)^{\frac{3}{2} \alpha} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">127</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which follows immediately from (<A HREF="node51.html#power_law">108</A>) and the expression for
+   the turbulent diffusivity, (<A HREF="node37.html#nu">44</A>). The parameter <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img459.png"
+ ALT="$ K$"></SPAN> can be determined
+   from an evaluation of (<A HREF="#KE_k_wave_Neumann">127</A>) at <SPAN CLASS="MATH"><IMG
+ WIDTH="41" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img461.png"
+ ALT="$ z=0$"></SPAN>. The result is
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="K"></A><!-- MATH
+ \begin{equation}
+K = \left( -\dfrac{\sigma_k}{c_\mu \alpha L} F_k \right)^\frac{2}{3} \dfrac{1}{z_0^\alpha}
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="192" HEIGHT="65" ALIGN="MIDDLE" BORDER="0"
+ SRC="img532.png"
+ ALT="$\displaystyle K = \left( -\dfrac{\sigma_k}{c_\mu \alpha L} F_k \right)^\frac{2}{3} \dfrac{1}{z_0^\alpha} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">128</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where the specification of the flux <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img533.png"
+ ALT="$ F_k$"></SPAN> and the value of <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img460.png"
+ ALT="$ z_0$"></SPAN> have to be
+   determined from a suitable model of the wave breaking process.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>      IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer, intent(in)                 :: bc,type
+    REALTYPE, intent(in)                :: zi,z0,u_tau
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1223"
+  HREF="node63.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1219"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1213"
+  HREF="node61.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1221"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1224"
+  HREF="node63.html">Boundary</A>
+<B> Up:</B> <A NAME="tex2html1220"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1214"
+  HREF="node61.html">Compute</A>
+ &nbsp; <B>  <A NAME="tex2html1222"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

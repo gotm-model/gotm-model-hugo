@@ -1,0 +1,408 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Some algebraic length-scale relations </TITLE>
+<META NAME="description" CONTENT="Some algebraic length-scale relations ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node81.html">
+<LINK REL="previous" HREF="node79.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1454"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1450"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1444"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1452"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1455"
+  HREF="node81.html">The algebraic epsilonb-equation</A>
+<B> Up:</B> <A NAME="tex2html1451"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1445"
+  HREF="node79.html">The algebraic kb-equation</A>
+ &nbsp; <B>  <A NAME="tex2html1453"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000519000000000000000"></A><A NAME="sec:algebraiclength"></A>
+<BR>
+Some algebraic length-scale relations 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine algebraiclength(method,nlev,z0b,z0s,depth,h,NN)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine computes the vertical profile of the turbulent
+  scale <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN> from different types of analytical expressions. These
+  range from simple geometrical forms to more complicated expressions
+  taking into account the effects of stratification and shear. The
+  users can select their method in the input file <TT>gotmturb.nml</TT>.
+  For convenience, we define here <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img640.png"
+ ALT="$ d_b$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img641.png"
+ ALT="$ d_s$"></SPAN> as the distance
+  from the bottom and the surface, respectively. The water
+  depth is then given by <SPAN CLASS="MATH"><IMG
+ WIDTH="89" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img642.png"
+ ALT="$ H=d_b+d_s$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img643.png"
+ ALT="$ z_0^b$"></SPAN> and
+  <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img644.png"
+ ALT="$ z_0^s$"></SPAN> are the repective roughness lengths. With these
+  abbreviations, the expressions implemented in GOTM are as follows.
+  
+<OL>
+<LI>The parabolic profile is defined according to
+     <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+l=\kappa \frac{(d_s+z_0^s) (d_b+z_0^b)}
+                     {d_s+d_b+z_0^b+z_0^s}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="191" HEIGHT="58" ALIGN="MIDDLE" BORDER="0"
+ SRC="img645.png"
+ ALT="$\displaystyle l=\kappa \frac{(d_s+z_0^s) (d_b+z_0^b)} {d_s+d_b+z_0^b+z_0^s} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">175</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where it should be noted that only for large water depth
+     this equation converges to <!-- MATH
+ $\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$ \kappa(z+z_0)$"></SPAN> near the bottom
+    or near the surface.
+</LI>
+<LI>The triangular profile is defined according to
+     <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+l = \kappa \, \min(d_s+z_0^s,d_b+z_0^b)
+     \; , \quad
+     
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="234" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img647.png"
+ ALT="$\displaystyle l = \kappa   \min(d_s+z_0^s,d_b+z_0^b) \; , \quad     $"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">176</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+which converges always to <!-- MATH
+ $\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$ \kappa(z+z_0)$"></SPAN> near the bottom
+    or near the surface.
+</LI>
+<LI>A distorted parabola can be constructed by
+      using a slightly modified form of the equation
+      used by <A
+ HREF="node251.html#XingDavies95"><SPAN  CLASS="textit">Xing and Davies</SPAN> (1995)</A>,
+      <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+l = \kappa \frac{(d_s+z_0^s)(d_b^\text{Xing}+z_0^b)}
+                       {d_s+d_b^\text{Xing}+z_0^s+z_0^b}
+         \; , \quad
+         d_b^\text{Xing} =
+         d_b \exp{\left(-\beta \frac{d_b}{H} \right)}
+     \; , \quad 
+     
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="425" HEIGHT="62" ALIGN="MIDDLE" BORDER="0"
+ SRC="img648.png"
+ ALT="$\displaystyle l = \kappa \frac{(d_s+z_0^s)(d_b^\text{Xing}+z_0^b)} {d_s+d_b^\te...
+... d_b^\text{Xing} = d_b \exp{\left(-\beta \frac{d_b}{H} \right)} \; , \quad     $"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">177</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where it should be noted that only for large water depth
+     this equation converges to <!-- MATH
+ $\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$ \kappa(z+z_0)$"></SPAN> near the bottom
+    or near the surface. The constant <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img649.png"
+ ALT="$ \beta$"></SPAN> is a form parameter
+    determining the distortion of the profile. Currently we use
+    <SPAN CLASS="MATH"><IMG
+ WIDTH="43" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img650.png"
+ ALT="$ \beta = 2$"></SPAN> in GOTM.
+</LI>
+<LI>A distorted parabola can be constructed by
+      using a slightly modified form of the equation
+      used by <A
+ HREF="node251.html#RobertOuellet87"><SPAN  CLASS="textit">Robert and Ouellet</SPAN> (1987)</A>,
+     <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+l = \kappa (d_b+z_0^b)
+            \sqrt{1-\frac{d_b-z_0^s}{H}}
+     \; , \quad
+    
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="237" HEIGHT="63" ALIGN="MIDDLE" BORDER="0"
+ SRC="img651.png"
+ ALT="$\displaystyle l = \kappa (d_b+z_0^b) \sqrt{1-\frac{d_b-z_0^s}{H}} \; , \quad    $"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">178</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where it should be noted that only for large water depth
+     this equation converges to <!-- MATH
+ $\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$ \kappa(z+z_0)$"></SPAN> near the bottom.
+     Near the surface, the slope of <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN> is always different from
+     the law of the wall, a fact that becomes important when model
+     solutions for the case of breaking waves are computed, see
+     section <A HREF="node52.html#sec:analyse">4.7.4</A>.
+</LI>
+<LI>Also the famous formula of <A
+ HREF="node251.html#Blackadar62"><SPAN  CLASS="textit">Blackadar</SPAN> (1962)</A> is based on
+      a parabolic shape, extended by an extra length-scale <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img652.png"
+ ALT="$ l_a$"></SPAN>.
+     Using the form of <A
+ HREF="node251.html#Luytenetal96"><SPAN  CLASS="textit">Luyten et&nbsp;al.</SPAN> (1996)</A>, the algebraic relation
+     is expressed by
+      <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+l = \left( \frac{1}{\kappa (d_s+z_0^s)}
+                   +\frac{1}{\kappa (d_b+z_0^b)}
+                   +\dfrac{1}{l_a} \right)
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="285" HEIGHT="54" ALIGN="MIDDLE" BORDER="0"
+ SRC="img653.png"
+ ALT="$\displaystyle l = \left( \frac{1}{\kappa (d_s+z_0^s)} +\frac{1}{\kappa (d_b+z_0^b)} +\dfrac{1}{l_a} \right) \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">179</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where
+    <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+l_a = \gamma_0 \frac{\int_{-H}^\eta k^\frac{1}{2} z dz}
+                             {\int_{-H}^\eta k^\frac{1}{2} dz}
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="132" HEIGHT="65" ALIGN="MIDDLE" BORDER="0"
+ SRC="img654.png"
+ ALT="$\displaystyle l_a = \gamma_0 \frac{\int_{-H}^\eta k^\frac{1}{2} z dz} {\int_{-H}^\eta k^\frac{1}{2} dz}$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">180</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+is the natural kinetic energy scale resulting from the
+     first moment of the rms turbulent velocity. The constant
+     <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img655.png"
+ ALT="$ \gamma_0$"></SPAN> usually takes the value <!-- MATH
+ $\gamma_0 = 0.2$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="61" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img656.png"
+ ALT="$ \gamma_0 = 0.2$"></SPAN>.
+     It should be noted that this expression for <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN>
+     converges to <!-- MATH
+ $\kappa(z+z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="67" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img646.png"
+ ALT="$ \kappa(z+z_0)$"></SPAN> at the surface and the bottom
+     only for large water depth, and when <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img652.png"
+ ALT="$ l_a$"></SPAN> plays only a
+     minor role.
+</LI>
+<LI>The so-called ISPRAMIX method to compute the length-scale
+    is described in detail in section <A HREF="node83.html#sec:ispramix">4.22</A>.
+  
+</LI>
+</OL>
+  After the length-scale has been computed, it is optionally
+  limited by the method suggested by <A
+ HREF="node251.html#Galperinetal88"><SPAN  CLASS="textit">Galperin et&nbsp;al.</SPAN> (1988)</A>. This
+  option can be activated in <TT>gotmturb.nml</TT> by setting
+  <TT>length_lim = .true.</TT> The rate of dissipation is computed
+  according to (<A HREF="node72.html#epsilon">155</A>).
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence, only: L,eps,tke,k_min,eps_min
+   use turbulence, only: cde,galp,kappa,length_lim
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE> 
+   type of length scale
+   integer,  intent(in)                :: method
+ 
+   number of vertical layers
+   integer,  intent(in)                :: nlev
+ 
+   surface and bottom roughness (m)
+   REALTYPE, intent(in)                :: z0b,z0s
+ 
+   local depth (m)
+   REALTYPE, intent(in)                :: depth
+ 
+   layer thicknesses (m)
+   REALTYPE, intent(in)                :: h(0:nlev)
+ 
+   buoyancy frequency (1/s^2)
+   REALTYPE, intent(in)                :: NN(0:nlev)
+</PRE><I CLASS="sans">DEFINED PARAMETERS:</I>
+<PRE>   integer, parameter                  :: Parabola=1
+   integer, parameter                  :: Triangle=2
+   integer, parameter                  :: Xing=3
+   integer, parameter                  :: RobertOuellet=4
+   integer, parameter                  :: Blackadar=5
+   integer, parameter                  :: ispra_length=7
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s):  Manuel Ruiz Villarreal, Hans Burchard
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1454"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1450"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1444"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1452"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1455"
+  HREF="node81.html">The algebraic epsilonb-equation</A>
+<B> Up:</B> <A NAME="tex2html1451"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1445"
+  HREF="node79.html">The algebraic kb-equation</A>
+ &nbsp; <B>  <A NAME="tex2html1453"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Calculate c3 from steady-state Richardson number (Source File: compute_cpsi3.F90)</TITLE>
+<META NAME="description" CONTENT="Calculate c3 from steady-state Richardson number (Source File: compute_cpsi3.F90)">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node93.html">
+<LINK REL="previous" HREF="node91.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node93.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1583"
+  HREF="node93.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1579"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1573"
+  HREF="node91.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1581"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1584"
+  HREF="node93.html">Calculate steady-state Richardson number</A>
+<B> Up:</B> <A NAME="tex2html1580"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1574"
+  HREF="node91.html">Flux Richardson number stability</A>
+ &nbsp; <B>  <A NAME="tex2html1582"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000574400000000000000"></A><A NAME="sec:c3"></A>
+<BR>
+Calculate c3 from steady-state Richardson number (Source File: compute_cpsi3.F90)
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    REALTYPE function compute_cpsi3(c1,c2,Ri)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+Numerically computes <!-- MATH
+ $c_{\psi 3}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img503.png"
+ ALT="$ c_{\psi 3}$"></SPAN> for two-equation models from  given
+   steady-state Richardson-number <SPAN CLASS="MATH"><IMG
+ WIDTH="33" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img437.png"
+ ALT="$ Ri_{st}$"></SPAN> and parameters
+   <!-- MATH
+ $c_{\psi 1}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img457.png"
+ ALT="$ c_{\psi 1}$"></SPAN> and <!-- MATH
+ $c_{\psi 2}$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="27" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img453.png"
+ ALT="$ c_{\psi 2}$"></SPAN> according to (<A HREF="node51.html#Ri_st">114</A>).
+   A Newton-iteration is used to solve the resulting
+   implicit non-linear equation.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    use turbulence, only:           an,as,cmue1,cmue2
+    use turbulence, only:           cm0,cm0_fix,Prandtl0_fix
+    use turbulence, only:           turb_method,stab_method
+    use turbulence, only:           Constant
+    use turbulence, only:           MunkAnderson
+    use turbulence, only:           SchumGerz
+    use turbulence, only:           EiflerSchrimpf
+    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(in)            :: c1,c2,Ri
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Hans Burchard, Lars Umlauf
+   $Log: compute_cpsi3.F90,v $
+   Revision 1.3  2010-09-17 12:53:52  jorn
+   extensive code clean-up to ensure proper initialization and clean-up of all variables
+   Revision 1.2  2007-01-06 11:49:15  kbk
+   namelist file extension changed .inp --&gt; .nml
+   Revision 1.1  2005/06/27 10:54:33  kbk
+   new files needed
+</PRE>
+
+<P>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

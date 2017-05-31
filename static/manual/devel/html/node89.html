@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The Munk and Anderson (1948) stability function</TITLE>
+<META NAME="description" CONTENT="The Munk and Anderson (1948) stability function">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node90.html">
+<LINK REL="previous" HREF="node88.html">
+<LINK REL="up" HREF="node36.html">
+<LINK REL="next" HREF="node90.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1562"
+  HREF="node90.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1558"
+  HREF="node36.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1552"
+  HREF="node88.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1560"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1563"
+  HREF="node90.html">The Schumann and Gerz</A>
+<B> Up:</B> <A NAME="tex2html1559"
+  HREF="node36.html">The turbulence model</A>
+<B> Previous:</B> <A NAME="tex2html1553"
+  HREF="node88.html">The quasi-equilibrium stability functions</A>
+ &nbsp; <B>  <A NAME="tex2html1561"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000528000000000000000"></A><A NAME="sec:cmueMA"></A>
+<BR>
+The Munk and Anderson (1948) stability function
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine cmue_ma(nlev)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine computes the stability functions
+   according to <A
+ HREF="node251.html#MunkAnderson48"><SPAN  CLASS="textit">Munk and Anderson</SPAN> (1948)</A>. These are expressed
+   by the empirical relations
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><!-- MATH
+ \begin{equation}
+\begin{array}{ll}
+       c_{\mu} = c_\mu^0                          \; , \quad \\[3mm]
+       c_{\mu}'= \dfrac{c_{\mu}}{Pr_t^0} \,
+       \dfrac{(1+10 Ri)^{1/2}}{(1+3.33 Ri)^{3/2}} \; , \quad &  Ri \geq 0 \\
+       c_{\mu}'= c_{\mu}                          \; , \quad &  Ri  <   0
+       \; , \quad
+     \end{array}
+   
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="276" HEIGHT="108" BORDER="0"
+ SRC="img689.png"
+ ALT="\begin{displaymath}\begin{array}{ll} c_{\mu} = c_\mu^0 \; , \quad \ [3mm] c_{\m...
+...\ c_{\mu}'= c_{\mu} \; , \quad &amp; Ri &lt; 0 \; , \quad \end{array}\end{displaymath}"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">198</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where where <SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img285.png"
+ ALT="$ Ri$"></SPAN> is the gradient Richardson-number and <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img690.png"
+ ALT="$ Pr_t^0$"></SPAN>
+  is the turbulent Prandtl-number for <!-- MATH
+ $Ri \rightarrow 0$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img691.png"
+ ALT="$ Ri \rightarrow 0$"></SPAN>. <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img690.png"
+ ALT="$ Pr_t^0$"></SPAN>
+  and the fixed value <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img472.png"
+ ALT="$ c_\mu^0$"></SPAN> have to be set in <TT>gotmturb.nml</TT>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use turbulence, only: cm0_fix,Prandtl0_fix
+   use turbulence, only: cmue1,cmue2,as,an
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   integer, intent(in)                 :: nlev
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard &amp; Karsten Bolding
+</PRE>
+
+<P>
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The vertical friction </TITLE>
+<META NAME="description" CONTENT="The vertical friction ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node30.html">
+<LINK REL="previous" HREF="node28.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node30.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html756"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html752"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html746"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html754"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html757"
+  HREF="node30.html">The temperature equation</A>
+<B> Up:</B> <A NAME="tex2html753"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html747"
+  HREF="node28.html">The internal pressure-gradient</A>
+ &nbsp; <B>  <A NAME="tex2html755"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00049000000000000000"></A><A NAME="sec:friction"></A>
+<BR>
+The vertical friction 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   subroutine friction(kappa,avmolu,tx,ty)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine updates the bottom roughness
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Defz0b"></A><!-- MATH
+ \begin{equation}
+z_0^b = 0.1 \frac{\nu}{u_*^b} + 0.03 h_0^b + z_a \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="199" HEIGHT="45" ALIGN="MIDDLE" BORDER="0"
+ SRC="img104.png"
+ ALT="$\displaystyle z_0^b = 0.1 \frac{\nu}{u_*^b} + 0.03 h_0^b + z_a \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">23</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The first term on the right hand side of (<A HREF="#Defz0b">23</A>) represents
+   the limit for hydraulically smooth surfaces, the second term the limit
+   for completely rough surfaces. Note that the third term, <SPAN CLASS="MATH"><IMG
+ WIDTH="19" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img105.png"
+ ALT="$ z_a$"></SPAN>,
+   is the contribution of suspended sediments to the
+   roughness length, see <A
+ HREF="node251.html#SmithMcLean77"><SPAN  CLASS="textit">Smith and McLean</SPAN> (1977)</A>. It is updated during calls
+   to the sediment-routines.
+
+<P>
+The law-of-the-wall relations are used to compute the friction velocity
+  <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="uStar"></A><!-- MATH
+ \begin{equation}
+u_*^b = r \sqrt{U_1^2 + V_1^2}
+    \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="149" HEIGHT="51" ALIGN="MIDDLE" BORDER="0"
+ SRC="img106.png"
+ ALT="$\displaystyle u_*^b = r \sqrt{U_1^2 + V_1^2} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">24</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="22" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img107.png"
+ ALT="$ U_1$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img108.png"
+ ALT="$ V_1$"></SPAN> are the components of the mean velocity
+  at the center of the lowest cell.
+  We used the abbreviation
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="rParam"></A><!-- MATH
+ \begin{equation}
+r=\frac{\kappa}{\ln \left( \frac{0.5h_1+z_0^b}{z^b_0} \right)}
+     \; , \quad
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="152" HEIGHT="62" ALIGN="MIDDLE" BORDER="0"
+ SRC="img109.png"
+ ALT="$\displaystyle r=\frac{\kappa}{\ln \left( \frac{0.5h_1+z_0^b}{z^b_0} \right)} \; , \quad$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">25</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+where <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN> is the von K&#225;rm&#225;n constant and
+   the index `1' indicates values at the center of the first
+   grid box at the bottom (version 1). Another expression for <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img111.png"
+ ALT="$ r$"></SPAN> can be
+   derived using the mean value of the velocity in the lowest
+   grid box, and not its value in the middle of the box (version 2). Also
+   this method is supported in <TT>friction()</TT> and can be activated by
+   uncommenting one line in the code.
+
+<P>
+If no breaking surface waves are considered, the law of the wall
+   also holds at the surface. The surface roughness length may
+   be calculated according to the <A
+ HREF="node251.html#Charnock55"><SPAN  CLASS="textit">Charnock</SPAN> (1955)</A> formula,
+   <P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay"><A NAME="Charnock"></A><!-- MATH
+ \begin{equation}
+z_0^s=\alpha \frac{(u_*^s)^2}{g}
+    \quad .
+\end{equation}
+ -->
+<TABLE CLASS="equation" CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><SPAN CLASS="MATH"><IMG
+ WIDTH="110" HEIGHT="57" ALIGN="MIDDLE" BORDER="0"
+ SRC="img112.png"
+ ALT="$\displaystyle z_0^s=\alpha \frac{(u_*^s)^2}{g} \quad .$"></SPAN></TD>
+<TD NOWRAP CLASS="eqno" WIDTH="10" ALIGN="RIGHT">
+(<SPAN CLASS="arabic">26</SPAN>)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+The model constant <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img113.png"
+ ALT="$ \alpha$"></SPAN> is read in as <TT>charnock_val</TT> from
+   the <TT>meanflow</TT> namelist.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   use meanflow,      only: h,z0b,h0b,MaxItz0b,z0s,za
+   use meanflow,      only: u,v,rho,gravity
+   use meanflow,      only: u_taub,u_taus,drag,taub
+   use meanflow,      only: charnock,charnock_val,z0s_min
+ 
+   IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>   REALTYPE, intent(in)                :: kappa,avmolu,tx,ty
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard &amp; Karsten Bolding
+</PRE>
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html756"
+  HREF="node30.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html752"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html746"
+  HREF="node28.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html754"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html757"
+  HREF="node30.html">The temperature equation</A>
+<B> Up:</B> <A NAME="tex2html753"
+  HREF="node15.html">The mean flow model</A>
+<B> Previous:</B> <A NAME="tex2html747"
+  HREF="node28.html">The internal pressure-gradient</A>
+ &nbsp; <B>  <A NAME="tex2html755"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

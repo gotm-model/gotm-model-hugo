@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Module seagrass -- sea grass dynamics </TITLE>
+<META NAME="description" CONTENT="Module seagrass -- sea grass dynamics ">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="previous" HREF="node218.html">
+<LINK REL="up" HREF="node218.html">
+<LINK REL="next" HREF="node220.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3288"
+  HREF="node220.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3284"
+  HREF="node218.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3280"
+  HREF="node218.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3286"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3289"
+  HREF="node220.html">Initialise the sea grass</A>
+<B> Up:</B> <A NAME="tex2html3285"
+  HREF="node218.html">Extra features</A>
+<B> Previous:</B> <A NAME="tex2html3281"
+  HREF="node218.html">Extra features</A>
+ &nbsp; <B>  <A NAME="tex2html3287"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION000111000000000000000"></A><A NAME="sec:seagrass"></A>
+<BR>
+Module seagrass -- sea grass dynamics 
+</H2>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>   module seagrass
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+In this module, seagrass canopies are treated as Lagrangian tracers,
+  which either advect passively with the horizontal current speed or
+  rest at their excursion limits and thus exert friction on the mean flow,
+  see <A
+ HREF="node251.html#VerduinBackhaus2000"><SPAN  CLASS="textit">Verduin and Backhaus</SPAN> (2000)</A>.
+  Turbulence generation due to seagrass friction is possible, see
+  namelist file <TT>seagrass.nml</TT>. The extra production term
+  in the balance of TKE, (<A HREF="node72.html#tkeA">152</A>), is included as described in
+  section <A HREF="node69.html#sec:production">4.8</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>   default: all is private.
+   private
+</PRE><I CLASS="sans">PUBLIC MEMBER FUNCTIONS:</I>
+<PRE>   public init_seagrass, do_seagrass, save_seagrass, end_seagrass
+   logical, public                     :: seagrass_calc
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>   Original author(s): Hans Burchard &amp; Karsten Bolding
+   REALTYPE, dimension(:), allocatable :: xx,yy
+   REALTYPE, dimension(:), allocatable :: exc,vfric,grassz,xxP
+   logical                   :: init_output
+   from a namelist
+   character(len=PATH_MAX)   :: grassfile='seagrass.dat'
+   REALTYPE                  :: XP_rat
+   integer                   :: grassind
+   integer                   :: grassn
+   integer                   :: out_unit
+   integer                   :: maxn
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html3290"
+  HREF="node220.html">Initialise the sea grass module</A>
+<LI><A NAME="tex2html3291"
+  HREF="node221.html">Update the sea grass model</A>
+<LI><A NAME="tex2html3292"
+  HREF="node222.html">Storing the results</A>
+<LI><A NAME="tex2html3293"
+  HREF="node223.html">Finish the sea grass calculations</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>

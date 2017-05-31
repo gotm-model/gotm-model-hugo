@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Initialize</TITLE>
+<META NAME="description" CONTENT="Initialize">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node51.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="up" HREF="node48.html">
+<LINK REL="next" HREF="node51.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1077"
+  HREF="node51.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1073"
+  HREF="node48.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1067"
+  HREF="node49.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1075"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html1078"
+  HREF="node51.html">Generate</A>
+<B> Up:</B> <A NAME="tex2html1074"
+  HREF="node48.html">Fortran: Module Interface turbulence:</A>
+<B> Previous:</B> <A NAME="tex2html1068"
+  HREF="node49.html">Initialise</A>
+ &nbsp; <B>  <A NAME="tex2html1076"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00057200000000000000">
+Initialize the second-order model</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine init_scnd(scnd_coeff)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine computes the <SPAN CLASS="MATH"><IMG
+ WIDTH="17" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img221.png"
+ ALT="$ a_i$"></SPAN>'s defined in (<A HREF="node39.html#bASM">59</A>) and
+   the <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="29" ALIGN="MIDDLE" BORDER="0"
+ SRC="img438.png"
+ ALT="$ a_bi$"></SPAN>'s defined in (<A HREF="node39.html#gammaASM">63</A>) from the model parameters
+   of the pressure redistribution models (<A HREF="node38.html#Phi">51</A>) and (<A HREF="node38.html#Phib">57</A>).
+   Parameter sets from different authors are converted to the GOTM
+   notation according to the relations discussed in section <A HREF="node43.html#sec:parameterConversion">4.5</A>.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    integer, intent(in)                 :: scnd_coeff
+</PRE><EM>DEFINED PARAMETERS:</EM>
+<PRE>    REALTYPE,  parameter                :: cc1GL78     =  3.6000
+    REALTYPE,  parameter                :: cc2GL78     =  0.8000
+    REALTYPE,  parameter                :: cc3GL78     =  1.2000
+    REALTYPE,  parameter                :: cc4GL78     =  1.2000
+    REALTYPE,  parameter                :: cc5GL78     =  0.0000
+    REALTYPE,  parameter                :: cc6GL78     =  0.5000
+    REALTYPE,  parameter                :: ct1GL78     =  3.0000
+    REALTYPE,  parameter                :: ct2GL78     =  0.3333
+    REALTYPE,  parameter                :: ct3GL78     =  0.3333
+    REALTYPE,  parameter                :: ct4GL78     =  0.0000
+    REALTYPE,  parameter                :: ct5GL78     =  0.3333
+    REALTYPE,  parameter                :: cttGL78     =  0.8000
+ 
+    REALTYPE,  parameter                :: cc1MY82     =  6.0000
+    REALTYPE,  parameter                :: cc2MY82     =  0.3200
+    REALTYPE,  parameter                :: cc3MY82     =  0.0000
+    REALTYPE,  parameter                :: cc4MY82     =  0.0000
+    REALTYPE,  parameter                :: cc5MY82     =  0.0000
+    REALTYPE,  parameter                :: cc6MY82     =  0.0000
+    REALTYPE,  parameter                :: ct1MY82     =  3.7280
+    REALTYPE,  parameter                :: ct2MY82     =  0.0000
+    REALTYPE,  parameter                :: ct3MY82     =  0.0000
+    REALTYPE,  parameter                :: ct4MY82     =  0.0000
+    REALTYPE,  parameter                :: ct5MY82     =  0.0000
+    REALTYPE,  parameter                :: cttMY82     =  0.6102
+ 
+    REALTYPE,  parameter                :: cc1KC94     =  6.0000
+    REALTYPE,  parameter                :: cc2KC94     =  0.3200
+    REALTYPE,  parameter                :: cc3KC94     =  0.0000
+    REALTYPE,  parameter                :: cc4KC94     =  0.0000
+    REALTYPE,  parameter                :: cc5KC94     =  0.0000
+    REALTYPE,  parameter                :: cc6KC94     =  0.0000
+    REALTYPE,  parameter                :: ct1KC94     =  3.7280
+    REALTYPE,  parameter                :: ct2KC94     =  0.7000
+    REALTYPE,  parameter                :: ct3KC94     =  0.7000
+    REALTYPE,  parameter                :: ct4KC94     =  0.0000
+    REALTYPE,  parameter                :: ct5KC94     =  0.2000
+    REALTYPE,  parameter                :: cttKC94     =  0.6102
+ 
+    REALTYPE,  parameter                :: cc1LDOR96   =  3.0000
+    REALTYPE,  parameter                :: cc2LDOR96   =  0.8000
+    REALTYPE,  parameter                :: cc3LDOR96   =  2.0000
+    REALTYPE,  parameter                :: cc4LDOR96   =  1.1180
+    REALTYPE,  parameter                :: cc5LDOR96   =  0.0000
+    REALTYPE,  parameter                :: cc6LDOR96   =  0.5000
+    REALTYPE,  parameter                :: ct1LDOR96   =  3.0000
+    REALTYPE,  parameter                :: ct2LDOR96   =  0.3333
+    REALTYPE,  parameter                :: ct3LDOR96   =  0.3333
+    REALTYPE,  parameter                :: ct4LDOR96   =  0.0000
+    REALTYPE,  parameter                :: ct5LDOR96   =  0.3333
+    REALTYPE,  parameter                :: cttLDOR96   =  0.8000
+ 
+    REALTYPE,  parameter                :: cc1CHCD01A  =  5.0000
+    REALTYPE,  parameter                :: cc2CHCD01A  =  0.8000
+    REALTYPE,  parameter                :: cc3CHCD01A  =  1.9680
+    REALTYPE,  parameter                :: cc4CHCD01A  =  1.1360
+    REALTYPE,  parameter                :: cc5CHCD01A  =  0.0000
+    REALTYPE,  parameter                :: cc6CHCD01A  =  0.4000
+    REALTYPE,  parameter                :: ct1CHCD01A  =  5.9500
+    REALTYPE,  parameter                :: ct2CHCD01A  =  0.6000
+    REALTYPE,  parameter                :: ct3CHCD01A  =  1.0000
+    REALTYPE,  parameter                :: ct4CHCD01A  =  0.0000
+    REALTYPE,  parameter                :: ct5CHCD01A  =  0.3333
+    REALTYPE,  parameter                :: cttCHCD01A  =  0.7200
+ 
+    REALTYPE,  parameter                :: cc1CHCD01B  =  5.0000
+    REALTYPE,  parameter                :: cc2CHCD01B  =  0.6983
+    REALTYPE,  parameter                :: cc3CHCD01B  =  1.9664
+    REALTYPE,  parameter                :: cc4CHCD01B  =  1.0940
+    REALTYPE,  parameter                :: cc5CHCD01B  =  0.0000
+    REALTYPE,  parameter                :: cc6CHCD01B  =  0.4950
+    REALTYPE,  parameter                :: ct1CHCD01B  =  5.6000
+    REALTYPE,  parameter                :: ct2CHCD01B  =  0.6000
+    REALTYPE,  parameter                :: ct3CHCD01B  =  1.0000
+    REALTYPE,  parameter                :: ct4CHCD01B  =  0.0000
+    REALTYPE,  parameter                :: ct5CHCD01B  =  0.3333
+    REALTYPE,  parameter                :: cttCHCD01B  =  0.4770
+ 
+    REALTYPE,  parameter                :: cc1CCH02    =  5.0000
+    REALTYPE,  parameter                :: cc2CCH02    =  0.7983
+    REALTYPE,  parameter                :: cc3CCH02    =  1.9680
+    REALTYPE,  parameter                :: cc4CCH02    =  1.1360
+    REALTYPE,  parameter                :: cc5CCH02    =  0.0000
+    REALTYPE,  parameter                :: cc6CCH02    =  0.5000
+    REALTYPE,  parameter                :: ct1CCH02    =  5.5200
+    REALTYPE,  parameter                :: ct2CCH02    =  0.2134
+    REALTYPE,  parameter                :: ct3CCH02    =  0.3570
+    REALTYPE,  parameter                :: ct4CCH02    =  0.0000
+    REALTYPE,  parameter                :: ct5CCH02    =  0.3333
+    REALTYPE,  parameter                :: cttCCH02    =  0.8200
+ 
+    integer, parameter                  :: LIST        = 0
+    integer, parameter                  :: GL78        = 1
+    integer, parameter                  :: MY82        = 2
+    integer, parameter                  :: KC94        = 3
+    integer, parameter                  :: LDOR96      = 4
+    integer, parameter                  :: CHCD01A     = 5
+    integer, parameter                  :: CHCD01B     = 6
+    integer, parameter                  :: CCH02       = 7
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Lars Umlauf
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

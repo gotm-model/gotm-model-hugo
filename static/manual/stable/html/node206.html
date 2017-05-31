@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Fourth-order</TITLE>
+<META NAME="description" CONTENT="Fourth-order">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node207.html">
+<LINK REL="previous" HREF="node205.html">
+<LINK REL="up" HREF="node189.html">
+<LINK REL="next" HREF="node207.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3126"
+  HREF="node207.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3122"
+  HREF="node189.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3116"
+  HREF="node205.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3124"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3127"
+  HREF="node207.html">First-order</A>
+<B> Up:</B> <A NAME="tex2html3123"
+  HREF="node189.html">Fortran: Module Interface time</A>
+<B> Previous:</B> <A NAME="tex2html3117"
+  HREF="node205.html">Second-order</A>
+ &nbsp; <B>  <A NAME="tex2html3125"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000951700000000000000">
+Fourth-order Patankar-Runge-Kutta scheme</A>
+</H3>
+
+<P>
+
+<P><P>
+<BR>
+<I CLASS="sans">INTERFACE:</I>
+<PRE>    subroutine patankar_runge_kutta_4(dt,numc,nlev,cc,right_hand_side)
+</PRE>
+<I CLASS="sans">DESCRIPTION:
+<BR></I>
+
+<P>
+This subroutine should become the fourth-order Patankar Runge-Kutta
+   scheme, but it does not yet work.
+
+<P>
+
+<P><P>
+<BR>
+<EM>USES:</EM>
+<PRE>    IMPLICIT NONE
+</PRE><EM>INPUT PARAMETERS:</EM>
+<PRE>    REALTYPE, intent(in)                :: dt
+    integer, intent(in)                 :: numc,nlev
+   !INPUT/OUTPUT PARAMETER:
+    REALTYPE, intent(inout)             :: cc(1:numc,0:nlev)
+ 
+    interface
+       subroutine right_hand_side(first,numc,nlev,cc,pp,dd)
+          logical, intent(in)                  :: first
+          integer, intent(in)                  :: numc,nlev
+          REALTYPE, intent(in)                 :: cc(1:numc,0:nlev)
+          REALTYPE, intent(out)                :: pp(1:numc,1:numc,0:nlev)
+          REALTYPE, intent(out)                :: dd(1:numc,1:numc,0:nlev)
+       end subroutine right_hand_side
+    end interface
+</PRE><I CLASS="sans">REVISION HISTORY:</I>
+<PRE>    Original author(s): Hans Burchard, Karsten Bolding
+</PRE><I CLASS="sans">LOCAL VARIABLES:</I>
+<PRE>   logical  :: first
+   REALTYPE :: ppsum(1:numc,0:nlev),ddsum(1:numc,0:nlev)
+   REALTYPE :: ppsum1(1:numc,0:nlev),ddsum1(1:numc,0:nlev)
+   REALTYPE :: ppsum2(1:numc,0:nlev),ddsum2(1:numc,0:nlev)
+   REALTYPE :: ppsum3(1:numc,0:nlev),ddsum3(1:numc,0:nlev)
+   REALTYPE :: pp(1:numc,1:numc,0:nlev),dd(1:numc,1:numc,0:nlev)
+   REALTYPE :: cc1(1:numc,0:nlev)
+   integer  :: i,j,ci
+</PRE>
+
+<P>
+
+<P>
+<BR><HR>
+<ADDRESS>
+Karsten Bolding
+2012-01-24
+</ADDRESS>
+</BODY>
+</HTML>

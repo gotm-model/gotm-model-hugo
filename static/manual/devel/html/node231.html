@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Turbulence under breaking surface waves</TITLE>
+<META NAME="description" CONTENT="Turbulence under breaking surface waves">
+<META NAME="keywords" CONTENT="html">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="html.css">
+
+<LINK REL="next" HREF="node232.html">
+<LINK REL="previous" HREF="node230.html">
+<LINK REL="up" HREF="node228.html">
+<LINK REL="next" HREF="node232.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html3463"
+  HREF="node232.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3459"
+  HREF="node228.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3453"
+  HREF="node230.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3461"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3464"
+  HREF="node232.html">Some entrainment scenarios</A>
+<B> Up:</B> <A NAME="tex2html3460"
+  HREF="node228.html">Idealised scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3454"
+  HREF="node230.html">Pressure-gradient driven channel flow</A>
+ &nbsp; <B>  <A NAME="tex2html3462"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION000131300000000000000"></A><A NAME="breaking_waves"></A>
+<BR>
+Turbulence under breaking surface waves
+</H3>
+
+<P>
+In this scenario, it is demonstrated how the effect of breaking
+surface waves is parameterised in one- and two-equation models. This
+is usually done by injecting turbulent kinetic energy (TKE) at the
+surface, see <A
+ HREF="node251.html#CraigBanner94"><SPAN  CLASS="textit">Craig and Banner</SPAN> (1994)</A> and <A
+ HREF="node251.html#Craig96"><SPAN  CLASS="textit">Craig</SPAN> (1996)</A>. The rate of TKE
+injected is proportional to the surface friction velocity cubed, as
+defined in (<A HREF="node95.html#craig">211</A>). Injection of TKE at the surface leads to a thin
+surface boundary layer, in which the vertical transport of TKE and its
+dissipation approximately balance. This layer is sometimes called the
+<SPAN  CLASS="textit">transport layer</SPAN>. Even though there can be considerable shear in
+this layer, shear-production of turbulence is negligible by definition
+(also see section <A HREF="node52.html#sec:analyse">4.7.4</A>).
+
+<P>
+Different types of models are available in GOTM for the wave-breaking
+scenario. The key change in <TT>gotmturb.nml</TT> for runs with TKE
+injection is to set <TT>ubc_type = 2</TT>, telling GOTM to set the type
+of the upper boundary to TKE injection. The decay rates of the TKE and
+the dissipation rate in the wave-affected layer are then an natural
+outcome of the model. Note that with the KPP model, this scenario
+cannot be run.
+
+<P>
+
+<UL>
+<LI>For the one-equation models, as discussed in
+ <A
+ HREF="node251.html#CraigBanner94"><SPAN  CLASS="textit">Craig and Banner</SPAN> (1994)</A>, a linearly increasing macro length scale, <SPAN CLASS="MATH"><IMG
+ WIDTH="9" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img175.png"
+ ALT="$ l$"></SPAN>,
+ is postulated with a slope of <!-- MATH
+ $\kappa=0.4$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="54" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ \kappa = 0.4$"></SPAN>. This is analogous to the
+ law of the wall, even though there is no physical evidence for the
+ assumption that the length-scale under breaking waves behaves
+ identically as in wall-bounded shear-flows. As shown by
+ <A
+ HREF="node251.html#CraigBanner94"><SPAN  CLASS="textit">Craig and Banner</SPAN> (1994)</A>, an analytical solution for the one-equation
+ model can be derived, but only inside the transport layer, according
+ to which the TKE (and all other turbulence quantities) follows a
+ power-law (see discussion in section <A HREF="node51.html#sec:generate">4.7.3</A> and
+ section <A HREF="node52.html#sec:analyse">4.7.4</A>).
+
+<P>
+If you want to simulate wave breaking with a model of this type,
+ simply copy all files from <TT>prescribed_nml/</TT> to the current
+ directoy, and run GOTM. A dynamic equation for <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN> is used, but the
+ length scale is fixed, and prescribed by a triangular shape with slope
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN> (<TT>length_scale_method = 2</TT> in <TT>gotmturb.nml</TT>, see
+ section <A HREF="node80.html#sec:algebraiclength">4.19</A>).
+
+<P>
+</LI>
+<LI>For two-equation models, the slope of the length scale in the
+ transport layer is not simply prescribed and generally not equal to
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN>. <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A> generalized the solution of
+ <A
+ HREF="node251.html#CraigBanner94"><SPAN  CLASS="textit">Craig and Banner</SPAN> (1994)</A> and derived analytical solutions for the
+ non-linear system of equations describing the behaviour of
+ two-equation models for injection of TKE at the surface. They showed
+ that the TKE follows a power-law and that the length scale increases
+ linearly, however, with a slope <!-- MATH
+ $L \neq \kappa$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="45" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img929.png"
+ ALT="$ L \neq \kappa$"></SPAN>. They also compared
+ the spatial decay of turbulence in grid stirring experiments (thought
+ as an analogy to wave-breaking) to the results of several
+ two-equation models.
+
+<P>
+A numerical solution of the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> model can be obtained by
+ copying the files in <BR><TT>kepspilon_nml</TT> to the current
+ directory, and insuring that <TT>compute_kappa = .true.</TT>  and <TT> sig_peps = .false.</TT> in <TT>gotmturb.nml</TT>. Because the spatial decay
+ rate of the TKE is very large for this model, the wave-affected layer
+ is very small, and of the order of only a few tens of centimeters for
+ this scenario.  As discussed by <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A>, this
+ disadvantage can be overcome by using the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img504.png"
+ ALT="$ \omega$"></SPAN> model with
+ parameters given in <TT>gotmturb.nml</TT> in the directory <TT> komega_nml/</TT>. The decay rates of this model nicely correspond to
+ those measured in the laboratory grid strirring experiments. The
+ Mellor-Yamada model has also been investigated by
+ <A
+ HREF="node251.html#Umlaufetal2003"><SPAN  CLASS="textit">Umlauf et&nbsp;al.</SPAN> (2003)</A>, but for this model, again, decay was shown to
+ be too strong. In addition, the decay rate depends in an unphysical
+ way on the wall-function required in this model.
+
+<P>
+</LI>
+<LI>As an alternative to the standard <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> model,
+ <A
+ HREF="node251.html#Burchard2001b"><SPAN  CLASS="textit">Burchard</SPAN> (2001a)</A> suggested to make the turbulent Schmidt number
+ for the <SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN>-equation, (<A HREF="node76.html#dissipation">165</A>), a function of the
+ production-to-dissipation ratio, <!-- MATH
+ $P/\epsilon$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img930.png"
+ ALT="$ P/\epsilon$"></SPAN>. As shown in detail in
+ this paper, the variable Schmidt number can be used to ``force'' the
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> model to compute <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN> for the slope of the length
+ scale, even under breaking waves. Then, obviously, the solution of
+ the <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img35.png"
+ ALT="$ k$"></SPAN>-<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img37.png"
+ ALT="$ \epsilon$"></SPAN> model corresponds to the solution of the simpler
+ one-equation model investigated by <A
+ HREF="node251.html#CraigBanner94"><SPAN  CLASS="textit">Craig and Banner</SPAN> (1994)</A>. Note again,
+ however, that there is no physical evidence for <!-- MATH
+ $l = \kappa (z +
+ z_0)$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="94" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img546.png"
+ ALT="$ l=\kappa(z+z_0)$"></SPAN> in the wave-affected boundary layer.
+
+<P>
+If you want to simulate wave breaking with this model, simply copy the
+ files from <TT>kepspilon_nml/</TT> to the current directory, and make
+ sure that you set <TT>compute_kappa = .false.</TT>  and <TT>sig_peps
+ = .true.</TT> in <TT>gotmturb.nml</TT>.  Results are quite similar to those
+ with the prescribed length scale.
+
+<P>
+</LI>
+<LI><A
+ HREF="node251.html#UmlaufBurchard2003"><SPAN  CLASS="textit">Umlauf and Burchard</SPAN> (2003)</A> analysed the properties of a whole
+ class of two-equation models for the case of TKE injection at the
+ surface. They suggested a `generic' model which could satisfy the
+ power-laws under breaking waves for any desired decay rate,
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img113.png"
+ ALT="$ \alpha$"></SPAN>, and length scale slope, <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img36.png"
+ ALT="$ L$"></SPAN>.  This model is activated with
+ the input files from <TT>generic_nml/</TT>.  Users can select any
+ reasonable values for <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img113.png"
+ ALT="$ \alpha$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img36.png"
+ ALT="$ L$"></SPAN> (and many others parameters like
+ <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img110.png"
+ ALT="$ \kappa$"></SPAN> and <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img440.png"
+ ALT="$ d$"></SPAN>), and GOTM will automatically generate a
+ two-equation model with exactly the desired properties. Parameters
+ are computed according to the formulae described in section <A HREF="node51.html#sec:generate">4.7.3</A>.
+
+<P>
+</LI>
+</UL>
+
+<P>
+In all cases a surface-stress of <!-- MATH
+ $\tau_x= 1.027$
+ -->
+<SPAN CLASS="MATH"><IMG
+ WIDTH="76" HEIGHT="30" ALIGN="MIDDLE" BORDER="0"
+ SRC="img924.png"
+ ALT="$ \tau_x= 1.027$"></SPAN> Nm<SPAN CLASS="MATH"><IMG
+ WIDTH="21" HEIGHT="18" ALIGN="BOTTOM" BORDER="0"
+ SRC="img88.png"
+ ALT="$ ^{-2}$"></SPAN> was
+applied. After a runtime of 2 days, a steady-state with a constant
+stress over the whole water column of 20 m depth is reached. The wave
+affected layer can be found in the uppermost meter or so, and because
+of the strong gradients in this region we used a refined grid close to
+the surface. The parameters for such a `zoomed grid' can be set in the
+input file <TT>gotmmean.nml</TT> according to the decription in
+section <A HREF="node23.html#sec:updategrid">3.3</A>.  If you want to compare the computed profiles
+with the analytical solutions in (<A HREF="node51.html#power_law">110</A>), you'll need a
+specification of the parameter <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img463.png"
+ ALT="$ K$"></SPAN>. This parameter is computed in <TT>k_bc()</TT> to be found in <TT>turbulence.F90</TT>, where you can add a few
+FORTRAN lines to write it out.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html3463"
+  HREF="node232.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html3459"
+  HREF="node228.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html3453"
+  HREF="node230.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html3461"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html3464"
+  HREF="node232.html">Some entrainment scenarios</A>
+<B> Up:</B> <A NAME="tex2html3460"
+  HREF="node228.html">Idealised scenarios</A>
+<B> Previous:</B> <A NAME="tex2html3454"
+  HREF="node230.html">Pressure-gradient driven channel flow</A>
+ &nbsp; <B>  <A NAME="tex2html3462"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Karsten Bolding
+2012-12-28
+</ADDRESS>
+</BODY>
+</HTML>
