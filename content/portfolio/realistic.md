@@ -3,231 +3,25 @@ showonlyimage = false
 draft = false
 image = "portfolio/img/realistic.jpg"
 date = "2016-11-05T18:25:22+05:30"
-title = "Realistic test cases"
+title = "Ocean cases"
 weight = 20
 author = "Lars Umlauf"
 +++
 
 Realistic test case demonstrating various GOTM features.
 
-<!--
-- Flex
-- Gotland Deep
-- Liverpool Bay
-- Northern NS (Seasonal)
-- Northern NS (Annual)
-- OWS Papa
+-   [FLEX](/cases/flex/)
+-   [Gotland Deep](/cases/gotland_deep/)
+-   [Liverpool Bay](/cases/liverpool_bay/)
+-   [Northern NS (Seasonal)](/cases/northern_ns_seasonal/)
+-   [Northern NS (Annual)](/cases/northern_ns_annual/)
+-   [OWS Papa](/cases/ows_papa/)
+-   [Conclusion](/portfolio/realistic#conclusion)
 
+Figure from [here](https://www.shutterstock.com/search/turbulent+water)
 
-Table of content
-----------------
-
-
--   [Introduction](#introduction)
--->
--   [Flex](#flex)
--   [Gotland Deep](#gotland-deep)
--   [Liverpool Bay](#liverpool-bay)
--   [Northern NS (Seasonal)](#northern-ns-seasonal)
--   [Northern NS (Annual)](#northern-ns-annual)
--   [OWS Papa](#ows-papa)
--   [Conclusion](#conclusion)
 
 <!--more-->
-
-<!--
-Introduction
-------------
--->
-
-Flex
-----
-
-A data set which has been used throughout the last 40 years as a calibration 
-for mixing parameterisations has been collected during the measurements of the 
-**Fladenground Experiment 1976 (FLEX'76)** campaign. Starting from a well-mixed 
-winter situation, a surface mixed layer is established, which is several times 
-deepened and partly removed by storm events. 
-[caption id="attachment_443" align="aligncenter" width="640"]![Spring temperature development at the FLEX site in the Northern North Sea](/portfolio/img/flex.png) 
-Spring temperature development at the FLEX site in the Northern North Sea. This 
-plot was created with 
-[flex.py](/portfolio/img/flex.py).
-[/caption]
-The measurements of meteorological forcing and potential temperature 
-profiles were carried out in spring 1976 in the northern North Sea at a water 
-depth of about 145 m and a geographical position at 58 deg 55'N and 0 deg 32'E. 
-The simulation is run from April 6 to June 7, 1976. The 
-[Kondo (1975)](http://link.springer.com/article/10.1007/BF00232256) 
-bulk formulae have 
-been used for pre-calculating the surface fluxes, which are given in the data 
-files momentumflux.dat, and heatflux.dat. Other meteorological data files gives 
-sea surface temperature (sst.dat) and short wave radiation (swr.dat). Tidal 
-flow is forced by oscillating sea surface slopes (pressure.dat), temperature 
-profiles for validation are provided directly from CTD (tprof_ctd.dat) or 
-interpolated from CTD to semi-diurnal profiles (tprof.dat). Salinity from CTD 
-(s_prof_ctd.dat) or from a 3D model (s_prof.dat) are used for nudging simulated 
-salinity to "observed" data at a time scale of 2 days. Six-hourly values for 
-light extinction are given by extinction.dat. Model simulations similar to 
-those provided here have been published by 
-[Burchard & Baumert (1995)](http://dx.doi.org/10.1029/94JC03229). 
-As there, also here a k-epsilon 
-model is used as turbulence closure model, but here the 
-[Cheng et al. (2002) ](http://journals.ametsoc.org/doi/abs/10.1175/1520-0469\(2002\)059%3C1550%3AAIMFTT%3E2.0.CO%3B2)
-stability functions are used.
-
-Gotland Deep
-------------
-
-These simulations are made for the location of station 271** Central Eastern 
-Gotland Sea of the Baltic Sea** at 20 deg E and 57.3 deg N with a water depth 
-of 250 m. Initial conditions for temperature and salinity are derived from 
-measurements. Meteorological forcing was available from the ERA15 reanalysis 
-data set. For the penetration of solar radiation into the water column, fairly 
-turbid water (Jerlov type IB) is assumed. Salinity concentrations are nudged to 
-observations with a time scale of 50 days. 
-[caption id="attachment_520" align="aligncenter" width="640"]![Simulated temperature, salinity contours and examplary ERGOM state variables in the Central Baltic Sea.](/portfolio/img/gotland-deep.png) 
-Simulated temperature, salinity contours and examplary ERGOM state variables 
-in the Central Baltic Sea. This plot was created with 
-[gotland.py](/portfolio/img/gotland.py).
-[/caption]
-The simulation is carried out for the years 1980-1990. For the discretisation, 
-the water column has been divided into 100 vertical layers, with a strong 
-zooming towards the surface, resulting in a mean near-surface resolution of 
-less than 0.5 m. The time step for these simulations is set to 10 minutes. For 
-details of the gotland scenario see 
-[Burchard et al. (2006)](http://dx.doi.org/10.1016/j.jmarsys.2005.04.011).
-
-Liverpool Bay
--------------
-
-The observations for this scenario have been carried out by 
-[Rippeth et al (2001}](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)031%3C2458:TCOTDI%3E2.0.CO%3B2)
-in the** Liverpool Bay ROFI** on July 5 and 6, 1999 at a position of 53 deg 
-28.4'N, 3 deg 39.2'W. The dissipation rate measurements were carried out with a 
-FLY shear probe mounted on a free-falling profiler. Sensors for temperature and 
-conductivity attached to the profiler give detailed information on the vertical 
-density distribution during each cast. Nearby, an ADCP was mounted on the 
-bottom, giving information on the vertical velocity structure. Some 
-accompanying CTD casts were made in order to achieve estimates for the 
-horizontal gradients of temperature and salinity. The surface fluxes are 
-calculated externally by means of bulk formulae of 
-[Kondo (1975)](http://link.springer.com/article/10.1007/BF00232256)
-, where the sea 
-surface temperature from measurements (FLY profiler) has been used. The bed 
-roughness has been estimated from near-bed ADCP measurements as z0 = 0.0025 m 
-by means of fits to the law of the wall. The external pressure gradient due to 
-surface slopes is estimated according to a method suggested by 
-[Burchard (1999)](http://www.sciencedirect.com/science/article/pii/S0307904X99000086)
-by means 
-of adjustment to near bed velocity observations. The horizontal salinity and 
-temperature gradients for a typical summer situation are prescribed. The 
-observations and model results show a clear SIPS (Strain-Induced Periodic 
-Stratification) cycle with mixed conditions after flood (at high water) and 
-stratified conditions after ebb (low water). The numerical simulations of this 
-scenario have been described in 
-[Simpson et al. (2002)](http://www.sciencedirect.com/science/article/pii/S0278434302000250). 
-[caption id="attachment_592" align="aligncenter" width="633"]![Temperature, salinity, westward velocity, northward velocity and dissipation rate from observations \(left\) and model results \(right\) for Liverpool Bay during a SIPS situation between July 5 \(16:30h\) and July 6 \(17:00h\) 1999 in Liverpool Bay.](/portfolio/img/liverpool_bay-633x1024.png)
-Temperature, salinity, westward velocity, northward velocity and dissipation 
-rate from observations (left) and model results (right) for Liverpool Bay 
-during a SIPS situation between July 5 (16:30h) and July 6 (17:00h) 1999 in 
-Liverpool Bay. This plot was created with 
-[liverpool_bay.py](/portfolio/img/liverpool_bay.py).
-[/caption]
-
-Northern NS (Seasonal)
-----------------------
-
-This **Northern North Sea seasonal experiment** has been carried out in the 
-framework of the PROVESS (PROcesses of VErtical mixing in Shealf Seas) project 
-(MAS3-CT97-0025, 1998-2001) which has been funded by the European Communities 
-MAST-III program. The observations in the Northern North Sea were carried out 
-in September and October 1998. Here, a period of 20 days from October 7 - 27, 
-1998 is simulated. All forcing and validation data have been carefully 
-processed from observations during this PROVESS-NNS experiment.
-[caption id="attachment_525" align="aligncenter" width="640"]![Temperature contours and dissipation rate from model results \(top panel\) and observations \(bottom panel\) during 20 days of autumn cooling in the Northern North Sea. The dissipation rate measurements are from the FLY profiler.](/portfolio/img/nns_seasonal.png)
-Temperature contours and dissipation rate during 20 days of autumn cooling in 
-the Northern North Sea. The dissipation rate measurements are from the FLY 
-profiler. This plot was created with 
-[nns_seasonal.py](/portfolio/img/nns_seasonal.py).
-[/caption]
-Two different observed dissipation rate data sets are 
-included: eps_fly.dat: data from a FLY profiler, processed by School of Ocean 
-Sciences, University of Bangor, Wales eps_mst.dat: data from an MST profiler, 
-processed by the Joint Research Centre, Ispra, Italy. These files are read in 
-into GOTM through the eobs namelist in obs.nml. The dissipation rate has only 
-been observed at short intervals, periods without observations are set to 
-minimum values in the files. These dissipation rate observations are read in 
-into GOTM in order to allow for proper interpolation to the temporal and 
-spatial output steps, and they are not used for any type of nudging. The data 
-files are prepared such that the maximum simulation interval can be extended to 
-September 7 at 10.00 h - November 2 at 13.00 h, 1998. For discussions of 
-various model simulations, see 
-[Burchard et al. (2002)](http://www.sciencedirect.com/science/article/pii/S1385110102001260)
-and also the annual simulation in the test case nns_annual and 
-[Bolding et al. (2002)](http://www.sciencedirect.com/science/article/pii/S027843430200122X).
-
-
-Northern NS (Annual)
---------------------
-
-Here the **annual simulation of the Northern Sea** at 59 deg 20' N and 1 deg 
-17' E during the year 1998 as discussed by 
-[Bolding et al. (2002)](http://www.sciencedirect.com/science/article/pii/S027843430200122X)
-is 
-performed. For this simulation, time series of surface slopes were extrapolated 
-from observations during autumn 1998 based on four partial tides by means of 
-harmonic analysis. All necessary meteorological data are from the UK 
-Meteorological Office Model in a 6-hourly temporal resolution (meteo.dat). For 
-the period of the PROVESS campaign (Sep 7 - Nov 7, 1998, see 
-[Howarth et al., 2002](http://www.sciencedirect.com/science/article/pii/S1385110102001259)
-; 
-[Bolding et al., 2002](http://www.sciencedirect.com/science/article/pii/S027843430200122X)) 
-higher resolution data (half-hourly) from research vessels are available and 
-pasted in an extended meteo data file (meteonns.dat). See GOTM test case 
-nns_seasonal for a shorter term scenario only including the campaign period. 
-For calculating the resulting surface fluxes, the bulk formulae from 
-[Kondo (1975)](http://link.springer.com/article/10.1007/BF00232256) 
-are used here. For 
-the evolution of the vertical salinity profile, which is known to stabilise 
-stratification during summer months, a relaxation to results obtained with a 
-prognostic three-dimensional model of the North Sea (
-[Pohlmann, 1996](http://www.sciencedirect.com/science/article/pii/027843439590885S)
-). By 
-doing so, the horizontal advection, which is the dominant process for salinity 
-dynamics in the Northern North Sea, is parameterised. 
-[caption id="attachment_517" align="aligncenter" width="640"]![Annual cycle of simulated temperature and NPZD development at the PROVESS-NNS site in the Northern North Sea.](/portfolio/img/nns_annual.png) 
-Annual 
-cycle of simulated temperature and NPZD development at the PROVESS-NNS site in 
-the Northern North Sea. This plot was created with 
-[nns_annual.py](/portfolio/img/nns_annual.py).
-[/caption] 
-The nns_annual scenario is also used as a basis for driving the 
-NPZD model. This is achieved by choosing fabm_calc = .true. (in gotm_fabm.nml), 
-and models = 'gotm_npzd' in fabm.nml.
-
-OWS Papa
---------
-
-This scenario is a classical scenario for the **Northern Pacific**, for which 
-long term observations of meteorological parameters and temperature profiles 
-are available. The station Papa at 145 deg W, 50 deg N has the advantage that 
-it is situated in a region where the horizontal advection of heat and salt is 
-assumed to be small. Various authors used these data for validating turbulence 
-closure schemes. 
-[caption id="attachment_488" align="aligncenter" width="640"]![Annual cycle of temperature development at the OWS Papa site in the North East Pacific. Left: observations; right: model results.](/portfolio/img/ows_papa.png)
-Annual cycle of 
-temperature development at the OWS Papa site in the North East Pacific. This 
-plot was created with 
-[ows_papa.py](/portfolio/img/ows_papa.py).
-[/caption]
-The way how bulk formulae for the surface momentum and heat 
-fluxes have been used here is discussed in detail in 
-[Burchard et al. (1999)](http://io-warnemuende.de/tl_files/staff/burchard/pdf/papers/report.pdf).
-The maximum simulation time allowed by the included surface forcing file and 
-the temperature profile file is January 1 (17.00 h), 1960 - December 31 (12.00 
-h), 1968. In this scenario, the simulation time is run from March 25, 1961 
-(0.00 h) to March 25, 1962 (0.00 h). For further information, see 
-[Burchard and Bolding (2001)](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)031%3C1943:CAOFSM%3E2.0.CO%3B2).
 
 Conclusion
 ----------
