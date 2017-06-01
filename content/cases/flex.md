@@ -12,11 +12,13 @@ for mixing parameterisations has been collected during the measurements of the
 **Fladenground Experiment 1976 (FLEX'76)** campaign. Starting from a well-mixed 
 winter situation, a surface mixed layer is established, which is several times 
 deepened and partly removed by storm events. 
+
+{{< figure src="/cases/img/flex.png" caption="Spring temperature development at the FLEX site in the Northern North Sea." >}}
+
+<!--
 [caption id="attachment_443" align="aligncenter" width="640"]![Spring temperature development at the FLEX site in the Northern North Sea](/portfolio/img/flex.png) 
-Spring temperature development at the FLEX site in the Northern North Sea. This 
-plot was created with 
-[flex.py](/portfolio/img/flex.py).
-[/caption]
+-->
+
 The measurements of meteorological forcing and potential temperature 
 profiles were carried out in spring 1976 in the northern North Sea at a water 
 depth of about 145 m and a geographical position at 58 deg 55'N and 0 deg 32'E. 
