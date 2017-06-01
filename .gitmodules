@@ -2,3 +2,8 @@
 	path = public
 	url = git@github.com:gotm-model/gotm-model.github.io.git
 	branch = master
+[submodule "theme"]
+        path = themes/hugo-creative-portfolio-theme
+        url = https://github.com/kishaningithub/hugo-creative-portfolio-theme.gi
+t
+        branch = master
