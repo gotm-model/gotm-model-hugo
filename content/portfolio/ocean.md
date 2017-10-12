@@ -18,7 +18,7 @@ Realistic test cases demonstrating various GOTM features.
 -   [OWS Papa](/cases/ows_papa/)
 -   [Conclusion](/portfolio/ocean#conclusion)
 
-
+Figure by Hans Burchard.
 
 <!--more-->
 
@@ -53,5 +53,5 @@ Northern Pacific Ocean.
 Conclusion
 ----------
 
-Maybe add a few sentences here
+#Maybe add a few sentences here
 

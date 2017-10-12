@@ -39,16 +39,16 @@ googleAnalytics = ""
   url = ""
 
   [[params.navlinks]]
-  name = "News/Blogs"
+  name = "Blogs"
   url = "blog/"
-
-  #[[params.navlinks]]
-  #name = "Key publications"
-  #url = "publications/"
 
   [[params.navlinks]]
   name = "History"
   url = "history/"
+
+  [[params.navlinks]]
+  name = "Publications"
+  url = "publications/"
 
   [[params.navlinks]]
   name = "About"

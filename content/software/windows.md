@@ -7,7 +7,7 @@ weight = 0
 authors = "Jorn Bruggeman"
 +++
 
-## Quick start
+### Quick start
 
   1. **Get GOTM** It is easiest to 
 [download the pre-built GOTM software for Windows (gotm.exe)](http://github.com/gotm-model/code/releases)
@@ -25,9 +25,9 @@ extension). These can be read by many applications (e.g., MATLAB, R). If you
 need a stand-alone NetCDF viewer, we recommend 
 [PyNcView](https://sourceforge.net/projects/pyncview). 
 
-## Building from scratch
+### Building from scratch
 
-### Prerequisites
+#### Prerequisites
 
   * a supported Fortran compiler. We regularly test the Intel Fortran compiler, 
 which integrates with Visual Studio, as well as the GNU Fortran compiler 
@@ -35,7 +35,7 @@ provided with the free
 [mingw-w64 compiler suite](http://mingw-w64.org).
   * [CMake 2.8.8 or later](https://cmake.org)
 
-### Download the code
+#### Download the code
 
 First, get the GOTM source code from GitHub. You can either download 
 [the latest stable release of the code](http://github.com/gotm-model/code/releases) 
@@ -56,7 +56,7 @@ https://github.com/gotm-model/code.git, set "Directory" to the path where you
 want the source code (recommended: _CURRENT_DIRECTORY_\gotm-git) and click OK. 
 This should download the latest code. 
 
-### Building
+#### Building
 
   1. Start "CMake (cmake-gui)" from the start menu.
   2. Click the "Browse Source..." button and select the directory with the GOTM 
@@ -87,6 +87,7 @@ build and install GOTM, right-click the "INSTALL" project in the solution
 explorer, and choose "Build". If you use MinGW, open a command prompt (run 
 "cmd") and cd to the build directory (not the src directory!) defined above. 
 Then type and run "mingw32-make install".
+
 After the build completes, the GOTM executable will be installed at 
 %LOCALAPPDATA%\gotm\bin\gotm.exe (%APPDATA%\gotm\bin\gotm.exe on Windows XP). 
 At this point you can continue with step 2 in the quick start instructions at 
