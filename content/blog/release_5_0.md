@@ -74,7 +74,7 @@ The present release has been used in production mode already for a quite some ye
 * sign of salinity stratification for double-diffusion
 * Albedo values for (default) Payne method
 
-### Code refractoring
+### Code refactoring
 The *gui.py* directory has been completely removed from the GOTM code base and now forms the basis of a set of utilities in a separate software project. The main reason for this split is to allow for individual development paths for GOTM and the utilities.
 
   * *editscenario* for manipulating and converting .xml based configuration files to Fortran namelist files
