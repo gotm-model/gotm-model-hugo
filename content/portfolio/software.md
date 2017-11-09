@@ -12,7 +12,7 @@ GOTM is relative easy to install and run on most operating systems - just follow
 
 <!--more-->
 
-1. The source code for GOTM and [FABM](http://www.fabm.net) must have been cloned from Git repositories. The actual cloning will depend on the platform and Git-utilities used. Further information is provide [here](https://help.github.com/articles/cloning-a-repository/). A number of graphical frontends to Git are available - but the use of these is beyond the instructions provided here.
+1. The source code for GOTM and [FABM](http://www.fabm.net) must have been cloned from the Git repositories - [GOTM](https://github.com/gotm-model/code) and [FABM](https://github.com/fabm-model/fabm) - respectively. The actual cloning will depend on the platform and Git-utilities used. Further information is provide [here](https://help.github.com/articles/cloning-a-repository/). A number of graphical frontends to Git are available - but the use of these is beyond the instructions provided here.
 2. A Fortran compiler supporting at least Fortran 2003 must be avaialble
    * On Linux [gfortran](https://gcc.gnu.org/fortran/) versions including and above 4.7 have been tested as well has the [Intel Fortran compiler](https://software.intel.com/en-us/fortran-compilers).
    * On Windows the [Intel Fortran compiler](https://software.intel.com/en-us/fortran-compilers) configured with VisualStudio is working.
