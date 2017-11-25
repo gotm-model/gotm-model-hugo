@@ -20,5 +20,5 @@ Updated NetCDF libraries for Windows. Still 3.6.3 but now both 32 and 64 bit are
 
 <!--more-->
 
-Jorn Bruggeman has compiled the old NetCDF 3.6.3 version for both 32- and 64bit architectures. The FindNetCDF.cmake module has been updated to choose the correct library depending on how ifort used.
+Jorn Bruggeman has compiled the old NetCDF 3.6.3 version for both 32- and 64bit architectures. The FindNetCDF.cmake module has been updated to choose the correct library depending on how ifort is used.
 
