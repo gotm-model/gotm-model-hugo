@@ -77,9 +77,9 @@ The present release has been used in production mode already for a quite some ye
 ### Code refactoring
 The *gui.py* directory has been completely removed from the GOTM code base and now forms the basis of a set of utilities in a separate software project. The main reason for this split is to allow for individual development paths for GOTM and the utilities.
 
-  * *editscenario* for manipulating and converting .xml based configuration files to Fortran namelist files
-  * *PyNcview* (and *multiplot*)
-  * *gotmgui* for configuring and running GOTM via a GUI
+  * [editscenario](https://github.com/BoldingBruggeman/editscenario) for manipulating and converting .xml based configuration files to Fortran namelist files
+  * [PyNcview]https://github.com/BoldingBruggeman/pyncview) (and *multiplot*)
+  * *gotmgui* for configuring and running GOTM via a GUI - not quite ready yet.
 
 More tools are in the pipe-line and will be released on a *'being ready'* basis.
 
