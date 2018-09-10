@@ -25,7 +25,7 @@ A strong motivation for extending the model code (which at that stage only inclu
 
 The idea (and the name) of GOTM as a community model was born in spring 1998, when Karsten Bolding joined the development. It was a major effort to collect the many different codes (each set up for only one test case), written in different programming languages, stored on different computers and merge them together into one product. In summer 1998, Manuel Ruiz Villarreal joined the GOTM developers for a few years. Later, Pierre-Philippe Mathieu carried out some changes which simplified the use of GOTM, such that he became GOTM author no. 4 for a few years (see photograph). 
 
-![Bild](http://www.gotm.net/pages/information/pics/gotmgroup.jpg)
+![Bild](http://www.gotm.net/pics/gotmgroup.jpg)
 
 _October 18-22, 1999 in Ispra, Italy for the CARTUM autumn school This shows the still small GOTM developers group with Karsten Bolding, Manuel Ruiz Villarreal, Hans Burchard and Pierre-Philippe Mathieu._
 
