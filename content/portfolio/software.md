@@ -10,9 +10,38 @@ author = "Karsten Bolding"
 
 GOTM is relative easy to install and run on most operating systems - just follow the instructions carefully.
 
+**Begin change as of 2019-06-14**
+
 <!--more-->
 
-1. The source code for GOTM and [FABM](http://www.fabm.net) must have been cloned from the Git repositories - [GOTM](https://github.com/gotm-model/code) and [FABM](https://github.com/fabm-model/fabm) - respectively. The actual cloning will depend on the platform and Git-utilities used. Further information is provide [here](https://help.github.com/articles/cloning-a-repository/). A number of graphical frontends to Git are available - but the use of these is beyond the instructions provided here.
+On 2019-06-14 we have updated the CMake configuration files to be in accordance with the concept of _Modern CMake_. This has the implication that the build instructions have to be slightly modified - and simplified.
+
+The main change between the old and new configuration is the use of _submodules_. Submodules makes it possible to use _git_ to knit together different software components to form a whole. The individual components can be developed in their respective projects and only updated in GOTM when ready for prime time.
+
+From a user point of view this implies the following changes when working with the code (here we show the changed operation when using the command line - graphical frontends to _git_ will allow for similar operations):
+
+**GOTM new clone:**
+```
+git clone --recursive https://github.com/gotm-model/code.git
+git submodule update --init --recursive
+```
+
+**GOTM already cloned:**
+```
+git submodule update --init --recursive
+```
+
+**GOTM pull:**
+```
+git pull --recurse-submodules
+```
+
+
+For some time we will keep the original instructions in ~~strikeout~~ but new users should follow the updated instructions.
+
+**End change as of 2019-06-14**
+
+1. The source code for ~~GOTM and [FABM](http://www.fabm.net) must have been cloned from the Git repositories -~~ [GOTM](https://github.com/gotm-model/code) must be cloned ~~and [FABM](https://github.com/fabm-model/fabm) - respectively~~. The actual cloning will depend on the platform and Git-utilities used. Further information is provide [here](https://help.github.com/articles/cloning-a-repository/). A number of graphical frontends to Git are available - but the use of these is beyond the instructions provided here.
 2. A Fortran compiler supporting at least Fortran 2003 must be avaialble
    * On Linux [gfortran](https://gcc.gnu.org/fortran/) versions including and above 4.7 have been tested as well has the [Intel Fortran compiler](https://software.intel.com/en-us/fortran-compilers).
    * On Windows the [Intel Fortran compiler](https://software.intel.com/en-us/fortran-compilers) configured with VisualStudio is working.

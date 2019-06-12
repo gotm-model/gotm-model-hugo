@@ -30,10 +30,10 @@ need a stand-alone NetCDF viewer, we recommend
 #### Prerequisites
 
   * a supported Fortran compiler. We regularly test the Intel Fortran compiler, 
-which integrates with Visual Studio, as well as the GNU Fortran compiler 
+which integrates with Visual Studio.~~, as well as the GNU Fortran compiler 
 provided with the free 
-[mingw-w64 compiler suite](http://mingw-w64.org).
-  * [CMake 2.8.8 or later](https://cmake.org)
+[mingw-w64 compiler suite](http://mingw-w64.org).~~
+  * [CMake ~~2.8.8~~ 3.0 or later](https://cmake.org)
 
 #### Download the code
 
@@ -60,7 +60,7 @@ This should download the latest code.
 
   1. Start "CMake (cmake-gui)" from the start menu.
   2. Click the "Browse Source..." button and select the directory with the GOTM 
-source code. This is the src directory at the root of the GOTM repository.
+source code. ~~This is the src directory at the root of the GOTM repository.~~
   3. Click the "Browse Build..." button and select a directory of your choice 
 to build GOTM in - e.g. C:\Users\_USERNAME_\build\gotm. It is recommended to 
 choose an empty (or new) directory for this purpose. **MinGW users**: some 

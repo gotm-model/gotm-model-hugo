@@ -30,17 +30,32 @@ need a stand-alone NetCDF viewer, we recommend
 For a fast - and simple - configuration the following can be used.
 
    1. Create and enter a build directory - e.g. /tmp/gotmbuild/
-   2. cmake ~/GOTM/code/src -DGOTM_USE_FABM=false - do NOT include FABM
-   3. cmake ~/GOTM/code/src -DFABM_BASE=~/FABM/fabm - do include FABM
-   4. make install
+   2. cmake ~/GOTM/code -DGOTM_USE_FABM=off - do NOT include FABM~~
+   3. cmake ~/GOTM/code -DGOTM_USE_BASE=on - do include FABM
+   4. make _or_ cmake --build .
+   5. ./gotm -c
 
-Adjust the path to the GOTM (and FABM) source code.
+```
+kb@orca ~/TT/build $ ./gotm -c
+ ------------------------------------------------------------------------
+ GOTM version:   v5.3-122-g9d840387 (cmake branch)
+ NetCDF version: 4.7.0 of May  1 2019 11:13:47 $
+ ------------------------------------------------------------------------
+ Compiler: Intel 19.0.0.20190117
+ ------------------------------------------------------------------------
+```
+
+   ~~2. cmake ~/GOTM/code/src -DGOTM_USE_FABM=false - do NOT include FABM~~
+   ~~3. cmake ~/GOTM/code/src -DFABM_BASE=~/FABM/fabm - do include FABM~~
+
+
+Adjust the path to the GOTM ~~(and FABM)~~ source code.
 
 #### The GUI version of CMake
 
   1. Start "CMake (cmake-gui)".
   2. Click the "Browse Source..." button and select the directory with the GOTM 
-source code. This is the src directory at the root of the GOTM repository.
+source code. ~~This is the src directory at the root of the GOTM repository.~~
   3. Click the "Browse Build..." button and select a directory of your choice 
 to build GOTM in - e.g. /home/_USERNAME_/build/gotm. It is recommended to 
 choose an empty (or new) directory for this purpose. 
