@@ -19,4 +19,5 @@ During stratification, hypolimnetic oxygen is depleted, and consequently phospha
 In an attempt to better understand the effects of changes in external nutrient loads on the ecosystem of Lake Ravn, a coupled GOTM-FABM-PCLake model has recently been applied to the lake in a project funded by the Danish Ministry of the Environment. When comparing simulated and observed data, this model generally performs better relative to previous modelling attempts, and has improved the basis for making management decisions.
 
 {{< vimeo 288131476 >}}
+The movie is based on Google Earth merged with [drone](https://droner.dk/dji-inspire-2) based recordings ([camera](https://www.dji.com/zenmuse-x4s)), recorded 3. September 2018. Drone operator: [Peter B. Sørensen](http://au.dk/en/pbs@bios.au.dk) and movie compilation [Anders Nielsen](http://au.dk/en/an@bios.au.dk).
 

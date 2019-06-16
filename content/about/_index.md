@@ -5,7 +5,7 @@ title = "About GOTM"
 
 <!---
 title: Home
-link: http://test.gotm.net/
+link: http://www.gotm.net/
 author: bolding
 description: 
 post_id: 6
