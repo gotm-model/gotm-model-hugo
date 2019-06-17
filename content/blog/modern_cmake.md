@@ -21,9 +21,11 @@ We have re-written the CMake configuration file(s) to be in line with principles
 
 Modern CMake is about _targets_ and _properties_ and provides a model for creating re-usable software components easy integratable with each other. In order to fully benefit from this we re-wrote the old monolithic _CMakeLists.txt_ to a series of smaller and easier to handle configuration files.
 
+A minimum CMake version of 3.0 is required.
+
 ### Using _Git_ submodules
 
-A number of software components are used by FABM, GOTM and GETM (and 3rd party software projects as well). Cross maintaining these components across different use cases has some times been a hassle and resulted in reduced progress. Utilising the Modern CMake principles and _Git_'s submodule facility we have now moved code shared code componets out of GOTM.
+A number of software components are used by FABM, GOTM and GETM (and 3rd party software projects as well). Cross maintaining these components across different use cases has some times been a hassle and resulted in reduced progress. Utilising the Modern CMake principles and _Git_'s submodule facility we have now moved shared code componets out of GOTM.
 
 So far - _yaml_, _flexout_ and _fabm_ are submodules in GOTM.
 
