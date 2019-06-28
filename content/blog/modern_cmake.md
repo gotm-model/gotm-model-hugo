@@ -81,8 +81,13 @@ When making a new clone it is important to add options to inform _Git_ about the
 
 
 ```
-git clone --recursive https://github.com/gotm-model/code.git
+git clone https://github.com/gotm-model/code.git
 git submodule update --init --recursive
 ```
 
+With _git_ 1.7.3 and up the commands can be combined to one:
+
+```
+git clone --recurse-submodules https://github.com/gotm-model/code.git
+```
 When the code is cloned the instructions just given above can be used.
