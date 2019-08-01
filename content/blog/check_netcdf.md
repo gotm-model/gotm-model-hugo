@@ -36,12 +36,14 @@ cmake -P extern/flexout/cmake/Modules/FindNetCDF.cmake
 
 If the latter command writes - among other things - Found NetCDF - it is safe to proceed with the configuration and compilation of GOTM.
 
-The above hhave been put in a small script with some additional information written to the terminal. The script is execuated as:
+If the command fails steps must be taken to remedy the problem. How - is beyond this mailing list.
+
+The above have been put in a small script with some additional information written to the terminal. The script is execuated as:
 
 ```
 ./check_netcdf.sh
 ```
 
-1) There is anoother way of specifying the information but that is only for very old systems - before 4.4.1 - or in other special cases.
+1) There is another way of specifying the information but that is only for very old systems - before 4.4.1 - or in other special cases.
 
 
