@@ -18,7 +18,7 @@ We have included a small script that can be used to test if NetCDF requirements 
 
 <!--more-->
 
-The script is only useable for Linux and Mac users as the NetCDF libraries are included for Windows.
+The script is only usable for Linux and Mac users as the NetCDF libraries are included for Windows.
 
 Since NetCDF 4.4.1 a utility called - *nf-config* - is installed alongside the libraries. This utility is used by the GOTM CMake configuration to include necessary compile and link information (1).
 
@@ -36,7 +36,7 @@ cmake -P extern/flexout/cmake/Modules/FindNetCDF.cmake
 
 If the latter command writes - among other things - Found NetCDF - it is safe to proceed with the configuration and compilation of GOTM.
 
-If the command fails steps must be taken to remedy the problem. How - is beyond this mailing list.
+If the command fails steps must be taken to remedy the problem. How - is beyond the gotm-users and gotm-devel mailing lists.
 
 The above have been put in a small script with some additional information written to the terminal. The script is execuated as:
 
