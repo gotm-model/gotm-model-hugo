@@ -35,7 +35,7 @@ The resolute case has been used to test and develop the implementation - further
 
 ~~The present version must be run with the *--read_nml* option and an empty gotm.yaml.
 
-The ice simulations is controlled via a *namelist* called *ice.nml*
+The ice simulations is controlled via a *namelist* called *ice.nml* ~~
 
 ```
 &ice
@@ -44,7 +44,6 @@ Hice = 1.29,
 sensible_ice_water = 20.,
 /
 ```
-~~
 
 Ice is configured through the YAML configuration - and a default entry is included when creating a setup via the __--write_yaml <file>__ option. It appears under the surface section and looks like:
 ```
