@@ -33,9 +33,9 @@ STIM provides a frame-work for including a number of different simple ice models
 
 The resolute case has been used to test and develop the implementation - further set-ups will follow during the fall.
 
-~~The present version must be run with the *--read_nml* option and an empty gotm.yaml.
+~~The present version must be run with the *--read_nml* option and an empty gotm.yaml.~~
 
-The ice simulations is controlled via a *namelist* called *ice.nml* ~~
+~~The ice simulations is controlled via a *namelist* called *ice.nml* ~~
 
 ```
 &ice
