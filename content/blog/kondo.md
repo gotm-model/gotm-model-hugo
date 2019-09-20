@@ -13,7 +13,7 @@ featuredalt = ""
 type = "blog"
 +++
 
-The file - kondo.F90 - is one of the oldest and least changed in the GOTM repository. An yet - it had issues.
+The file - kondo.F90 - is one of the oldest and least changed in the GOTM repository. And still - it had issues.
 
 
 <!--more-->
@@ -32,7 +32,7 @@ Furthermore, there should not have been any impact on simulation results - or if
 {{< figure src="../sensible-new-old.png" width="100%" >}}
 {{< figure src="../latent-new-old.png" width="100%" >}}
 
-For the actual calcuation of the momentum and heat fluxes the speed up is 40% - but when the percentage of the heat flux calculation is very, very small - the effect is not very big in a 1D model context. 
+For the actual calcuation of the momentum and heat fluxes the speed up is 40% - but when the percentage of the flux calculations is very, very small - the effect is not very big in a 1D model context. 
 
 In addition I've created a small tool consisting of a Fortran test program and associated Python plot script. 
 
@@ -56,3 +56,7 @@ kb@orca ~/source/build/intel/19.2/code/tests $ ./test_bulk
  qa=     6.807542851252644E-003
 kb@orca ~/source/build/intel/19.2/code/tests $ python $GOTM_BASE/scripts/python/plot_bulk.py
 ```
+
+Adjust your _BUILDDIR_. 
+
+Many other tests can be done by changing *basic_varibles* in test_bulk.F90. the present settings are for stable atmospheric conditions.
