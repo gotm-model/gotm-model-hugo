@@ -13,7 +13,7 @@ featuredalt = ""
 type = "blog"
 +++
 
-Instabillities in the BBL for the FLEX setup at high vertical resolution.
+Instabilities in the BBL for the FLEX setup at high vertical resolution.
 
 
 <!--more-->
