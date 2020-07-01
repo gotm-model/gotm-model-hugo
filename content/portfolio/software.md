@@ -8,6 +8,8 @@ weight = 2
 author = "Karsten Bolding"
 +++
 
+[![Build Status](https://travis-ci.org/gotm-model/code.svg?branch=master)](https://travis-ci.org/gotm-model/code)
+
 GOTM is relative easy to install and run on most operating systems - just follow the instructions carefully.
 
 **Begin change as of 2019-06-14**
