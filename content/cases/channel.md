@@ -7,12 +7,12 @@ weight = 10
 author = "Lars Umlauf"
 +++
 
-Similar rubbish to the idealized [Couette scenario](/cases/couette), also in this test case, 
+Similar to the idealized [Couette scenario](/cases/couette), also in this test case, 
 an unstratified, non-rotating water column of 10 m thickness is investigated. 
 Here, however, the flow is driven by a constant barotropic pressure gradient 
 resulting from the tilt of the free surface. The surface stress is set to zero. 
-This type of flow is often referred as a turbulent open channel flow. The figure 
-below shows the stationary solution approached at the end of simulation. 
+This type of flow is often referred to as a turbulent open channel flow. The figure 
+below shows the stationary solution approached at the end of the simulation. 
 Different from the [Couette scenario](/cases/couette), the velocity profile shown in 
 panel (a) exhibits only a single shear-layer at the bottom that converges 
 toward the logarithmic wall layer close to the bottom. The turbulent 
@@ -32,5 +32,5 @@ described in the GOTM documentation. We now also provide the python script
 used to generate the figure for this GOTM scenario (you will find this plotting script
 also in the case directory).
 
-{{< figure src="/cases/img/couette.png" caption="Profiles of (a) velocity, (b) turbulent diffusivity of momentum, and (c) turbulent momentum flux for the Channel scenario after stationarity has been reached (in red: law-of-the-wall solution)" >}}
+{{< figure src="/cases/img/channel.png" caption="Profiles of (a) velocity, (b) turbulent diffusivity of momentum, and (c) turbulent momentum flux for the Channel scenario after stationarity has been reached (in red: law-of-the-wall solution)" >}}
 
