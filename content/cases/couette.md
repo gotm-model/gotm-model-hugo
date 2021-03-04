@@ -29,7 +29,7 @@ the k-ε model. Solutions for other two-equation models like the k-ω model or t
 Mellor-Yamada model look similar (you can easily check this in the scenario 
 directory by modifying the input file gotm.yaml). Technical details for this test case are 
 described in the GOTM documentation. We now also provide the python script
-[plot.py](https://raw.githubusercontent.com/gotm-model/cases/master/couette/plot.py) 
+[plot.py](https://raw.githubusercontent.com/gotm-model/cases/master/couette/plot_couette.py) 
 used to generate the figure for this GOTM scenario (you will find this plotting script
 also in the case directory).
 
