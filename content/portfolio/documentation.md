@@ -26,3 +26,5 @@ downloadable PDF file (A4 or letter format).
 -  [Publications](/html/gotm_pub.html)
 -  [Publications](/html/mybib.html)
 -->
+
+The original [GOTM report](https://op.europa.eu/en/publication-detail/-/publication/5b512e12-367d-11ea-ba6e-01aa75e) has been made available from the Joint Research Centre. Thanks to Adolf Stips.
