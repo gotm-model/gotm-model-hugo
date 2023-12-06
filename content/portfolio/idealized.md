@@ -14,6 +14,7 @@ Idealized test case demonstrating various GOTM features.
 -   [Couette](/cases/couette)
 -   [Channel](/cases/channel)
 -   [Entrainment](/cases/entrainment)
+-   [Estuary](/cases/estuary)
 -   [Conclusion](/portfolio/idealized#conclusion)
 
 Figure from [here](https://en.wikipedia.org/wiki/Couette_flow)
