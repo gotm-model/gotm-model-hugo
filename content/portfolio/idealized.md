@@ -15,7 +15,7 @@ Idealized test case demonstrating various GOTM features.
 -   [Channel](/cases/channel)
 -   [Entrainment](/cases/entrainment)
 -   [Estuary](/cases/estuary)
--   [Conclusion](/portfolio/idealized#conclusion)
+-   [Plume](/cases/plume)
 
 Figure from [here](https://en.wikipedia.org/wiki/Couette_flow)
 
@@ -27,5 +27,7 @@ Unstratified open-channel flow driven by a constant barotropic pressure gradient
 
 Stress-driven entrainment into a linearly stratified turbulent
 
-Conclusion
-----------
+Stress-driven entrainment into a linearly stratified turbulent
+
+Plume under ice driven by melting
+

@@ -13,8 +13,8 @@ Realistic test cases demonstrating various GOTM features.
 -   [FLEX](/cases/flex/)
 -   [Gotland Deep](/cases/gotland_deep/)
 -   [Liverpool Bay](/cases/liverpool_bay/)
--   [Northern NS (Seasonal)](/cases/northern_ns_seasonal/)
--   [Northern NS (Annual)](/cases/northern_ns_annual/)
+-   [Northern NS (Seasonal)](/cases/nns_seasonal/)
+-   [Northern NS (Annual)](/cases/nns_annual/)
 -   [OWS Papa](/cases/ows_papa/)
 -   [Conclusion](/portfolio/ocean#conclusion)
 
@@ -37,21 +37,15 @@ resulting in tidal straining.
 Besides temperature, salinity and velocity, 
 observed dissipation rates are read in. 
 The two Northern North Sea scenarios show the erosion
-of the thermocline during autumn ([Northern NS (Seasonal)](/cases/northern_ns_seasonal/)), 
+of the thermocline during autumn ([Northern NS (Seasonal)](/cases/nns_seasonal/)), 
 including observations of
 temperature, salinity and dissipation rate and a complete annual cycle 
 which gives an ideal base for studying shelf sea ecosystem dynamics
-([Northern NS (Annual)](/cases/northern_ns_annual/)).
+([Northern NS (Annual)](/cases/nns_annual/)).
 Finally, [OWS Papa](/cases/ows_papa/) is a real open ocean scenario
 representing the conditions at the Ocean Weather Ship (OWS) Papa station in the
 Northern Pacific Ocean. 
 
 
 {{< figure src="/cases/img/ocean.jpg" caption="Sidney Whale Watching" >}}
-
-
-Conclusion
-----------
-
-#Maybe add a few sentences here
 
