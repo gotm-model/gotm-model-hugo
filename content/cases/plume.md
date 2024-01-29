@@ -24,12 +24,6 @@ The ice-ocean interface is sloping toward the north, while the slope toward the 
 
 Literature:
 
-Burchard, H., Bolding, K., Jenkins, A., Losch, M., Reinert, M., & Umlauf, L. (2022). The vertical structure and entrainment of subglacial melt water plumes. Journal of Advances in Modeling Earth Systems, 14, e2021MS002925.
+Burchard, H., Bolding, K., Jenkins, A., Losch, M., Reinert, M., & Umlauf, L. (2022). The vertical structure and entrainment of subglacial melt water plumes. Journal of Advances in Modeling Earth Systems, 14, [e2021MS002925](https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2021MS002925).
 
-Reinert, M., Lorenz, M., Klingbeil, K., Büchmann, B., Burchard, H. (2023)
-High-Resolution Simulations of the Plume Dynamics in
-an Idealized 79°N Glacier Cavity Using Adaptive Vertical
-Coordinates, Journal of Advances in Modeling Earth Systems, 15, e2023MS003721. 
-
-Figure caption: Simulated cross-slope and along-slope velocity, salinity and potential temperature profiles during the 14-day simulation period.
-
+Reinert, M., Lorenz, M., Klingbeil, K., Büchmann, B., Burchard, H. (2023) High-Resolution Simulations of the Plume Dynamics in an Idealized 79°N Glacier Cavity Using Adaptive Vertical Coordinates, Journal of Advances in Modeling Earth Systems, 15, [e2023MS003721](https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/2023MS003721). 
