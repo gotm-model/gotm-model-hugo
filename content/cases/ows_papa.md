@@ -22,8 +22,53 @@ plot was created with
 The way how bulk formulae for the surface momentum and heat 
 fluxes have been used here is discussed in detail in 
 [Burchard et al. (1999)](http://io-warnemuende.de/tl_files/staff/burchard/pdf/papers/report.pdf).
-The maximum simulation time allowed by the included surface forcing file and 
-the temperature profile file is January 1 (17.00 h), 1960 - December 31 (12.00 
-h), 1968. In this scenario, the simulation time is run from March 25, 1961 
-(0.00 h) to March 25, 1962 (0.00 h). For further information, see 
-[Burchard and Bolding (2001)](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)031%3C1943:CAOFSM%3E2.0.CO%3B2).
+
+Here, 12 different model configurations are used, each contained in a 
+different yaml file. Here is the list of the yaml files included:
+
+gotm\_cvmix\_era5.yaml
+
+gotm\_cvmix\_flux.yaml
+
+gotm\_cvmix\_legacy.yaml
+
+gotm\_cvmix\_meteo.yaml
+
+gotm\_keps\_era5.yaml
+
+gotm\_keps\_flux.yaml
+
+gotm\_keps\_legacy.yaml
+
+gotm\_keps\_meteo.yaml
+
+gotm\_kw\_era5.yaml
+
+gotm\_kw\_flux.yaml
+
+gotm\_kw\_legacy.yaml
+
+gotm\_kw\_meteo.yaml
+
+
+The difference between the model simulations 
+are given in terms of 
+
+(i) three different turbulence 
+closure models, indicated by keps (for the k-epsilon model), kw (for the
+k-omega model) and cvmix (for the KPP model inside the cvmix environment); 
+
+(ii) four different sets of forcing types, indicated by era5 (for meteo files from the ERA5 reanalysis), meteo (for meteo files from observations), 
+flux (for air-sea fluxes precalculated from observed meteorology) and legacy
+(for the original flux-driven scenario described by Burchard and Bolding (2001)](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)).
+
+Different forcing scenarios will use different simulation periods. 
+
+It can be seen that for multi-annual flux-driven scenarios
+a drift in temperature occurs due to missing feedback between
+sea surface temperature and air temperature. 
+
+The default yaml file is set to gotm\_keps\_era5.yaml.
+
+For further information, see 
+[Burchard and Bolding (2001)](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)031%3C1943:CAOFSM%3E2.0.CO%3B2) and [Li et al. (2021)](https://gmd.copernicus.org/articles/14/4261/2021/).
