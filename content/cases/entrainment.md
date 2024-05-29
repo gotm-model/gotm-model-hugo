@@ -11,10 +11,23 @@ The entrainment scenario is similar to the [Couette
 scenario](/cases/couette/), except that the water column is now stably
 stratified by a vertically constant density gradient. Also in this
 scenario, the effect of Earth's rotation is ignored. The entrainment
-scenario  is ideally suited to benchmark the model performance in
+scenario  is ideally suited to benchmark model performance in
 stress-driven entrainment situations against available experiments
 (see [Umlauf and Burchard,
-2005](http://dx.doi.org/10.1016/j.csr.2004.08.004)). The results shown
+2005](http://dx.doi.org/10.1016/j.csr.2004.08.004)). Various yaml files
+corresponding to different turbulence models can be found in the scenario
+directory to run and compare these
+different models. These include the k-epsilon model, the k-omega model of
+[Umlauf et al. (2003)](http://dx.doi.org/10.1016/S1463-5003\(02\)00039-2),
+and the GLS (generic length scale) model described in
+[Umlauf and Burchard (2003)](https://elischolar.library.yale.edu/cgi/viewcontent.cgi?article=1008&context=journal_of_marine_research),).
+Note especially that now also the KPP implementation
+of CVMix is available in GOTM ([Qing et al. 2021](https://gmd.copernicus.org/articles/14/4261/2021/)).
+Using gotm_cvmix.yaml in the scenario directory, this version of the KPP model
+can be run (don't forget to run cmake with -DGOTM_USE_CVMIX=on before compiling
+the source code).
+
+The results shown
 in the figure below illustrate that after the onset of the constant
 surface stress, a thin near-surface layer is accelerated (panel a),
 gradually entraining into the stratified, non-turbulent interior
@@ -34,12 +47,7 @@ used to generate the figure below
 
 The numerical solution shown in the figure has been obtained with the
 k-ε model. Solutions for other two-equation models available in GOTM
-look similar. You can easily check this by modifying the gotm.yaml
-files to run the k-ω model ([Umlauf et al.,
-2003](http://dx.doi.org/10.1016/S1463-5003\(02\)00039-2)) or the GLS
-(generic length scale) model described in [Umlauf and Burchard
-(2003)](http://dx.doi.org/10.1357/002224003322005087).  Technical
-details for this GOTM scenario may be found in the GOTM documentation.
+look similar. 
 
 Note that [Pollard et
 al. (1973)](https://doi.org/10.1080/03091927208236105) also derived an
