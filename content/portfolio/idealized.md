@@ -14,6 +14,7 @@ Idealized test case demonstrating various GOTM features.
 -   [Couette](/cases/couette)
 -   [Channel](/cases/channel)
 -   [Entrainment](/cases/entrainment)
+-   [Wave Breaking](/cases/wave_breaking)
 -   [Estuary](/cases/estuary)
 -   [Plume](/cases/plume)
 
@@ -25,9 +26,11 @@ Unstratified Couette flow driven by a constant surface wind stress
 
 Unstratified open-channel flow driven by a constant barotropic pressure gradient
 
-Stress-driven entrainment into a linearly stratified turbulent
+Stress-driven entrainment into a linearly stratified fluid
 
-Stress-driven entrainment into a linearly stratified turbulent
+TKE injection by breaking surface waves
+
+Tidally forced estuary
 
 Plume under ice driven by melting
 
