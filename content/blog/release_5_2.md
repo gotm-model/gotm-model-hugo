@@ -1,6 +1,6 @@
 +++
 title = "GOTM release - v5.2" 
-draft = true
+draft = false
 author = "Karsten Bolding"
 date = "2018-03-07T12:00:00+02:00"
 image = "blog/img/"
@@ -36,7 +36,7 @@ In this release two new features has been implemented as described below.
 
 ### New features
 * Hot-start facility - developed in the [PROGNOS](http://prognoswater.org) project and further supported by JRC.
-* Option to read in longwave back-radiation instaed of calculating - funded by Don Pierson/[Erken](http://katalog.uu.se/organisation/?orgId=X137:6)
+* Option to read in longwave back-radiation instead of calculating - funded by Don Pierson/[Erken](http://katalog.uu.se/organisation/?orgId=X137:6)
 * We have also added 3 new test-cases - two for the Mediterranean, one for the
 Black Sea and updated the gotland case.
 

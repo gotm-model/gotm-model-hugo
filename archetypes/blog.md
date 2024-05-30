@@ -1,5 +1,7 @@
 +++
-draft = false
+title = "{{ replace .TranslationBaseName "-" " " | title }}"
+date = {{ .Date }}
+draft = true
 author = ""
 image = "blog/img/"
 categories = []

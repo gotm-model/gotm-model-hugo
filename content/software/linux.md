@@ -75,9 +75,9 @@ Open a Terminal and enter this directory and type *make*.
 
 Text in *italics* are commands and text in **bold** are variables.
 
-In the following it is assumed the GOTM and FABM source code is cloned to **GOTM_BASE** and **FABM_BASE**. Default values are:
+In the following it is assumed the GOTM ~~and FABM~~ source code is cloned to **GOTM_BASE** ~~and FABM_BASE ~~. Default values are:
 * **GOTM_BASE** = *$HOME/GOTM/code*
-* **FABM_BASE** = *$HOME/FABM/code*
+~~* **FABM_BASE** = *$HOME/FABM/code*~~
 
 ##### Configuring
 The first step is to create a *build directory* and change to it: * *mkdir -p $HOME/build/gotm/ && cd $HOME/build/gotm*
