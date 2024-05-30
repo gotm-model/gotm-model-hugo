@@ -39,6 +39,18 @@ googleAnalytics = ""
   url = "portfolio/"
   home = true
 
+#  [[params.navlinks]]
+#  name = "Status"
+#  url = "status/"
+
+  [[params.navlinks]]
+  name = "Case info"
+  url = "cases/info/"
+
+  [[params.navlinks]]
+  name = "Publications"
+  url = "publications/"
+
   [[params.navlinks]]
   name = "Blogs"
   url = "blog/"
@@ -46,18 +58,6 @@ googleAnalytics = ""
   [[params.navlinks]]
   name = "History"
   url = "history/"
-
-  [[params.navlinks]]
-  name = "Publications"
-  url = "publications/"
-
-#  [[params.navlinks]]
-#  name = "Status"
-#  url = "status/"
-
-#  [[params.navlinks]]
-#  name = "Kaj"
-#  url = "kaj/"
 
   [[params.navlinks]]
   name = "About"
