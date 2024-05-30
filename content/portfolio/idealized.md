@@ -16,6 +16,7 @@ Idealized test case demonstrating various GOTM features.
 -   [Entrainment](/cases/entrainment)
 -   [Wave Breaking](/cases/wave_breaking)
 -   [Estuary](/cases/estuary)
+-   [Langmuir](/cases/langmuir)
 -   [Plume](/cases/plume)
 
 Figure from [here](https://en.wikipedia.org/wiki/Couette_flow)
