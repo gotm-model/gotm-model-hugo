@@ -26,29 +26,38 @@ fluxes have been used here is discussed in detail in
 Here, 12 different model configurations are used, each contained in a 
 different yaml file. Here is the list of the yaml files included:
 
-gotm\_cvmix\_era5.yaml
+| Description | YAML-file   |
+| ----------- | ----------- |
+|             | [gotm_cvmix_era5.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm_cvmix_era5.yaml) |
+|             | [gotm\_cvmix\_flux.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_cvmix\_flux.yaml) |
+|             | [gotm\_cvmix\_legacy.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_cvmix\_legacy.yaml) |
+|             | [gotm\_cvmix\_meteo.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_cvmix\_meteo.yaml) |
+|             | [gotm\_keps\_era5.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_era5.yaml) |
+|             | [gotm\_keps\_flux.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_flux.yaml) |
+|             | [gotm\_keps\_legacy.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_legacy.yaml) |
+|             | [gotm\_keps\_meteo.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_meteo.yaml) |
+|             | [gotm\_kw\_era5.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_era5.yaml) |
+|             | [gotm\_kw\_flux.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_flux.yaml) |
+|             | [gotm\_kw\_legacy.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_legacy.yaml) |
+|             | [gotm\_kw\_meteo.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_meteo.yaml) |
+|||
 
-gotm\_cvmix\_flux.yaml
+or like this
 
-gotm\_cvmix\_legacy.yaml
 
-gotm\_cvmix\_meteo.yaml
+1. [gotm\_cvmix\_era5.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm_cvmix_era5.yaml)
+2. [gotm\_cvmix\_flux.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_cvmix\_flux.yaml)
+2. [gotm\_cvmix\_legacy.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_cvmix\_legacy.yaml)
+2. [gotm\_cvmix\_meteo.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_cvmix\_meteo.yaml)
+2. [gotm\_keps\_era5.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_era5.yaml)
+2. [gotm\_keps\_flux.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_flux.yaml)
+2. [gotm\_keps\_legacy.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_legacy.yaml)
+2. [gotm\_keps\_meteo.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_keps\_meteo.yaml)
+2. [gotm\_kw\_era5.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_era5.yaml)
+2. [gotm\_kw\_flux.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_flux.yaml)
+2. [gotm\_kw\_legacy.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_legacy.yaml)
+2. [gotm\_kw\_meteo.yaml](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/gotm\_kw\_meteo.yaml)
 
-gotm\_keps\_era5.yaml
-
-gotm\_keps\_flux.yaml
-
-gotm\_keps\_legacy.yaml
-
-gotm\_keps\_meteo.yaml
-
-gotm\_kw\_era5.yaml
-
-gotm\_kw\_flux.yaml
-
-gotm\_kw\_legacy.yaml
-
-gotm\_kw\_meteo.yaml
 
 
 The difference between the model simulations 
