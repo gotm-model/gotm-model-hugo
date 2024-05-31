@@ -39,3 +39,16 @@ Together with Karsten Bolding, Jorn developed then the Framework of Aquatic Biog
 
 In recent years, GOTM has been extended towards a one-dimensional model for lakes, by including the hypsometry of lakes. Here, besides Karsten Bolding and Jorn Bruggeman, also the new GOTM developer Knut Klingbeil has been very active in testing the code and making it more consistent.
 
+Through the nature of the GOTM project - and the interest of the active participants - the features of GOTM will change over time. This reflects the fact that the project is fundamentally driven by the participants and that only few resources have been available for targeted development.
+
+As a consequence the support for lake simluation using a hypsograph has been de facto abandoned. The lake branch was developed in parallel to the main branch and a proper merge was never achieved. With all the newer developments in the main branch a merge will be very resource requiring.
+
+Using the git feature *submodules* parts of GOTM has been outsourced to other projects.
+
+The first non-core part was handling of output using [flexout](https://github.com/BoldingBruggeman/flexout) create by Jorn. This allows a very flexible output specification writing different files with different variables with different temporal specifications.
+
+Runtime configuration has shifted from standard Fortran namelists to the much more widespread used format - [YAML](https://yaml.org/) - through a [Fortran YAML handler](https://github.com/BoldingBruggeman/fortran-yaml) written by Jorn. Handling of namelists are limited to Fortran whereas YAML can be handled by a number of languages opening for new use GOTM use cases - e.g. ensemble simulations.
+
+Finally, a major new feature expanding the selection of turbulence closure schemes has been the includsion of [CVMix](https://e3sm.org/wp-content/uploads/2018/03/ResearchHighlight_CVMix_V11.pdf) through the work by Qing Li. Qing's work is based on the [repository](https://github.com/CVMix/CVMix-src.git)
+
+
