@@ -16,6 +16,7 @@ Realistic test cases demonstrating various GOTM features.
 -   [Northern NS (Seasonal)](/cases/nns_seasonal/)
 -   [Northern NS (Annual)](/cases/nns_annual/)
 -   [OWS Papa](/cases/ows_papa/)
+-   [OWS Paper (Langmuir)](/cases/langmuir)
 -   [Conclusion](/portfolio/ocean#conclusion)
 
 Photo by Hans Burchard.
