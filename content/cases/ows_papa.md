@@ -14,7 +14,7 @@ it is situated in a region where the horizontal advection of heat and salt is
 assumed to be small. Various authors used these data for validating turbulence 
 closure schemes. 
 
-{{< figure src="/cases/img/ows_papa.png" caption="Annual cycle of temperature development at the OWS Papa site in the North East Pacific. Upper panel: observations; lower panel: model results. This simulation was published by [Burchard and Bolding (2001)](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)031%3C1943:CAOFSM%3E2.0.CO%3B2). The plot was created with [ows_papa.py](/portfolio/img/ows_papa.py).">}}
+{{< figure src="/cases/img/ows_papa.png" caption="Annual cycle of temperature development at the OWS Papa site in the North East Pacific. Upper panel: observations; lower panel: model results. This simulation was published by [Burchard and Bolding (2001)](http://journals.ametsoc.org/doi/abs/10.1175/1520-0485\(2001\)031%3C1943:CAOFSM%3E2.0.CO%3B2). The plot was created with [plot_ows_papa.py](https://raw.githubusercontent.com/gotm-model/cases/master/ows_papa/plot_ows_papa.py).">}}
 
 The way how bulk formulae for the surface momentum and heat 
 fluxes have been used here is discussed in detail in 
