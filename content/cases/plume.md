@@ -7,6 +7,8 @@ weight = 10
 author = "Hans Burchard"
 +++
 
+this is a test for testing some tests
+
 The subglacial plume scenario described in a simple geometry the vertical structure of a subglacial plume rising under a sloping ice shelf - ocean interface. This scenario has been built by Burchard et al. (2022) to develop consistent ways of coupling melting processes at the ice-ocean interface with the turbulent stucture of the plume. This principle has also been applied by Reinert et al. (2023) for a two-dimensional study with vertical resolution.
 
 The simulations analyzed here start from rest (zero velocity), with an initial plume thickness of D = 5 m. The ice-ocean interface is located at a depth of zb = −300 m and the water column is zb + H = 150 m deep, such that the bottom at z = −H = −450 m is sufficiently far below the ice to allow for an undisturbed plume  deepening. 
