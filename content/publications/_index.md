@@ -9,5 +9,5 @@ In order to succeed authors will have to provide Bibtex information for publicat
 
 We will then add these to the list and update the website accordingly.
 
-[List of publications](/html/gotm_pub.html)
+[Present (early 2026) - incomplete - list of publications](/html/gotm_pub.html)
 
