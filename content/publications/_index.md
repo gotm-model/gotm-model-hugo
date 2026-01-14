@@ -3,8 +3,11 @@ date = "2024-05-23T09:05:30+05:30"
 title = "Publications"
 +++
 
-This section has been discontinued as it became - very - incomplete. 
+Hans Burchard wants to revive the list of publications where GOTM has played a significant role.
 
-Publications were not reported by authors which made it impossible to keep the list up to date.
+In order to succeed authors will have to provide Bibtex information for publications. So - please - provide information and inform colleagues with GOTM publications about this initiative. 
 
-To activate the page again authors must start to provide Bibtex information for their publications.
+We will then add these to the list and update the website accordingly.
+
+[List of publications](/html/gotm_pub.html)
+
