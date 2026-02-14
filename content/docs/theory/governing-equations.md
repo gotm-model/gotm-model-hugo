@@ -4,7 +4,7 @@ weight: 10
 bookToc: true
 ---
 
-# Governing Equations and One-Dimensional Simplification
+# Governing Equations
 
 ### 2.1 Three-Dimensional Momentum Equations
 

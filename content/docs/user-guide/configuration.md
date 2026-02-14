@@ -4,7 +4,7 @@ weight: 10
 bookToc: true
 ---
 
-# Configuration System
+# Configuration
 
 ### 11.1 YAML Configuration
 

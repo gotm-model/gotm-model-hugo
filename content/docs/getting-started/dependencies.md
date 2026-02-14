@@ -4,7 +4,7 @@ weight: 20
 bookToc: true
 ---
 
-# Build System and Dependencies
+# Dependencies
 
 ### 10.1 CMake Configuration
 

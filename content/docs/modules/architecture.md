@@ -4,7 +4,7 @@ weight: 10
 bookToc: true
 ---
 
-# Architecture and Design
+# Architecture
 
 ### 7.1 Git Submodules and External Dependencies
 

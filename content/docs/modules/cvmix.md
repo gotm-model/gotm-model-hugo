@@ -4,7 +4,7 @@ weight: 90
 bookToc: true
 ---
 
-# CVMix - Community Ocean Vertical Mixing
+# CVMix (Community Mixing)
 
 Additional turbulence schemes, especially Langmuir.
 

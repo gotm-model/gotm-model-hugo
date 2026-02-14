@@ -4,7 +4,7 @@ weight: 40
 bookToc: true
 ---
 
-# Air-Sea Exchange Module
+# Air-Sea Module
 
 **Location:** `src/airsea/`
 

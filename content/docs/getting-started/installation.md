@@ -4,7 +4,7 @@ weight: 10
 bookToc: true
 ---
 
-# Installation and Compilation
+# Installation
 
 ### 14.1 Quick Start
 

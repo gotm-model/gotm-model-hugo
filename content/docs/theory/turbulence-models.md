@@ -4,7 +4,7 @@ weight: 60
 bookToc: true
 ---
 
-# Turbulence Closure Models in Detail
+# Turbulence Models (Detailed)
 
 ### 9.1 Generic Length Scale (GLS) Framework
 

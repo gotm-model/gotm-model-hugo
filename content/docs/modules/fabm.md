@@ -4,7 +4,7 @@ weight: 70
 bookToc: true
 ---
 
-# FABM - Framework for Aquatic Biogeochemical Models
+# FABM (Biogeochemistry)
 
 BGC framework supporting ERSEM, NPZD, ECOSMO, etc.
 

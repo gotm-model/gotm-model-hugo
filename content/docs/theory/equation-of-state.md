@@ -4,7 +4,7 @@ weight: 30
 bookToc: true
 ---
 
-# Equation of State and TEOS-10
+# Equation of State & TEOS-10
 
 ### 4.1 Density in Aquatic Systems
 

@@ -4,7 +4,7 @@ weight: 20
 bookToc: true
 ---
 
-# File I/O System
+# Input Files
 
 ### 12.1 Input Formats
 
