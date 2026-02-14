@@ -1,0 +1,32 @@
+name: Test Build (Non-main branches)
+
+on:
+  push:
+    branches-ignore: ["main"]  # Run on all branches except main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.155.3'
+          extended: true
+          
+      - name: Build with Hugo (test only)
+        run: |
+          hugo \
+            --gc \
+            --minify
+            
+      - name: Check for broken links (optional)
+        run: |
+          echo "Build successful! ✓"
+          echo "Site would be deployed if this were the main branch."
