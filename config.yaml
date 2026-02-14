@@ -1,0 +1,35 @@
+baseURL: 'http://localhost:1313/'
+languageCode: 'en-us'
+title: 'GOTM - General Ocean Turbulence Model'
+theme: hugo-book
+
+params:
+  BookToC: 3
+  BookSearch: true
+  BookRepo: 'https://github.com/gotm-model'
+  BookMath: true
+  BookEnableCodeHighlight: true
+  BookSection: '*'
+
+menu:
+  before:
+    - name: "Documentation"
+      url: "/docs/"
+      weight: 1
+  after:
+    - name: "GitHub"
+      url: "https://github.com/gotm-model/code"
+      weight: 10
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
