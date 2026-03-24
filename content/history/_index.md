@@ -25,7 +25,7 @@ A strong motivation for extending the model code (which at that stage only inclu
 
 The idea (and the name) of GOTM as a community model was born in spring 1998, when Karsten Bolding joined the development. It was a major effort to collect the many different codes (each set up for only one test case), written in different programming languages, stored on different computers and merge them together into one product. In summer 1998, Manuel Ruiz Villarreal joined the GOTM developers for a few years. Later, Pierre-Philippe Mathieu carried out some changes which simplified the use of GOTM, such that he became GOTM author no. 4 for a few years (see photograph). 
 
-![Bild](http://www.gotm.net/pics/gotmgroup.jpg)
+![Bild](/pics/gotmgroup.jpg)
 
 _October 18-22, 1999 in Ispra, Italy for the CARTUM autumn school This shows the still small GOTM developers group with Karsten Bolding, Manuel Ruiz Villarreal, Hans Burchard and Pierre-Philippe Mathieu._
 
@@ -37,7 +37,7 @@ Shortly after all four early GOTM developers left the inspiring environment of t
 
 Another important addition by Lars Umlauf was the inclusions of the parametric KPP turbulence model in GOTM, mainly for comparison with the second-moment closures that are based on a rather different modeling philosophy. More recently, however, this implementation of the KPP model has been replaced by a coupling of GOTM with the turbulence modeling toolbox [CVMix](https://e3sm.org/wp-content/uploads/2018/03/ResearchHighlight_CVMix_V11.pdf), which contains an implementation of the KPP model that is often considered as a reference. Here, Qing Li stepped on the scence and played a key role [(see Li et al., 2021)](https://gmd.copernicus.org/articles/14/4261/2021). Qing's particular focus is the parameterization of Langmuir turbulence (LT) effects in ocean turbulence models (both KPP and second-moment closures), which has inspired numerous important extensions in GOTM. Qing's most recent extension is the inclusion of a bottom boundary mixing module for the KPP model in CVMix, making this model more suitable for shallow shelf, coastal and estuarine applications.     
 
-![Bild](http://www.gotm.net/pics/gotm_net_hawaii.jpg)
+![Bild](/pics/gotm_net_hawaii.jpg)
 
 _GOTM web address carved into a leaf on Hawaii during the Ocean Sciences Meeting 2006 in Honolulu_ 
 
