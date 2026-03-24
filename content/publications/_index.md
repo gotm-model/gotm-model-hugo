@@ -4,9 +4,9 @@ title = "Publications"
 +++
 
 
-[Bild](http://www.gotm.net/pics/gotm_pubs.png)
+#[Bild](http://www.gotm.net/pics/gotm_pubs.png)
 
-[List of GOTM publications](/html/gotm_pub.html)
+#[List of GOTM publications](/html/gotm_pub.html)
 
 In case you want to add your GOTM publication to the list, please provide the Bibtex information to [us](mailto:hans.burchard@iow.de). 
 We will then add it to the list and update the website accordingly.
