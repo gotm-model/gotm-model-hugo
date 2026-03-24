@@ -51,9 +51,9 @@ googleAnalytics = ""
   name = "Publications"
   url = "publications/"
 
-  [[params.navlinks]]
-  name = "Blogs"
-  url = "blog/"
+  #KB[[params.navlinks]]
+  #KBname = "Blogs"
+  #KBurl = "blog/"
 
   [[params.navlinks]]
   name = "History"
