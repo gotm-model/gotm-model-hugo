@@ -2,7 +2,7 @@ name: Deploy Hugo Site to Pages
 
 on:
   push:
-    branches: ["master"]  # or "master" depending on your default branch
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -14,6 +14,10 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  # Opt into Node.js 24 now to avoid future issues
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,14 +25,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: recursive  # if you use themes as git submodules
-          fetch-depth: 0  # for proper version control
+          submodules: recursive
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
-          extended: true  # needed for SCSS/SASS support
+          extended: true
 
       - name: Build
         run: hugo --minify
