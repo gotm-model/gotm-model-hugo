@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Modules on GOTM - General Ocean Turbulence Model</title>
+    <link>http://localhost:1313/docs/modules/</link>
+    <description>Recent content in Modules on GOTM - General Ocean Turbulence Model</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/docs/modules/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture</title>
+      <link>http://localhost:1313/docs/modules/architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/architecture/</guid>
+      <description>&lt;h1 id=&#34;architecture&#34;&gt;Architecture&lt;a class=&#34;anchor&#34; href=&#34;#architecture&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;71-git-submodules-and-external-dependencies&#34;&gt;7.1 Git Submodules and External Dependencies&lt;a class=&#34;anchor&#34; href=&#34;#71-git-submodules-and-external-dependencies&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;GOTM uses Git submodules in &lt;code&gt;extern/&lt;/code&gt; for modular integration of external libraries. Each submodule is a full clone of its repository, enabling independent development cycles and easy updates.&lt;/p&gt;&#xA;&lt;h4 id=&#34;core-submodules&#34;&gt;Core Submodules:&lt;a class=&#34;anchor&#34; href=&#34;#core-submodules&#34;&gt;#&lt;/a&gt;&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. yaml-cpp&lt;/strong&gt; (&lt;code&gt;extern/yaml&lt;/code&gt;)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Purpose: YAML 1.2 parser (C++)&lt;/li&gt;&#xA;&lt;li&gt;Function: Parses &lt;code&gt;gotm.yaml&lt;/code&gt;, &lt;code&gt;output.yaml&lt;/code&gt;, &lt;code&gt;fabm.yaml&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Repository: &lt;a href=&#34;https://github.com/jbeder/yaml-cpp&#34;&gt;https://github.com/jbeder/yaml-cpp&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Impact: Enables modern, human-readable configuration&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. field_manager&lt;/strong&gt; (&lt;code&gt;extern/field_manager&lt;/code&gt;)&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Purpose: Central variable registry with metadata&lt;/li&gt;&#xA;&lt;li&gt;Function:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Variable registration with units, long names, CF standard names&lt;/li&gt;&#xA;&lt;li&gt;Attribute system for variable properties&lt;/li&gt;&#xA;&lt;li&gt;Hotstart/restart (variables tagged with &lt;code&gt;state&lt;/code&gt; attribute saved to &lt;code&gt;restart.nc&lt;/code&gt;)&lt;/li&gt;&#xA;&lt;li&gt;Coordinates I/O with flexout&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Always required&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;3. flexout&lt;/strong&gt; (&lt;code&gt;extern/flexout&lt;/code&gt;)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Meanflow Module</title>
+      <link>http://localhost:1313/docs/modules/meanflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/meanflow/</guid>
+      <description>&lt;h1 id=&#34;meanflow-module&#34;&gt;Meanflow Module&lt;a class=&#34;anchor&#34; href=&#34;#meanflow-module&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; &lt;code&gt;src/meanflow/&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Handles mean flow dynamics:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Grid management: &lt;code&gt;updategrid.F90&lt;/code&gt; (sigma/z-coordinate)&lt;/li&gt;&#xA;&lt;li&gt;Coriolis: &lt;code&gt;coriolis.F90&lt;/code&gt; (rotation effects)&lt;/li&gt;&#xA;&lt;li&gt;Momentum: &lt;code&gt;uequation.F90&lt;/code&gt;, &lt;code&gt;vequation.F90&lt;/code&gt; (U, V transport with friction)&lt;/li&gt;&#xA;&lt;li&gt;Pressure gradients: &lt;code&gt;extpressure.F90&lt;/code&gt; (barotropic), &lt;code&gt;intpressure.F90&lt;/code&gt; (baroclinic)&lt;/li&gt;&#xA;&lt;li&gt;Vertical velocity: &lt;code&gt;wequation.F90&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;State variables: U, V, T, S, buoyancy, grid spacing&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Turbulence Module</title>
+      <link>http://localhost:1313/docs/modules/turbulence/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/turbulence/</guid>
+      <description>&lt;h1 id=&#34;turbulence-module&#34;&gt;Turbulence Module&lt;a class=&#34;anchor&#34; href=&#34;#turbulence-module&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; &lt;code&gt;src/turbulence/&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Core of GOTM with multiple closure schemes.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Closure Selection&lt;/strong&gt; (&lt;code&gt;turb_method&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;0&lt;/code&gt;: Convective adjustment&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;1&lt;/code&gt;: Analytical eddy viscosity&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;2&lt;/code&gt;: First-order (TKE + length scale)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;3&lt;/code&gt;: Second-order (Reynolds stress)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;99&lt;/code&gt;: KPP&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;100&lt;/code&gt;: CVMix (requires CVMix submodule)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;TKE Equation&lt;/strong&gt; (&lt;code&gt;tke_method&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;1&lt;/code&gt;: Algebraic&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;2&lt;/code&gt;: Dynamic (k-ε style)&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;3&lt;/code&gt;: Dynamic (Mellor-Yamada style)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Length Scale&lt;/strong&gt; (&lt;code&gt;len_scale_method&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;1-7&lt;/code&gt;: Algebraic prescriptions&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;8&lt;/code&gt;: Dynamic ε-equation&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;9&lt;/code&gt;: Dynamic generic (GLS)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Components:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;tkeeq.F90&lt;/code&gt;: TKE equation&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;lengthscaleeq.F90&lt;/code&gt;: Length scale/dissipation equation&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;cmue_*.F90&lt;/code&gt;: Stability functions&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;production.F90&lt;/code&gt;: Shear/buoyancy production&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Air-Sea Module</title>
+      <link>http://localhost:1313/docs/modules/airsea/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/airsea/</guid>
+      <description>&lt;h1 id=&#34;air-sea-module&#34;&gt;Air-Sea Module&lt;a class=&#34;anchor&#34; href=&#34;#air-sea-module&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; &lt;code&gt;src/airsea/&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Computes surface boundary conditions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Momentum flux: Wind stress (Fairall et al. formulation, stability-dependent)&lt;/li&gt;&#xA;&lt;li&gt;Heat fluxes: Solar SW, longwave, sensible, latent&lt;/li&gt;&#xA;&lt;li&gt;Freshwater: Precipitation, evaporation&lt;/li&gt;&#xA;&lt;li&gt;Albedo: Bio-optical effects&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Input: Wind (u10, v10), air temp/pressure/humidity, clouds, solar radiation, precipitation&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Observations Module</title>
+      <link>http://localhost:1313/docs/modules/observations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/observations/</guid>
+      <description>&lt;h1 id=&#34;observations-module&#34;&gt;Observations Module&lt;a class=&#34;anchor&#34; href=&#34;#observations-module&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; &lt;code&gt;src/observations/&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Manages external forcing and data input.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;File formats:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Profile&lt;/strong&gt;: &lt;code&gt;YYYY-MM-DD HH:MM:SS  nlev  direction&lt;/code&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;depth_1  value_1&#xA;depth_2  value_2&#xA;...&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Time series&lt;/strong&gt;: &lt;code&gt;YYYY-MM-DD HH:MM:SS  val1  val2 ...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Interpolation: Linear in time and space, extrapolation uses nearest values.&lt;/p&gt;&#xA;&lt;p&gt;Profile methods (&lt;code&gt;t_prof_method&lt;/code&gt;, &lt;code&gt;s_prof_method&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;0&lt;/code&gt;: None&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;1&lt;/code&gt;: Analytical initial&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;2&lt;/code&gt;: From file with temporal interpolation&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Output Module</title>
+      <link>http://localhost:1313/docs/modules/output/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/output/</guid>
+      <description>&lt;h1 id=&#34;output-module&#34;&gt;Output Module&lt;a class=&#34;anchor&#34; href=&#34;#output-module&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; &lt;code&gt;src/output/&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;Modern NetCDF output via flexout.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Output operators:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;mean&lt;/code&gt;: Temporal averaging&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;integrated&lt;/code&gt;: Time integration&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;instantaneous&lt;/code&gt;: Snapshots&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;interp&lt;/code&gt;: Interpolation to z-levels&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Configuration&lt;/strong&gt; (via &lt;code&gt;output.yaml&lt;/code&gt;):&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Variables to save&lt;/li&gt;&#xA;&lt;li&gt;Time/space resolution&lt;/li&gt;&#xA;&lt;li&gt;Operator type&lt;/li&gt;&#xA;&lt;li&gt;Multiple output files&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Standard variables:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;State: temp, salt, u, v, h, tke, eps, num, nuh, nus&lt;/li&gt;&#xA;&lt;li&gt;Diagnostics: NN (N²), SS (S²), Rig, P, G&lt;/li&gt;&#xA;&lt;li&gt;Fluxes: heat, tx, ty, swr, I_0&lt;/li&gt;&#xA;&lt;li&gt;Derived: mld_surf, mld_bott&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+    <item>
+      <title>FABM (Biogeochemistry)</title>
+      <link>http://localhost:1313/docs/modules/fabm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/fabm/</guid>
+      <description>&lt;h1 id=&#34;fabm-biogeochemistry&#34;&gt;FABM (Biogeochemistry)&lt;a class=&#34;anchor&#34; href=&#34;#fabm-biogeochemistry&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;BGC framework supporting ERSEM, NPZD, ECOSMO, etc.&lt;/p&gt;&#xA;&lt;p&gt;Enable: &lt;code&gt;-DGOTM_USE_FABM=ON&lt;/code&gt;&#xA;Configure: &lt;code&gt;fabm.yaml&lt;/code&gt; + coupling in &lt;code&gt;gotm.yaml&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>STIM (Ice Models)</title>
+      <link>http://localhost:1313/docs/modules/stim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/stim/</guid>
+      <description>&lt;h1 id=&#34;stim-ice-models&#34;&gt;STIM (Ice Models)&lt;a class=&#34;anchor&#34; href=&#34;#stim-ice-models&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;Ice thermodynamics with 3 model options.&lt;/p&gt;&#xA;&lt;p&gt;Enable: &lt;code&gt;-DGOTM_USE_STIM=ON&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CVMix (Community Mixing)</title>
+      <link>http://localhost:1313/docs/modules/cvmix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/modules/cvmix/</guid>
+      <description>&lt;h1 id=&#34;cvmix-community-mixing&#34;&gt;CVMix (Community Mixing)&lt;a class=&#34;anchor&#34; href=&#34;#cvmix-community-mixing&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;Additional turbulence schemes, especially Langmuir.&lt;/p&gt;&#xA;&lt;p&gt;Enable: &lt;code&gt;-DGOTM_USE_CVMIX=ON&lt;/code&gt;&#xA;Use: &lt;code&gt;turb_method: 100&lt;/code&gt;&lt;/p&gt;&#xA;&lt;hr&gt;</description>
+    </item>
+  </channel>
+</rss>

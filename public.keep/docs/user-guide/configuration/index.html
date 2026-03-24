@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Configuration# 11.1 YAML Configuration# Main file: gotm.yaml
+Version requirement:
+version: 7 # configuration schema versionLegacy configs without version trigger error with auto-update instructions.
+11.2 Key Configuration Sections# For a complete, working example, see:
+nns_annual/gotm.yaml
+This demonstrates a realistic North Sea simulation with full time/location setup, turbulence configuration (k-ε), and surface forcing from files.
+Location:
+location: name: &#39;Station Name&#39; latitude: 57.0 longitude: 10.0 depth: 50.0Time:
+time: start: &#39;2020-01-01 00:00:00&#39; stop: &#39;2020-12-31 23:00:00&#39; dt: 3600.0 # secondsGrid:
+grid: nlev: 100 method: 0 # 0=analytical, 1=file_sigma, 2=file_h ddu: 0.0 # surface zooming ddl: 0.0 # bottom zoomingTurbulence:
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/user-guide/configuration/">
+  <meta property="og:site_name" content="GOTM - General Ocean Turbulence Model">
+  <meta property="og:title" content="Configuration">
+  <meta property="og:description" content="Configuration# 11.1 YAML Configuration# Main file: gotm.yaml
+Version requirement:
+version: 7 # configuration schema versionLegacy configs without version trigger error with auto-update instructions.
+11.2 Key Configuration Sections# For a complete, working example, see:
+nns_annual/gotm.yaml
+This demonstrates a realistic North Sea simulation with full time/location setup, turbulence configuration (k-ε), and surface forcing from files.
+Location:
+location: name: &#39;Station Name&#39; latitude: 57.0 longitude: 10.0 depth: 50.0Time:
+time: start: &#39;2020-01-01 00:00:00&#39; stop: &#39;2020-12-31 23:00:00&#39; dt: 3600.0 # secondsGrid:
+grid: nlev: 100 method: 0 # 0=analytical, 1=file_sigma, 2=file_h ddu: 0.0 # surface zooming ddl: 0.0 # bottom zoomingTurbulence:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+
+  <meta itemprop="name" content="Configuration">
+  <meta itemprop="description" content="Configuration# 11.1 YAML Configuration# Main file: gotm.yaml
+Version requirement:
+version: 7 # configuration schema versionLegacy configs without version trigger error with auto-update instructions.
+11.2 Key Configuration Sections# For a complete, working example, see:
+nns_annual/gotm.yaml
+This demonstrates a realistic North Sea simulation with full time/location setup, turbulence configuration (k-ε), and surface forcing from files.
+Location:
+location: name: &#39;Station Name&#39; latitude: 57.0 longitude: 10.0 depth: 50.0Time:
+time: start: &#39;2020-01-01 00:00:00&#39; stop: &#39;2020-12-31 23:00:00&#39; dt: 3600.0 # secondsGrid:
+grid: nlev: 100 method: 0 # 0=analytical, 1=file_sigma, 2=file_h ddu: 0.0 # surface zooming ddl: 0.0 # bottom zoomingTurbulence:">
+  <meta itemprop="wordCount" content="236">
+
+<title>Configuration | GOTM - General Ocean Turbulence Model</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/user-guide/configuration/">
+<link rel="stylesheet" href="/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css" integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj&#43;RQ9XBXU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.e2293b5b9d7412f002a6961d56c743a3aa75dcf1c540709d1b02e0dfcb813816.js" integrity="sha256-4ik7W510EvACppYdVsdDo6p13PHFQHCdGwLg38uBOBY=" crossorigin="anonymous"></script>
+
+
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>GOTM - General Ocean Turbulence Model</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/docs/">Documentation</a></li></ul>
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      GOTM Documentation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/" class="">
+      Getting Started</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/quick-start/" class="">
+      Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/installation/" class="">
+      Installation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/dependencies/" class="">
+      Dependencies</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/" class="">
+      Theory</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/governing-equations/" class="">
+      Governing Equations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/air-sea-interaction/" class="">
+      Air-Sea Interaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/equation-of-state/" class="">
+      Equation of State &amp; TEOS-10</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/turbulence-introduction/" class="">
+      Turbulence Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/numerical-methods/" class="">
+      Numerical Methods</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/turbulence-models/" class="">
+      Turbulence Models (Detailed)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/" class="">
+      User Guide</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/configuration/" class="active">
+      Configuration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/input-files/" class="">
+      Input Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/" class="">
+      Modules</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/architecture/" class="">
+      Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/meanflow/" class="">
+      Meanflow Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/turbulence/" class="">
+      Turbulence Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/airsea/" class="">
+      Air-Sea Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/observations/" class="">
+      Observations Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/output/" class="">
+      Output Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/fabm/" class="">
+      FABM (Biogeochemistry)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/stim/" class="">
+      STIM (Ice Models)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/cvmix/" class="">
+      CVMix (Community Mixing)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/" class="">
+      Test Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/" class="">
+      Idealized Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/channel/" class="">
+      Channel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/couette/" class="">
+      Couette</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/entrainment/" class="">
+      Entrainment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/estuary/" class="">
+      Estuary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/langmuir/" class="">
+      Langmuir</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/plume/" class="">
+      Plume</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/reynolds/" class="">
+      Reynolds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/rouse/" class="">
+      Rouse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/seagrass/" class="">
+      Seagrass</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/wave-breaking/" class="">
+      Wave Breaking</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/" class="">
+      Realistic Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/blacksea/" class="">
+      Blacksea</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/flex/" class="">
+      Flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/gotland/" class="">
+      Gotland</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/lago-maggiore/" class="">
+      Lago Maggiore</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/liverpool-bay/" class="">
+      Liverpool Bay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/medsea-east/" class="">
+      Medsea East</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/medsea-west/" class="">
+      Medsea West</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/nns-annual/" class="">
+      Nns Annual</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/nns-seasonal/" class="">
+      Nns Seasonal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/ows-papa/" class="">
+      Ows Papa</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/resolute/" class="">
+      Resolute</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/" class="">
+      Reference</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/publications/" class="">
+      Publications</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/glossary/" class="">
+      Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/troubleshooting/" class="">
+      Troubleshooting</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/about/" class="">
+      About</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="https://github.com/gotm-model/code" target="_blank" rel="noopener">GitHub</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Configuration</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#111-yaml-configuration">11.1 YAML Configuration</a></li>
+        <li><a href="#112-key-configuration-sections">11.2 Key Configuration Sections</a></li>
+        <li><a href="#113-gotm-command-line-interface">11.3 GOTM Command-Line Interface</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="configuration">Configuration<a class="anchor" href="#configuration">#</a></h1>
+<h3 id="111-yaml-configuration">11.1 YAML Configuration<a class="anchor" href="#111-yaml-configuration">#</a></h3>
+<p>Main file: <code>gotm.yaml</code></p>
+<p><strong>Version requirement:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">7</span>  <span style="color:#75715e"># configuration schema version</span></span></span></code></pre></div><p>Legacy configs without version trigger error with auto-update instructions.</p>
+<h3 id="112-key-configuration-sections">11.2 Key Configuration Sections<a class="anchor" href="#112-key-configuration-sections">#</a></h3>
+<p><strong>For a complete, working example, see:</strong><br>
+<strong><a href="https://github.com/gotm-model/cases/blob/master/nns_annual/gotm.yaml">nns_annual/gotm.yaml</a></strong></p>
+<p>This demonstrates a realistic North Sea simulation with full time/location setup, turbulence configuration (k-ε), and surface forcing from files.</p>
+<p><strong>Location:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">location</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#39;Station Name&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">latitude</span>: <span style="color:#ae81ff">57.0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">longitude</span>: <span style="color:#ae81ff">10.0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">depth</span>: <span style="color:#ae81ff">50.0</span></span></span></code></pre></div><p><strong>Time:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">time</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">start</span>: <span style="color:#e6db74">&#39;2020-01-01 00:00:00&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">stop</span>: <span style="color:#e6db74">&#39;2020-12-31 23:00:00&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dt</span>: <span style="color:#ae81ff">3600.0</span>  <span style="color:#75715e"># seconds</span></span></span></code></pre></div><p><strong>Grid:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">grid</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nlev</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">method</span>: <span style="color:#ae81ff">0</span>  <span style="color:#75715e"># 0=analytical, 1=file_sigma, 2=file_h</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddu</span>: <span style="color:#ae81ff">0.0</span>   <span style="color:#75715e"># surface zooming</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddl</span>: <span style="color:#ae81ff">0.0</span>   <span style="color:#75715e"># bottom zooming</span></span></span></code></pre></div><p><strong>Turbulence:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">turbulence</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">turb_method</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tke_method</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">len_scale_method</span>: <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">scnd_method</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">stab_method</span>: <span style="color:#ae81ff">1</span></span></span></code></pre></div><p><strong>Surface Fluxes:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">surface</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">fluxes</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">heat</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#ae81ff">2</span>  <span style="color:#75715e"># from file</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">tx</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ty</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">method</span>: <span style="color:#ae81ff">2</span></span></span></code></pre></div><h3 id="113-gotm-command-line-interface">11.3 GOTM Command-Line Interface<a class="anchor" href="#113-gotm-command-line-interface">#</a></h3>
+<p><strong>Basic usage:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gotm <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span></span></span></code></pre></div><p><strong>Writing YAML configuration:</strong></p>
+<p>GOTM can generate template YAML files:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create gotm.yaml with default settings</span>
+</span></span><span style="display:flex;"><span>gotm --write_yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create all configuration files</span>
+</span></span><span style="display:flex;"><span>gotm --write_yaml --write_schema</span></span></code></pre></div><p>This creates:</p>
+<ul>
+<li><code>gotm.yaml</code> - main configuration</li>
+<li><code>output.yaml</code> - output specification</li>
+<li>Schema files for validation</li>
+</ul>
+<p><strong>Custom configuration file:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Use specific config file</span>
+</span></span><span style="display:flex;"><span>gotm --config my_setup.yaml</span></span></code></pre></div><p><strong>Help and version:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Display help</span>
+</span></span><span style="display:flex;"><span>gotm --help
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Show version</span>
+</span></span><span style="display:flex;"><span>gotm --version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check configuration without running</span>
+</span></span><span style="display:flex;"><span>gotm --check</span></span></code></pre></div><p><strong>Advanced options:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Increase verbosity</span>
+</span></span><span style="display:flex;"><span>gotm --verbose
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Dry run (test setup without running)</span>
+</span></span><span style="display:flex;"><span>gotm --dry-run</span></span></code></pre></div><p><strong>Typical workflow:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. Create template</span>
+</span></span><span style="display:flex;"><span>gotm --write_yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. Edit gotm.yaml for your case</span>
+</span></span><span style="display:flex;"><span>nano gotm.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. Check configuration</span>
+</span></span><span style="display:flex;"><span>gotm --check
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4. Run simulation</span>
+</span></span><span style="display:flex;"><span>gotm</span></span></code></pre></div><hr>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+  
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/user-guide/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>User Guide</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/user-guide/input-files/" class="flex align-center">
+        <span>Input Files</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#111-yaml-configuration">11.1 YAML Configuration</a></li>
+        <li><a href="#112-key-configuration-sections">11.2 Key Configuration Sections</a></li>
+        <li><a href="#113-gotm-command-line-interface">11.3 GOTM Command-Line Interface</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

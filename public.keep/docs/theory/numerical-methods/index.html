@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Numerical Methods# 6.1 Overview# GOTM employs robust numerical methods to solve the one-dimensional partial differential equations governing ocean and lake dynamics. The methods balance accuracy, stability, efficiency, and conservation.
+6.2 Time Discretization# GOTM uses a generalized θ-method for time stepping.
+General form: For an equation ∂u/∂t = F(u), discretize as:
+(uⁿ⁺¹ - uⁿ)/Δt = θF(uⁿ⁺¹) &#43; (1-θ)F(uⁿ)Special cases:
+θ = 0: Forward Euler (explicit, conditionally stable) θ = 0.5: Crank-Nicolson (implicit, 2nd-order accurate, unconditionally stable) ← default θ = 1: Backward Euler (implicit, 1st-order accurate, unconditionally stable) Configuration:
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/theory/numerical-methods/">
+  <meta property="og:site_name" content="GOTM - General Ocean Turbulence Model">
+  <meta property="og:title" content="Numerical Methods">
+  <meta property="og:description" content="Numerical Methods# 6.1 Overview# GOTM employs robust numerical methods to solve the one-dimensional partial differential equations governing ocean and lake dynamics. The methods balance accuracy, stability, efficiency, and conservation.
+6.2 Time Discretization# GOTM uses a generalized θ-method for time stepping.
+General form: For an equation ∂u/∂t = F(u), discretize as:
+(uⁿ⁺¹ - uⁿ)/Δt = θF(uⁿ⁺¹) &#43; (1-θ)F(uⁿ)Special cases:
+θ = 0: Forward Euler (explicit, conditionally stable) θ = 0.5: Crank-Nicolson (implicit, 2nd-order accurate, unconditionally stable) ← default θ = 1: Backward Euler (implicit, 1st-order accurate, unconditionally stable) Configuration:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+
+  <meta itemprop="name" content="Numerical Methods">
+  <meta itemprop="description" content="Numerical Methods# 6.1 Overview# GOTM employs robust numerical methods to solve the one-dimensional partial differential equations governing ocean and lake dynamics. The methods balance accuracy, stability, efficiency, and conservation.
+6.2 Time Discretization# GOTM uses a generalized θ-method for time stepping.
+General form: For an equation ∂u/∂t = F(u), discretize as:
+(uⁿ⁺¹ - uⁿ)/Δt = θF(uⁿ⁺¹) &#43; (1-θ)F(uⁿ)Special cases:
+θ = 0: Forward Euler (explicit, conditionally stable) θ = 0.5: Crank-Nicolson (implicit, 2nd-order accurate, unconditionally stable) ← default θ = 1: Backward Euler (implicit, 1st-order accurate, unconditionally stable) Configuration:">
+  <meta itemprop="wordCount" content="517">
+
+<title>Numerical Methods | GOTM - General Ocean Turbulence Model</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/theory/numerical-methods/">
+<link rel="stylesheet" href="/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css" integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj&#43;RQ9XBXU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.e2293b5b9d7412f002a6961d56c743a3aa75dcf1c540709d1b02e0dfcb813816.js" integrity="sha256-4ik7W510EvACppYdVsdDo6p13PHFQHCdGwLg38uBOBY=" crossorigin="anonymous"></script>
+
+
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>GOTM - General Ocean Turbulence Model</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/docs/">Documentation</a></li></ul>
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      GOTM Documentation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/" class="">
+      Getting Started</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/quick-start/" class="">
+      Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/installation/" class="">
+      Installation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/dependencies/" class="">
+      Dependencies</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/" class="">
+      Theory</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/governing-equations/" class="">
+      Governing Equations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/air-sea-interaction/" class="">
+      Air-Sea Interaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/equation-of-state/" class="">
+      Equation of State &amp; TEOS-10</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/turbulence-introduction/" class="">
+      Turbulence Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/numerical-methods/" class="active">
+      Numerical Methods</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/turbulence-models/" class="">
+      Turbulence Models (Detailed)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/" class="">
+      User Guide</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/configuration/" class="">
+      Configuration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/input-files/" class="">
+      Input Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/" class="">
+      Modules</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/architecture/" class="">
+      Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/meanflow/" class="">
+      Meanflow Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/turbulence/" class="">
+      Turbulence Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/airsea/" class="">
+      Air-Sea Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/observations/" class="">
+      Observations Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/output/" class="">
+      Output Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/fabm/" class="">
+      FABM (Biogeochemistry)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/stim/" class="">
+      STIM (Ice Models)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/cvmix/" class="">
+      CVMix (Community Mixing)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/" class="">
+      Test Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/" class="">
+      Idealized Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/channel/" class="">
+      Channel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/couette/" class="">
+      Couette</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/entrainment/" class="">
+      Entrainment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/estuary/" class="">
+      Estuary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/langmuir/" class="">
+      Langmuir</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/plume/" class="">
+      Plume</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/reynolds/" class="">
+      Reynolds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/rouse/" class="">
+      Rouse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/seagrass/" class="">
+      Seagrass</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/wave-breaking/" class="">
+      Wave Breaking</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/" class="">
+      Realistic Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/blacksea/" class="">
+      Blacksea</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/flex/" class="">
+      Flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/gotland/" class="">
+      Gotland</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/lago-maggiore/" class="">
+      Lago Maggiore</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/liverpool-bay/" class="">
+      Liverpool Bay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/medsea-east/" class="">
+      Medsea East</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/medsea-west/" class="">
+      Medsea West</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/nns-annual/" class="">
+      Nns Annual</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/nns-seasonal/" class="">
+      Nns Seasonal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/ows-papa/" class="">
+      Ows Papa</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/resolute/" class="">
+      Resolute</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/" class="">
+      Reference</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/publications/" class="">
+      Publications</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/glossary/" class="">
+      Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/troubleshooting/" class="">
+      Troubleshooting</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/about/" class="">
+      About</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="https://github.com/gotm-model/code" target="_blank" rel="noopener">GitHub</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Numerical Methods</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#61-overview">6.1 Overview</a></li>
+        <li><a href="#62-time-discretization">6.2 Time Discretization</a></li>
+        <li><a href="#63-vertical-discretization">6.3 Vertical Discretization</a></li>
+        <li><a href="#64-diffusion-solver">6.4 Diffusion Solver</a></li>
+        <li><a href="#65-turbulence-integration">6.5 Turbulence Integration</a></li>
+        <li><a href="#66-computational-performance">6.6 Computational Performance</a></li>
+        <li><a href="#67-key-references">6.7 Key References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="numerical-methods">Numerical Methods<a class="anchor" href="#numerical-methods">#</a></h1>
+<h3 id="61-overview">6.1 Overview<a class="anchor" href="#61-overview">#</a></h3>
+<p>GOTM employs robust numerical methods to solve the one-dimensional partial differential equations governing ocean and lake dynamics. The methods balance accuracy, stability, efficiency, and conservation.</p>
+<h3 id="62-time-discretization">6.2 Time Discretization<a class="anchor" href="#62-time-discretization">#</a></h3>
+<p>GOTM uses a <strong>generalized θ-method</strong> for time stepping.</p>
+<p><strong>General form:</strong>
+For an equation ∂u/∂t = F(u), discretize as:</p>
+<pre tabindex="0"><code>(uⁿ⁺¹ - uⁿ)/Δt = θF(uⁿ⁺¹) + (1-θ)F(uⁿ)</code></pre><p><strong>Special cases:</strong></p>
+<ul>
+<li>θ = 0: <strong>Forward Euler</strong> (explicit, conditionally stable)</li>
+<li>θ = 0.5: <strong>Crank-Nicolson</strong> (implicit, 2nd-order accurate, unconditionally stable) <strong>← default</strong></li>
+<li>θ = 1: <strong>Backward Euler</strong> (implicit, 1st-order accurate, unconditionally stable)</li>
+</ul>
+<p><strong>Configuration:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">time</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dt</span>: <span style="color:#ae81ff">3600.0</span>  <span style="color:#75715e"># time step in seconds</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">theta</span>: <span style="color:#ae81ff">0.5</span>  <span style="color:#75715e"># Crank-Nicolson (recommended)</span></span></span></code></pre></div><p><strong>Typical time steps:</strong></p>
+<ul>
+<li>Ocean: 300-3600 s (5 min to 1 hour)</li>
+<li>Lakes: 60-600 s (1-10 min)</li>
+<li>Idealized cases: 1-60 s for high resolution</li>
+</ul>
+<h3 id="63-vertical-discretization">6.3 Vertical Discretization<a class="anchor" href="#63-vertical-discretization">#</a></h3>
+<p>GOTM uses <strong>finite differences</strong> on a staggered grid.</p>
+<p><strong>Grid arrangement:</strong></p>
+<pre tabindex="0"><code>z = 0 (Surface)  ━━━━━━━━━━━━━━━  ← Boundary condition (flux)
+                 ┃              
+  Δz/2           ┃              ← T, S, u, v (cell center, level 1)
+                 ┃
+                 ━━━━━━━━━━━━━━━  ← νₜ, κₜ, TKE, ε (interface 1-2)
+                 ┃
+  Δz             ┃              ← T, S, u, v (cell center, level 2)
+                 ┃
+                 ━━━━━━━━━━━━━━━  ← νₜ, κₜ, TKE, ε (interface 2-3)
+                 ┃
+                 ┃              ← T, S, u, v (cell center, level 3)
+                 .
+                 .
+                 .
+                 ━━━━━━━━━━━━━━━  ← νₜ, κₜ, TKE, ε (interface N-1,N)
+                 ┃
+  Δz/2           ┃              ← T, S, u, v (cell center, level N)
+                 ┃
+z = -H (Bottom)  ━━━━━━━━━━━━━━━  ← Boundary condition (no-flux or drag)</code></pre><p><strong>Key points:</strong></p>
+<ul>
+<li><strong>Scalars</strong> (T, S, u, v): Located at <strong>cell centers</strong> (half-layer thickness from interfaces)</li>
+<li><strong>Turbulent quantities</strong> (νₜ, κₜ, k, ε): Located at <strong>cell interfaces</strong></li>
+<li><strong>Boundary conditions</strong>: Applied at z=0 (surface) and z=-H (bottom)</li>
+<li>Top cell has thickness Δz/2 (from surface to first interface)</li>
+<li>Bottom cell has thickness Δz/2 (from last interface to bottom)</li>
+</ul>
+<p><strong>Why staggered?</strong></p>
+<ul>
+<li>Natural placement of variables</li>
+<li>Turbulent fluxes (νₜ∂u/∂z) evaluated at interfaces where gradients are computed</li>
+<li>Improved accuracy and stability</li>
+<li>Exact energy conservation possible</li>
+</ul>
+<p><strong>Vertical grid options:</strong></p>
+<ol>
+<li>
+<p><strong>Equidistant (uniform spacing):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">grid</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nlev</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddu</span>: <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddl</span>: <span style="color:#ae81ff">0.0</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Zoomed grid (higher resolution near surface/bottom):</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">grid</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nlev</span>: <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddu</span>: <span style="color:#ae81ff">2.0</span>  <span style="color:#75715e"># surface zooming</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ddl</span>: <span style="color:#ae81ff">2.0</span>  <span style="color:#75715e"># bottom zooming</span></span></span></code></pre></div><p>Higher ddu/ddl = more zooming (exponential grid stretching)</p>
+</li>
+</ol>
+<p><strong>Typical vertical resolution:</strong></p>
+<ul>
+<li>Open ocean: 100-200 levels over 50-200 m</li>
+<li>Coastal/shelf: 50-100 levels over 20-100 m</li>
+<li>Lakes: 50-150 levels over 10-50 m</li>
+</ul>
+<h3 id="64-diffusion-solver">6.4 Diffusion Solver<a class="anchor" href="#64-diffusion-solver">#</a></h3>
+<p>The core of GOTM is solving diffusion equations of the form:</p>
+<pre tabindex="0"><code>∂φ/∂t = ∂/∂z(D ∂φ/∂z) + source</code></pre><p><strong>Solution method:</strong></p>
+<ul>
+<li>Forms tridiagonal system: Aφⁿ⁺¹ = b</li>
+<li>Solved with <strong>Thomas algorithm</strong> (O(N), very fast)</li>
+<li>Direct solution, no iteration required</li>
+<li>Numerically stable</li>
+</ul>
+<h3 id="65-turbulence-integration">6.5 Turbulence Integration<a class="anchor" href="#65-turbulence-integration">#</a></h3>
+<p><strong>Patankar scheme</strong> for production-destruction equations ensures:</p>
+<ul>
+<li>Positivity (k, ε &gt; 0 always)</li>
+<li>Stability for stiff systems</li>
+<li>Energy conservation</li>
+</ul>
+<p><strong>Reference:</strong> Burchard et al. (2003): &ldquo;A high-order conservative Patankar-type discretisation for stiff systems of production-destruction equations.&rdquo; <em>Appl. Numer. Math.</em>, 47(1), 1-30. <a href="https://doi.org/10.1016/S0168-9274%2803%2900101-6">DOI</a></p>
+<h3 id="66-computational-performance">6.6 Computational Performance<a class="anchor" href="#66-computational-performance">#</a></h3>
+<p><strong>Typical cost:</strong></p>
+<ul>
+<li>100 levels, annual simulation: 1-10 seconds on modern CPU</li>
+<li>Bottleneck: Often I/O, not computation</li>
+<li>FABM coupling increases cost 10-100x (depending on BGC complexity)</li>
+</ul>
+<h3 id="67-key-references">6.7 Key References<a class="anchor" href="#67-key-references">#</a></h3>
+<p><strong>GOTM numerical methods:</strong></p>
+<ul>
+<li>Burchard &amp; Bolding (2001): General framework</li>
+<li>Burchard (2002): Energy-conserving discretization - <a href="https://doi.org/10.1016/S1463-5003%2802%2900009-4">DOI</a></li>
+<li>Burchard et al. (2003): Patankar scheme - <a href="https://doi.org/10.1016/S0168-9274%2803%2900101-6">DOI</a></li>
+<li>Burchard &amp; Beckers (2004): Adaptive grids - <a href="https://doi.org/10.1016/S1463-5003%2802%2900060-4">DOI</a></li>
+</ul>
+<hr>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+  
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/theory/turbulence-introduction/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Turbulence Introduction</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/theory/turbulence-models/" class="flex align-center">
+        <span>Turbulence Models (Detailed)</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#61-overview">6.1 Overview</a></li>
+        <li><a href="#62-time-discretization">6.2 Time Discretization</a></li>
+        <li><a href="#63-vertical-discretization">6.3 Vertical Discretization</a></li>
+        <li><a href="#64-diffusion-solver">6.4 Diffusion Solver</a></li>
+        <li><a href="#65-turbulence-integration">6.5 Turbulence Integration</a></li>
+        <li><a href="#66-computational-performance">6.6 Computational Performance</a></li>
+        <li><a href="#67-key-references">6.7 Key References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

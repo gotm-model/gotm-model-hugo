@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reference on GOTM - General Ocean Turbulence Model</title>
+    <link>http://localhost:1313/docs/reference/</link>
+    <description>Recent content in Reference on GOTM - General Ocean Turbulence Model</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/docs/reference/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Publications</title>
+      <link>http://localhost:1313/docs/reference/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/reference/publications/</guid>
+      <description>&lt;h1 id=&#34;publications&#34;&gt;Publications&lt;a class=&#34;anchor&#34; href=&#34;#publications&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;GOTM has been extensively used and validated in the scientific literature. Below is a comprehensive list of publications using or describing GOTM, organized chronologically.&lt;/p&gt;&#xA;&lt;h3 id=&#34;161-gotm-core-development-and-theory&#34;&gt;16.1 GOTM Core Development and Theory&lt;a class=&#34;anchor&#34; href=&#34;#161-gotm-core-development-and-theory&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Foundational Papers:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Burchard &amp;amp; Baumert (1995)&lt;/strong&gt;: &amp;ldquo;On the performance of a mixed-layer model based on the κ-ε turbulence closure.&amp;rdquo; &lt;em&gt;J. Geophys. Res. Oceans&lt;/em&gt;, 100(C5), 8523-8540. &lt;a href=&#34;https://doi.org/10.1029/94JC03229&#34;&gt;DOI&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Burchard et al. (1998a)&lt;/strong&gt;: &amp;ldquo;Comparing the performance of the Mellor-Yamada and the κ-ε two-equation turbulence models.&amp;rdquo; &lt;em&gt;J. Geophys. Res. Oceans&lt;/em&gt;, 103(C5), 10543-10554. &lt;a href=&#34;https://doi.org/10.1029/98JC00261&#34;&gt;DOI&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Glossary</title>
+      <link>http://localhost:1313/docs/reference/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/reference/glossary/</guid>
+      <description>&lt;h1 id=&#34;glossary-of-terms&#34;&gt;Glossary of Terms&lt;a class=&#34;anchor&#34; href=&#34;#glossary-of-terms&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;a&#34;&gt;A&lt;a class=&#34;anchor&#34; href=&#34;#a&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Absolute Salinity (SA)&lt;/strong&gt;: True mass fraction of dissolved material in seawater (g/kg). Accounts for spatial variations in composition. See TEOS-10.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Albedo&lt;/strong&gt;: Fraction of incident solar radiation reflected from a surface (dimensionless, 0-1).&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Adiabatic&lt;/strong&gt;: Process occurring without heat exchange with surroundings.&lt;/p&gt;&#xA;&lt;h2 id=&#34;b&#34;&gt;B&lt;a class=&#34;anchor&#34; href=&#34;#b&#34;&gt;#&lt;/a&gt;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Barotropic&lt;/strong&gt;: Depth-independent; related to external pressure gradients from sea surface slope.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Baroclinic&lt;/strong&gt;: Depth-dependent; related to internal pressure gradients from density variations.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Buoyancy Frequency (N²)&lt;/strong&gt;: Measure of stratification strength; N² = -g/ρ₀ ∂ρ/∂z.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>http://localhost:1313/docs/reference/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/reference/troubleshooting/</guid>
+      <description>&lt;h1 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;a class=&#34;anchor&#34; href=&#34;#troubleshooting&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; CMake cannot find NetCDF&lt;br&gt;&#xA;&lt;strong&gt;Solution:&lt;/strong&gt; Set &lt;code&gt;NetCDF_ROOT&lt;/code&gt; environment variable or install &lt;code&gt;libnetcdff-dev&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Submodules not initialized&lt;br&gt;&#xA;&lt;strong&gt;Solution:&lt;/strong&gt; &lt;code&gt;git submodule update --init --recursive&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Compiler mismatch errors&lt;br&gt;&#xA;&lt;strong&gt;Solution:&lt;/strong&gt; Ensure NetCDF and GOTM use same Fortran compiler&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; NaN values in output&lt;br&gt;&#xA;&lt;strong&gt;Solution:&lt;/strong&gt; Check timestep (CFL condition), initial conditions, forcing data&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Problem:&lt;/strong&gt; Test case won&amp;rsquo;t run&lt;br&gt;&#xA;&lt;strong&gt;Solution:&lt;/strong&gt; Verify you&amp;rsquo;re on &lt;code&gt;master&lt;/code&gt; branch, update submodules&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

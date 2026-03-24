@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Air-Sea Interaction# 3.1 Overview of Air-Sea Fluxes# The ocean or lake surface is where the water column exchanges momentum, heat, and freshwater with the atmosphere. These exchanges fundamentally control:
+Mixed layer depth and temperature Evaporation and precipitation balance Storm-driven mixing and deepening Diurnal warming and nocturnal cooling Ice formation and melting GOTM’s airsea module (src/airsea/) computes surface boundary conditions for momentum, heat, and freshwater fluxes using bulk formulae based on atmospheric forcing data.
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/docs/theory/air-sea-interaction/">
+  <meta property="og:site_name" content="GOTM - General Ocean Turbulence Model">
+  <meta property="og:title" content="Air-Sea Interaction">
+  <meta property="og:description" content="Air-Sea Interaction# 3.1 Overview of Air-Sea Fluxes# The ocean or lake surface is where the water column exchanges momentum, heat, and freshwater with the atmosphere. These exchanges fundamentally control:
+Mixed layer depth and temperature Evaporation and precipitation balance Storm-driven mixing and deepening Diurnal warming and nocturnal cooling Ice formation and melting GOTM’s airsea module (src/airsea/) computes surface boundary conditions for momentum, heat, and freshwater fluxes using bulk formulae based on atmospheric forcing data.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+
+
+  <meta itemprop="name" content="Air-Sea Interaction">
+  <meta itemprop="description" content="Air-Sea Interaction# 3.1 Overview of Air-Sea Fluxes# The ocean or lake surface is where the water column exchanges momentum, heat, and freshwater with the atmosphere. These exchanges fundamentally control:
+Mixed layer depth and temperature Evaporation and precipitation balance Storm-driven mixing and deepening Diurnal warming and nocturnal cooling Ice formation and melting GOTM’s airsea module (src/airsea/) computes surface boundary conditions for momentum, heat, and freshwater fluxes using bulk formulae based on atmospheric forcing data.">
+  <meta itemprop="wordCount" content="1620">
+
+<title>Air-Sea Interaction | GOTM - General Ocean Turbulence Model</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/docs/theory/air-sea-interaction/">
+<link rel="stylesheet" href="/book.min.cc2c524ed250aac81b23d1f4af87344917b325208841feca0968fe450f570575.css" integrity="sha256-zCxSTtJQqsgbI9H0r4c0SRezJSCIQf7KCWj&#43;RQ9XBXU=" crossorigin="anonymous">
+
+
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.e2293b5b9d7412f002a6961d56c743a3aa75dcf1c540709d1b02e0dfcb813816.js" integrity="sha256-4ik7W510EvACppYdVsdDo6p13PHFQHCdGwLg38uBOBY=" crossorigin="anonymous"></script>
+
+
+
+  
+</head>
+<body dir="ltr" class="book-kind-page book-type-docs">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    
+<aside class="book-menu">
+  <div class="book-menu-content">
+    
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>GOTM - General Ocean Turbulence Model</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input id="book-search-input" type="text" 
+    placeholder="Search"
+    aria-label="Search"
+    maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+<ul><li><a href="/docs/">Documentation</a></li></ul>
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/" class="">
+      GOTM Documentation</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/" class="">
+      Getting Started</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/quick-start/" class="">
+      Quick Start</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/installation/" class="">
+      Installation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/getting-started/dependencies/" class="">
+      Dependencies</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/" class="">
+      Theory</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/governing-equations/" class="">
+      Governing Equations</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/air-sea-interaction/" class="active">
+      Air-Sea Interaction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/equation-of-state/" class="">
+      Equation of State &amp; TEOS-10</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/turbulence-introduction/" class="">
+      Turbulence Introduction</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/numerical-methods/" class="">
+      Numerical Methods</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/theory/turbulence-models/" class="">
+      Turbulence Models (Detailed)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/" class="">
+      User Guide</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/configuration/" class="">
+      Configuration</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/user-guide/input-files/" class="">
+      Input Files</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/" class="">
+      Modules</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/architecture/" class="">
+      Architecture</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/meanflow/" class="">
+      Meanflow Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/turbulence/" class="">
+      Turbulence Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/airsea/" class="">
+      Air-Sea Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/observations/" class="">
+      Observations Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/output/" class="">
+      Output Module</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/fabm/" class="">
+      FABM (Biogeochemistry)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/stim/" class="">
+      STIM (Ice Models)</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/modules/cvmix/" class="">
+      CVMix (Community Mixing)</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/" class="">
+      Test Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/" class="">
+      Idealized Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/channel/" class="">
+      Channel</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/couette/" class="">
+      Couette</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/entrainment/" class="">
+      Entrainment</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/estuary/" class="">
+      Estuary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/langmuir/" class="">
+      Langmuir</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/plume/" class="">
+      Plume</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/reynolds/" class="">
+      Reynolds</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/rouse/" class="">
+      Rouse</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/seagrass/" class="">
+      Seagrass</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/idealized/wave-breaking/" class="">
+      Wave Breaking</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/" class="">
+      Realistic Cases</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/blacksea/" class="">
+      Blacksea</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/flex/" class="">
+      Flex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/gotland/" class="">
+      Gotland</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/lago-maggiore/" class="">
+      Lago Maggiore</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/liverpool-bay/" class="">
+      Liverpool Bay</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/medsea-east/" class="">
+      Medsea East</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/medsea-west/" class="">
+      Medsea West</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/nns-annual/" class="">
+      Nns Annual</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/nns-seasonal/" class="">
+      Nns Seasonal</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/ows-papa/" class="">
+      Ows Papa</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/test-cases/realistic/resolute/" class="">
+      Resolute</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/" class="">
+      Reference</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/publications/" class="">
+      Publications</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/glossary/" class="">
+      Glossary</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/reference/troubleshooting/" class="">
+      Troubleshooting</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/about/" class="">
+      About</a>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+<ul><li><a href="https://github.com/gotm-model/code" target="_blank" rel="noopener">GitHub</a></li></ul>
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+
+  </div>
+</aside>
+ 
+
+    <div class="book-page">
+      <header class="book-header hidden">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/icons/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>Air-Sea Interaction</h3>
+
+  <label for="toc-control">
+    
+    <img src="/icons/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#31-overview-of-air-sea-fluxes">3.1 Overview of Air-Sea Fluxes</a></li>
+        <li><a href="#32-momentum-flux-wind-stress">3.2 Momentum Flux (Wind Stress)</a></li>
+        <li><a href="#33-heat-fluxes">3.3 Heat Fluxes</a></li>
+        <li><a href="#34-freshwater-flux">3.4 Freshwater Flux</a></li>
+        <li><a href="#35-combined-surface-boundary-conditions">3.5 Combined Surface Boundary Conditions</a></li>
+        <li><a href="#36-diurnal-cycle-and-ocean-skin">3.6 Diurnal Cycle and Ocean Skin</a></li>
+        <li><a href="#37-ice-covered-conditions">3.7 Ice-Covered Conditions</a></li>
+        <li><a href="#38-implementation-in-gotm">3.8 Implementation in GOTM</a></li>
+        <li><a href="#39-references-for-air-sea-interaction">3.9 References for Air-Sea Interaction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><h1 id="air-sea-interaction">Air-Sea Interaction<a class="anchor" href="#air-sea-interaction">#</a></h1>
+<h3 id="31-overview-of-air-sea-fluxes">3.1 Overview of Air-Sea Fluxes<a class="anchor" href="#31-overview-of-air-sea-fluxes">#</a></h3>
+<p>The ocean or lake surface is where the water column exchanges momentum, heat, and freshwater with the atmosphere. These exchanges fundamentally control:</p>
+<ul>
+<li>Mixed layer depth and temperature</li>
+<li>Evaporation and precipitation balance</li>
+<li>Storm-driven mixing and deepening</li>
+<li>Diurnal warming and nocturnal cooling</li>
+<li>Ice formation and melting</li>
+</ul>
+<p>GOTM&rsquo;s <strong>airsea module</strong> (<code>src/airsea/</code>) computes surface boundary conditions for momentum, heat, and freshwater fluxes using bulk formulae based on atmospheric forcing data.</p>
+<h3 id="32-momentum-flux-wind-stress">3.2 Momentum Flux (Wind Stress)<a class="anchor" href="#32-momentum-flux-wind-stress">#</a></h3>
+<p>Wind blowing over the water surface transfers momentum, creating a <strong>wind stress</strong> that drives currents.</p>
+<p><strong>Wind stress components:</strong></p>
+<pre tabindex="0"><code>τₓ = ρₐᵢᵣ Cᴅ |U₁₀| u₁₀
+τᵧ = ρₐᵢᵣ Cᴅ |U₁₀| v₁₀</code></pre><p>where:</p>
+<ul>
+<li>τₓ, τᵧ = wind stress in x, y directions (N/m² or Pa)</li>
+<li>ρₐᵢᵣ = air density (~1.2 kg/m³)</li>
+<li>Cᴅ = drag coefficient (dimensionless, typically 0.001-0.003)</li>
+<li>U₁₀ = (u₁₀, v₁₀) = wind velocity at 10 m height</li>
+<li>|U₁₀| = wind speed = √(u₁₀² + v₁₀²)</li>
+</ul>
+<p><strong>Drag coefficient parameterization:</strong></p>
+<p>GOTM supports multiple formulations for stability-dependent drag coefficients:</p>
+<p><strong>1. Fairall et al. (COARE 3.0/3.5)</strong> - Recommended for ocean applications</p>
+<ul>
+<li>Accounts for wind speed dependency</li>
+<li>Atmospheric stability effects</li>
+<li>Wave age and sea state</li>
+<li>Most widely validated</li>
+<li>Reference: Fairall et al. (1996, 2003)</li>
+<li>Code: <a href="https://github.com/NOAA-PSL/COARE-algorithm">COARE algorithm on GitHub</a></li>
+</ul>
+<p><strong>2. Kondo (1975)</strong> - Alternative formulation</p>
+<ul>
+<li>Widely used in Asian/Pacific applications</li>
+<li>Different stability functions</li>
+<li>Simpler than COARE</li>
+<li>Reference: Kondo (1975)</li>
+<li>Paper: <a href="https://www.jstage.jst.go.jp/article/jmsj1965/53/1/53_1_1/_article">Kondo (1975) on JMSJ</a></li>
+</ul>
+<p>Simple parameterization (Large &amp; Pond, 1981):</p>
+<pre tabindex="0"><code>Cᴅ = 0.0011,  for U₁₀ ≤ 10 m/s
+Cᴅ = (0.49 + 0.065 U₁₀) × 10⁻³,  for U₁₀ &gt; 10 m/s</code></pre><p><strong>Configuration:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">airsea</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">fluxes_method</span>: <span style="color:#ae81ff">2</span>  <span style="color:#75715e"># 1=Kondo, 2=Fairall (COARE)</span></span></span></code></pre></div><p><strong>Surface boundary condition:</strong>
+Wind stress appears as the upper boundary condition for momentum equations:</p>
+<pre tabindex="0"><code>νₜ ∂ū/∂z|ᶻ⁼⁰ = τₓ/ρ₀
+νₜ ∂v̄/∂z|ᶻ⁼⁰ = τᵧ/ρ₀</code></pre><p><strong>Friction velocity:</strong>
+A key derived quantity is the friction velocity:</p>
+<pre tabindex="0"><code>u* = √(τ/ρ₀) = √(τₓ² + τᵧ²)/ρ₀</code></pre><p>This sets the scale for turbulent kinetic energy production at the surface.</p>
+<h3 id="33-heat-fluxes">3.3 Heat Fluxes<a class="anchor" href="#33-heat-fluxes">#</a></h3>
+<p>The net heat flux at the surface determines heating/cooling of the water column:</p>
+<pre tabindex="0"><code>Q_net = Q_sw + Q_lw + Q_sens + Q_lat</code></pre><p>All fluxes use the convention: <strong>positive = heat into ocean</strong>.</p>
+<h4 id="331-shortwave-solar-radiation-q_sw">3.3.1 Shortwave (Solar) Radiation (Q_sw)<a class="anchor" href="#331-shortwave-solar-radiation-q_sw">#</a></h4>
+<p><strong>Source</strong>: Direct and diffuse solar radiation</p>
+<p><strong>Measurement/Input</strong>: Typically measured by pyranometer or estimated from cloud cover and solar geometry</p>
+<p><strong>Typical values</strong>:</p>
+<ul>
+<li>Clear sky, noon, summer: 800-1000 W/m²</li>
+<li>Overcast: 100-200 W/m²</li>
+<li>Night: 0 W/m²</li>
+</ul>
+<p><strong>Absorption profile:</strong>
+Shortwave radiation penetrates into the water column following Beer&rsquo;s law:</p>
+<pre tabindex="0"><code>I(z) = I₀ [A e^(-k₁z) + (1-A) e^(-k₂z)]</code></pre><p>where:</p>
+<ul>
+<li>I₀ = surface radiation</li>
+<li>A = fraction in visible band (~0.62)</li>
+<li>k₁ = attenuation for visible light (0.01-1 m⁻¹, depends on water clarity)</li>
+<li>k₂ = attenuation for infrared (~10-100 m⁻¹)</li>
+</ul>
+<p><strong>Bio-optical feedback:</strong>
+In productive waters, phytoplankton absorption increases k₁, limiting penetration depth. GOTM can couple to FABM for chlorophyll-dependent light attenuation.</p>
+<p><strong>Surface albedo:</strong>
+Fraction of incident radiation reflected:</p>
+<pre tabindex="0"><code>Q_sw(absorbed) = (1 - α) Q_sw(incident)</code></pre><p>where α = albedo (~0.06 for water, 0.3-0.8 for ice/snow)</p>
+<p>GOTM computes albedo using <strong>Payne&rsquo;s (1972)</strong> or <strong>Cogley&rsquo;s (1979)</strong> formulation accounting for:</p>
+<ul>
+<li>Solar zenith angle</li>
+<li>Cloud cover</li>
+<li>Surface roughness</li>
+<li>Ice/snow cover (if STIM enabled)</li>
+</ul>
+<h4 id="332-longwave-infrared-radiation-q_lw">3.3.2 Longwave (Infrared) Radiation (Q_lw)<a class="anchor" href="#332-longwave-infrared-radiation-q_lw">#</a></h4>
+<p><strong>Source</strong>: Thermal radiation from atmosphere (downward) and water surface (upward)</p>
+<pre tabindex="0"><code>Q_lw = Q_lw↓ - Q_lw↑</code></pre><p><strong>Downward longwave (Q_lw↓):</strong>
+Emitted by atmosphere, depends on air temperature, humidity, and cloud cover.</p>
+<p>GOTM includes <strong>multiple formulations</strong> for downward longwave radiation:</p>
+<p><strong>1. Clark et al. (1974)</strong></p>
+<pre tabindex="0"><code>Q_lw↓ = εₐ σ Tₐᵢᵣ⁴</code></pre><p>where εₐ = atmospheric emissivity (~0.7-0.95, increases with humidity and clouds)</p>
+<p><strong>2. Hastenrath &amp; Lamb (1978)</strong> - For tropical regions</p>
+<p><strong>3. Bignami et al. (1995)</strong> - Mediterranean applications</p>
+<p><strong>4. Berliand &amp; Berliand (1952)</strong> - Classic formulation</p>
+<p><strong>5. Josey et al. (2003)</strong> - Modern synthesis</p>
+<p><strong>6. Other empirical formulations</strong></p>
+<p>All formulations calculate atmospheric emissivity (εₐ) from:</p>
+<ul>
+<li>Air temperature (Tₐᵢᵣ)</li>
+<li>Water vapor pressure or relative humidity</li>
+<li>Cloud cover fraction</li>
+</ul>
+<p>where:</p>
+<ul>
+<li>σ = Stefan-Boltzmann constant = 5.67×10⁻⁸ W m⁻² K⁻⁴</li>
+<li>Tₐᵢᵣ = air temperature (Kelvin)</li>
+</ul>
+<p><strong>Upward longwave (Q_lw↑):</strong>
+Emitted by water surface:</p>
+<pre tabindex="0"><code>Q_lw↑ = εw σ Tsea⁴</code></pre><p>where εw ≈ 0.97 (water emissivity)</p>
+<p><strong>Typical values</strong>:</p>
+<ul>
+<li>Q_lw↓: 300-450 W/m² (warmer, more humid = higher)</li>
+<li>Q_lw↑: 350-500 W/m²</li>
+<li>Q_lw (net): -50 to +50 W/m² (usually cooling)</li>
+</ul>
+<p><strong>Cloud effects:</strong>
+Clouds increase Q_lw↓ (warmer bodies radiating down), reducing nighttime cooling.</p>
+<h4 id="333-sensible-heat-flux-q_sens">3.3.3 Sensible Heat Flux (Q_sens)<a class="anchor" href="#333-sensible-heat-flux-q_sens">#</a></h4>
+<p><strong>Physical process</strong>: Conduction/convection of heat between air and water when they are at different temperatures.</p>
+<p><strong>Bulk formula:</strong></p>
+<pre tabindex="0"><code>Q_sens = ρₐᵢᵣ cₚ Cₕ |U₁₀| (Tsea - Tair)</code></pre><p>where:</p>
+<ul>
+<li>cₚ = specific heat of air (~1005 J kg⁻¹ K⁻¹)</li>
+<li>Cₕ = heat transfer coefficient (~0.001, similar magnitude to Cᴅ)</li>
+<li>Tsea - Tair = sea-air temperature difference</li>
+</ul>
+<p><strong>Sign convention:</strong></p>
+<ul>
+<li>Tsea &gt; Tair → Q_sens &gt; 0 → ocean loses heat to atmosphere</li>
+<li>Tsea &lt; Tair → Q_sens &lt; 0 → ocean gains heat (rare, except in cold air outbreaks)</li>
+</ul>
+<p><strong>Typical values</strong>: -50 to +50 W/m²</p>
+<p><strong>Stability dependence:</strong>
+Like Cᴅ, Cₕ depends on atmospheric stability:</p>
+<ul>
+<li>Unstable (warm water, cold air): Enhanced transfer</li>
+<li>Stable (cold water, warm air): Suppressed transfer</li>
+</ul>
+<h4 id="334-latent-heat-flux-q_lat">3.3.4 Latent Heat Flux (Q_lat)<a class="anchor" href="#334-latent-heat-flux-q_lat">#</a></h4>
+<p><strong>Physical process</strong>: Energy consumed/released by evaporation/condensation</p>
+<p><strong>Bulk formula:</strong></p>
+<pre tabindex="0"><code>Q_lat = ρₐᵢᵣ Lᵥ Cₑ |U₁₀| (qsea - qair)</code></pre><p>where:</p>
+<ul>
+<li>Lᵥ = latent heat of vaporization (~2.5×10⁶ J/kg)</li>
+<li>Cₑ = moisture transfer coefficient (~0.001)</li>
+<li>qsea = saturation specific humidity at sea surface temperature</li>
+<li>qair = specific humidity of air at 10 m</li>
+</ul>
+<p><strong>Specific humidity:</strong>
+Related to relative humidity (RH) and saturation vapor pressure (esat):</p>
+<pre tabindex="0"><code>q = 0.622 e/(P - 0.378 e)</code></pre><p>where e = RH × esat(T), and P = atmospheric pressure</p>
+<p><strong>Sign convention:</strong></p>
+<ul>
+<li>Evaporation (qsea &gt; qair): Q_lat &gt; 0 → ocean loses heat</li>
+<li>Condensation (qsea &lt; qair): Q_lat &lt; 0 → ocean gains heat (rare)</li>
+</ul>
+<p><strong>Typical values</strong>:</p>
+<ul>
+<li>Tropics: 100-150 W/m²</li>
+<li>Mid-latitudes: 50-100 W/m²</li>
+<li>High latitudes: 10-50 W/m²</li>
+</ul>
+<p>Latent heat flux is often the <strong>largest</strong> component of ocean heat loss.</p>
+<h3 id="34-freshwater-flux">3.4 Freshwater Flux<a class="anchor" href="#34-freshwater-flux">#</a></h3>
+<pre tabindex="0"><code>FW = E - P - R</code></pre><p>where:</p>
+<ul>
+<li>E = evaporation rate (m/s), derived from Q_lat/Lᵥ</li>
+<li>P = precipitation rate (m/s)</li>
+<li>R = runoff (rivers, rarely used in GOTM)</li>
+</ul>
+<p><strong>Effect on salinity:</strong></p>
+<pre tabindex="0"><code>∂S̄/∂t|ᶻ⁼⁰ = -S₀ FW/Δz</code></pre><p>where S₀ is surface salinity and Δz is top layer thickness.</p>
+<p><strong>Virtual salt flux vs. real freshwater flux:</strong>
+Many models use &ldquo;virtual salt flux&rdquo; instead of actually changing volume. GOTM can do both.</p>
+<h3 id="35-combined-surface-boundary-conditions">3.5 Combined Surface Boundary Conditions<a class="anchor" href="#35-combined-surface-boundary-conditions">#</a></h3>
+<p><strong>Momentum:</strong></p>
+<pre tabindex="0"><code>νₜ ∂ū/∂z|ᶻ⁼⁰ = τₓ/ρ₀
+νₜ ∂v̄/∂z|ᶻ⁼⁰ = τᵧ/ρ₀</code></pre><p><strong>Temperature:</strong></p>
+<pre tabindex="0"><code>κₜ ∂T̄/∂z|ᶻ⁼⁰ = Q_net/(ρ₀ cₚ) - Q_sw(penetrating)/Δz</code></pre><p>Note: Surface shortwave is handled specially since it penetrates.</p>
+<p><strong>Salinity:</strong></p>
+<pre tabindex="0"><code>κₛ ∂S̄/∂z|ᶻ⁼⁰ = -S₀ (E - P)/Δz</code></pre><p><strong>Turbulent kinetic energy:</strong></p>
+<pre tabindex="0"><code>k(z=0) = (u*/cμ₀)²</code></pre><p>where cμ₀ ≈ 0.5477 relates surface TKE to friction velocity.</p>
+<h3 id="36-diurnal-cycle-and-ocean-skin">3.6 Diurnal Cycle and Ocean Skin<a class="anchor" href="#36-diurnal-cycle-and-ocean-skin">#</a></h3>
+<p><strong>Diurnal warm layer (DWL):</strong>
+Under calm, sunny conditions, shortwave heating creates a shallow (~1-3 m) warm layer that is destroyed by evening cooling or wind mixing. GOTM resolves DWL with sufficient vertical resolution (1 m or finer near surface).</p>
+<p><strong>Cool skin:</strong>
+At the exact air-sea interface (~1 mm), strong longwave and evaporative cooling creates a ~0.1-0.5°C temperature drop. GOTM does not explicitly resolve the cool skin (requires specialized parameterization), but uses bulk sea surface temperature.</p>
+<p><strong>Importance:</strong></p>
+<ul>
+<li>Satellite SST measures skin temperature (cool skin)</li>
+<li>In-situ buoys measure subsurface temperature (~1 m depth)</li>
+<li>Differences can be 0.5-1°C, affecting heat flux calculations</li>
+</ul>
+<h3 id="37-ice-covered-conditions">3.7 Ice-Covered Conditions<a class="anchor" href="#37-ice-covered-conditions">#</a></h3>
+<p>When STIM (Sea Thermodynamics Ice Module) is enabled:</p>
+<p><strong>Modified surface fluxes:</strong></p>
+<ul>
+<li>Wind stress transmitted through ice (with coupling coefficient)</li>
+<li>Shortwave radiation attenuated by ice and snow before reaching water</li>
+<li>Longwave, sensible, latent fluxes computed for ice-atmosphere interface</li>
+<li>Ice growth/melt determined by energy balance</li>
+</ul>
+<p><strong>Ice formation:</strong>
+When water temperature reaches freezing point, excess cooling forms ice.</p>
+<p><strong>Radiation penetration:</strong>
+Some shortwave transmits through ice (10-50% depending on thickness and snow cover), supporting under-ice phytoplankton blooms.</p>
+<h3 id="38-implementation-in-gotm">3.8 Implementation in GOTM<a class="anchor" href="#38-implementation-in-gotm">#</a></h3>
+<p><strong>Key source files:</strong></p>
+<ul>
+<li><code>do_air_sea.F90</code>: Main routine computing all fluxes</li>
+<li><code>fairall.F90</code>: COARE 3.0 bulk algorithm</li>
+<li><code>albedo.F90</code>: Surface albedo computation</li>
+<li><code>set_sst.F90</code>: Sets sea surface temperature for flux calculations</li>
+</ul>
+<p><strong>Input requirements:</strong></p>
+<ul>
+<li>Wind speed/direction at 10 m (u10, v10)</li>
+<li>Air temperature at 10 m (Tair)</li>
+<li>Air pressure (typically 1013 hPa if not provided)</li>
+<li>Relative humidity or specific humidity</li>
+<li>Cloud cover (0-1) or direct shortwave radiation</li>
+<li>Precipitation rate (optional)</li>
+</ul>
+<p><strong>Typical input file format:</strong></p>
+<pre tabindex="0"><code># YYYY-MM-DD HH:MM:SS  u10  v10  airp   airt   hum   cloud
+2020-01-01 00:00:00    5.2  2.1  101300  10.5  0.75  0.6
+2020-01-01 01:00:00    5.5  2.3  101250  10.3  0.77  0.7</code></pre><p><strong>Output diagnostics:</strong>
+GOTM can output:</p>
+<ul>
+<li>Individual flux components (Q_sw, Q_lw, Q_sens, Q_lat)</li>
+<li>Wind stress (tx, ty)</li>
+<li>Friction velocity (u*)</li>
+<li>Drag coefficient (Cd)</li>
+<li>Evaporation rate</li>
+<li>Net heat flux</li>
+</ul>
+<p>These diagnostics are essential for understanding mixed layer evolution and validating against observations.</p>
+<h3 id="39-references-for-air-sea-interaction">3.9 References for Air-Sea Interaction<a class="anchor" href="#39-references-for-air-sea-interaction">#</a></h3>
+<p><strong>Bulk flux algorithms:</strong></p>
+<ul>
+<li><strong>Fairall et al. (1996)</strong>: &ldquo;Bulk parameterization of air-sea fluxes for Tropical Ocean-Global Atmosphere Coupled-Ocean Atmosphere Response Experiment.&rdquo; <em>J. Geophys. Res.</em>, 101(C2), 3747-3764. <a href="https://doi.org/10.1029/95JC03205">DOI</a></li>
+<li><strong>Fairall et al. (2003)</strong>: &ldquo;Bulk parameterization of air–sea fluxes: Updates and verification for the COARE algorithm.&rdquo; <em>J. Climate</em>, 16(4), 571-591. <a href="https://doi.org/10.1175/1520-0442%282003%29016%3C0571:BPOASF%3E2.0.CO;2">DOI</a></li>
+<li><strong>COARE Algorithm:</strong> <a href="https://github.com/NOAA-PSL/COARE-algorithm">GitHub Repository</a></li>
+<li><strong>Kondo (1975)</strong>: &ldquo;Air-sea bulk transfer coefficients in diabatic conditions.&rdquo; <em>Boundary-Layer Meteorol.</em>, 9, 91-112. <a href="https://doi.org/10.1007/BF00232256">DOI</a></li>
+</ul>
+<p><strong>Drag coefficients:</strong></p>
+<ul>
+<li><strong>Large &amp; Pond (1981)</strong>: &ldquo;Open ocean momentum flux measurements in moderate to strong winds.&rdquo; <em>J. Phys. Oceanogr.</em>, 11(3), 324-336. <a href="https://doi.org/10.1175/1520-0485%281981%29011%3C0324:OOMFMI%3E2.0.CO;2">DOI</a></li>
+</ul>
+<p><strong>Longwave radiation:</strong></p>
+<ul>
+<li><strong>Clark et al. (1974)</strong>: &ldquo;Short wave radiation and its relation to cooling of a lake.&rdquo; <em>J. Atmos. Sci.</em>, 31, 592-596. <a href="https://doi.org/10.1175/1520-0469%281974%29031%3C0592:SWRAIR%3E2.0.CO;2">DOI</a></li>
+<li><strong>Hastenrath &amp; Lamb (1978)</strong>: &ldquo;Heat budget atlas of the tropical Atlantic and eastern Pacific oceans.&rdquo; University of Wisconsin Press.</li>
+<li><strong>Bignami et al. (1995)</strong>: &ldquo;Longwave radiation budget in the Mediterranean Sea.&rdquo; <em>J. Geophys. Res.</em>, 100(C2), 2501-2514. <a href="https://doi.org/10.1029/94JC02496">DOI</a></li>
+<li><strong>Berliand &amp; Berliand (1952)</strong>: &ldquo;Determining the net long-wave radiation of the earth with consideration of the effect of cloudiness.&rdquo; <em>Izv. Akad. Nauk SSSR Ser. Geofiz.</em>, 1, 64-78.</li>
+<li><strong>Josey et al. (2003)</strong>: &ldquo;A new formula for determining the atmospheric longwave flux at the ocean surface at mid-high latitudes.&rdquo; <em>J. Geophys. Res.</em>, 108(C4), 3108. <a href="https://doi.org/10.1029/2002JC001418">DOI</a></li>
+</ul>
+<p><strong>Solar radiation:</strong></p>
+<ul>
+<li><strong>Payne (1972)</strong>: &ldquo;Albedo of the sea surface.&rdquo; <em>J. Atmos. Sci.</em>, 29(5), 959-970. <a href="https://doi.org/10.1175/1520-0469%281972%29029%3C0959:AOTSS%3E2.0.CO;2">DOI</a></li>
+<li><strong>Paulson &amp; Simpson (1977)</strong>: &ldquo;Irradiance measurements in the upper ocean.&rdquo; <em>J. Phys. Oceanogr.</em>, 7(6), 952-956. <a href="https://doi.org/10.1175/1520-0485%281977%29007%3C0952:IMITUO%3E2.0.CO;2">DOI</a></li>
+<li><strong>Cogley (1979)</strong>: &ldquo;The albedo of water as a function of latitude.&rdquo; <em>Mon. Weather Rev.</em>, 107(6), 775-781. <a href="https://doi.org/10.1175/1520-0493%281979%29107%3C0775:TAOWAA%3E2.0.CO;2">DOI</a></li>
+</ul>
+<hr>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+<div>
+
+</div>
+
+<div>
+
+</div>
+
+</div>
+
+
+
+  
+
+
+
+  
+  
+  
+  <div class="flex flex-wrap justify-between">
+    <span>
+    
+      <a href="/docs/theory/governing-equations/" class="flex align-center">
+        <img src="/icons/backward.svg" class="book-icon" alt="Backward" />
+        <span>Governing Equations</span>
+      </a>
+    
+    </span>
+    <span>
+    
+      <a href="/docs/theory/equation-of-state/" class="flex align-center">
+        <span>Equation of State &amp; TEOS-10</span>
+        <img src="/icons/forward.svg" class="book-icon" alt="Forward" />
+      </a>
+    
+    </span>
+  </div>
+  
+
+
+ 
+        
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+        
+        
+  
+ 
+        
+  
+  
+    <script>(function(){document.querySelectorAll("pre:has(code)").forEach(e=>{e.addEventListener("click",e.focus),e.addEventListener("copy",function(t){if(t.preventDefault(),navigator.clipboard){const t=window.getSelection().toString()||e.textContent;navigator.clipboard.writeText(t)}})})})()</script>
+  
+
+      </footer>
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+  
+  <aside class="book-toc">
+    <div class="book-toc-content">
+      
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#31-overview-of-air-sea-fluxes">3.1 Overview of Air-Sea Fluxes</a></li>
+        <li><a href="#32-momentum-flux-wind-stress">3.2 Momentum Flux (Wind Stress)</a></li>
+        <li><a href="#33-heat-fluxes">3.3 Heat Fluxes</a></li>
+        <li><a href="#34-freshwater-flux">3.4 Freshwater Flux</a></li>
+        <li><a href="#35-combined-surface-boundary-conditions">3.5 Combined Surface Boundary Conditions</a></li>
+        <li><a href="#36-diurnal-cycle-and-ocean-skin">3.6 Diurnal Cycle and Ocean Skin</a></li>
+        <li><a href="#37-ice-covered-conditions">3.7 Ice-Covered Conditions</a></li>
+        <li><a href="#38-implementation-in-gotm">3.8 Implementation in GOTM</a></li>
+        <li><a href="#39-references-for-air-sea-interaction">3.9 References for Air-Sea Interaction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+    </div>
+  </aside>
+  
+ 
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

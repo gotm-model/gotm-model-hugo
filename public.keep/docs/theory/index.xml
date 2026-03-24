@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Theory on GOTM - General Ocean Turbulence Model</title>
+    <link>http://localhost:1313/docs/theory/</link>
+    <description>Recent content in Theory on GOTM - General Ocean Turbulence Model</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/docs/theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Governing Equations</title>
+      <link>http://localhost:1313/docs/theory/governing-equations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/theory/governing-equations/</guid>
+      <description>&lt;h1 id=&#34;governing-equations&#34;&gt;Governing Equations&lt;a class=&#34;anchor&#34; href=&#34;#governing-equations&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;21-three-dimensional-momentum-equations&#34;&gt;2.1 Three-Dimensional Momentum Equations&lt;a class=&#34;anchor&#34; href=&#34;#21-three-dimensional-momentum-equations&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;The motion of oceanic and lake waters is governed by the incompressible Navier-Stokes equations. In their most general form, the momentum equations in Cartesian coordinates (x, y, z) are:&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Horizontal momentum (x-direction):&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;∂u/∂t + u∂u/∂x + v∂u/∂y + w∂u/∂z - fv = -1/ρ₀ ∂p/∂x + ∂/∂z(ν ∂u/∂z) + Fₓ&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Horizontal momentum (y-direction):&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;∂v/∂t + u∂v/∂x + v∂v/∂y + w∂v/∂z + fu = -1/ρ₀ ∂p/∂y + ∂/∂z(ν ∂v/∂z) + Fᵧ&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Hydrostatic balance (z-direction):&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Air-Sea Interaction</title>
+      <link>http://localhost:1313/docs/theory/air-sea-interaction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/theory/air-sea-interaction/</guid>
+      <description>&lt;h1 id=&#34;air-sea-interaction&#34;&gt;Air-Sea Interaction&lt;a class=&#34;anchor&#34; href=&#34;#air-sea-interaction&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;31-overview-of-air-sea-fluxes&#34;&gt;3.1 Overview of Air-Sea Fluxes&lt;a class=&#34;anchor&#34; href=&#34;#31-overview-of-air-sea-fluxes&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;The ocean or lake surface is where the water column exchanges momentum, heat, and freshwater with the atmosphere. These exchanges fundamentally control:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Mixed layer depth and temperature&lt;/li&gt;&#xA;&lt;li&gt;Evaporation and precipitation balance&lt;/li&gt;&#xA;&lt;li&gt;Storm-driven mixing and deepening&lt;/li&gt;&#xA;&lt;li&gt;Diurnal warming and nocturnal cooling&lt;/li&gt;&#xA;&lt;li&gt;Ice formation and melting&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;GOTM&amp;rsquo;s &lt;strong&gt;airsea module&lt;/strong&gt; (&lt;code&gt;src/airsea/&lt;/code&gt;) computes surface boundary conditions for momentum, heat, and freshwater fluxes using bulk formulae based on atmospheric forcing data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Equation of State &amp; TEOS-10</title>
+      <link>http://localhost:1313/docs/theory/equation-of-state/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/theory/equation-of-state/</guid>
+      <description>&lt;h1 id=&#34;equation-of-state--teos-10&#34;&gt;Equation of State &amp;amp; TEOS-10&lt;a class=&#34;anchor&#34; href=&#34;#equation-of-state--teos-10&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;41-density-in-aquatic-systems&#34;&gt;4.1 Density in Aquatic Systems&lt;a class=&#34;anchor&#34; href=&#34;#41-density-in-aquatic-systems&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Water density (ρ) is fundamental to aquatic dynamics, controlling:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Buoyancy and stratification&lt;/li&gt;&#xA;&lt;li&gt;Baroclinic pressure gradients&lt;/li&gt;&#xA;&lt;li&gt;Vertical stability (via buoyancy frequency N²)&lt;/li&gt;&#xA;&lt;li&gt;Mixing and entrainment&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Density depends on:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Temperature (T):&lt;/strong&gt; Warming decreases density (thermal expansion)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Salinity (S):&lt;/strong&gt; Increased salt increases density&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Pressure (p):&lt;/strong&gt; Compression increases density (important for deep ocean)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;42-traditional-vs-modern-temperature-and-salinity-measures&#34;&gt;4.2 Traditional vs. Modern Temperature and Salinity Measures&lt;a class=&#34;anchor&#34; href=&#34;#42-traditional-vs-modern-temperature-and-salinity-measures&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;h4 id=&#34;traditional-measures-pre-teos-10&#34;&gt;Traditional Measures (Pre-TEOS-10)&lt;a class=&#34;anchor&#34; href=&#34;#traditional-measures-pre-teos-10&#34;&gt;#&lt;/a&gt;&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;In Situ Temperature (T):&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Turbulence Introduction</title>
+      <link>http://localhost:1313/docs/theory/turbulence-introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/theory/turbulence-introduction/</guid>
+      <description>&lt;h1 id=&#34;turbulence-introduction&#34;&gt;Turbulence Introduction&lt;a class=&#34;anchor&#34; href=&#34;#turbulence-introduction&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;51-the-closure-problem&#34;&gt;5.1 The Closure Problem&lt;a class=&#34;anchor&#34; href=&#34;#51-the-closure-problem&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Ocean and lake turbulence spans scales from millimeters (Kolmogorov) to hundreds of meters (basin). Direct Numerical Simulation (DNS) of all scales is computationally prohibitive. Instead, we use Reynolds-Averaged Navier-Stokes (RANS) equations, decomposing variables into mean and fluctuating parts:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;u = ū + u&amp;#39;    (velocity)&#xA;θ = θ̄ + θ&amp;#39;    (temperature)&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Averaging introduces Reynolds stresses ⟨u&amp;rsquo;w&amp;rsquo;⟩ and scalar fluxes ⟨θ&amp;rsquo;w&amp;rsquo;⟩ as new unknowns. &lt;strong&gt;Turbulence closure models&lt;/strong&gt; provide relationships between these fluxes and mean quantities, closing the system of equations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Numerical Methods</title>
+      <link>http://localhost:1313/docs/theory/numerical-methods/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/theory/numerical-methods/</guid>
+      <description>&lt;h1 id=&#34;numerical-methods&#34;&gt;Numerical Methods&lt;a class=&#34;anchor&#34; href=&#34;#numerical-methods&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;61-overview&#34;&gt;6.1 Overview&lt;a class=&#34;anchor&#34; href=&#34;#61-overview&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;GOTM employs robust numerical methods to solve the one-dimensional partial differential equations governing ocean and lake dynamics. The methods balance accuracy, stability, efficiency, and conservation.&lt;/p&gt;&#xA;&lt;h3 id=&#34;62-time-discretization&#34;&gt;6.2 Time Discretization&lt;a class=&#34;anchor&#34; href=&#34;#62-time-discretization&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;GOTM uses a &lt;strong&gt;generalized θ-method&lt;/strong&gt; for time stepping.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;General form:&lt;/strong&gt;&#xA;For an equation ∂u/∂t = F(u), discretize as:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;(uⁿ⁺¹ - uⁿ)/Δt = θF(uⁿ⁺¹) + (1-θ)F(uⁿ)&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;Special cases:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;θ = 0: &lt;strong&gt;Forward Euler&lt;/strong&gt; (explicit, conditionally stable)&lt;/li&gt;&#xA;&lt;li&gt;θ = 0.5: &lt;strong&gt;Crank-Nicolson&lt;/strong&gt; (implicit, 2nd-order accurate, unconditionally stable) &lt;strong&gt;← default&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;θ = 1: &lt;strong&gt;Backward Euler&lt;/strong&gt; (implicit, 1st-order accurate, unconditionally stable)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Configuration:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Turbulence Models (Detailed)</title>
+      <link>http://localhost:1313/docs/theory/turbulence-models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/theory/turbulence-models/</guid>
+      <description>&lt;h1 id=&#34;turbulence-models-detailed&#34;&gt;Turbulence Models (Detailed)&lt;a class=&#34;anchor&#34; href=&#34;#turbulence-models-detailed&#34;&gt;#&lt;/a&gt;&lt;/h1&gt;&#xA;&lt;h3 id=&#34;91-generic-length-scale-gls-framework&#34;&gt;9.1 Generic Length Scale (GLS) Framework&lt;a class=&#34;anchor&#34; href=&#34;#91-generic-length-scale-gls-framework&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Governing Equations:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;TKE equation:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;∂k/∂t = ∂/∂z(νₜ/σₖ ∂k/∂z) + P + B - ε&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Generic length scale equation:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;∂ψ/∂t = ∂/∂z(νₜ/σψ ∂ψ/∂z) + ψ/k (c₁P + c₃B - c₂ε F_wall)&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;where ψ = k^m L^n, with (p, m, n) defining specific models.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Eddy viscosity:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;νₜ = Sₘ k^(1/2) L&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Sₘ is a stability function depending on N² and S².&lt;/p&gt;&#xA;&lt;h3 id=&#34;92-k-ε-model&#34;&gt;9.2 k-ε Model&lt;a class=&#34;anchor&#34; href=&#34;#92-k-%ce%b5-model&#34;&gt;#&lt;/a&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Parameters: p=3, m=1.5, n=-1&lt;/p&gt;&#xA;&lt;p&gt;Constants:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
