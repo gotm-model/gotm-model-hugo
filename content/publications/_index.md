@@ -4,7 +4,7 @@ title = "Publications"
 +++
 
 
-[Bild](http://www.gotm.net/pics/gotm_pub.png)
+[Bild](https://www.gotm.net/pics/gotm_pub.png)
 
 [List of GOTM publications](/html/gotm_pub.html)
 
