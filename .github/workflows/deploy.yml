@@ -2,7 +2,7 @@ name: Deploy to gotm.net via gotm-model.github.io
 
 on:
   push:
-    branches: ["master"] # Or whatever your source branch is
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -32,9 +32,7 @@ jobs:
       - name: Deploy to gotm-model.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          personal_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
           external_repository: gotm-model/gotm-model.github.io
-          # Optional: If you have a CNAME file in your source, ensure it's copied
-          # or create one in the destination repo manually.
