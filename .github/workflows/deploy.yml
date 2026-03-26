@@ -1,8 +1,8 @@
-name: Deploy Hugo Site to Pages
+name: Deploy to gotm.net via gotm-model.github.io
 
 on:
   push:
-    branches: ["master"]
+    branches: ["master"] # Or whatever your source branch is
   workflow_dispatch:
 
 permissions:
@@ -10,19 +10,11 @@ permissions:
   pages: write
   id-token: write
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
-
-env:
-  # Opt into Node.js 24 now to avoid future issues
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Source
         uses: actions/checkout@v4
         with:
           submodules: recursive
@@ -37,18 +29,12 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to gotm-model.github.io
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: ./public
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: gh-pages
+          external_repository: gotm-model/gotm-model.github.io
+          # Optional: If you have a CNAME file in your source, ensure it's copied
+          # or create one in the destination repo manually.
