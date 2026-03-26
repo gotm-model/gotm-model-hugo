@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to gotm-model.github.io
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
           external_repository: gotm-model/gotm-model.github.io
