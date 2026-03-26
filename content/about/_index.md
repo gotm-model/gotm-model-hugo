@@ -20,6 +20,8 @@ post_type: page
 ### About GOTM
 -->
 
+KURT + KAJ
+
 Welcome to the General Ocean Turbulence Model (GOTM), which is a one-dimensional water column model for studying hydrodynamic and biogeochemical processes in marine and limnic waters. GOTM is published under the GNU Public Licence and can be freely used.
 
 The heart of GOTM is a library of traditional and state-of-the-art turbulence closure models for the parameterisation of vertical turbulent fluxes of momentum, heat and dissolved and particulate matter ([Umlauf and Burchard, 2005](http://dx.doi.org/10.1016/j.csr.2004.08.004)). This turbulence module has been linked to, or recoded for, a number of ocean models such as ROMS, FVCOM, SELFE, FESOM, GETM and NEMO in order to parameterize turbulent exchange.
