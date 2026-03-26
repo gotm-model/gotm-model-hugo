@@ -1,4 +1,4 @@
-baseurl = "https://gotm-model.github.io/"
+baseurl = "https://gotm.net/"
 title = "GOTM"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
