@@ -50,9 +50,9 @@ disqusShortname = ""
   name = "Publications"
   url = "publications/"
 
-  #KB[[params.navlinks]]
-  #KBname = "Blogs"
-  #KBurl = "blog/"
+#  [[params.navlinks]]
+#  name = "Blogs"
+#  url = "blog/"
 
   [[params.navlinks]]
   name = "History"
