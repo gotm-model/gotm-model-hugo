@@ -15,7 +15,7 @@ disqusShortname = ""
   sidebarAbout = [
     "General Ocean Turbulence Model",
     "",
-    "GOTM is the result of the effort by a number of people to make 'state-of-the-art' turbulence model for natural waters. Since its inception more than 20 years ago GOTM has grown into a full-fledged 1D water column model with a very extended configuration possibilities including coupling to a collection of bio-geochemical models.",
+    "GOTM is the result of the effort by a number of people to make 'state-of-the-art' turbulence model for natural waters. Since its inception more than 25 years ago GOTM has grown into a full-fledged 1D water column model with a very extended configuration possibilities including coupling to a collection of bio-geochemical models.",
     "Developed by a group of volunteers over 25+ years.",
   ]
   # Contact page
