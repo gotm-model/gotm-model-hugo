@@ -43,6 +43,10 @@ disqusShortname = ""
 #  url = "status/"
 
   [[params.navlinks]]
+  name = "Software"
+  url = "portfolio/software.md"
+
+  [[params.navlinks]]
   name = "Case info"
   url = "cases/info/"
 
