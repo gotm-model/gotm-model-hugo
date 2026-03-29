@@ -54,6 +54,11 @@ disqusShortname = ""
   name = "Publications"
   url = "publications/"
 
+  [[params.navlinks]]
+  name = "Documentation"
+  url = "portfolio/documentation"
+
+
 #  [[params.navlinks]]
 #  name = "Blogs"
 #  url = "blog/"
