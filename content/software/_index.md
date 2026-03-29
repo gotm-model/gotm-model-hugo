@@ -1,6 +1,11 @@
 +++
-date = "2024-05-23T09:05:30+05:30"
+showonlyimage = false
+draft = false
+image = "/portfolio/img/software.png"
+date = "2016-11-05T18:25:22+05:30"
 title = "Software"
+weight = 2
+author = "Karsten Bolding"
 +++
 
 [![Build Status](https://travis-ci.org/gotm-model/code.svg?branch=master)](https://travis-ci.org/gotm-model/code)
