@@ -44,7 +44,7 @@ disqusShortname = ""
 
   [[params.navlinks]]
   name = "Software"
-  url = "software/"
+  url = "portfolio/software/"
 
   [[params.navlinks]]
   name = "Case info"
