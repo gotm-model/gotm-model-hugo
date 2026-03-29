@@ -18,7 +18,7 @@ Idealized test case demonstrating various GOTM features.
 -   [Estuary](/cases/estuary)
 -   [Plume](/cases/plume)
 
-Figure from [here](https://en.wikipedia.org/wiki/Couette_flow)
+Figure from [here](https://en.wikipedia.org/wiki/Couette_flow).
 
 <!--more-->
 
