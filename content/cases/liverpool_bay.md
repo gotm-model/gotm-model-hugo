@@ -33,7 +33,7 @@ Stratification) cycle with mixed conditions after flood (at high water) and
 stratified conditions after ebb (low water). The numerical simulations of this 
 scenario have been described in 
 [Simpson et al. (2002)](http://www.sciencedirect.com/science/article/pii/S0278434302000250). 
-[caption id="attachment_592" align="aligncenter" width="633"]![Temperature, salinity, westward velocity, northward velocity and dissipation rate from observations \(left\) and model results \(right\) for Liverpool Bay during a SIPS situation between July 5 \(16:30h\) and July 6 \(17:00h\) 1999 in Liverpool Bay.](/portfolio/img/liverpool_bay-633x1024.png)
+[caption id="attachment_592" align="aligncenter" width="633"]![Temperature, salinity, westward velocity, northward velocity and dissipation rate from observations \(left\) and model results \(right\) for Liverpool Bay during a SIPS situation between July 5 \(16:30h\) and July 6 \(17:00h\) 1999 in Liverpool Bay.](/cases/img/liverpool_bay-633x1024.png)
 Temperature, salinity, westward velocity, northward velocity and dissipation 
 rate from observations (left) and model results (right) for Liverpool Bay 
 during a SIPS situation between July 5 (16:30h) and July 6 (17:00h) 1999 in 
